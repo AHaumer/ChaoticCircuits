@@ -3,7 +3,10 @@ package ChaoticCircuits
   extends Modelica.Icons.ExamplesPackage;
   import Modelica.Units.SI;
 
-   annotation (preferredView="info", uses(Modelica(version="4.0.0")),
+   annotation (preferredView="info",
+    version="1.0.0",
+    versionDate="2024-10-13",
+    uses(Modelica(version="4.0.0")),
     Documentation(info="<html>
 <p>
 Chaotic circuits have received considerable interest in the literature because they have been applied in numerous areas 
@@ -51,7 +54,7 @@ The main differences between IdealCircuit and ImprovedCircuit are:
  </tbody>
 </table>
 <p>
-The deafult aparemetrs lead to periodic results. Possible parameter changes to obtain chatoc behavior are noted in the documentaion.</p>
+The default paremeters lead to periodic results. Possible parameter changes to obtain chaotic behavior are noted in the documentaion.</p>
 </p>
 <p>
 All circuits can be built in reality with simple electronic components. 
