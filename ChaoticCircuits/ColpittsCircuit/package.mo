@@ -6,8 +6,8 @@ package ColpittsCircuit "The Colpitts Circuit"
 <p>Colpitts' circuit is a simple nonlinear circuit which shows chaotic behaviour, based on a transistor.</p>
 <p>
 Plot v1 vs. v2. 
-Default parameter <code>R1 = 35 &#8486;</code> shows periodic results with chaotic traces within a certain band. 
-Change parameter <code>R1 = 70 &#8486;</code> to obtain chaotic results. 
+Default parameter <code>R1 = 75 &#8486;</code> shows periodic results with chaotic traces within a certain band. 
+Change parameter <code>R1 = 35 &#8486;</code> to obtain chaotic results. 
 </p>
 <p><b>Note</b> that initial condition = 0 is sufficient!</p>
 <p><strong>Reference:</strong></p>
