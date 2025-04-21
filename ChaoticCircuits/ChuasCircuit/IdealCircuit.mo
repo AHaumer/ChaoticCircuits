@@ -7,14 +7,10 @@ model IdealCircuit "Chua's chaotic Circuit"
   parameter SI.Capacitance C1=10.e-9 "Capacitor 1";
   parameter SI.Capacitance C2=100e-9 "Capacitor 2";
   //shortcut to results
-  SI.Voltage vRL=resistorL.v "Result RL*L.i";
-  SI.Voltage v1=capacitor1.v "Result c1.v";
-  SI.Voltage v2=capacitor2.v "Result 2 c2.v";
-  //initialization
-  parameter SI.Voltage v10=0 "Initial voltage of c1";
-  parameter SI.Voltage v20=1e-3 "Initial voltage of c2";
-  parameter SI.Current iL0=0 "Initial current of L";
-  Modelica.Electrical.Analog.Basic.Inductor inductor(i(fixed=true, start=iL0),L=L)
+  SI.Voltage vRL(start=0, fixed=true)=resistorL.v "Result RL*L.i";
+  SI.Voltage v1(start=1e-3, fixed=true)=capacitor1.v "Result c1.v";
+  SI.Voltage v2(start=0, fixed=true)=capacitor2.v "Result 2 c2.v";
+  Modelica.Electrical.Analog.Basic.Inductor inductor(L=L)
     annotation (Placement(
         transformation(
         extent={{10,-10},{-10,10}},
@@ -24,14 +20,14 @@ model IdealCircuit "Chua's chaotic Circuit"
     annotation (Placement(transformation(extent={{10,-10},{-10,10}},
         rotation=90,
         origin={-80,20})));
-  Modelica.Electrical.Analog.Basic.Capacitor capacitor1(v(start=v10, fixed=true), C=C1)
+  Modelica.Electrical.Analog.Basic.Capacitor capacitor1(C=C1)
     annotation (Placement(
         transformation(
         extent={{-10,10},{10,-10}},
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Resistor resistor(R=R)
     annotation (Placement(transformation(extent={{-30,30},{-10,50}})));
-  Modelica.Electrical.Analog.Basic.Capacitor capacitor2(v(fixed=true, start=v20),C=C2)
+  Modelica.Electrical.Analog.Basic.Capacitor capacitor2(C=C2)
     annotation (Placement(
         transformation(
         extent={{-10,10},{10,-10}},

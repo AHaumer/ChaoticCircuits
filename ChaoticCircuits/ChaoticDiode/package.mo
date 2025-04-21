@@ -3,10 +3,10 @@ package ChaoticDiode "A simple chaotic circuit with a light-emitting diode"
   extends Modelica.Icons.ExamplesPackage;
 
    annotation (preferredView="info", Documentation(info="<html>
-<p>This is a simple chaotic example with a light-emitting diode (and 4 operational amplifiers) as described in: </p>
-<p>Viet-Thanh Pham, Christos Volos, Sajad Jafari, Xiong Wang, Tomasz Kapitaniak, 
-&quot;<a href=\"https://www.researchgate.net/publication/309351711_A_simple_chaotic_circuit_with_a_light-emitting_diode\"> A simple chaotic circuit with a light-emitting diode</a>&quot;, 
-Optoelectronics and Advanced Materials &ndash; Rapid Communications Vol. 10, No. 9-10, September-October 2016, p. 640 - 646.</p>
+<p>
+This is a simple chaotic example with a light-emitting diode (and 4 operational amplifiers) as described in 
+<a href=\"modelica://ChaoticCircuits.UsersGuide.References\"> [Pham2016] </a>.
+</p>
 <p>A novel simple autonomous optoelectronic chaotic circuit is presented in this work. 
 Interestingly, the circuit is based on a single optoelectronic element, a light-emitting diode. 
 The mathematical model of the circuit is described by three first-order ordinary differential equations 

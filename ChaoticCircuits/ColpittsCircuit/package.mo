@@ -6,15 +6,15 @@ package ColpittsCircuit "The Colpitts Circuit"
 <p>Colpitts' circuit is a simple nonlinear circuit which shows chaotic behaviour, based on a transistor.</p>
 <p>
 Plot v1 vs. v2. 
-Default parameter <code>R1 = 75 &#8486;</code> shows periodic results with chaotic traces within a certain band. 
-Change parameter <code>R1 = 35 &#8486;</code> to obtain chaotic results. 
+Default parameter <code>R2 = 5000 &#8486;</code> (AnalyticEquations) resp. <code>R2 = 1000 &#8486;</code> (Improved Circuit) shows periodic results. 
+Change parameter <code>R1 = 500 &#8486;</code> to obtain chaotic results. 
 </p>
 <p><b>Note</b> that initial condition = 0 is sufficient!</p>
-<p><strong>Reference:</strong></p>
+<p><strong>References:</strong></p>
 <ul>
-<li>Arturo Buscarino, Luigi Fortuna, Mattia Frasca and Gregorio Sciuto: 
-    <a href=\"https://link.springer.com/book/10.1007/978-3-319-05900-6\">A Concise Guide to Chaotic Electronic Components</a>.
-    Chapter 1.3 The Chaotic Colpitts Circuit. 
-    Springer Briefs in Applied Sciences and Technology 2014, ISBN 978-3-319-05899-3, ISSN 2191-530X, DOI 10.1007/978-3-319-05900-6</li>
+<ul>
+<li><a href=\"modelica://ChaoticCircuits.UsersGuide.References\"> [Buscarino2014] </a></li>
+<li><a href=\"modelica://ChaoticCircuits.UsersGuide.References\"> [Kennedy1994] </a></li>
+</ul>
 </html>"));
 end ColpittsCircuit;

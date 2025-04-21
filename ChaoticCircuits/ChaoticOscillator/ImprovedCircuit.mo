@@ -24,16 +24,13 @@ model ImprovedCircuit "A simple chaotic oscillator for educational purposes"
   parameter SI.Current Ids=1e-9 "Diode: saturation current";
   parameter SI.Voltage nVt=2*26e-3 "Diode: n * voltage equivalent of temperature";
   //shortcut to results
-  SI.Current iL=inductor.i "Result inductor.i";
-  SI.Voltage vc=capacitor.v "Result capacitor.v";
-  SI.Voltage vs=cs.v "Result c*.v";
+  SI.Current iL(start=0, fixed=true)=inductor.i "Result inductor.i";
+  SI.Voltage vc(start=0, fixed=true)=capacitor.v "Result capacitor.v";
+  SI.Voltage vs(start=0, fixed=true)=cs.v "Result c*.v";
   Real x=vc/nVt "Result capacitor.v / nVt";
   Real y=Z*iL/nVt "Result inductor.i *Z/nVt";
   Real z=vs/nVt "Result c*.v / nVt";
   //initialization
-  parameter SI.Voltage vc0=0 "Initial voltage of capacitor";
-  parameter SI.Voltage vs0=0 "Initial voltage of c*";
-  parameter SI.Current iL0=0 "Initial current of inductor";
   SI.Current i_r1(start=0)=r1.i "Current of resistor r1";
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-20,-60},{0,-40}})));
@@ -55,23 +52,23 @@ model ImprovedCircuit "A simple chaotic oscillator for educational purposes"
         origin={10,0})));
   Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp(Vps=+Vb, Vns=-Vb)
     annotation (Placement(transformation(extent={{-10,30},{10,10}})));
-  Modelica.Electrical.Analog.Basic.Capacitor capacitor(v(fixed=true, start=vc0),
-      C=C) annotation (Placement(transformation(
+  Modelica.Electrical.Analog.Basic.Capacitor capacitor(C=C)
+    annotation (Placement(transformation(
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-40,40})));
-  Modelica.Electrical.Analog.Basic.Inductor inductor(i(fixed=true, start=iL0), L=L)
+  Modelica.Electrical.Analog.Basic.Inductor inductor(L=L)
     annotation (Placement(transformation(extent={{-40,50},{-20,70}})));
   Modelica.Electrical.Analog.Basic.Resistor rL(R=RL)
     annotation (Placement(transformation(extent={{-10,50},{10,70}})));
-  Modelica.Electrical.Analog.Basic.Capacitor cs(v(fixed=true, start=vs0), C=Cs)
-                                                annotation (Placement(
+  Modelica.Electrical.Analog.Basic.Capacitor cs(C=Cs)
+    annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={10,40})));
-  Modelica.Electrical.Analog.Semiconductors.Diode  diode(Ids=Ids, Vt=nVt)
-                                                         annotation (Placement(
+  Modelica.Electrical.Analog.Semiconductors.Diode diode(Ids=Ids, Vt=nVt)
+    annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,

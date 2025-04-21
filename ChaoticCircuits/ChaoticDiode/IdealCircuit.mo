@@ -17,10 +17,10 @@ model IdealCircuit  "A simple chaotic circuit with a light-emitting diode"
   Real x[3]={c1.v, c2.v, c3.v}/nVt "Result vector {c1, c2, c3}.v/nVt";
   //initialization
   parameter Real x0[3]={0, 0.1, 0} "Initial value of result vector";
-  SI.Voltage vd(start=0)=diode.vd "Voltage of diode";
+  SI.Voltage vd(start=0) = diode.v "Voltage of diode";
   Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin opAmp1
     annotation (Placement(transformation(extent={{-10,20},{10,40}})));
-  Modelica.Electrical.Analog.Basic.Capacitor c1(v(fixed=true, start=x0[1]*nVt), C=C)
+  Modelica.Electrical.Analog.Basic.Capacitor c1(C=C)
     annotation (Placement(transformation(extent={{10,50},{-10,70}})));
   Modelica.Electrical.Analog.Basic.Resistor r1(R=R)
     annotation (Placement(transformation(extent={{-40,50},{-20,70}})));
@@ -28,17 +28,17 @@ model IdealCircuit  "A simple chaotic circuit with a light-emitting diode"
     annotation (Placement(transformation(extent={{-20,0},{0,20}})));
   Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin opAmp2
     annotation (Placement(transformation(extent={{-60,-60},{-40,-40}})));
-  Modelica.Electrical.Analog.Basic.Capacitor c2(v(fixed=true, start=x0[2]*nVt), C=C)
+  Modelica.Electrical.Analog.Basic.Capacitor c2(C=C)
     annotation (Placement(transformation(extent={{-40,-30},{-60,-10}})));
   Modelica.Electrical.Analog.Basic.Resistor r2(R=R)
     annotation (Placement(transformation(extent={{-90,-30},{-70,-10}})));
   Modelica.Electrical.Analog.Basic.Ground ground2
     annotation (Placement(transformation(extent={{-70,-80},{-50,-60}})));
-  Modelica.Electrical.Analog.Semiconductors.Diode2 diode(Ids=Ids, Vt=nVt, Vf=0.8, Rs=1e-6)
+  Components.ShockleyDiode diode(Ids=Ids, nVt=nVt)
     annotation (Placement(transformation(extent={{-30,-30},{-10,-10}})));
   Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin opAmp3
     annotation (Placement(transformation(extent={{60,10},{80,30}})));
-  Modelica.Electrical.Analog.Basic.Capacitor c3(v(fixed=true, start=x0[3]*nVt), C=C)
+  Modelica.Electrical.Analog.Basic.Capacitor c3(C=C)
     annotation (Placement(transformation(extent={{80,40},{60,60}})));
   Modelica.Electrical.Analog.Basic.Resistor r31(R=R)
     annotation (Placement(transformation(extent={{30,20},{50,40}})));
@@ -54,6 +54,8 @@ model IdealCircuit  "A simple chaotic circuit with a light-emitting diode"
     annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
   Modelica.Electrical.Analog.Basic.Resistor r34(R=R)
     annotation (Placement(transformation(extent={{30,-10},{50,10}})));
+initial equation
+  x=x0;
 equation
   connect(ground1.p, opAmp1.in_p)
     annotation (Line(points={{-10,20},{-10,24}},        color={0,0,255}));
@@ -65,8 +67,8 @@ equation
     annotation (Line(points={{60,10},{60,14}},         color={0,0,255}));
   connect(ground4.p, opAmp4.in_p)
     annotation (Line(points={{0,-40},{0,-36}},            color={0,0,255}));
-  connect(opAmp4.in_n, diode.n) annotation (Line(points={{0,-24},{0,-20},{-10,
-          -20}},     color={0,0,255}));
+  connect(opAmp4.in_n, diode.n)
+    annotation (Line(points={{0,-24},{0,-20},{-10,-20}}, color={0,0,255}));
   connect(r34.n, opAmp3.in_n) annotation (Line(points={{50,0},{50,30},{60,30},{
           60,26}}, color={0,0,255}));
   connect(r34.n, r31.n)
@@ -87,8 +89,8 @@ equation
     annotation (Line(points={{-60,-44},{-60,-20}}, color={0,0,255}));
   connect(c2.n, r2.n)
     annotation (Line(points={{-60,-20},{-70,-20}}, color={0,0,255}));
-  connect(opAmp2.out, diode.p) annotation (Line(points={{-40,-50},{-40,-20},{-30,
-          -20}},           color={0,0,255}));
+  connect(opAmp2.out, diode.p)
+    annotation (Line(points={{-40,-50},{-40,-20},{-30,-20}}, color={0,0,255}));
   connect(opAmp2.out, c2.p)
     annotation (Line(points={{-40,-50},{-40,-20}}, color={0,0,255}));
   connect(opAmp2.out, r1.p)

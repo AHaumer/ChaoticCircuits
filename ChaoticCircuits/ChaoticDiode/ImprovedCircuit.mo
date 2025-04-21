@@ -23,7 +23,7 @@ model ImprovedCircuit "A simple chaotic circuit with a light-emitting diode"
   SI.Voltage v[3](start=zeros(3))=-{opAmp1.v_in, -opAmp2.v_in, -opAmp3.v_in} "Input voltage of opAmp{1, 2, 3}";
   Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp1(V0=k0,Vps=+Vs, Vns=-Vs)
     annotation (Placement(transformation(extent={{-10,20},{10,40}})));
-  Modelica.Electrical.Analog.Basic.Capacitor c1(v(fixed=true, start=x0[1]*nVt), C=C)
+  Modelica.Electrical.Analog.Basic.Capacitor c1(C=C)
     annotation (Placement(transformation(extent={{10,50},{-10,70}})));
   Modelica.Electrical.Analog.Basic.Resistor r1(R=R)
     annotation (Placement(transformation(extent={{-40,50},{-20,70}})));
@@ -31,7 +31,7 @@ model ImprovedCircuit "A simple chaotic circuit with a light-emitting diode"
     annotation (Placement(transformation(extent={{-20,0},{0,20}})));
   Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp2(V0=k0, Vps=+Vs, Vns=-Vs)
     annotation (Placement(transformation(extent={{-60,-60},{-40,-40}})));
-  Modelica.Electrical.Analog.Basic.Capacitor c2(v(fixed=true, start=x0[2]*nVt), C=C)
+  Modelica.Electrical.Analog.Basic.Capacitor c2(C=C)
     annotation (Placement(transformation(extent={{-40,-30},{-60,-10}})));
   Modelica.Electrical.Analog.Basic.Resistor r2(R=R)
     annotation (Placement(transformation(extent={{-90,-30},{-70,-10}})));
@@ -41,7 +41,7 @@ model ImprovedCircuit "A simple chaotic circuit with a light-emitting diode"
     annotation (Placement(transformation(extent={{-30,-30},{-10,-10}})));
   Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp3(V0=k0, Vps=+Vs, Vns=-Vs)
     annotation (Placement(transformation(extent={{60,10},{80,30}})));
-  Modelica.Electrical.Analog.Basic.Capacitor c3(v(fixed=true, start=x0[3]*nVt), C=C)
+  Modelica.Electrical.Analog.Basic.Capacitor c3(C=C)
     annotation (Placement(transformation(extent={{80,40},{60,60}})));
   Modelica.Electrical.Analog.Basic.Resistor r31(R=R)
     annotation (Placement(transformation(extent={{30,20},{50,40}})));
@@ -57,6 +57,8 @@ model ImprovedCircuit "A simple chaotic circuit with a light-emitting diode"
     annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
   Modelica.Electrical.Analog.Basic.Resistor r34(R=R)
     annotation (Placement(transformation(extent={{30,-10},{50,10}})));
+initial equation
+  x=x0;
 equation
   connect(ground1.p, opAmp1.in_p)
     annotation (Line(points={{-10,20},{-10,24}},        color={0,0,255}));

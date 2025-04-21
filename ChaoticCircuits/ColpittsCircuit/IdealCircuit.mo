@@ -1,10 +1,10 @@
 within ChaoticCircuits.ColpittsCircuit;
-model ImprovedCircuit "Colpitts chaotic Circuit"
+model IdealCircuit "Colpitts chaotic Circuit"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
   parameter SI.Resistance RL=35. "Resistor of L";
   parameter SI.Inductance L=98.5e-6 "Inductor";
-  parameter SI.Resistance R2=1000 "Resistor 2";
+  parameter SI.Resistance R2=5000 "Resistor 2";
   parameter SI.Capacitance C1=54.e-9 "Capacitor 1";
   parameter SI.Capacitance C2=54.e-9 "Capacitor 2";
   parameter SI.Voltage Vth=0.75 "Transistor threshold voltage";
@@ -16,7 +16,10 @@ model ImprovedCircuit "Colpitts chaotic Circuit"
   SI.Voltage v1(start=0, fixed=true)=c1.v "Result 1 c1.v";
   SI.Voltage v2(start=0, fixed=true)=c2.v "Result 2 c2.v";
   SI.Current iL(start=0, fixed=true)=inductor.i "Current through L";
-  Modelica.Electrical.Analog.Semiconductors.NPN npn
+  Components.SimpleTransistor                   npn(
+    beta=beta,
+    Vth=Vth,
+    Ron=Ron)
     annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
   Modelica.Electrical.Analog.Basic.Inductor inductor(L=L)
                                                      annotation (Placement(
@@ -98,17 +101,5 @@ equation
     Diagram(graphics={Line(
           points={{-10,-36},{10,-24}},
           color={0,0,0},
-          arrow={Arrow.None,Arrow.Open}),
-        Text(
-          extent={{-18,6},{-12,0}},
-          textColor={28,108,200},
-          textString="B"),
-        Text(
-          extent={{-6,12},{0,6}},
-          textColor={28,108,200},
-          textString="C"),
-        Text(
-          extent={{-6,-6},{0,-12}},
-          textColor={28,108,200},
-          textString="E")}));
-end ImprovedCircuit;
+          arrow={Arrow.None,Arrow.Open})}));
+end IdealCircuit;
