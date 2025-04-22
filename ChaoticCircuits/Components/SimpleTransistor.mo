@@ -48,5 +48,10 @@ equation
     textColor={0,0,255}),
         Ellipse(extent={{-80,80},{80,-80}}, lineColor={28,108,200})}),
                                                                  Diagram(
-        coordinateSystem(preserveAspectRatio=false)));
+        coordinateSystem(preserveAspectRatio=false)),
+    Documentation(info="<html>
+<p>This is a simple small signal model of a npn transistor according to the following equations:</p>
+<code>i<sub>C</sub> = &beta;*i<sub>B</sub></code><br>
+<code>R<sub>on</sub>*i<sub>B</sub> = if v<sub>BE</sub>&le;V<sub>th</sub> then 0 else (v<sub>BE</sub> - V<sub>th</sub>)</code>
+</html>"));
 end SimpleTransistor;

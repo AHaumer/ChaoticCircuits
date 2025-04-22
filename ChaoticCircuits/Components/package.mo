@@ -1,4 +1,4 @@
 within ChaoticCircuits;
-package Components
+package Components "Components used in the examples"
   extends Modelica.Icons.VariantsPackage;
 end Components;

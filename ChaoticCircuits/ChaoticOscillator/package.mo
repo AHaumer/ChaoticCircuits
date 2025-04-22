@@ -10,9 +10,9 @@ This is a simple chaotic oscillator for educational purposes as proposed by:
 <li><a href=\"modelica://ChaoticCircuits.UsersGuide.References\"> [Tamasevicius2007] </a></li>
 </ul>
 <p>
-Plot y vs. x, z vs. x and z vs. y.
-Default parameter <code>a = 0.75</code> (i.e. <code>R2 = 8000 &#8486;</code>) of AnalyticEquations shows periodic results. 
-Default parameter <code>a = 0.95</code> (i.e. <code>R2 = 10000 &#8486;</code>) of IdealCircuit and ImprovedCircuit shows periodic results. 
+Plot y vs. x, z vs. x and z vs. y.<br>
+Default parameter <code>a = 0.75</code> (i.e. <code>R2 = 8000 &#8486;</code>) of AnalyticEquations shows periodic results. <br>
+Default parameter <code>a = 0.95</code> (i.e. <code>R2 = 10000 &#8486;</code>) of IdealCircuit and ImprovedCircuit shows periodic results. <br>
 Change parameter <code>a = 0.35</code> (i.e. <code>R2 = 4000 k&#8486;</code>) to obtain chaotic results.
 </p>
 <p><b>Note</b> that initial condition = 0 is sufficient!</p>

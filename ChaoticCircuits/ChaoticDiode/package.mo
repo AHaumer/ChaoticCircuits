@@ -28,14 +28,14 @@ Choosing the time constant Tau and the capacitance C as well as the dimensionles
 all resistances are caculated using the parameters of the diode nVt and Ids.<p>
 </p>
 <p>
-Plot x[2] vs. x[1], x[3] vs. x[1] and x[3] vs. x[2]. 
-Default parameter <code>b = 1.5</code> (i.e. <code>Rb = 6666.67 &#8486;</code>) shows periodic results. 
+Plot x[2] vs. x[1], x[3] vs. x[1] and x[3] vs. x[2]. <br>
+Default parameter <code>b = 1.5</code> (i.e. <code>Rb = 6666.67 &#8486;</code>) shows periodic results. <br>
 Change parameter <code>b = 1.0</code> (i.e. <code>Rb = 10 k&#8486;</code>) to obtain chaotic results.
 </p>
 <p><b>Note</b> that an initial condition is necessary.</p>
 <p><b>Note</b>: In detail, the results of this model may differ from the results shown in the mentioned paper, 
 especially in the region of chaotic results, because the diode model is similar but more detailed than the pure Shockley equation 
-used in the paper <pre>(<code>i = Ids*(exp(v/nVt) - 1)</code>)</pre> and the opAmp is modeled in more detail with finite gain and limited output.
+used in the paper <pre><code>i = I<sub>ds</sub>*(exp(v/nV<sub>t</sub>) - 1)</code></pre> and the opAmp is modeled in more detail with finite gain and limited output.
 </p>
 </html>"));
 end ChaoticDiode;

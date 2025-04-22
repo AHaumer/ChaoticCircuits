@@ -45,6 +45,5 @@ equation
 </html>"), experiment(
       StopTime=0.1,
       Interval=1e-06,
-      Tolerance=1e-06,
-      __Dymola_Algorithm="Cvode"));
+      Tolerance=1e-06));
 end AnalyticEquations;

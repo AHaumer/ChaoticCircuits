@@ -209,8 +209,7 @@ equation
 </html>"), experiment(
       StopTime=0.1,
       Interval=1e-06,
-      Tolerance=1e-06,
-      __Dymola_Algorithm="Dassl"),
+      Tolerance=1e-06),
     Diagram(graphics={Line(
           points={{4,40},{16,60}},
           color={0,0,0},

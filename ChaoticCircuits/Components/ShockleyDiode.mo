@@ -22,5 +22,8 @@ equation
         Text(
           extent={{-140,-50},{160,-90}},
           textString="nVt=%nVt",
-          textColor={0,0,0})}));
+          textColor={0,0,0})}),
+    Documentation(info="<html>
+<p>This is a simple diode model based on the Shockley equation <code>i = I<sub>ds</sub>*(exp(v/nV<sub>t</sub>) - 1)</code>.</p>
+</html>"));
 end ShockleyDiode;
