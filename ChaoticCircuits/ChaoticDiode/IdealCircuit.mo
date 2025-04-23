@@ -34,7 +34,7 @@ model IdealCircuit  "A simple chaotic circuit with a light-emitting diode"
     annotation (Placement(transformation(extent={{-90,-30},{-70,-10}})));
   Modelica.Electrical.Analog.Basic.Ground ground2
     annotation (Placement(transformation(extent={{-70,-80},{-50,-60}})));
-  Components.ShockleyDiode diode(Ids=Ids, nVt=nVt)
+  Components.SimpleDiode diode(Ids=Ids, nVt=nVt)
     annotation (Placement(transformation(extent={{-30,-30},{-10,-10}})));
   Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin opAmp3
     annotation (Placement(transformation(extent={{60,10},{80,30}})));

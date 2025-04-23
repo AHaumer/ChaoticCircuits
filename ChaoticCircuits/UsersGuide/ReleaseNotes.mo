@@ -3,6 +3,11 @@ class ReleaseNotes "Release Notes"
   extends Modelica.Icons.ReleaseNotes;
   annotation (preferredView="info",Documentation(info="<html>
 
+<h5>Version 1.2.0, 2025-04-23 Anton Haumer</h5>
+<ul>
+  <li>Implemented Shinriki-oscillator</li>
+</ul>
+
 <h5>Version 1.1.2, 2025-04-22 Anton Haumer</h5>
 <ul>
   <li>Improved documentation</li>

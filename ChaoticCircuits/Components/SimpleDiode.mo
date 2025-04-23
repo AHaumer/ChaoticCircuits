@@ -1,5 +1,5 @@
 within ChaoticCircuits.Components;
-model ShockleyDiode "Schockley diode equation"
+model SimpleDiode "Shockley diode equation"
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
   parameter SI.Current Ids=1e-9 "Diode: saturation current";
   parameter SI.Voltage nVt=2*26e-3 "Diode: n * voltage equivalent of temperature";
@@ -18,12 +18,8 @@ equation
           points={{30,0},{-30,40},{-30,-40},{30,0}},
           lineColor={0,0,255},
           fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Text(
-          extent={{-140,-50},{160,-90}},
-          textString="nVt=%nVt",
-          textColor={0,0,0})}),
+          fillPattern=FillPattern.Solid)}),
     Documentation(info="<html>
 <p>This is a simple diode model based on the Shockley equation <code>i = I<sub>ds</sub>*(exp(v/nV<sub>t</sub>) - 1)</code>.</p>
 </html>"));
-end ShockleyDiode;
+end SimpleDiode;

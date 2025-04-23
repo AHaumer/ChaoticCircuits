@@ -62,6 +62,7 @@ In these examples simple autonomous circuits are presented:
 <li>Chua&apos;s circuit</li>
 <li>A chaotic oscillator</li>
 <li>Colpitts oscillator</li>
+<li>Shinriki oscillator</li>
 </ul>
 All circuits are implemented in 3 versions:
 <ul>

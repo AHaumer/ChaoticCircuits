@@ -7,7 +7,7 @@ class References "References"
     <tr>
       <td>[Berkeley]</td>
       <td>Berkeley Electrical Engineering and Computer Science, Nonlinear Electronics Lab:<br> 
-          &quot;    <a href=\"https://nonlinear.eecs.berkeley.edu/chaos/chaos.html#_Working_With_Chaos_Simulation\">Working with Chaos</a>&quot;.</td>
+          &quot;<a href=\"https://nonlinear.eecs.berkeley.edu/chaos/chaos.html#_Working_With_Chaos_Simulation\">Working with Chaos</a>&quot;.</td>
     </tr>
     <tr>
       <td>[Buscarino2014]</td>
@@ -28,6 +28,13 @@ class References "References"
           IEEE Transactions on Circuits and Systems I: Fundamental Theory and Applications, Volume 41, Issue 11, Nov. 1994ISSN 1057-7122, DOI  10.1109/81.331536.</td>
     </tr>
     <tr>
+      <td>[Lueck1995]</td>
+      <td>Stefan L&uuml;ck, <br> 
+          &quot;<a href=\"https://pawn.physik.uni-wuerzburg.de/~slueck/PhyAmSa09/Home_files/Examensarbeit_Lueck.pdf\">
+          Ein Praktikumsversuch zum Thema: Chaos in einfachen physikalischen Systemen</a>&quot; (German), <br>
+          Zulassungsarbeit zum ersten Staatsexamen, University of Bayreuth, Lehrstuhl f&uuml;r Experimentalphysik II, 1995.</td>
+    </tr>
+    <tr>
       <td>[Muthuswamy2009]</td>
       <td>Bharathwaj Muthuswamy, <br> 
           &quot;<a href=\"https://www2.eecs.berkeley.edu/Pubs/TechRpts/2009/EECS-2009-20.pdf\">A Synthetic Inductor Implementation of Chua's Circuit</a>&quot;, <br>
@@ -39,6 +46,13 @@ class References "References"
           &quot;<a href=\"https://www.researchgate.net/publication/309351711_A_simple_chaotic_circuit_with_a_light-emitting_diode\"> 
           A simple chaotic circuit with a light-emitting diode</a>&quot;, <br>
           Optoelectronics and Advanced Materials &ndash; Rapid Communications Vol. 10, No. 9-10, September-October 2016, p. 640 - 646.</td>
+    </tr>
+    <tr>
+      <td>[Shinriki1981]</td>
+      <td>Masanon Shinriki, Masahiro Yamamoto, Shinsaku Mori, <br> 
+          &quot;<a href=\"https://ieeexplore.ieee.org/abstract/document/1456241\"> 
+          Multimode oscillations in a modified Van Der Pol oscillator containing a positive nonlinear conductance</a>&quot;, <br>
+          Proceedings of the IEEE Vol. 69, No. 3, March 1981, p. 394 - 395.</td>
     </tr>
     <tr>
       <td>[Tamasevicius2005]</td>
