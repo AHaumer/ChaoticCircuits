@@ -5,9 +5,11 @@ model ZenerDiodePairApproximation "Approximation"
   parameter Real a=1.0862e-3 "Coefficient a [A/V]";
   parameter Real b=-0.1615e-3 "Coefficient b [A/V^3]";
   parameter Real c=0.3021e-3 "Coefficient c [A/V^5]";
+  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
 equation
   i = if abs(v)<Vbt then 0 else
     sign(v)*(a*(abs(v) - Vbt) + b*(abs(v) - Vbt)^3 + c*(abs(v) - Vbt)^5);
+  LossPower=v*i;
   annotation (defaultComponentName="zDiodePair",
     Icon(graphics={
         Text(
