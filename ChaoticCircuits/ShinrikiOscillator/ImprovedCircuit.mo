@@ -13,7 +13,7 @@ model ImprovedCircuit "Shinriki oscillator"
   SI.Voltage vRL(start=0, fixed=true)=rL.v "Voltage of inductor's resistance";
   //initialization
   SI.Current iNICn(start=0)=rNICn.i "Current of resistor rNICn";
-  Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp
+  Components.IdealizedOpAmp3Pin                          opAmp
     annotation (Placement(transformation(extent={{-70,10},{-50,-10}})));
   Modelica.Electrical.Analog.Basic.Resistor rNICp(R=4700)
     annotation (Placement(transformation(extent={{-70,20},{-50,40}})));

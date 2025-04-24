@@ -90,11 +90,16 @@ The main differences between IdealCircuit and ImprovedCircuit are:
   <td>Operational amplifiers</td>
   <td><a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin\">ideal 3 pin model</a>: 
       input currents are zero, differential input voltage is zero, amplification is infinite, output voltage is not limited</td>
-  <td><a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">more sophisticated opAmp model</a>:
+  <td><a href=\"modelica://ChaoticCircuits.Components.IdealizedOpAmp3Pin\">more sophisticated opAmp model</a>:
       input currents are zero, differential input voltage is zero, amplification is finite, output voltage is limited by suppply voltage</td>
   </tr>
  </tbody>
 </table>
+<p>
+Note that for the more sophisticated OpAmp-model <a href=\"modelica://ChaoticCircuits.Components.IdealizedOpAmp3Pin\">IdealizedOpAmp3Pin</a> from this library is used 
+instead of <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> from MSL 
+to get rid of the implementation with <code>smooth</code> (which allows tools to avoid events!) and <code>noEvent</code> (which suppresses events!).
+</p>
 <p>
 All circuits can be built in reality with simple electronic components. 
 If an inductance is used, its resistance is modeled, too. The ohmic losses of an inductance can't be neglected.

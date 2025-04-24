@@ -3,9 +3,10 @@ class ReleaseNotes "Release Notes"
   extends Modelica.Icons.ReleaseNotes;
   annotation (preferredView="info",Documentation(info="<html>
 
-<h5>Version 1.2.1, 2025-04-24 Anton Haumer</h5>
+<h5>Version 1.3.0, 2025-04-24 Anton Haumer</h5>
 <ul>
   <li>Removed unused Components.SimpleZenerDiode</li>
+  <li>Replaced usage of Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited by Components.IdealizedOpAmp3Pin</li>
 </ul>
 
 <h5>Version 1.2.0, 2025-04-23 Anton Haumer</h5>

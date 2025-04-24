@@ -76,14 +76,14 @@ model InductorlessCircuit "Chua's chaotic Circuit"
         extent={{-10,10},{10,-10}},
         rotation=270,
         origin={80,-40})));
-  Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp1(
+  Components.IdealizedOpAmp3Pin opAmp1(
     V0=k0,
     Vps=Vs,
     Vns=-Vs)
     annotation (Placement(transformation(extent={{10,-10},{-10,10}},
         rotation=180,
         origin={40,10})));
-  Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp2(
+  Components.IdealizedOpAmp3Pin opAmp2(
     V0=k0,
     Vps=Vs,
     Vns=-Vs)
@@ -96,14 +96,14 @@ model InductorlessCircuit "Chua's chaotic Circuit"
         extent={{-10,10},{10,-10}},
         rotation=270,
         origin={30,-40})));
-  Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp3(
+  Components.IdealizedOpAmp3Pin opAmp3(
     V0=k0,
     Vps=Vs,
     Vns=-Vs)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
         rotation=180,
         origin={-70,50})));
-  Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp4(
+  Components.IdealizedOpAmp3Pin opAmp4(
     V0=k0,
     Vps=Vs,
     Vns=-Vs)

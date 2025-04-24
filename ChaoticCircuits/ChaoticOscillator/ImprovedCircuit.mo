@@ -50,7 +50,7 @@ model ImprovedCircuit "A simple chaotic oscillator for educational purposes"
                                                annotation (Placement(
         transformation(extent={{-10,-10},{10,10}},rotation=270,
         origin={10,0})));
-  Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp(Vps=+Vb, Vns=-Vb)
+  Components.IdealizedOpAmp3Pin opAmp(Vps=+Vb, Vns=-Vb)
     annotation (Placement(transformation(extent={{-10,30},{10,10}})));
   Modelica.Electrical.Analog.Basic.Capacitor capacitor(C=C)
     annotation (Placement(transformation(

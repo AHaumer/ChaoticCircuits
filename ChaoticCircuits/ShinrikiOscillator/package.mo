@@ -9,7 +9,7 @@ This is an implementation of the Shinriki oscillator as decribed in
 <a href=\"modelica://ChaoticCircuits.UsersGuide.References\"> [Shinriki1981] </a>.
 </p>
 <p>
-Note that the operational amplifier of the NIC (negative impedance converter) need sto be modeled 
+Note that the operational amplifier of the NIC (negative impedance converter) needs to be modeled 
 with high no-load amplification (but not infinite) and saturation of the output voltage between positive and negative supply.
 </p>
 <p>

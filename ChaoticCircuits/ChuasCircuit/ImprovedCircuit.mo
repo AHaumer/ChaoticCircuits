@@ -71,14 +71,14 @@ model ImprovedCircuit "Chua's chaotic Circuit"
         extent={{-10,10},{10,-10}},
         rotation=270,
         origin={80,-40})));
-  Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp1(
+  Components.IdealizedOpAmp3Pin opAmp1(
     V0=k0,
     Vps=Vs,
     Vns=-Vs)
     annotation (Placement(transformation(extent={{10,-10},{-10,10}},
         rotation=180,
         origin={30,10})));
-  Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp2(
+  Components.IdealizedOpAmp3Pin opAmp2(
     V0=k0,
     Vps=Vs,
     Vns=-Vs)
