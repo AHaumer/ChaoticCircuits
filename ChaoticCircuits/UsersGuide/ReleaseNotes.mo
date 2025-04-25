@@ -3,6 +3,12 @@ class ReleaseNotes "Release Notes"
   extends Modelica.Icons.ReleaseNotes;
   annotation (preferredView="info",Documentation(info="<html>
 
+<h5>Version 1.3.1, 2025-04-25 Anton Haumer</h5>
+<ul>
+  <li>Usage of Components.SimpleDiode in ChaoticOscillator.IdealCircuit instead of Modelica.Electrical.Analog.Semiconductors.Diode</li>
+  <li>Corrected some small bugs and improved documentation</li>
+</ul>
+
 <h5>Version 1.3.0, 2025-04-24 Anton Haumer</h5>
 <ul>
   <li>Removed unused Components.SimpleZenerDiode</li>

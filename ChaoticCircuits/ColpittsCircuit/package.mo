@@ -13,9 +13,9 @@ Colpitts' circuit is a simple nonlinear circuit which shows chaotic behaviour, b
 </ul>
 <p>
 Plot v1 vs. v2. <br>
-Default parameter <code>R2 = 5000 &#8486;</code> (AnalyticEquations) resp. <code>R2 = 1000 &#8486;</code> (Improved Circuit) shows nearly periodic results, 
+Default parameter <code>RE = 5000 &#8486;</code> (AnalyticEquations and IdealCircuit) resp. <code>RE = 2000 &#8486;</code> (Improved Circuit) shows nearly periodic results, 
 i.e. the result varies within a narrow band. It seems that this circuit is extremely sensible. <br>
-Change parameter <code>R1 = 500 &#8486;</code> to obtain chaotic results. 
+Change parameter <code>RE = 500 &#8486;</code> to obtain chaotic results. 
 </p>
 <p><b>Note</b> that initial condition = 0 is sufficient!</p>
 <p><b>Note</b>: The AnalyticEquation and the IdealCircuit use a simple transistor model according to the following equations:<br>

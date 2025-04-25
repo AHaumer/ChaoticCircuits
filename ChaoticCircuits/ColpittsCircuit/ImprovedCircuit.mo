@@ -4,7 +4,7 @@ model ImprovedCircuit "Colpitts chaotic Circuit"
   import Modelica.Constants.pi;
   parameter SI.Inductance L=98.5e-6 "Inductor";
   parameter SI.Resistance RL=35. "Resistor of L";
-  parameter SI.Resistance RE=5000 "Emittor resistor";
+  parameter SI.Resistance RE=2000 "Emittor resistor";
   parameter SI.Capacitance C1=54.e-9 "Capacitor 1";
   parameter SI.Capacitance C2=54.e-9 "Capacitor 2";
   //transistor parameters
