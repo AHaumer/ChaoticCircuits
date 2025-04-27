@@ -27,13 +27,13 @@ model IdealCircuit "Colpitts chaotic Circuit"
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
-        origin={0,30})));
+        origin={30,30})));
   Modelica.Electrical.Analog.Basic.Resistor rL(R=RL)
                                                annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
-        origin={0,60})));
+        origin={30,60})));
   Modelica.Electrical.Analog.Basic.Resistor rE(R=RE) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
@@ -44,17 +44,19 @@ model IdealCircuit "Colpitts chaotic Circuit"
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
-        origin={40,0})));
+        origin={30,0})));
   Modelica.Electrical.Analog.Basic.Capacitor c2(C=C2)
                                                 annotation (Placement(
         transformation(
         extent={{10,-10},{-10,10}},
         rotation=270,
-        origin={40,-30})));
+        origin={30,-30})));
   Modelica.Electrical.Analog.Basic.Ground ground
-    annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
+    annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+        rotation=270,
+        origin={-50,0})));
   Modelica.Electrical.Analog.Basic.Ground ground1
-    annotation (Placement(transformation(extent={{30,-70},{50,-50}})));
+    annotation (Placement(transformation(extent={{20,-70},{40,-50}})));
   Modelica.Electrical.Analog.Sources.ConstantVoltage bat1(V=Vs)
                                                           annotation (Placement(
         transformation(
@@ -69,30 +71,31 @@ model IdealCircuit "Colpitts chaotic Circuit"
         origin={-40,-30})));
 equation
   connect(inductor.n, npn.C)
-    annotation (Line(points={{0,20},{0,6}}, color={0,0,255}));
+    annotation (Line(points={{30,20},{30,10},{0,10},{0,6}},
+                                            color={0,0,255}));
   connect(npn.E,rE. p)
     annotation (Line(points={{0,-6},{0,-20}}, color={0,0,255}));
   connect(rL.n, inductor.p)
-    annotation (Line(points={{0,50},{0,40}}, color={0,0,255}));
+    annotation (Line(points={{30,50},{30,40}},
+                                             color={0,0,255}));
   connect(npn.C, c1.p)
-    annotation (Line(points={{0,6},{0,10},{40,10}},         color={0,0,255}));
-  connect(npn.E, c1.n) annotation (Line(points={{0,-6},{0,-10},{40,-10}},
+    annotation (Line(points={{0,6},{0,10},{30,10}},         color={0,0,255}));
+  connect(npn.E, c1.n) annotation (Line(points={{0,-6},{0,-10},{30,-10}},
         color={0,0,255}));
   connect(npn.B, ground.p)
-    annotation (Line(points={{-20,0},{-30,0}}, color={0,0,255}));
+    annotation (Line(points={{-20,0},{-40,0}}, color={0,0,255}));
   connect(ground.p, bat2.p)
-    annotation (Line(points={{-30,0},{-40,0},{-40,-20}}, color={0,0,255}));
+    annotation (Line(points={{-40,0},{-40,-20}},         color={0,0,255}));
   connect(ground.p, bat1.n)
-    annotation (Line(points={{-30,0},{-40,0},{-40,20}}, color={0,0,255}));
+    annotation (Line(points={{-40,0},{-40,20}},         color={0,0,255}));
   connect(bat1.p,rL. p)
-    annotation (Line(points={{-40,40},{-40,80},{0,80},{0,70}},
-                                                        color={0,0,255}));
+    annotation (Line(points={{-40,40},{-40,70},{30,70}},color={0,0,255}));
   connect(bat2.n,rE. n) annotation (Line(points={{-40,-40},{-40,-50},{0,-50},{0,
           -40}},         color={0,0,255}));
   connect(c2.n, c1.n)
-    annotation (Line(points={{40,-20},{40,-10}}, color={0,0,255}));
+    annotation (Line(points={{30,-20},{30,-10}}, color={0,0,255}));
   connect(ground1.p, c2.p)
-    annotation (Line(points={{40,-50},{40,-40}}, color={0,0,255}));
+    annotation (Line(points={{30,-50},{30,-40}}, color={0,0,255}));
   annotation (Documentation(info="<html>
 <p>See documentation of the enclosing subpackage.</p>
 </html>"), experiment(
@@ -102,5 +105,15 @@ equation
     Diagram(graphics={Line(
           points={{-10,-36},{10,-24}},
           color={0,0,0},
-          arrow={Arrow.None,Arrow.Open})}));
+          arrow={Arrow.None,Arrow.Open}),
+        Rectangle(
+          extent={{10,76},{50,-68}},
+          lineColor={170,213,255},
+          fillPattern=FillPattern.Solid,
+          fillColor={170,213,255}), Text(
+          extent={{-40,5},{40,-5}},
+          textColor={28,108,200},
+          origin={45,0},
+          rotation=90,
+          textString="Colpitt's Tank")}));
 end IdealCircuit;

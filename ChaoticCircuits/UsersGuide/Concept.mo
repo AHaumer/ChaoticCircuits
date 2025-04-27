@@ -13,7 +13,10 @@ Note that an oscillator is not a perpetuum mobile but needs energy supply either
 The operational amplifiers might have a supply voltage not explicitely modeled.
 </p>
 <p>
-The default paremeters lead to periodic results. Possible parameter changes to obtain chaotic behavior are noted in the documentation of the respective subpackage. 
+The default parameters lead to periodic results. Possible parameter changes to obtain chaotic behavior are noted in the documentation of the respective subpackage. <br>
+<strong>Be curios</strong>, try different parameter settings to explore the path from periodic behaviour to chaos - in many cases you see bifurcation, i.e. different attractors.
+</p>
+<p>
 Note that at the beginning a transient process takes place, dependent on the initial conditions. It might be necessary to continue the simulation, 
 as shown for the analytic equations of the ChaoticOscillator proposed by <a href=\"modelica://ChaoticCircuits.UsersGuide.References\"> [Tamasevicius2005] </a>:
 </p>

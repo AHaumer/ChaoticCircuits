@@ -1,11 +1,11 @@
 within ChaoticCircuits.Components;
-model SimpleTransistor "Simple npn-model"
+model SimpleTransistor "Simple small-signal npn-model"
   parameter Real beta=200 "Transistor forward current gain";
   parameter SI.Voltage Vth=0.75 "Transistor base-emitter threshold voltage";
   parameter SI.Resistance Ron=100 "Small-signal on-resistance of base-emitter junction";
   SI.Current iB=B.i "Base current into the transistor";
   SI.Current iC=C.i "Collector current into the transistor";
-  SI.Current iE=E.i "Emitter current into the transistor";
+  SI.Current iE=-E.i "Emitter current out of the transistor";
   SI.Voltage vBE=B.v - E.v "Base-emitter voltage";
   SI.Voltage vCE=C.v - E.v "Collector-emitter voltage";
   Modelica.Electrical.Analog.Interfaces.Pin C "Collector"
@@ -15,15 +15,17 @@ model SimpleTransistor "Simple npn-model"
   Modelica.Electrical.Analog.Interfaces.Pin E "Emitter"
     annotation (Placement(transformation(extent={{90,-50},{110,-70}}), iconTransformation(extent={{90,-50},{110,-70}})));
 equation
-  iB + iC + iE = 0;
+  iE = iC + iB;
   iC = beta*iB;
+  //iC should be 0 if vCE<=0
   iB = if vBE<=Vth then 0 else (vBE - Vth)/Ron;
   annotation (defaultComponentName="npn",
     Icon(coordinateSystem(preserveAspectRatio=false), graphics={
-        Line(points={{-10,0},{-90,0}},  color={0,0,255}),
-        Line(points={{-10,40},{-10,-40}}, color={0,0,255}),
-        Line(points={{40,60},{-10,10}}, color={0,0,255}),
-        Line(points={{-10,-10},{40,-60}}, color={0,0,255}),
+        Ellipse(extent={{-80,80},{80,-80}}, lineColor={28,108,200}),
+        Line(points={{0,0},{-90,0}},    color={0,0,255}),
+        Line(points={{0,40},{0,-40}},     color={0,0,255}),
+        Line(points={{40,60},{0,20}},   color={0,0,255}),
+        Line(points={{0,-20},{40,-60}},   color={0,0,255}),
         Polygon(
           points={{40,-60},{34,-46},{26,-54},{40,-60}},
           fillColor={0,0,255},
@@ -32,22 +34,20 @@ equation
         Line(points={{40,-60},{101,-60}},color={0,0,255}),
         Line(points={{40,60},{101,60}},  color={0,0,255}),
         Text(
-          extent={{-80,20},{-60,0}},
+          extent={{-70,30},{-50,10}},
           textColor={28,108,200},
           textString="B"),
         Text(
-          extent={{60,80},{80,60}},
+          extent={{40,50},{60,30}},
           textColor={28,108,200},
           textString="C"),
         Text(
-          extent={{60,-60},{80,-80}},
+          extent={{40,-30},{60,-50}},
           textColor={28,108,200},
           textString="E"),
         Text(     extent={{-150,140},{150,100}},
           textString="%name",
-    textColor={0,0,255}),
-        Ellipse(extent={{-80,80},{80,-80}}, lineColor={28,108,200})}),
-                                                                 Diagram(
+    textColor={0,0,255})}),                                      Diagram(
         coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
 <p>This is a simple small signal model of a npn transistor according to the following equations:</p>
