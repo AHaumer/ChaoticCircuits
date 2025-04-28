@@ -2,7 +2,7 @@ within ChaoticCircuits.Components;
 model SimpleTransistor "Simple small-signal npn-model"
   parameter Real beta=200 "Transistor forward current gain";
   parameter SI.Voltage Vth=0.75 "Transistor base-emitter threshold voltage";
-  parameter SI.Resistance Ron=100 "Small-signal on-resistance of base-emitter junction";
+  parameter SI.Resistance rBE=100 "Small-signal on-resistance of base-emitter junction";
   SI.Current iB=B.i "Base current into the transistor";
   SI.Current iC=C.i "Collector current into the transistor";
   SI.Current iE=-E.i "Emitter current out of the transistor";
@@ -16,9 +16,10 @@ model SimpleTransistor "Simple small-signal npn-model"
     annotation (Placement(transformation(extent={{90,-50},{110,-70}}), iconTransformation(extent={{90,-50},{110,-70}})));
 equation
   iE = iC + iB;
-  iC = beta*iB;
-  //iC should be 0 if vCE<=0
-  iB = if vBE<=Vth then 0 else (vBE - Vth)/Ron;
+  //simplified (linearized) BE-diode characteristic
+  iB = if vBE<=Vth then 0 else (vBE - Vth)/rBE;
+  //current amplification and saturation (avoid division by vBE=0), but no further dependency on vCE
+  iC = beta*iB*max(0, min(1, vCE/max(vBE, Vth)));
   annotation (defaultComponentName="npn",
     Icon(coordinateSystem(preserveAspectRatio=false), graphics={
         Ellipse(extent={{-80,80},{80,-80}}, lineColor={28,108,200}),
@@ -51,7 +52,10 @@ equation
         coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
 <p>This is a simple small signal model of a npn transistor according to the following equations:</p>
-<code>i<sub>C</sub> = &beta;*i<sub>B</sub></code><br>
+<p>Simplified (linearized) Shockley-equation</p>
 <code>R<sub>on</sub>*i<sub>B</sub> = if v<sub>BE</sub>&le;V<sub>th</sub> then 0 else (v<sub>BE</sub> - V<sub>th</sub>)</code>
+<p>Ebers-Moll-equation</p>
+<code>i<sub>C</sub> = &beta;*i<sub>B</sub></code><br>
+<p>For v<sub>CE</sub>&lt;v<sub>BE</sub> saturation of i<sub>C</sub> is taken into account (linearly to 0).</p>
 </html>"));
 end SimpleTransistor;

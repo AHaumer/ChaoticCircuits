@@ -20,7 +20,7 @@ model IdealCircuit "Colpitts chaotic Circuit"
   Components.SimpleTransistor                   npn(
     beta=beta,
     Vth=Vth,
-    Ron=Ron)
+    rBE=Ron)
     annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
   Modelica.Electrical.Analog.Basic.Inductor inductor(L=L)
                                                      annotation (Placement(

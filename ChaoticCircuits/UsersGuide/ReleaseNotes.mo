@@ -3,6 +3,12 @@ class ReleaseNotes "Release Notes"
   extends Modelica.Icons.ReleaseNotes;
   annotation (preferredView="info",Documentation(info="<html>
 
+<h5>Version 1.3.2, 2025-04-28 Anton Haumer</h5>
+<ul>
+  <li>Enhanced SimpleTransistor model (saturation of iC at low vCE)</li>
+  <li>Test example for SimpleTransistor</li>
+</ul>
+
 <h5>Version 1.3.1, 2025-04-25 Anton Haumer</h5>
 <ul>
   <li>Usage of Components.SimpleDiode in ChaoticOscillator.IdealCircuit instead of Modelica.Electrical.Analog.Semiconductors.Diode</li>
