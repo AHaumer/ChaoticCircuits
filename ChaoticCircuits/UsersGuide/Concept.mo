@@ -59,15 +59,16 @@ Note that of course the results are strongly dependent on the implementation det
     <td>Fig. 4 a=0.35: y vs. x after one continuation</td>
 </table>
 <p>
-In these examples simple autonomous circuits are presented:
+In these examples simple autonomous systems are presented:
 <ul>
-<li>A chaotic diode circuit</li>
+<li>Famous Mathematical Models: Lotka-Volterra, Lorenz, Roessler</li>
 <li>Chua&apos;s circuit</li>
-<li>A chaotic oscillator</li>
+<li>Chaotic diode circuit [Pham2016]</li>
+<li>Chaotic oscillator [Tamasevicius2005]</li>
 <li>Colpitts oscillator</li>
 <li>Shinriki oscillator</li>
 </ul>
-All circuits are implemented in 3 versions:
+All circuits (except the MathematicalModels) are implemented in 3 versions:
 <ul>
 <li>AnalyticEquations: Derived from the electric circuits</li>
 <li>IdealCircuit: Implemented with simple electronic components</li>
@@ -86,8 +87,8 @@ The main differences between IdealCircuit and ImprovedCircuit are:
   <tbody>
   <tr>
   <td>Diode model</td>
-  <td>Parameterized that way that the <a href=\"modelica://Modelica.Electrical.Analog.Semiconductors.Diode2\">Shockley equation</a> is used.</td>
-  <td>A more sophisticated            <a href=\"modelica://Modelica.Electrical.Analog.Semiconductors.Diode\">diode model</a> with linear continuation of the characteristic and optional temperature dependency.</td>
+  <td>A simple diode according to <a href=\"modelica://ChaoticCircuits.Components.SimpleDiode\">Shockley equation</a> is used.</td>
+  <td>A more sophisticated        <a href=\"modelica://Modelica.Electrical.Analog.Semiconductors.Diode\">diode model</a> with linear continuation of the characteristic and optional temperature dependency.</td>
   </tr>
   <tr>
   <td>Operational amplifiers</td>
