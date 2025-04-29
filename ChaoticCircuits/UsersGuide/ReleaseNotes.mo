@@ -5,6 +5,7 @@ class ReleaseNotes "Release Notes"
 
 <h5>Version 1.4.0, 2025-04-29 Anton Haumer</h5>
 <ul>
+  <li>Enhanced SimpleTransistor model (slope of iC at high vCE: Early-effect)</li>
   <li>Added a collection of famous mathematical models.</li>
 </ul>
 

@@ -1,6 +1,7 @@
 within ChaoticCircuits.Components;
 model SimpleTransistor "Simple small-signal npn-model"
   parameter Real beta=200 "Transistor forward current gain";
+  parameter SI.Voltage VY=100 "Early voltage collector-emitter";
   parameter SI.Voltage Vth=0.75 "Transistor base-emitter threshold voltage";
   parameter SI.Resistance rBE=100 "Small-signal on-resistance of base-emitter junction";
   SI.Current iB=B.i "Base current into the transistor";
@@ -19,7 +20,7 @@ equation
   //simplified (linearized) BE-diode characteristic
   iB = if vBE<=Vth then 0 else (vBE - Vth)/rBE;
   //current amplification and saturation (avoid division by vBE=0), but no further dependency on vCE
-  iC = beta*iB*max(0, min(1, vCE/max(vBE, Vth)));
+  iC = beta*iB*max(0, min(1, vCE/max(vBE, Vth))) + (if vCE > vBE then (vCE - vBE)*beta*iB/(VY + Vth) else 0);
   annotation (defaultComponentName="npn",
     Icon(coordinateSystem(preserveAspectRatio=false), graphics={
         Ellipse(extent={{-80,80},{80,-80}}, lineColor={28,108,200}),
@@ -57,5 +58,6 @@ equation
 <p>Ebers-Moll-equation</p>
 <code>i<sub>C</sub> = &beta;*i<sub>B</sub></code><br>
 <p>For v<sub>CE</sub>&lt;v<sub>BE</sub> saturation of i<sub>C</sub> is taken into account (linearly to 0).</p>
+<p>For v<sub>CE</sub>&gt;v<sub>BE</sub> the slope of i<sub>C</sub> is taken into account (Early voltage VY).</p>
 </html>"));
 end SimpleTransistor;
