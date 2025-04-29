@@ -14,9 +14,9 @@ model ImprovedCircuit "Chua's chaotic Circuit"
   parameter SI.Resistance R45=22e3 "R4 and R5";
   parameter SI.Resistance R6=3300 "R6";
   //shortcut to results
-  SI.Voltage vRL(start=0, fixed=true)=resistorL.v "Result RL*L.i";
   SI.Voltage v1(start=1e-3, fixed=true)=capacitor1.v "Result c1.v";
   SI.Voltage v2(start=0, fixed=true)=capacitor2.v "Result 2 c2.v";
+  SI.Voltage vRL(start=0, fixed=true)=resistorL.v "Result RL*L.i";
   //initialization
   SI.Current id1(start=0)=r2.i "Initial current of r2 at opAmp1";
   SI.Current id2(start=0)=r5.i "Initial current of r5 at opAmp2";

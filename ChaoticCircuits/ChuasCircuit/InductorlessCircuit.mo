@@ -20,9 +20,9 @@ model InductorlessCircuit "Chua's chaotic Circuit"
   parameter SI.Resistance R10=L*R8/(C9*R7*R9) "R10";
   parameter SI.Capacitance C9=100e-9 "C9";
   //shortcut to results
-  SI.Voltage vRL=resistorL.v "Result RL*L.i";
   SI.Voltage v1(start=0, fixed=true)=capacitor1.v "Result c1.v";
   SI.Voltage v2(start=1e-3, fixed=true)=capacitor2.v "Result c2.v";
+  SI.Voltage vRL=resistorL.v "Result RL*L.i";
   SI.Voltage vL=resistorL.n.v "Voltage of Inductor replacement";
   SI.Current iL(start=0)=resistorL.i "Current of Inductor replacement";
   //initialization

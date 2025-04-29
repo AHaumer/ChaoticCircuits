@@ -15,9 +15,9 @@ model AnalyticEquations "Chua's chaotic Circuit"
   parameter SI.Time Tau1 = R*C1;
   parameter SI.Time Tau2 = R*C2;
   //shortcut to results and initialization
-  SI.Voltage vRL(start=0, fixed=true) "Result RL*L.i";
   SI.Voltage v1(start=0, fixed=true) "Result c1.v";
   SI.Voltage v2(start=1e-3, fixed=true) "Result c2.v";
+  SI.Voltage vRL(start=0, fixed=true) "Result RL*L.i";
   SI.Conductance g;
 equation
   TauL*der(vRL) =  v2 - vRL;
