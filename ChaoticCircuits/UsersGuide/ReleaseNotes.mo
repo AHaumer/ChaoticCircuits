@@ -3,6 +3,11 @@ class ReleaseNotes "Release Notes"
   extends Modelica.Icons.ReleaseNotes;
   annotation (preferredView="info",Documentation(info="<html>
 
+<h5>Version 1.4.0, 2025-04-29 Anton Haumer</h5>
+<ul>
+  <li>Added a collection of famous mathematical models.</li>
+</ul>
+
 <h5>Version 1.3.2, 2025-04-28 Anton Haumer</h5>
 <ul>
   <li>Enhanced SimpleTransistor model (saturation of iC at low vCE)</li>
