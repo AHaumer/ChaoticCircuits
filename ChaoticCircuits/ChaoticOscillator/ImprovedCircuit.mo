@@ -24,12 +24,12 @@ model ImprovedCircuit "A simple chaotic oscillator for educational purposes"
   parameter SI.Current Ids=1e-9 "Diode: saturation current";
   parameter SI.Voltage nVt=2*26e-3 "Diode: n * voltage equivalent of temperature";
   //shortcut to results
-  SI.Current iL(start=0, fixed=true)=inductor.i "Result inductor.i";
-  SI.Voltage vc(start=0, fixed=true)=capacitor.v "Result capacitor.v";
-  SI.Voltage vs(start=0, fixed=true)=cs.v "Result c*.v";
-  Real x=vc/nVt "Result capacitor.v / nVt";
-  Real y=Z*iL/nVt "Result inductor.i *Z/nVt";
-  Real z=vs/nVt "Result c*.v / nVt";
+  SI.Current iL=inductor.i "Result inductor.i";
+  SI.Voltage vc=capacitor.v "Result capacitor.v";
+  SI.Voltage vs=cs.v "Result c*.v";
+  Real x(start=0, fixed=true)=vc/nVt "Result capacitor.v / nVt";
+  Real y(start=0, fixed=true)=Z*iL/nVt "Result inductor.i *Z/nVt";
+  Real z(start=0, fixed=true)=vs/nVt "Result c*.v / nVt";
   //initialization
   SI.Current i_r1(start=0)=r1.i "Current of resistor r1";
   Modelica.Electrical.Analog.Basic.Ground ground
