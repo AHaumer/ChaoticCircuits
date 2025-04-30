@@ -1,5 +1,6 @@
 SimpleDiode
 ZenerDiodePairApproximation
 SimpleTransistor
-IdealizedOpAmp3Pin
 Staircase
+IdealizedOpAmp3Pin
+Multiplier
