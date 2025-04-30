@@ -33,11 +33,7 @@ The idealized OpAmp with three pins has an implicit symmetrical supply and shows
 </ul>
 </html>",
         revisions="<html>
-<ul>
-<li><em> 2002   </em>
-       by Christoph Clauss<br> initially implemented<br>
-       </li>
-</ul>
+
 </html>"),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={
