@@ -6,7 +6,7 @@ package ChaoticCircuits
    annotation (preferredView="info",
     version="1.x.x",
     versionDate="2025-xx-xx",
-    uses(Modelica(version="4.0.0")),
+    uses(Modelica(version="4.0.0"), AnalogComputing(version="1.x.x")),
     Documentation(info="<html>
 <p>
 This is a library about chaotic oscillators. 

@@ -1,19 +1,19 @@
 within ChaoticCircuits.MathematicalModels;
-model Roessler "Roessler equations"
+model Roessler "Roessler system"
   extends Modelica.Icons.Example;
-  parameter Real sigma=10 "Prandtl";
-  parameter Real rho=28 "Rayleigh";
-  parameter Real beta=8/3 "height of fluid: try 8/30 for periodic solution";
+  parameter Real a=0.2 "Coefficient a";
+  parameter Real b=0.2 "Coefficient b";
+  parameter Real c=5.7 "Coefficient b";
   Real x(start=0.001, fixed=true);
   Real y(start=0.001, fixed=true);
   Real z(start=0.001, fixed=true);
 equation
-  der(x) = sigma*(y - x);
-  der(y) = x*(rho - z) - y;
-  der(z) = x*y - beta*z;
+  der(x) = -y - z;
+  der(y) = x + a*y;
+  der(z) = b + (x - c)*z;
   annotation (experiment(
-      StopTime=100,
-      Interval=0.01,
+      StopTime=1000,
+      Interval=0.1,
       Tolerance=1e-06),
     Documentation(info="<html>
 <p>
