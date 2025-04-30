@@ -2,7 +2,7 @@ within ChaoticCircuits.Test;
 model TestMulitplier
   extends Modelica.Icons.Example;
   Components.Multiplier multiplier
-    annotation (Placement(transformation(extent={{-6,-10},{14,10}})));
+    annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
   Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage1(
     V=5,
     phase=0,
@@ -29,12 +29,14 @@ model TestMulitplier
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
 equation
-  connect(sineVoltage1.p, multiplier.in1) annotation (Line(points={{-60,10},{-18,
-          10},{-18,6},{-6,6}}, color={0,0,255}));
-  connect(sineVoltage2.p, multiplier.in2) annotation (Line(points={{-40,-10},{-20,
-          -10},{-20,-6},{-6,-6}}, color={0,0,255}));
+  connect(sineVoltage1.p, multiplier.in1) annotation (Line(points={{-60,10},{
+          -18,10},{-18,6},{-10,6}},
+                               color={0,0,255}));
+  connect(sineVoltage2.p, multiplier.in2) annotation (Line(points={{-40,-10},{
+          -20,-10},{-20,-6},{-10,-6}},
+                                  color={0,0,255}));
   connect(multiplier.out, voltageSensor.p)
-    annotation (Line(points={{14,0},{40,0},{40,-12}}, color={0,0,255}));
+    annotation (Line(points={{10,0},{40,0},{40,-12}}, color={0,0,255}));
   connect(ground.p, voltageSensor.n)
     annotation (Line(points={{0,-40},{40,-40},{40,-32}}, color={0,0,255}));
   connect(ground.p, sineVoltage2.n)
