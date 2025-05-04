@@ -68,6 +68,12 @@ class References "References"
           Numerical Treatment of Educational Chaos Oscillator</a>&quot;, <br>
           International Journal of Bifurcation and Chaos Vol 17, No. 10 (2007), p. 3657-3661.</td>
     </tr>
+    <tr>
+      <td>[Vano2006]</td>
+      <td>J.A.Vano, J.C.Wildenberg, M.B.Anderson, J.K.Noel, J.C.Sprott, <br> 
+          &quot;<a href=\"https://sprott.physics.wisc.edu/pubs/paper288.pdf\">Chaos in low-dimensional Lotka–Volterra models of competition</a>&quot;, <br>
+          Nonlinearity 19 (2006) 10, p. 2391-2404</td>
+    </tr>
 </table>
 </html>"));
 end References;

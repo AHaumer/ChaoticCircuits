@@ -5,6 +5,7 @@ class ReleaseNotes "Release Notes"
 
 <h5>Version 1.x.x, 20xx-xx-xx Anton Haumer</h5>
 <ul>
+  <li>Added LotkaVolterra with <code>n</code> species</li>
   <li>Added LorenzSystem.IdealCircuit</li>
 </ul>
 
