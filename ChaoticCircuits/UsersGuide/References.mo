@@ -48,6 +48,20 @@ class References "References"
           Optoelectronics and Advanced Materials &ndash; Rapid Communications Vol. 10, No. 9-10, September-October 2016, p. 640 - 646.</td>
     </tr>
     <tr>
+      <td>[Roessler1976]</td>
+      <td>Otto E. Roessler, <br> 
+          &quot;<a href=\"https://www.sciencedirect.com/science/article/abs/pii/0375960176901018\"> 
+          An equation for continuous chaos</a>&quot;, <br>
+          Physics Letters A Vol. 57, No. 5, July 1976, p. 397-398.</td>
+    </tr>
+    <tr>
+      <td>[Roessler1979]</td>
+      <td>Otto E. Roessler, <br> 
+          &quot;<a href=\"https://www.sciencedirect.com/science/article/abs/pii/0375960179901506\"> 
+          An equation for hyperchaos</a>&quot;, <br>
+          Physics Letters A Vol. 71, No. 2-3, April 1979, p. 155-157.</td>
+    </tr>
+    <tr>
       <td>[Shinriki1981]</td>
       <td>Masanon Shinriki, Masahiro Yamamoto, Shinsaku Mori, <br> 
           &quot;<a href=\"https://ieeexplore.ieee.org/abstract/document/1456241\"> 

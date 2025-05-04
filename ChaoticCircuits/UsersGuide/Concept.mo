@@ -61,15 +61,16 @@ Note that of course the results are strongly dependent on the implementation det
 <p>
 In these examples simple autonomous systems are presented:
 <ul>
-<li>Famous Mathematical Models: Lotka-Volterra, Roessler</li>
+<li>Lotka-Volterra</li>
 <li>Lorenz system</li>
+<li>Roessler system</li>
 <li>Chua&apos;s circuit</li>
 <li>Chaotic diode circuit [Pham2016]</li>
 <li>Chaotic oscillator [Tamasevicius2005]</li>
 <li>Colpitts oscillator</li>
 <li>Shinriki oscillator</li>
 </ul>
-Most circuits (except the MathematicalModels) are implemented in different flavours:
+Most circuits (except Lotka-Volterra) are implemented in different flavours:
 <ul>
 <li>AnalyticEquations: Mathematical description</li>
 <li>ScaledBlocks: (if present) derived from analytic equations, using signal-oriented blocks, scaled to keep results within limits</li>

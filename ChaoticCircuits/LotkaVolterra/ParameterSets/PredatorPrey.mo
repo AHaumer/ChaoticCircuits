@@ -1,7 +1,7 @@
-within ChaoticCircuits.ParameterSets;
-record LotkaVolterra2D "2-dim. Lotka-Volterra"
+within ChaoticCircuits.LotkaVolterra.ParameterSets;
+record PredatorPrey "2-dim. Lotka-Volterra"
   extends Modelica.Icons.Record;
-  parameter String id="2-dim. Lotka-Volterra";
+  parameter String id="Predator-Prey";
   parameter Integer n(final min=2)=2 "Number of species";
   parameter Real r[n]={0.04, -0.09} "Reproduction rate";
   parameter Real a[n, n]={{0, 0.0125},
@@ -12,4 +12,4 @@ record LotkaVolterra2D "2-dim. Lotka-Volterra"
           extent={{-100,-20},{100,-40}},
           textColor={0,0,255},
           textString="%id")}));
-end LotkaVolterra2D;
+end PredatorPrey;

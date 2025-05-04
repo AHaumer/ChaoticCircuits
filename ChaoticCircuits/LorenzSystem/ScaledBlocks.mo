@@ -1,4 +1,4 @@
-within ChaoticCircuits.LorenzSystsem;
+within ChaoticCircuits.LorenzSystem;
 model ScaledBlocks "Lorenz equations for atmospheric convection"
   extends Modelica.Icons.Example;
   parameter Real sigma=10 "Prandtl";

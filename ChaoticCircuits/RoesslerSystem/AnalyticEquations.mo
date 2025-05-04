@@ -1,5 +1,5 @@
-within ChaoticCircuits.MathematicalModels;
-model Roessler "Roessler system"
+within ChaoticCircuits.RoesslerSystem;
+model AnalyticEquations "Roessler system"
   extends Modelica.Icons.Example;
   parameter Real a=0.2 "Coefficient a";
   parameter Real b=0.2 "Coefficient b";
@@ -14,15 +14,9 @@ equation
   der(z) = b + (x - c)*z;
   annotation (experiment(
       StopTime=1000,
-      Interval=0.1,
+      Interval=0.01,
       Tolerance=1e-06),
     Documentation(info="<html>
-<p>
-<a href=\"https://en.wikipedia.org/wiki/R%C3%B6ssler_attractor\">Wikipedia: Roessler attractor</a>
-</p>
-<p>
-Note: For <code>c = 1</code> periodic solutions are obtained. 
-      For <code>c = 5.7</code> chaotic solutions are obtained. 
-</p>
+<p>See documentation of the enclosing subpackage.</p>
 </html>"));
-end Roessler;
+end AnalyticEquations;

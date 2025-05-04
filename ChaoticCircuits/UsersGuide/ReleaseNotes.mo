@@ -5,7 +5,8 @@ class ReleaseNotes "Release Notes"
 
 <h5>Version 1.x.x, 20xx-xx-xx Anton Haumer</h5>
 <ul>
-  <li>Added LotkaVolterra with <code>n</code> species</li>
+  <li>Moved PredatorPrey and newly implemented LotkaVolterra with <code>n</code> species to an own subpackage</li>
+  <li>Moved Roessler to an own subpackage with different implementations</li>
   <li>Added LorenzSystem.IdealCircuit</li>
 </ul>
 

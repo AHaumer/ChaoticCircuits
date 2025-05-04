@@ -1,5 +1,5 @@
-within ChaoticCircuits.MathematicalModels;
-model LotkaVolterra2D "2-dimensional Predator-Prey model"
+within ChaoticCircuits.LotkaVolterra;
+model PredatorPrey "2-dimensional Predator-Prey model"
   extends Modelica.Icons.Example;
   parameter Real hares_growth=0.04 "Natural growth rate of hares";
   parameter Real hares_deathr=0.0005 "Death rate of hares due to foxes";
@@ -16,11 +16,6 @@ equation
       StopTime=1000,
       Interval=1,
       Tolerance=1e-06), Documentation(info="<html>
-<p>
-<a href=\"https://en.wikipedia.org/wiki/Lotka%E2%80%93Volterra_equations\">Wikipedia: Lotka-Volterra equations</a>
-</p>
-<p>
-Note: For predator-prey models up to 3 species no chaotic solutions are possible.
-</p>
+<p>See documentation of the enclosing subpackage.</p>
 </html>"));
-end LotkaVolterra2D;
+end PredatorPrey;

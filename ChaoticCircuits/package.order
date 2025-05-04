@@ -1,11 +1,11 @@
 UsersGuide
-MathematicalModels
-LorenzSystsem
+LotkaVolterra
+LorenzSystem
+RoesslerSystem
 ChuasCircuit
 ChaoticDiode
 ChaoticOscillator
 ColpittsCircuit
 ShinrikiOscillator
-ParameterSets
 Test
 Components

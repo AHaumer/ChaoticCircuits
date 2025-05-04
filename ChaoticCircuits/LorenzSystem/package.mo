@@ -1,5 +1,5 @@
 within ChaoticCircuits;
-package LorenzSystsem "System developed by E.Lorenz"
+package LorenzSystem "System developed by E.Lorenz"
   extends Modelica.Icons.ExamplesPackage;
   annotation (preferredView="info", Documentation(info="<html>
 <p>
@@ -13,4 +13,4 @@ Note: We could scale the time by factor k<sub>t</sub> in ScaledBlocks and Improv
 but we woudl to take that time scale into account when comparing with the AnalyticEquations.
 </p>
 </html>"));
-end LorenzSystsem;
+end LorenzSystem;
