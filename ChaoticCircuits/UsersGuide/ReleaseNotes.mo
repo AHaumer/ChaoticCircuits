@@ -3,7 +3,7 @@ class ReleaseNotes "Release Notes"
   extends Modelica.Icons.ReleaseNotes;
   annotation (preferredView="info",Documentation(info="<html>
 
-<h5>Version 1.x.x, 2025-xx-xx Anton Haumer</h5>
+<h5>Version 1.5.0, 2025-05-04 Anton Haumer</h5>
 <ul>
   <li>Added a model of an ideal analog 4-quadrant multiplier.</li>
 </ul>
