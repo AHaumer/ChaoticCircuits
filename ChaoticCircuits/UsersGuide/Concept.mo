@@ -95,7 +95,7 @@ The main differences between IdealCircuit and ImprovedCircuit are:
   <tr>
   <td>Operational amplifiers</td>
   <td><a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin\">ideal 3 pin model</a>: 
-      input currents are zero, differential input voltage is zero, amplification is infinite, output voltage is not limited</td>
+      input currents are zero, differential input voltage is zero, amplification is infinite, output voltage is <strong>not</strong> limited</td>
   <td><a href=\"modelica://ChaoticCircuits.Components.IdealizedOpAmp3Pin\">more sophisticated opAmp model</a>:
       input currents are zero, differential input voltage is zero, amplification is finite, output voltage is limited by suppply voltage</td>
   </tr>

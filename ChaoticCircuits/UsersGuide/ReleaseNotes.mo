@@ -5,7 +5,7 @@ class ReleaseNotes "Release Notes"
 
 <h5>Version 1.x.x, 20xx-xx-xx Anton Haumer</h5>
 <ul>
-  <li> </li>
+  <li>Added LorenzSystem.IdealCircuit</li>
 </ul>
 
 <h5>Version 1.5.0, 2025-05-04 Anton Haumer</h5>

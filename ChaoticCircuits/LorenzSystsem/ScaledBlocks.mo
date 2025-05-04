@@ -67,8 +67,8 @@ equation
           70},{70,90},{-80,90},{-80,-82.3333},{-30,-82.3333}}, color={0,0,127}));
   connect(integrator_y.y, product_xy.u[2]) annotation (Line(points={{61,20},{70,
           20},{70,40},{-70,40},{-70,-80},{-30,-80}}, color={0,0,127}));
-  connect(eR.y, product_xy.u[3]) annotation (Line(points={{-11,-20},{-40,-20},
-          {-40,-77.6667},{-30,-77.6667}},color={0,0,127}));
+  connect(eR.y, product_xy.u[3]) annotation (Line(points={{-11,-20},{-40,-20},{
+          -40,-77.6667},{-30,-77.6667}}, color={0,0,127}));
   annotation (experiment(
       StopTime=100,
       Interval=0.01,
