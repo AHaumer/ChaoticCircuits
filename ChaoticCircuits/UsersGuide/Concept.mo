@@ -34,7 +34,7 @@ as shown for the analytic equations of the ChaoticOscillator proposed by <a href
     <td>Fig. 2 a=0.75: y vs. x after one continuation</td>
 </table>
 <p>
-The results meant for plotting are labeled. Normally plot one result vriable versus the other, in this example y vs. x and / or z vs. x. 
+The results meant for plotting are labeled. Normally plot one result variable versus the other, in this example y vs. x and / or z vs. x. 
 Of course the initial transient depends on the initial conditions. 
 </p>
 <p>
@@ -61,16 +61,18 @@ Note that of course the results are strongly dependent on the implementation det
 <p>
 In these examples simple autonomous systems are presented:
 <ul>
-<li>Famous Mathematical Models: Lotka-Volterra, Lorenz, Roessler</li>
+<li>Famous Mathematical Models: Lotka-Volterra, Roessler</li>
+<li>Lorenz system</li>
 <li>Chua&apos;s circuit</li>
 <li>Chaotic diode circuit [Pham2016]</li>
 <li>Chaotic oscillator [Tamasevicius2005]</li>
 <li>Colpitts oscillator</li>
 <li>Shinriki oscillator</li>
 </ul>
-All circuits (except the MathematicalModels) are implemented in 3 versions:
+Most circuits (except the MathematicalModels) are implemented in different flavours:
 <ul>
-<li>AnalyticEquations: Derived from the electric circuits</li>
+<li>AnalyticEquations: Mathematical description</li>
+<li>ScaledBlocks: (if present) derived from analytic equations, using signal-oriented blocks, scaled to keep results within limits</li>
 <li>IdealCircuit: Implemented with simple electronic components</li>
 <li>ImprovedCircuit: Using more sophisticated electronic components</li>
 </ul>

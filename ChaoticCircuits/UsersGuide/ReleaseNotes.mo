@@ -6,12 +6,13 @@ class ReleaseNotes "Release Notes"
 <h5>Version 1.5.0, 2025-05-04 Anton Haumer</h5>
 <ul>
   <li>Added a model of an ideal analog 4-quadrant multiplier.</li>
+  <li>Moved LorenzSystem from MathematicalModelis to an own subpackage with different implementations of the same system.</li>
 </ul>
 
 <h5>Version 1.4.0, 2025-04-29 Anton Haumer</h5>
 <ul>
   <li>Enhanced SimpleTransistor model (slope of iC at high vCE: Early-effect)</li>
-  <li>Added a collection of famous mathematical models.</li>
+  <li>Added a collection of famous MathematicalModels.</li>
 </ul>
 
 <h5>Version 1.3.2, 2025-04-28 Anton Haumer</h5>
