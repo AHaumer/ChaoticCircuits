@@ -69,6 +69,12 @@ class References "References"
           Proceedings of the IEEE Vol. 69, No. 3, March 1981, p. 394 - 395.</td>
     </tr>
     <tr>
+      <td>[Sprott2011]</td>
+      <td>J.C. Sprott, <br> 
+          &quot;<a href=\"https://ieeexplore.ieee.org/document/5752240\">A New Chaotic Jerk Circuit</a>&quot;, <br>
+           IEEE Transactions on Circuits and Systems II: Express Briefs Vol. 58, No. 4, April 2011, p. 240 - 253.</td>
+    </tr>
+    <tr>
       <td>[Tamasevicius2005]</td>
       <td>A. Tama&scaron;evi&ccaron;ius, G. Mykolaitis, V. Pyragas and K. Pyragas, <br> 
           &quot;<a href=\"https://www.researchgate.net/publication/230925506_A_simple_chaotic_oscillator_for_educational_purposes\">

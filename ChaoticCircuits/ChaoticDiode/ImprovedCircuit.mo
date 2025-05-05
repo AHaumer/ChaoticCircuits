@@ -19,7 +19,7 @@ model ImprovedCircuit "A simple chaotic circuit with a light-emitting diode"
   Real x[3]={c1.v, c2.v, c3.v}/nVt "Result vector {c1, c2, c3}.v/nVt";
   //initialization
   parameter Real x0[3]={0, 0.1, 0} "Initial value of result vector";
-  SI.Voltage vd(start=0)=diode.v "Voltage of diode";
+  SI.Voltage vd(start=0)=diode.vd "Voltage of diode";
   SI.Voltage v[3](start=zeros(3))=-{opAmp1.v_in.v, -opAmp2.v_in.v, -opAmp3.v_in.v}
     "Input voltage of opAmp{1, 2, 3}";
   Components.IdealizedOpAmp3Pin opAmp1(V0=k0,Vps=+Vs, Vns=-Vs)
@@ -38,7 +38,8 @@ model ImprovedCircuit "A simple chaotic circuit with a light-emitting diode"
     annotation (Placement(transformation(extent={{-90,-30},{-70,-10}})));
   Modelica.Electrical.Analog.Basic.Ground ground2
     annotation (Placement(transformation(extent={{-70,-80},{-50,-60}})));
-  Modelica.Electrical.Analog.Semiconductors.Diode diode(Ids=Ids, Vt=nVt)
+  Modelica.Electrical.Analog.Semiconductors.Diode2 diode(
+                                                        Ids=Ids, Vt=nVt)
     annotation (Placement(transformation(extent={{-30,-30},{-10,-10}})));
   Components.IdealizedOpAmp3Pin opAmp3(V0=k0, Vps=+Vs, Vns=-Vs)
     annotation (Placement(transformation(extent={{60,10},{80,30}})));

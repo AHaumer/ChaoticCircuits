@@ -1,7 +1,7 @@
 within ChaoticCircuits.Test;
 model SimpleDiodeCharacteristic "Characteristic of the simple diode model"
   extends Modelica.Icons.Example;
-  SI.Voltage vD(start=0)=diode.v "Diode voltage";
+  SI.Voltage vD(start=0) = diode.v "Diode voltage";
   SI.Current iD=diode.i "Diode current";
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));

@@ -69,6 +69,7 @@ In these examples simple autonomous systems are presented:
 <li>Chaotic oscillator [Tamasevicius2005]</li>
 <li>Colpitts oscillator</li>
 <li>Shinriki oscillator</li>
+<li>Jerk circuit</li>
 </ul>
 Most circuits (except Lotka-Volterra) are implemented in different flavours:
 <ul>
@@ -91,7 +92,7 @@ The main differences between IdealCircuit and ImprovedCircuit are:
   <tr>
   <td>Diode model</td>
   <td>A simple diode according to <a href=\"modelica://ChaoticCircuits.Components.SimpleDiode\">Shockley equation</a> is used.</td>
-  <td>A more sophisticated        <a href=\"modelica://Modelica.Electrical.Analog.Semiconductors.Diode\">diode model</a> with linear continuation of the characteristic and optional temperature dependency.</td>
+  <td>A more sophisticated        <a href=\"modelica://Modelica.Electrical.Analog.Semiconductors.Diode2\">diode model</a> with linear continuation of the characteristic and optional temperature dependency.</td>
   </tr>
   <tr>
   <td>Operational amplifiers</td>

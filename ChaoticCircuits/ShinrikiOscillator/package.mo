@@ -4,7 +4,7 @@ package ShinrikiOscillator "Shinriki oscillator"
 
    annotation (preferredView="info", Documentation(info="<html>
 <p>
-This is an implementation of the Shinriki oscillator as decribed in
+This is an implementation of the Shinriki oscillator as described in
 <a href=\"modelica://ChaoticCircuits.UsersGuide.References\"> [Lueck1995] </a> and 
 <a href=\"modelica://ChaoticCircuits.UsersGuide.References\"> [Shinriki1981] </a>.
 </p>

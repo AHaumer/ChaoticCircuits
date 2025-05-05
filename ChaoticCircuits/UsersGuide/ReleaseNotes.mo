@@ -5,7 +5,7 @@ class ReleaseNotes "Release Notes"
 
 <h5>Version x.x.x, 2025-xx-xx Anton Haumer</h5>
 <ul>
-  <li> </li>
+  <li>Implemented Jerk Circuit</li>
 </ul>
 
 <h5>Version 1.6.0, 2025-05-05 Anton Haumer</h5>
