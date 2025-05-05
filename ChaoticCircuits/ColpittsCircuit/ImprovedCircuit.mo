@@ -13,7 +13,7 @@ model ImprovedCircuit "Colpitts chaotic Circuit"
   parameter Real beta=200 "Transistor forward current gain";
   parameter SI.Voltage Vth=0.75 "Transistor threshold voltage";
   parameter SI.Resistance Ron=100 "Small-signal on-resistance of base-emitter junction";
-  parameter SI.Voltage Vs=5 "Source Voltage";
+  parameter SI.Voltage Vs=5 "Supply Voltage";
   //shortcut to results
   parameter SI.Frequency f0=1/(2*pi*sqrt(L*C1*C2/(C1+C2))) "Estimated resonance frequency";
   SI.Voltage v1(start=0, fixed=true)=c1.v "Result 1 c1.v";
@@ -68,7 +68,7 @@ model ImprovedCircuit "Colpitts chaotic Circuit"
         origin={-40,-30})));
 equation
   connect(inductor.n, npn.C)
-    annotation (Line(points={{30,20},{30,14},{14,14},{14,6},{0,6}},
+    annotation (Line(points={{30,20},{30,10},{14,10},{14,6},{0,6}},
                                             color={0,0,255}));
   connect(npn.E,rE. p)
     annotation (Line(points={{0,-6},{0,-20}}, color={0,0,255}));
@@ -76,9 +76,8 @@ equation
     annotation (Line(points={{30,50},{30,40}},
                                              color={0,0,255}));
   connect(npn.C, c1.p)
-    annotation (Line(points={{0,6},{14,6},{14,14},{30,14},{30,10}},
-                                                            color={0,0,255}));
-  connect(npn.E, c1.n) annotation (Line(points={{0,-6},{0,-14},{30,-14},{30,-10}},
+    annotation (Line(points={{0,6},{14,6},{14,10},{30,10}}, color={0,0,255}));
+  connect(npn.E, c1.n) annotation (Line(points={{0,-6},{14,-6},{14,-10},{30,-10}},
         color={0,0,255}));
   connect(npn.B, ground.p)
     annotation (Line(points={{-20,0},{-40,0}}, color={0,0,255}));

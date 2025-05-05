@@ -9,7 +9,7 @@ model IdealCircuit "Lorenz equations for atmospheric convection"
   parameter Real ky=50 "Scaling factor y";
   parameter Real kz=100 "Scaling factor z";
   parameter SI.Time Tau=1 "Scaling time";
-  parameter Real Vs=10 "Limiting supply voltage";
+  parameter SI.Voltage Vs=10 "Limiting supply voltage";
   //basic parameters of components
   parameter SI.Resistance R=10e3 "Output resistance of amplifiers";
   parameter SI.Capacitance C=1e-6 "Capacitor of integrators";

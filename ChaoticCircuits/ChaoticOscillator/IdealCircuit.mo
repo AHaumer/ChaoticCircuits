@@ -15,7 +15,7 @@ model IdealCircuit "A simple chaotic oscillator for educational purposes"
   parameter SI.Resistance R1=10.e3 "Resistor r1";
   parameter SI.Resistance R2=R1*(k - 1) "Resistor r2 (tunable)";
   parameter SI.Resistance R0=20.e3 "Resistor r0";
-  parameter SI.Voltage Vs=20 "Supply voltage";
+  parameter SI.Voltage Vs=12 "Supply voltage";
   parameter SI.Inductance L=100e-3 "Inductor";
   parameter SI.Resistance RL=50 "Resistance of Inductor";
   parameter SI.Capacitance C =100e-9 "Capacitor c";

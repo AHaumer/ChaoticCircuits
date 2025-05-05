@@ -2,7 +2,7 @@ within ChaoticCircuits;
 package LotkaVolterra "LotkaVolterra - models"
   extends Modelica.Icons.ExamplesPackage;
 
-  annotation (Documentation(info="<html>
+  annotation (preferredView="info", Documentation(info="<html>
 <p>
 <a href=\"https://en.wikipedia.org/wiki/Lotka%E2%80%93Volterra_equations\">Wikipedia: Lotka-Volterra equations</a><br>
 <a href=\"https://en.wikipedia.org/wiki/Competitive_Lotka%E2%80%93Volterra_equations\">Wikipedia: Competitive Lotka-Volterra equations</a>

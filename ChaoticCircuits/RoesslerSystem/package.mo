@@ -1,7 +1,7 @@
 within ChaoticCircuits;
 package RoesslerSystem "System developed by Otto Roessler"
   extends Modelica.Icons.ExamplesPackage;
-  annotation (Documentation(info="<html>
+  annotation (preferredView="info", Documentation(info="<html>
 <p>
 <a href=\"https://en.wikipedia.org/wiki/R%C3%B6ssler_attractor\">Wikipedia: Roessler attractor</a>
 </p>

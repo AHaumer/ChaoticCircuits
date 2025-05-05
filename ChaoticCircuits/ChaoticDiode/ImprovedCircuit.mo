@@ -5,7 +5,7 @@ model ImprovedCircuit "A simple chaotic circuit with a light-emitting diode"
   parameter SI.Current Ids=1e-9 "Diode: saturation current";
   parameter SI.Voltage nVt=2*26e-3 "Diode: n * voltage equivalent of temperature";
   parameter Real k0=15000.0 "opAmp: no-load amplification";
-  parameter SI.Voltage Vs=5 "opAmp: supply voltage (limits the output)";
+  parameter SI.Voltage Vs=12 "Supply voltage";
   //time constant and dimensionless parameters
   parameter SI.Time Tau=0.1e-3 "Time constant";
   parameter Real a=1/5200 "Parameter a = Ra*Ids/nVt";

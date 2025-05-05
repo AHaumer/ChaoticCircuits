@@ -8,7 +8,7 @@ model AnalyticEquations
   parameter SI.Time Tau=sqrt(L*C) "Time constant";
   parameter SI.Impedance Z=sqrt(L/C) "Characteristic impedance (rho)";
   parameter Real k=Z/R*a + 1 + RL/R "Amplification";
-  parameter Real a=0.75;
+  parameter Real a=0.85;
   parameter Real b=Z*I0/nVt;
   parameter Real c=Z*Ids/nVt;
   parameter Real e=Cs/C "epsilon";
@@ -17,7 +17,7 @@ model AnalyticEquations
   parameter SI.Resistance R1=10.e3 "Resistor r1";
   parameter SI.Resistance R2=R1*(k - 1) "Resistor r2 (tunable)";
   parameter SI.Resistance R0=20.e3 "Resistor r0";
-  parameter SI.Voltage Vs=20 "Supply voltage";
+  parameter SI.Voltage Vs=12 "Supply voltage";
   parameter SI.Inductance L=100e-3 "Inductor";
   parameter SI.Resistance RL=50 "Resistance of Inductor";
   parameter SI.Capacitance C =100e-9 "Capacitor c";

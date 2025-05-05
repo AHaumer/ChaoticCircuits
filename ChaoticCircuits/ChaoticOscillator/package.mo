@@ -11,7 +11,7 @@ This is a simple chaotic oscillator for educational purposes as proposed by:
 </ul>
 <p>
 Plot y vs. x, z vs. x and z vs. y.<br>
-Default parameter <code>a = 0.75</code> (i.e. <code>R2 = 8000 &#8486;</code>) of AnalyticEquations shows periodic results. <br>
+Default parameter <code>a = 0.85</code> (i.e. <code>R2 = 9000 &#8486;</code>) of AnalyticEquations shows periodic results. <br>
 Default parameter <code>a = 0.95</code> (i.e. <code>R2 = 10000 &#8486;</code>) of IdealCircuit and ImprovedCircuit shows periodic results. <br>
 Change parameter <code>a = 0.35</code> (i.e. <code>R2 = 4000 k&#8486;</code>) to obtain chaotic results.
 </p>

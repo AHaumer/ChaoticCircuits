@@ -8,7 +8,7 @@ model InductorlessCircuit "Chua's chaotic Circuit"
   parameter SI.Capacitance C2=100e-9 "Capacitor 2";
   //parameter of Chua's diode
   parameter Real k0=15000.0 "No-load amplification of opAmps";
-  parameter SI.Voltage Vs=9 "Supply voltage of opAmps";
+  parameter SI.Voltage Vs=12 "Supply voltage";
   parameter SI.Resistance R12=220 "R1 and R2";
   parameter SI.Resistance R3=2200 "R3";
   parameter SI.Resistance R45=22e3 "R4 and R5";
