@@ -105,7 +105,7 @@ The main differences between IdealCircuit and ImprovedCircuit are:
 <p>
 Note that for the more sophisticated OpAmp-model <a href=\"modelica://ChaoticCircuits.Components.IdealizedOpAmp3Pin\">IdealizedOpAmp3Pin</a> from this library is used 
 instead of <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> from MSL 
-to get rid of the implementation with <code>smooth</code> (which allows tools to avoid events!) and <code>noEvent</code> (which suppresses events!).
+to get rid of the implementation with <code>smooth</code> (which allows tools to avoid events when saturating!) and <code>noEvent</code> (which suppresses events!).
 </p>
 <p>
 All circuits can be built in reality with simple electronic components. 
@@ -113,6 +113,9 @@ If an inductance is used, its resistance is modeled, too. The ohmic losses of an
 </p>
 <p>
 The equations are summarized in this <a href=\"modelica://ChaoticCircuits/Resources/Documentation/ChaoticCircuits.pdf\">document</a>.
+</p>
+<p>
+Note: In the subdirectory Resources.Reference reference results for all examples are stored.
 </p>
 </html>"));
 end Concept;

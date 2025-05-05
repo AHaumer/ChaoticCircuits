@@ -25,11 +25,6 @@ model InductorlessCircuit "Chua's chaotic Circuit"
   SI.Voltage vRL=resistorL.v "Result RL*L.i";
   SI.Voltage vL=resistorL.n.v "Voltage of Inductor replacement";
   SI.Current iL(start=0)=resistorL.i "Current of Inductor replacement";
-  //initialization
-  SI.Voltage vc9(start=0, fixed=true)=c9.v "Initial voltage of c9";
-  SI.Current id1(start=0)=r2.i "Initial current of r2 at opAmp1";
-  SI.Current id2(start=0)=r5.i "Initial current of r5 at opAmp2";
-  SI.Current id3(start=0)=r8.i "Initial current of r8 at opAmp3";
   Modelica.Electrical.Analog.Basic.Resistor resistorL(R=RL)
     annotation (Placement(transformation(extent={{10,-10},{-10,10}},
         rotation=270,
@@ -139,6 +134,12 @@ model InductorlessCircuit "Chua's chaotic Circuit"
         extent={{-10,10},{10,-10}},
         rotation=270,
         origin={-50,-70})));
+protected
+  //further initialization
+  SI.Voltage vc9(start=0, fixed=true)=c9.v "Initial voltage of c9";
+  SI.Current id1(start=0)=r2.i "Initial current of r2 at opAmp1";
+  SI.Current id2(start=0)=r5.i "Initial current of r5 at opAmp2";
+  SI.Current id3(start=0)=r8.i "Initial current of r8 at opAmp3";
 equation
   connect(resistor.p, capacitor2.p)
     annotation (Line(points={{0,50},{0,8}},               color={0,0,255}));

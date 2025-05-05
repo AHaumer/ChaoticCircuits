@@ -3,7 +3,7 @@ model ImprovedCircuit "Lorenz equations for atmospheric convection"
   extends Modelica.Icons.Example;
   parameter Real sigma=10 "Prandtl";
   parameter Real rho=28 "Rayleigh";
-  parameter Real beta=1/3 "height of fluid: try 8/30 for periodic solution";
+  parameter Real beta=1/3 "height of fluid: try 8/3 for chaotic solution";
   //scaling
   parameter Real kx=50 "Scaling factor x";
   parameter Real ky=50 "Scaling factor y";
@@ -85,6 +85,14 @@ model ImprovedCircuit "Lorenz equations for atmospheric convection"
     annotation (Placement(transformation(extent={{-50,-30},{-30,-10}})));
   Components.Multiplier multiplier_xy(ER=Vs)
     annotation (Placement(transformation(extent={{-50,-90},{-30,-70}})));
+protected
+  //further initialization
+  SI.Voltage int_x_v_in(start=0)=integrator_x.v_in.v;
+  SI.Voltage int_y_v_in(start=0)=integrator_y.v_in.v;
+  SI.Voltage int_z_v_in(start=0)=integrator_z.v_in.v;
+  SI.Current inv_z_iOut(start=0)=inverter_z.out.i;
+  SI.Current rx2_i(start=0)=rx2.i;
+  SI.Current ry2_i(start=0)=ry2.i;
 equation
   connect(integrator_x.in_p, ground1.p)
     annotation (Line(points={{10,54},{10,50}}, color={0,0,255}));
@@ -176,5 +184,10 @@ equation
       Tolerance=1e-06),
     Documentation(info="<html>
 <p>See documentation of the enclosing subpackage.</p>
-</html>"));
+</html>"),
+    Diagram(graphics={Text(
+          extent={{20,-10},{100,-50}},
+          textColor={0,0,255},
+          textString="beta = 1/3 periodic
+beta = 8/3 chaotic")}));
 end ImprovedCircuit;

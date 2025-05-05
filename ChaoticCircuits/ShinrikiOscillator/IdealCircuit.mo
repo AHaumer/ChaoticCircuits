@@ -12,8 +12,6 @@ model IdealCircuit "Shinriki oscillator"
   SI.Voltage v1(start=0, fixed=true)=c1.v "Result 1 c1.v";
   SI.Voltage v2(start=1, fixed=true)=c2.v "Result 2 c2.v";
   SI.Voltage vRL(start=0, fixed=true)=rL.v "Voltage of inductor's resistance";
-  //initialization
-  SI.Current iNICn(start=0)=rNICn.i "Current of resistor rNICn";
   Components.IdealizedOpAmp3Pin                          opAmp(Vps=+Vs, Vns=-Vs)
     annotation (Placement(transformation(extent={{-70,10},{-50,-10}})));
   Modelica.Electrical.Analog.Basic.Resistor rNICp(R=4700)
@@ -54,6 +52,9 @@ model IdealCircuit "Shinriki oscillator"
         origin={80,-20})));
   Components.ZenerDiodePairApproximation zDiodePair
     annotation (Placement(transformation(extent={{20,30},{40,50}})));
+protected
+  //initialization
+  SI.Current iNICn(start=0)=rNICn.i "Current of resistor rNICn";
 equation
   connect(rNICp.n, opAmp.out) annotation (Line(points={{-50,30},{-40,30},{-40,0},
           {-50,0}}, color={0,0,255}));

@@ -6,8 +6,6 @@ model TestNIC "Test negative impedance converter"
   parameter SI.Conductance gNeg=-0.147018e-3 "Negative differential conductance";
   SI.Voltage vNIC=rampVoltage.v;
   SI.Current iNIC=if vNIC<-VLim then -VLim*gNeg + gPos*(vNIC + VLim) elseif vNIC>+VLim then +VLim*gNeg + gPos*(vNIC - VLim) else gNeg*vNIC;
-  //initialization
-  SI.Current iNICn(start=0)=rNICn.i "Current of resistor rNICn";
   Modelica.Electrical.Analog.Basic.Resistor rNICp(R=4700)
     annotation (Placement(transformation(extent={{10,20},{30,40}})));
   Components.IdealizedOpAmp3Pin                          opAmp
@@ -33,6 +31,9 @@ model TestNIC "Test negative impedance converter"
         extent={{10,-10},{-10,10}},
         rotation=180,
         origin={-20,30})));
+protected
+  //initialization
+  SI.Current iNICn(start=0)=rNICn.i "Current of resistor rNICn";
 equation
   connect(rNICp.n, opAmp.out) annotation (Line(points={{30,30},{40,30},{40,0},{30,
           0}},      color={0,0,255}));

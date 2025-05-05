@@ -1,0 +1,3 @@
+time
+currentSensor.i
+opAmp.out.v

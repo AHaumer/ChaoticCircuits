@@ -90,6 +90,14 @@ model ImprovedCircuit "Roessler system"
         origin={-80,-60})));
   Modelica.Electrical.Analog.Basic.Ground ground7
     annotation (Placement(transformation(extent={{-86,-90},{-74,-78}})));
+protected
+  //further initialization
+  SI.Voltage int_x_v_in(start=0)=integrator_x.v_in.v;
+  SI.Voltage int_y_v_in(start=0)=integrator_y.v_in.v;
+  SI.Voltage int_z_v_in(start=0)=integrator_z.v_in.v;
+  SI.Current inv_z_iOut(start=0)=inverter_z.out.i;
+  SI.Current rx2_i(start=0)=rx2.i;
+  SI.Current ry2_i(start=0)=ry2.i;
 equation
   connect(integrator_x.in_p,ground1. p)
     annotation (Line(points={{10,54},{10,50}}, color={0,0,255}));

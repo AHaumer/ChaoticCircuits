@@ -17,9 +17,6 @@ model ImprovedCircuit "Chua's chaotic Circuit"
   SI.Voltage v1(start=1e-3, fixed=true)=capacitor1.v "Result c1.v";
   SI.Voltage v2(start=0, fixed=true)=capacitor2.v "Result 2 c2.v";
   SI.Voltage vRL(start=0, fixed=true)=resistorL.v "Result RL*L.i";
-  //initialization
-  SI.Current id1(start=0)=r2.i "Initial current of r2 at opAmp1";
-  SI.Current id2(start=0)=r5.i "Initial current of r5 at opAmp2";
   Modelica.Electrical.Analog.Basic.Inductor inductor(L=L)
     annotation (Placement(
         transformation(
@@ -91,6 +88,10 @@ model ImprovedCircuit "Chua's chaotic Circuit"
         extent={{-10,10},{10,-10}},
         rotation=270,
         origin={20,-40})));
+protected
+  //further initialization
+  SI.Current id1(start=0)=r2.i "Initial current of r2 at opAmp1";
+  SI.Current id2(start=0)=r5.i "Initial current of r5 at opAmp2";
 equation
   connect(resistor.p, capacitor2.p)
     annotation (Line(points={{-30,40},{-40,40},{-40,10}}, color={0,0,255}));

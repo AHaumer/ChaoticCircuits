@@ -3,12 +3,12 @@ class ReleaseNotes "Release Notes"
   extends Modelica.Icons.ReleaseNotes;
   annotation (preferredView="info",Documentation(info="<html>
 
-<h5>Version 1.x.x, 20xx-xx-xx Anton Haumer</h5>
+<h5>Version 1.6.0, 2025-05-05 Anton Haumer</h5>
 <ul>
-  <li>More Test examples</li>
-  <li>Limiter without noEvent and smoot but with assert warning, used in IdealizedOpAmp3Pin and Multiplier</li>
-  <li>Moved PredatorPrey and newly implemented LotkaVolterra with <code>n</code> species to an own subpackage LotkaVolterra</li>
-  <li>Moved Roessler to an own subpackage with different implementations</li>
+  <li>Test examples for all copmonents</li>
+  <li>Limiter without noEvent and smoot but with warning when saturating, used in IdealizedOpAmp3Pin and Multiplier</li>
+  <li>Moved Roessler to an own subpackage with different implementations - subpackage MathematicalModels is no longer present</li>
+  <li>Moved PredatorPrey and newly implemented n-dimensional LotkaVolterra to an own subpackage LotkaVolterra</li>
 </ul>
 
 <h5>Version 1.5.0, 2025-05-04 Anton Haumer</h5>

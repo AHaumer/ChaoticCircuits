@@ -28,7 +28,7 @@ model IdealizedOpAmp3Pin "Idealized operational amplifier within implicit supply
     annotation (Placement(transformation(extent={{70,-40},{90,-20}})));
   Modelica.Blocks.Math.Gain gain(k=V0)
     annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
-  Limiter                           limiter(uMax=Vps, uMin=Vns)
+  Limiter limiter(uMax=Vps, uMin=Vns)
     annotation (Placement(transformation(extent={{20,-10},{40,10}})));
 equation
   connect(in_n, v_in.n)
