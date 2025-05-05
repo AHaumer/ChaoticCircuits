@@ -30,7 +30,7 @@ model ScaledBlocks "Roessler system"
     annotation (Placement(transformation(extent={{60,-30},{80,-10}})));
   Modelica.Blocks.Sources.Constant const(k=b)
     annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
-  Modelica.Blocks.Math.MultiProduct product_xy(nu=3)
+  Modelica.Blocks.Math.MultiProduct product_xz(nu=3)
     annotation (Placement(transformation(extent={{-10,-50},{10,-30}})));
   Modelica.Blocks.Sources.Constant eR(k=1/Vs)
     annotation (Placement(transformation(extent={{-80,-50},{-60,-30}})));
@@ -53,14 +53,14 @@ equation
           -12},{28,-12}}, color={0,0,127}));
   connect(integrator_z.y, add3_1.u2) annotation (Line(points={{81,-20},{90,-20},
           {90,0},{-20,0},{-20,-20},{28,-20}}, color={0,0,127}));
-  connect(product_xy.y, add3_1.u3) annotation (Line(points={{11.7,-40},{20,-40},
+  connect(product_xz.y, add3_1.u3) annotation (Line(points={{11.7,-40},{20,-40},
           {20,-28},{28,-28}}, color={0,0,127}));
-  connect(integrator_z.y, product_xy.u[1]) annotation (Line(points={{81,-20},{
+  connect(integrator_z.y,product_xz. u[1]) annotation (Line(points={{81,-20},{
           90,-20},{90,0},{-20,0},{-20,-42.3333},{-10,-42.3333}},
                                                               color={0,0,127}));
-  connect(eR.y, product_xy.u[2]) annotation (Line(points={{-59,-40},{-34,-40},{-34,
+  connect(eR.y,product_xz. u[2]) annotation (Line(points={{-59,-40},{-34,-40},{-34,
           -40},{-10,-40}}, color={0,0,127}));
-  connect(integrator_x.y, product_xy.u[3]) annotation (Line(points={{81,60},{90,
+  connect(integrator_x.y,product_xz. u[3]) annotation (Line(points={{81,60},{90,
           60},{90,80},{-40,80},{-40,-37.6667},{-10,-37.6667}}, color={0,0,127}));
   annotation (experiment(
       StopTime=1000,
