@@ -77,5 +77,6 @@ The idealized OpAmp with three pins has an implicit symmetrical supply and shows
         Line(points={{70,0},{100,0}}, color={0,0,255}),
         Line(points={{-60,50},{-40,50}}, color={0,0,255}),
         Line(points={{-60,-50},{-40,-50}}, color={0,0,255}),
-        Line(points={{-50,-40},{-50,-60}}, color={0,0,255})}));
+        Line(points={{-50,-40},{-50,-60}}, color={0,0,255}),
+    Line(points={{-68,-30},{-38,-30},{-18,30},{12,30}})}));
 end IdealizedOpAmp3Pin;
