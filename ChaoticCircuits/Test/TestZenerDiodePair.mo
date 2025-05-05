@@ -1,5 +1,5 @@
 within ChaoticCircuits.Test;
-model TestZenerDiode "Test the Zener diode"
+model TestZenerDiodePair "Test the Zener diode pair"
   extends Modelica.Icons.Example;
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
@@ -66,4 +66,4 @@ equation
       StopTime=5,
       Interval=1e-3,
       Tolerance=1e-06));
-end TestZenerDiode;
+end TestZenerDiodePair;

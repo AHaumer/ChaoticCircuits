@@ -14,12 +14,37 @@ model IdealizedOpAmp3Pin "Idealized operational amplifier within implicit supply
   Modelica.Electrical.Analog.Interfaces.PositivePin out "Output pin"
     annotation (Placement(transformation(extent={{90,-10},{110,10}}),
         iconTransformation(extent={{90,-10},{110,10}})));
-  SI.Voltage v_in(start=0)=in_p.v - in_n.v "Input voltage difference";
-  SI.Voltage v_out=out.v "Output voltage to ground";
+  Modelica.Electrical.Analog.Sensors.VoltageSensor v_in annotation (Placement(
+        transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=90,
+        origin={-80,0})));
+  Modelica.Electrical.Analog.Sources.SignalVoltage vOut annotation (Placement(
+        transformation(
+        extent={{10,-10},{-10,10}},
+        rotation=90,
+        origin={80,0})));
+  Modelica.Electrical.Analog.Basic.Ground ground
+    annotation (Placement(transformation(extent={{70,-40},{90,-20}})));
+  Modelica.Blocks.Math.Gain gain(k=V0)
+    annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+  Limiter                           limiter(uMax=Vps, uMin=Vns)
+    annotation (Placement(transformation(extent={{20,-10},{40,10}})));
 equation
-  in_p.i = 0;
-  in_n.i = 0;
-  v_out = if V0*v_in>Vps then Vps else if V0*v_in<Vns then Vns else V0*v_in;
+  connect(in_n, v_in.n)
+    annotation (Line(points={{-100,60},{-80,60},{-80,10}}, color={0,0,255}));
+  connect(in_p, v_in.p) annotation (Line(points={{-100,-60},{-80,-60},{-80,-10}},
+        color={0,0,255}));
+  connect(ground.p, vOut.n)
+    annotation (Line(points={{80,-20},{80,-10}}, color={0,0,255}));
+  connect(vOut.p, out) annotation (Line(points={{80,10},{80,20},{100,20},{100,0}},
+        color={0,0,255}));
+  connect(v_in.v, gain.u)
+    annotation (Line(points={{-69,0},{-42,0}}, color={0,0,127}));
+  connect(gain.y, limiter.u)
+    annotation (Line(points={{-19,0},{18,0}}, color={0,0,127}));
+  connect(limiter.y, vOut.v)
+    annotation (Line(points={{41,0},{68,0}}, color={0,0,127}));
   annotation (defaultComponentName="opAmp",
     Documentation(info="<html>
 <p>

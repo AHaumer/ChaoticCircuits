@@ -2,6 +2,6 @@ SimpleDiode
 ZenerDiodePairApproximation
 SimpleTransistor
 Staircase
+Limiter
 IdealizedOpAmp3Pin
 Multiplier
-CheckLimits

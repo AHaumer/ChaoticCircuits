@@ -1,4 +1,7 @@
-TestZenerDiode
-TestNIC
+SimpleDiodeCharacteristic
+TestZenerDiodePair
 SimpleTransistorCharacteristic
+TestAmplifier
+TestIntegrator
+TestNIC
 TestMulitplier

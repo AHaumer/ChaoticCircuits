@@ -29,25 +29,15 @@ model Multiplier "Analog multiplier"
     annotation (Placement(transformation(extent={{40,-10},{60,10}})));
   Modelica.Blocks.Sources.Constant scaling(k=1/ER)
     annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
-  Modelica.Blocks.Nonlinear.Limiter limiter1(uMax=ER, uMin=-ER)
+  Limiter                           limiter1(uMax=ER, uMin=-ER)
     annotation (Placement(transformation(extent={{-20,30},{0,50}})));
-  Modelica.Blocks.Nonlinear.Limiter limiter2(uMax=ER, uMin=-ER)
+  Limiter                           limiter2(uMax=ER, uMin=-ER)
     annotation (Placement(transformation(extent={{-20,-30},{0,-50}})));
   Modelica.Electrical.Analog.Sources.SignalVoltage signalVoltage annotation (
       Placement(transformation(
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={80,0})));
-  CheckLimits checkLimits1(
-    uMax=ER,
-    uMin=-ER,
-    assertionText="Multiplier: u1 limited")
-    annotation (Placement(transformation(extent={{-20,50},{0,70}})));
-  CheckLimits checkLimits2(
-    uMax=ER,
-    uMin=-ER,
-    assertionText="Multiplier: u2 limited")
-    annotation (Placement(transformation(extent={{-20,-50},{0,-70}})));
 equation
   connect(in1, voltageSensor1.p)
     annotation (Line(points={{-100,60},{-80,60},{-80,50}}, color={0,0,255}));
@@ -72,10 +62,6 @@ equation
     annotation (Line(points={{1,0},{40,0}},               color={0,0,127}));
   connect(limiter1.y, multiProduct.u[3]) annotation (Line(points={{1,40},{20,40},
           {20,2},{40,2},{40,2.33333}},    color={0,0,127}));
-  connect(voltageSensor1.v, checkLimits1.u) annotation (Line(points={{-69,40},{
-          -40,40},{-40,60},{-22,60}}, color={0,0,127}));
-  connect(voltageSensor2.v, checkLimits2.u) annotation (Line(points={{-49,-40},
-          {-36,-40},{-36,-60},{-22,-60}}, color={0,0,127}));
   connect(in2, voltageSensor2.p) annotation (Line(points={{-100,-60},{-60,-60},
           {-60,-50}}, color={0,0,255}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={

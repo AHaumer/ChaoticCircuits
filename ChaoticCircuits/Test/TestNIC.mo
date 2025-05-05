@@ -8,10 +8,10 @@ model TestNIC "Test negative impedance converter"
   SI.Current iNIC=if vNIC<-VLim then -VLim*gNeg + gPos*(vNIC + VLim) elseif vNIC>+VLim then +VLim*gNeg + gPos*(vNIC - VLim) else gNeg*vNIC;
   //initialization
   SI.Current iNICn(start=0)=rNICn.i "Current of resistor rNICn";
-  Components.IdealizedOpAmp3Pin                          opAmp
-    annotation (Placement(transformation(extent={{10,10},{30,-10}})));
   Modelica.Electrical.Analog.Basic.Resistor rNICp(R=4700)
     annotation (Placement(transformation(extent={{10,20},{30,40}})));
+  Components.IdealizedOpAmp3Pin                          opAmp
+    annotation (Placement(transformation(extent={{10,10},{30,-10}})));
   Modelica.Electrical.Analog.Basic.Resistor rNICn(R=4700)
     annotation (Placement(transformation(extent={{10,-40},{30,-20}})));
   Modelica.Electrical.Analog.Basic.Ground ground

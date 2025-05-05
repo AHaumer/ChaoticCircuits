@@ -20,7 +20,8 @@ model ImprovedCircuit "A simple chaotic circuit with a light-emitting diode"
   //initialization
   parameter Real x0[3]={0, 0.1, 0} "Initial value of result vector";
   SI.Voltage vd(start=0)=diode.v "Voltage of diode";
-  SI.Voltage v[3](start=zeros(3))=-{opAmp1.v_in, -opAmp2.v_in, -opAmp3.v_in} "Input voltage of opAmp{1, 2, 3}";
+  SI.Voltage v[3](start=zeros(3))=-{opAmp1.v_in.v, -opAmp2.v_in.v, -opAmp3.v_in.v}
+    "Input voltage of opAmp{1, 2, 3}";
   Components.IdealizedOpAmp3Pin opAmp1(V0=k0,Vps=+Vs, Vns=-Vs)
     annotation (Placement(transformation(extent={{-10,20},{10,40}})));
   Modelica.Electrical.Analog.Basic.Capacitor c1(C=C)

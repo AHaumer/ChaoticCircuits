@@ -4,7 +4,7 @@ model AnalyticEquations
   extends Modelica.Icons.Example;
   import Modelica.Utilities.Streams.print;
   //time constant and dimensionless parameters
-  parameter SI.Current I0=Vb/R0 "Estimated supply current";
+  parameter SI.Current I0=Vs/R0 "Estimated supply current";
   parameter SI.Time Tau=sqrt(L*C) "Time constant";
   parameter SI.Impedance Z=sqrt(L/C) "Characteristic impedance (rho)";
   parameter Real k=Z/R*a + 1 + RL/R "Amplification";
@@ -17,7 +17,7 @@ model AnalyticEquations
   parameter SI.Resistance R1=10.e3 "Resistor r1";
   parameter SI.Resistance R2=R1*(k - 1) "Resistor r2 (tunable)";
   parameter SI.Resistance R0=20.e3 "Resistor r0";
-  parameter SI.Voltage Vb=20 "Supply voltage";
+  parameter SI.Voltage Vs=20 "Supply voltage";
   parameter SI.Inductance L=100e-3 "Inductor";
   parameter SI.Resistance RL=50 "Resistance of Inductor";
   parameter SI.Capacitance C =100e-9 "Capacitor c";
