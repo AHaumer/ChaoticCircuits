@@ -1,5 +1,5 @@
 within ChaoticCircuits.Test;
-model TestMulitplier
+model TestMulitplier "Test the analog multiplier"
   extends Modelica.Icons.Example;
   Components.Multiplier multiplier
     annotation (Placement(transformation(extent={{10,-10},{30,10}})));

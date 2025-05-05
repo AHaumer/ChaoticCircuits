@@ -12,6 +12,18 @@ There are two kinds of simple chaotic oscillators: non-autonomous and autonomous
 Note that an oscillator is not a perpetuum mobile but needs energy supply either an explicitely modeled source voltage or implicitely. 
 The operational amplifiers might have a supply voltage not explicitely modeled.
 </p>
+<p>In these examples simple autonomous systems are presented:</p>
+<ul>
+<li><a href=\"modelica://ChaoticCircuits.LotkaVolterra\">Lotka-Volterra</a></li>
+<li><a href=\"modelica://ChaoticCircuits.LorenzSystem\">Lorenz system</a></li>
+<li><a href=\"modelica://ChaoticCircuits.RoesslerSystem\">Roessler system</a></li>
+<li><a href=\"modelica://ChaoticCircuits.ChuasCircuit\">Chua&apos;s circuit</a></li>
+<li><a href=\"modelica://ChaoticCircuits.ChaoticDiode\">Chaotic diode circuit</a> [Pham2016]</li>
+<li><a href=\"modelica://ChaoticCircuits.ChaoticOscillator\">Chaotic oscillator</a> [Tamasevicius2005]</li>
+<li><a href=\"modelica://ChaoticCircuits.ColpittsCircuit\">Colpitts circuit</a></li>
+<li><a href=\"modelica://ChaoticCircuits.ShinrikiOscillator\">Shinriki oscillator</a></li>
+<li><a href=\"modelica://ChaoticCircuits.JerkCircuit\">Jerk circuit</a></li>
+</ul>
 <p>
 The default parameters lead to periodic results. Possible parameter changes to obtain chaotic behavior are noted in the documentation of the respective subpackage. <br>
 <strong>Be curios</strong>, try different parameter settings to explore the path from periodic behaviour to chaos - in many cases you see bifurcation, i.e. different attractors.
@@ -58,28 +70,14 @@ Note that of course the results are strongly dependent on the implementation det
     <td>Fig. 3 a=0.35: y vs. x initial transient</td>
     <td>Fig. 4 a=0.35: y vs. x after one continuation</td>
 </table>
-<p>
-In these examples simple autonomous systems are presented:
-<ul>
-<li>Lotka-Volterra</li>
-<li>Lorenz system</li>
-<li>Roessler system</li>
-<li>Chua&apos;s circuit</li>
-<li>Chaotic diode circuit [Pham2016]</li>
-<li>Chaotic oscillator [Tamasevicius2005]</li>
-<li>Colpitts oscillator</li>
-<li>Shinriki oscillator</li>
-<li>Jerk circuit</li>
-</ul>
-Most circuits (except Lotka-Volterra) are implemented in different flavours:
+<p>Most circuits (except Lotka-Volterra) are implemented in different flavours:</p>
 <ul>
 <li>AnalyticEquations: Mathematical description</li>
 <li>ScaledBlocks: (if present) derived from analytic equations, using signal-oriented blocks, scaled to keep results within limits</li>
 <li>IdealCircuit: Implemented with simple electronic components</li>
 <li>ImprovedCircuit: Using more sophisticated electronic components</li>
 </ul>
-The main differences between IdealCircuit and ImprovedCircuit are:
-</p>
+<p>The main differences between IdealCircuit and ImprovedCircuit are:</p>
 <table>
   <thead>
   <tr>
@@ -110,13 +108,13 @@ to get rid of the implementation with <code>smooth</code> (which allows tools to
 </p>
 <p>
 All circuits can be built in reality with simple electronic components. 
-If an inductance is used, its resistance is modeled, too. The ohmic losses of an inductance can't be neglected.
+If an inductance is used, its resistance is modeled, too. The ohmic losses of an inductance cannot be neglected.
 </p>
 <p>
 The equations are summarized in this <a href=\"modelica://ChaoticCircuits/Resources/Documentation/ChaoticCircuits.pdf\">document</a>.
 </p>
 <p>
-Note: In the subdirectory Resources.Reference reference results for all examples are stored.
+<strong>Note</strong>: In the subdirectory Resources.Reference <strong>reference results</strong> for all examples are stored.
 </p>
 </html>"));
 end Concept;
