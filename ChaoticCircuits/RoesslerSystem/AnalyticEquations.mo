@@ -18,5 +18,10 @@ equation
       Tolerance=1e-06),
     Documentation(info="<html>
 <p>See documentation of the enclosing subpackage.</p>
-</html>"));
+</html>"),
+    Diagram(graphics={Text(
+          extent={{-80,20},{80,-20}},
+          textColor={0,0,255},
+          textString="c = 1.0 periodic
+c = 5.7 chaotic")}));
 end AnalyticEquations;

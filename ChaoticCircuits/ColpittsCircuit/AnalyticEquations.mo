@@ -30,5 +30,10 @@ equation
 </html>"), experiment(
       StopTime=0.01,
       Interval=1e-07,
-      Tolerance=1e-06));
+      Tolerance=1e-06),
+    Diagram(graphics={Text(
+          extent={{-80,20},{80,-20}},
+          textColor={0,0,255},
+          textString="RE = 5000 Ohm periodic
+RE =   500 Ohm chaotic")}));
 end AnalyticEquations;

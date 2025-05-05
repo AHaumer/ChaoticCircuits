@@ -102,8 +102,8 @@ equation
     annotation (Line(points={{80,20},{80,50}}, color={0,0,255}));
   connect(opAmp2.out, r1.p)
     annotation (Line(points={{-40,-50},{-40,60}}, color={0,0,255}));
-  connect(opAmp3.out, rb.p) annotation (Line(points={{80,20},{90,20},{90,70},
-          {20,70},{20,50},{30,50}}, color={0,0,255}));
+  connect(opAmp3.out, rb.p) annotation (Line(points={{80,20},{90,20},{90,70},{
+          20,70},{20,50},{30,50}},  color={0,0,255}));
   connect(opAmp3.out, r2.p) annotation (Line(points={{80,20},{90,20},{90,80},
           {-90,80},{-90,-20}}, color={0,0,255}));
   connect(ra.p, opAmp4.out)
@@ -147,8 +147,12 @@ equation
           lineColor={170,213,255},
           fillPattern=FillPattern.Solid,
           fillColor={170,213,255}),
-                      Line(
-          points={{34,40},{46,60}},
+                      Text(
+          extent={{0,-60},{100,-100}},
+          textColor={0,0,255},
+          textString="b = 1.5 periodic
+b = 1.0 chaotic"),    Line(
+          points={{30,44},{50,56}},
           color={0,0,0},
           arrow={Arrow.None,Arrow.Open})}));
 end ImprovedCircuit;

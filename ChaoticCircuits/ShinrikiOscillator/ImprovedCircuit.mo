@@ -122,5 +122,14 @@ equation
           fillColor={170,213,255}), Text(
           extent={{-90,-50},{-30,-60}},
           textColor={28,108,200},
-          textString="NIC")}));
+          textString="NIC"),
+                      Text(
+          extent={{-100,100},{0,70}},
+          textColor={0,0,255},
+          textString="R2 =   20 kOhm periodic
+R2 = 8400 Ohm chaotic"),
+                      Line(
+          points={{20,54},{40,66}},
+          color={0,0,0},
+          arrow={Arrow.None,Arrow.Open})}));
 end ImprovedCircuit;

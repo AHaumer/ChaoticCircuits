@@ -129,5 +129,10 @@ equation
                       Line(
           points={{0,-6},{20,6}},
           color={0,0,0},
-          arrow={Arrow.None,Arrow.Open})}));
+          arrow={Arrow.None,Arrow.Open}),
+                      Text(
+          extent={{0,-60},{100,-100}},
+          textColor={0,0,255},
+          textString="a = 0.95 periodic
+a = 0.40 chaotic")}));
 end IdealCircuit;

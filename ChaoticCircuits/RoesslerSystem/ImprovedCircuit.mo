@@ -187,5 +187,13 @@ equation
       Tolerance=1e-06),
     Documentation(info="<html>
 <p>See documentation of the enclosing subpackage.</p>
-</html>"));
+</html>"),
+    Diagram(graphics={Text(
+          extent={{0,-80},{100,-100}},
+          textColor={0,0,255},
+          textString="c = 1.0 periodic
+c = 5.7 chaotic"),    Line(
+          points={{-20,-46},{0,-34}},
+          color={0,0,0},
+          arrow={Arrow.None,Arrow.Open})}));
 end ImprovedCircuit;

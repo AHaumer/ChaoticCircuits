@@ -45,5 +45,10 @@ equation
 </html>"), experiment(
       StopTime=0.1,
       Interval=1e-06,
-      Tolerance=1e-06));
+      Tolerance=1e-06),
+    Diagram(graphics={Text(
+          extent={{-80,20},{80,-20}},
+          textColor={0,0,255},
+          textString="a = 0.85 periodic
+a = 0.40 chaotic")}));
 end AnalyticEquations;

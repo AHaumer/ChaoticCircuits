@@ -154,8 +154,13 @@ equation
           extent={{10,70},{90,60}},
           textColor={28,108,200},
           textString="Chua's diode"),
+                      Text(
+          extent={{-80,100},{80,70}},
+          textColor={0,0,255},
+          textString="R = 1900 Ohm periodic
+R = 1500 Ohm chaotic"),
                       Line(
-          points={{-26,30},{-14,50}},
+          points={{-30,34},{-10,46}},
           color={0,0,0},
           arrow={Arrow.None,Arrow.Open})}));
 end ImprovedCircuit;

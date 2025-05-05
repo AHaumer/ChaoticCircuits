@@ -142,8 +142,12 @@ equation
           lineColor={170,213,255},
           fillPattern=FillPattern.Solid,
           fillColor={170,213,255}),
-                      Line(
-          points={{34,40},{46,60}},
+                      Text(
+          extent={{0,-60},{100,-100}},
+          textColor={0,0,255},
+          textString="b = 1.5 periodic
+b = 1.0 chaotic"),    Line(
+          points={{30,44},{50,56}},
           color={0,0,0},
           arrow={Arrow.None,Arrow.Open})}));
 end IdealCircuit;

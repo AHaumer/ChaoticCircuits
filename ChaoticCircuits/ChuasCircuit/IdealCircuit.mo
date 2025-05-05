@@ -69,8 +69,13 @@ equation
       StopTime=0.1,
       Interval=1e-06,
       Tolerance=1e-06),
-    Diagram(graphics={Line(
-          points={{-26,30},{-14,50}},
+    Diagram(graphics={Text(
+          extent={{-80,100},{80,70}},
+          textColor={0,0,255},
+          textString="R = 1900 Ohm periodic
+R = 1500 Ohm chaotic"),
+                      Line(
+          points={{-30,34},{-10,46}},
           color={0,0,0},
           arrow={Arrow.None,Arrow.Open})}));
 end IdealCircuit;

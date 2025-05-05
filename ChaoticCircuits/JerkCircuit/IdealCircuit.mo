@@ -96,5 +96,9 @@ equation
       Interval=1e-5,
       Tolerance=1e-06), Documentation(info="<html>
 <p>See documentation of the enclosing subpackage.</p>
-</html>"));
+</html>"),
+    Diagram(graphics={Line(
+          points={{-70,4},{-50,16}},
+          color={0,0,0},
+          arrow={Arrow.None,Arrow.Open})}));
 end IdealCircuit;

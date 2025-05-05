@@ -115,5 +115,10 @@ equation
           textColor={28,108,200},
           origin={45,0},
           rotation=90,
-          textString="Colpitt's Tank")}));
+          textString="Colpitt's Tank"),
+                      Text(
+          extent={{-100,-60},{0,-100}},
+          textColor={0,0,255},
+          textString="RE = 2000 Ohm periodic
+RE =   500 Ohm chaotic")}));
 end IdealCircuit;

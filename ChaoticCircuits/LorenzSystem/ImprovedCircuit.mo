@@ -189,5 +189,8 @@ equation
           extent={{20,-10},{100,-50}},
           textColor={0,0,255},
           textString="beta = 1/3 periodic
-beta = 8/3 chaotic")}));
+beta = 8/3 chaotic"), Line(
+          points={{-20,-66},{0,-54}},
+          color={0,0,0},
+          arrow={Arrow.None,Arrow.Open})}));
 end ImprovedCircuit;

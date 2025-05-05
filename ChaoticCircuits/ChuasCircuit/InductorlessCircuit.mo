@@ -211,10 +211,7 @@ equation
       StopTime=0.1,
       Interval=1e-06,
       Tolerance=1e-06),
-    Diagram(graphics={Line(
-          points={{4,40},{16,60}},
-          color={0,0,0},
-          arrow={Arrow.None,Arrow.Open}),
+    Diagram(graphics={
         Rectangle(
           extent={{24,60},{90,-60}},
           lineColor={170,213,255},
@@ -230,5 +227,14 @@ equation
           fillColor={170,213,255}), Text(
           extent={{-100,94},{0,84}},
           textColor={28,108,200},
-          textString="Inductor replacement")}));
+          textString="Inductor replacement"),
+                      Text(
+          extent={{0,-60},{102,-100}},
+          textColor={0,0,255},
+          textString="R = 1900 Ohm periodic
+R = 1500 Ohm chaotic"),
+                      Line(
+          points={{0,44},{20,56}},
+          color={0,0,0},
+          arrow={Arrow.None,Arrow.Open})}));
 end InductorlessCircuit;
