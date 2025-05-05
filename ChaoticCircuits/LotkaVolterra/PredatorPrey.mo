@@ -14,7 +14,7 @@ equation
   annotation (
     experiment(
       StopTime=1000,
-      Interval=1,
+      Interval=0.1,
       Tolerance=1e-06), Documentation(info="<html>
 <p>See documentation of the enclosing subpackage.</p>
 </html>"));
