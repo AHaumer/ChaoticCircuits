@@ -14,6 +14,7 @@ The operational amplifiers might have a supply voltage not explicitely modeled.
 <p>In these examples simple systems are presented:</p>
 <ul>
 <li><a href=\"modelica://ChaoticCircuits.LotkaVolterra\">Lotka-Volterra</a></li>
+<li><a href=\"modelica://ChaoticCircuits.VanDerPol\">Van der Pol oscillator</a></li>
 <li><a href=\"modelica://ChaoticCircuits.LorenzSystem\">Lorenz system</a></li>
 <li><a href=\"modelica://ChaoticCircuits.RoesslerSystem\">Roessler system</a></li>
 <li><a href=\"modelica://ChaoticCircuits.ChuasCircuit\">Chua&apos;s circuit</a></li>

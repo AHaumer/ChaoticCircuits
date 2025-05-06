@@ -7,6 +7,7 @@ model AnalyticEquations "van der Pol equations"
   parameter Real kt=1000 "Time scaling";
   parameter Real x0=2 "Initial values of x";
   parameter Real y0=0 "Initial values of y";
+  Real e=A*sin(w*kt*time) "Excitation";
   //shortcut to results
   Real x "Result: prop. i";
   Real y "Result: prop. der(i)";
@@ -15,7 +16,7 @@ initial equation
   y=y0;
 equation
   der(x)/kt=y;
-  der(y)/kt=mu*(1 - x^2)*y - x + A*sin(w*time);
+  der(y)/kt=mu*(1 - x^2)*y - x + e;
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
         coordinateSystem(preserveAspectRatio=false)),
     experiment(

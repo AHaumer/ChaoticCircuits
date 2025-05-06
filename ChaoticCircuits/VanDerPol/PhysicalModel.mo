@@ -1,6 +1,7 @@
 within ChaoticCircuits.VanDerPol;
 model PhysicalModel "van der Pol equations"
   extends Modelica.Icons.Example;
+  extends Modelica.Icons.UnderConstruction;
   import Modelica.Constants.pi;
   parameter Real mu=0.2 "Damping";
   parameter Real A=1.0 "Amplitude of excitation";
@@ -56,6 +57,7 @@ equation
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
         coordinateSystem(preserveAspectRatio=false)),
     experiment(
+      StopTime=1,
       Interval=1e-05,
       Tolerance=1e-06),
     Documentation(info="<html>

@@ -1,6 +1,7 @@
 within ChaoticCircuits.Components;
 model Triode "van der Pol model of vaccum electron tube"
   extends Modelica.Electrical.Analog.Interfaces.OnePort(i(start=0));
+  extends Modelica.Icons.UnderConstruction;
   parameter SI.Resistance R0=31.831 "Resistance parameter";
   parameter SI.Current I0=0.2 "Current parameter";
 equation

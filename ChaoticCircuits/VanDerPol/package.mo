@@ -10,12 +10,13 @@ Balthasar van der Pol reported 1927 strange phenomena about oscillations in a se
 Due to the nonlinear characteristic of the triode the autonomous circuit is able to maintain periodic oscillations, and with harmonic excitation it is able to produce chaos.
 </p>
 <p>
-Note: For <code>xx</code> periodic solutions are obtained. 
-      For <code>xx</code> chaotic solutions are obtained. 
+Note: For <code>A = 0</code> autonomous periodic solutions are obtained. <br>
+      For <code>A = 1.0</code> forced periodic solutions are obtained. <br>
+      For <code>A = 0.45</code> forced chaotic solutions are obtained. <br>
 </p>
 <p><strong>References:</strong></p>
 <ul>
-<li><a href=\"modelica://ChaoticCircuits.UsersGuide.References\"> [VanDerPol2017] </a></li>
+<li><a href=\"modelica://ChaoticCircuits.UsersGuide.References\"> [VanDerPol1927] </a></li>
 </ul>
 </html>"));
 end VanDerPol;
