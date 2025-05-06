@@ -6,13 +6,12 @@ class Concept "Concept"
 Chaotic circuits have received considerable interest in the literature because they have been applied in numerous areas 
 such as secure communications, robotics, image processing or random bit generator. 
 One of the most important research directions is constructing robust chaotic oscillators with simple structures. 
-There are two kinds of simple chaotic oscillators: non-autonomous and autonomous oscillators.
-</p>
-<p>
+There are two kinds of simple chaotic oscillators: non-autonomous and autonomous oscillators. 
+Autonomous systems show oscillations without excitation, otherwise excitation (besides energy supply) is needed. 
 Note that an oscillator is not a perpetuum mobile but needs energy supply either an explicitely modeled source voltage or implicitely. 
-The operational amplifiers might have a supply voltage not explicitely modeled.
+The operational amplifiers might have a supply voltage not explicitely modeled. 
 </p>
-<p>In these examples simple autonomous systems are presented:</p>
+<p>In these examples simple systems are presented:</p>
 <ul>
 <li><a href=\"modelica://ChaoticCircuits.LotkaVolterra\">Lotka-Volterra</a></li>
 <li><a href=\"modelica://ChaoticCircuits.LorenzSystem\">Lorenz system</a></li>

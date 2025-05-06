@@ -7,15 +7,18 @@ model AnalyticEquations "Shinriki oscillator"
   parameter SI.Resistance R2=20e3 "Resistor 2";
   parameter SI.Capacitance C1=10.e-9 "Capacitor 1";
   parameter SI.Capacitance C2=100e-9 "Capacitor 2";
+  parameter SI.Voltage Vs=15 "Supply Voltage";
   //z-Diode-pair
   parameter SI.Voltage Vbt=3.3 "Break-through voltage";
   parameter Real a=1.0862e-3 "Coefficient a [A/V]";
   parameter Real b=-0.1615e-3 "Coefficient b [A/V^3]";
   parameter Real c=0.3021e-3 "Coefficient c [A/V^5]";
   //Negative Impedance Converter
-  parameter SI.Voltage VLim=8.870565 "Left and right corner";
-  parameter SI.Conductance gPos=0.212766e-3 "Positive differential conductance";
-  parameter SI.Conductance gNeg=-0.147018e-3 "Negative differential conductance";
+  parameter SI.Resistance RNIC =4700 "NIC feedback resistance";
+  parameter SI.Resistance RNICg=6800 "NIC resistance to ground";
+  parameter SI.Voltage VLim=Vs*RNICg/(RNICg + RNIC) "Left and right corner voltage";
+  parameter SI.Conductance gPos= 1/RNIC  "Positive differential conductance";
+  parameter SI.Conductance gNeg=-1/RNICg "Negative differential conductance";
   //shortcut to results
   SI.Voltage v1(start=0, fixed=true) "Result 1 c1.v";
   SI.Voltage v2(start=1, fixed=true) "Result 2 c2.v";

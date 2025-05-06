@@ -1,3 +1,5 @@
 time
-currentSensor.i
 opAmp.out.v
+idealNIC.i
+currentSensor.i
+

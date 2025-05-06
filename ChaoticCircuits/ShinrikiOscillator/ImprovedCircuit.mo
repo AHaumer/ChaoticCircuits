@@ -7,20 +7,23 @@ model ImprovedCircuit "Shinriki oscillator"
   parameter SI.Resistance R2=20e3 "Resistor 2";
   parameter SI.Capacitance C1=10.e-9 "Capacitor 1";
   parameter SI.Capacitance C2=100e-9 "Capacitor 2";
-  parameter SI.Voltage Vs=12 "Supply Voltage";
+  parameter SI.Voltage Vs=15 "Supply Voltage";
+  parameter SI.Resistance RNIC =4700 "NIC feedback resistance";
+  parameter SI.Resistance RNICg=6800 "NIC resistance to ground";
   //shortcut to results
   SI.Voltage v1(start=0, fixed=true)=c1.v "Result 1 c1.v";
   SI.Voltage v2(start=1, fixed=true)=c2.v "Result 2 c2.v";
   SI.Voltage vRL(start=0, fixed=true)=rL.v "Voltage of inductor's resistance";
   Components.IdealizedOpAmp3Pin                          opAmp(Vps=+Vs, Vns=-Vs)
     annotation (Placement(transformation(extent={{-70,10},{-50,-10}})));
-  Modelica.Electrical.Analog.Basic.Resistor rNICp(R=4700)
+  Modelica.Electrical.Analog.Basic.Resistor rNICp(R=RNIC)
     annotation (Placement(transformation(extent={{-70,20},{-50,40}})));
-  Modelica.Electrical.Analog.Basic.Resistor rNICn(R=4700)
+  Modelica.Electrical.Analog.Basic.Resistor rNICn(R=RNIC)
     annotation (Placement(transformation(extent={{-70,-40},{-50,-20}})));
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-90,-90},{-70,-70}})));
-  Modelica.Electrical.Analog.Basic.Resistor rNICg(R=6800) annotation (Placement(
+  Modelica.Electrical.Analog.Basic.Resistor rNICg(R=RNICg)
+                                                          annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,

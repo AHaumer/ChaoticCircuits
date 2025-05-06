@@ -1,20 +1,18 @@
 within ChaoticCircuits.Test;
 model TestNIC "Test negative impedance converter"
   extends Modelica.Icons.Example;
-  parameter SI.Voltage VLim=8.870565 "Left and right corner";
-  parameter SI.Conductance gPos=0.212766e-3 "Positive differential conductance";
-  parameter SI.Conductance gNeg=-0.147018e-3 "Negative differential conductance";
-  SI.Voltage vNIC=rampVoltage.v;
-  SI.Current iNIC=if vNIC<-VLim then -VLim*gNeg + gPos*(vNIC + VLim) elseif vNIC>+VLim then +VLim*gNeg + gPos*(vNIC - VLim) else gNeg*vNIC;
-  Modelica.Electrical.Analog.Basic.Resistor rNICp(R=4700)
+  parameter SI.Voltage Vs=15 "Supply voltage";
+  parameter SI.Resistance R=4700 "NIC pos and neg feedback resistance";
+  parameter SI.Resistance Rg=6800 "NIC resistance to ground";
+  Modelica.Electrical.Analog.Basic.Resistor rPos(R=R)
     annotation (Placement(transformation(extent={{10,20},{30,40}})));
-  Components.IdealizedOpAmp3Pin                          opAmp
+  Components.IdealizedOpAmp3Pin                          opAmp(Vps=+Vs, Vns=-Vs)
     annotation (Placement(transformation(extent={{10,10},{30,-10}})));
-  Modelica.Electrical.Analog.Basic.Resistor rNICn(R=4700)
+  Modelica.Electrical.Analog.Basic.Resistor rNeg(R=R)
     annotation (Placement(transformation(extent={{10,-40},{30,-20}})));
   Modelica.Electrical.Analog.Basic.Ground ground
-    annotation (Placement(transformation(extent={{-10,-90},{10,-70}})));
-  Modelica.Electrical.Analog.Basic.Resistor rNICg(R=6800) annotation (Placement(
+    annotation (Placement(transformation(extent={{-50,-90},{-30,-70}})));
+  Modelica.Electrical.Analog.Basic.Resistor rg(R=Rg) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
@@ -25,34 +23,46 @@ model TestNIC "Test negative impedance converter"
     offset=-15)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
         rotation=270,
-        origin={-30,0})));
+        origin={-40,-20})));
   Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor annotation (
       Placement(transformation(
         extent={{10,-10},{-10,10}},
         rotation=180,
         origin={-20,30})));
+  Components.IdealNIC idealNIC(
+    Vs=Vs,
+    R=R,
+    Rg=Rg) annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=270,
+        origin={-60,0})));
 protected
   //initialization
-  SI.Current iNICn(start=0)=rNICn.i "Current of resistor rNICn";
+  SI.Current iNICn(start=0) = rNeg.i "Current of resistor rNICn";
 equation
-  connect(rNICp.n, opAmp.out) annotation (Line(points={{30,30},{40,30},{40,0},{30,
-          0}},      color={0,0,255}));
-  connect(rNICp.p, opAmp.in_p) annotation (Line(points={{10,30},{0,30},{0,6},{10,
-          6}},      color={0,0,255}));
-  connect(rNICn.n, opAmp.out) annotation (Line(points={{30,-30},{40,-30},{40,0},
-          {30,0}},     color={0,0,255}));
-  connect(rNICn.p, opAmp.in_n) annotation (Line(points={{10,-30},{0,-30},{0,-6},
-          {10,-6}},      color={0,0,255}));
-  connect(rNICn.p, rNICg.p)
-    annotation (Line(points={{10,-30},{0,-30},{0,-40}},      color={0,0,255}));
-  connect(rNICg.n, ground.p)
-    annotation (Line(points={{0,-60},{0,-70}},     color={0,0,255}));
+  connect(rPos.n, opAmp.out)
+    annotation (Line(points={{30,30},{40,30},{40,0},{30,0}}, color={0,0,255}));
+  connect(rPos.p, opAmp.in_p)
+    annotation (Line(points={{10,30},{0,30},{0,6},{10,6}}, color={0,0,255}));
+  connect(rNeg.n, opAmp.out) annotation (Line(points={{30,-30},{40,-30},{40,0},
+          {30,0}}, color={0,0,255}));
+  connect(rNeg.p, opAmp.in_n) annotation (Line(points={{10,-30},{0,-30},{0,-6},
+          {10,-6}}, color={0,0,255}));
+  connect(rNeg.p, rg.p)
+    annotation (Line(points={{10,-30},{0,-30},{0,-40}}, color={0,0,255}));
+  connect(rg.n, ground.p)
+    annotation (Line(points={{0,-60},{0,-70},{-40,-70}}, color={0,0,255}));
   connect(currentSensor.n, opAmp.in_p)
     annotation (Line(points={{-10,30},{0,30},{0,6},{10,6}}, color={0,0,255}));
   connect(currentSensor.p, rampVoltage.p)
-    annotation (Line(points={{-30,30},{-30,10}}, color={0,0,255}));
+    annotation (Line(points={{-30,30},{-40,30},{-40,-10}},
+                                                 color={0,0,255}));
   connect(ground.p, rampVoltage.n)
-    annotation (Line(points={{0,-70},{-30,-70},{-30,-10}}, color={0,0,255}));
+    annotation (Line(points={{-40,-70},{-40,-30}},         color={0,0,255}));
+  connect(rampVoltage.p, idealNIC.p) annotation (Line(points={{-40,-10},{-40,30},
+          {-60,30},{-60,10}}, color={0,0,255}));
+  connect(ground.p, idealNIC.n)
+    annotation (Line(points={{-40,-70},{-60,-70},{-60,-10}}, color={0,0,255}));
   annotation (Documentation(info="<html>
 <p>Plot currentsensor.i vs. rampVoltage.v to see the i(v)-characteristic of the NIC (negative impedance converter).</p>
 </html>"), experiment(
@@ -60,9 +70,9 @@ equation
       Interval=1e-3,
       Tolerance=1e-06),
     Diagram(graphics={Text(
-          extent={{-80,90},{80,50}},
+          extent={{-80,100},{80,60}},
           textColor={28,108,200},
-          textString="Note: expected results only with 
+          textString="Note: opAmp model including output saturation 
 Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited
 or Components.IdealizedOpAmp3Pin")}));
 end TestNIC;

@@ -89,6 +89,12 @@ class References "References"
           International Journal of Bifurcation and Chaos Vol 17, No. 10 (2007), p. 3657-3661.</td>
     </tr>
     <tr>
+      <td>[VanDerPol1927]</td>
+      <td>B. van der Pol and J. van der Mark, <br> 
+          &quot;<a href=\"https://doi.org/10.1038/120363a0\">Frequency Demultiplication”</a>&quot;, <br>
+          Nature 120(1927), p. 363-364</td>
+    </tr>
+    <tr>
       <td>[Vano2006]</td>
       <td>J.A.Vano, J.C.Wildenberg, M.B.Anderson, J.K.Noel, J.C.Sprott, <br> 
           &quot;<a href=\"https://sprott.physics.wisc.edu/pubs/paper288.pdf\">Chaos in low-dimensional Lotka–Volterra models of competition</a>&quot;, <br>
