@@ -36,5 +36,10 @@ equation
         Line(points={{20,40},{20,-40}}, color={0,0,255})}),
     Documentation(info="<html>
 <p>This is an approximation for a Zener diode pair as described in <a href=\"modelica://ChaoticCircuits.UsersGuide.References\"> [Lueck1995] </a>.</p>
+<h4>Note:</h4>
+<p>
+If voltage v is prescribed, the current i can be unambiguously determined.<br>
+If current i is prescribed, between v = -V_bt and v = +V_bt there is a manifold of solutions for the voltage v.
+</p>
 </html>"));
 end ZenerDiodePairApproximation;

@@ -3,7 +3,7 @@ model AnalyticEquations "van der Pol equations"
   extends Modelica.Icons.Example;
   parameter Real mu=0.2 "Damping";
   parameter Real A=1.0 "Amplitude of excitation";
-  parameter Real w=1.15 "Frequency of excitation";
+  parameter Real w=1.2 "Frequency of excitation";
   parameter Real kt=1000 "Time scaling";
   parameter Real x0=2 "Initial values of x";
   parameter Real y0=0 "Initial values of y";
@@ -18,7 +18,14 @@ equation
   der(x)/kt=y;
   der(y)/kt=mu*(1 - x^2)*y - x + e;
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
-        coordinateSystem(preserveAspectRatio=false)),
+        coordinateSystem(preserveAspectRatio=false), graphics={
+                      Text(
+          extent={{-80,30},{80,-30}},
+          textColor={0,0,255},
+          textString="A = 0 autononmous
+A = 0.45 chaotic
+A = 1.00 periodic",
+          horizontalAlignment=TextAlignment.Left)}),
     experiment(
       StopTime=1,
       Interval=1e-5,

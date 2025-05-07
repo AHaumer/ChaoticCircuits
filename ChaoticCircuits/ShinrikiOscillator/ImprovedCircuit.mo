@@ -17,9 +17,9 @@ model ImprovedCircuit "Shinriki oscillator"
   Components.IdealizedOpAmp3Pin                          opAmp(Vps=+Vs, Vns=-Vs)
     annotation (Placement(transformation(extent={{-70,10},{-50,-10}})));
   Modelica.Electrical.Analog.Basic.Resistor rNICp(R=RNIC)
-    annotation (Placement(transformation(extent={{-70,20},{-50,40}})));
+    annotation (Placement(transformation(extent={{-50,20},{-70,40}})));
   Modelica.Electrical.Analog.Basic.Resistor rNICn(R=RNIC)
-    annotation (Placement(transformation(extent={{-70,-40},{-50,-20}})));
+    annotation (Placement(transformation(extent={{-50,-40},{-70,-20}})));
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-90,-90},{-70,-70}})));
   Modelica.Electrical.Analog.Basic.Resistor rNICg(R=RNICg)
@@ -73,16 +73,6 @@ model ImprovedCircuit "Shinriki oscillator"
   //initialization
   SI.Current iNICn(start=0)=rNICn.i "Current of resistor rNICn";
 equation
-  connect(rNICp.n, opAmp.out) annotation (Line(points={{-50,30},{-40,30},{-40,0},
-          {-50,0}}, color={0,0,255}));
-  connect(rNICp.p, opAmp.in_p) annotation (Line(points={{-70,30},{-80,30},{-80,6},
-          {-70,6}}, color={0,0,255}));
-  connect(rNICn.n, opAmp.out) annotation (Line(points={{-50,-30},{-40,-30},{-40,
-          0},{-50,0}}, color={0,0,255}));
-  connect(rNICn.p, opAmp.in_n) annotation (Line(points={{-70,-30},{-80,-30},{-80,
-          -6},{-70,-6}}, color={0,0,255}));
-  connect(rNICn.p, rNICg.p)
-    annotation (Line(points={{-70,-30},{-80,-30},{-80,-40}}, color={0,0,255}));
   connect(rNICg.n, ground.p)
     annotation (Line(points={{-80,-60},{-80,-70}}, color={0,0,255}));
   connect(rL.p, inductor.n)
@@ -111,6 +101,16 @@ equation
     annotation (Line(points={{40,60},{50,60},{50,40}}, color={0,0,255}));
   connect(opAmp.in_p, r2.p) annotation (Line(points={{-70,6},{-80,6},{-80,50},{
           10,50},{10,60},{20,60}}, color={0,0,255}));
+  connect(opAmp.in_n, rNICg.p)
+    annotation (Line(points={{-70,-6},{-80,-6},{-80,-40}}, color={0,0,255}));
+  connect(opAmp.out, rNICp.p) annotation (Line(points={{-50,0},{-40,0},{-40,30},
+          {-50,30}}, color={0,0,255}));
+  connect(rNICp.n, r2.p) annotation (Line(points={{-70,30},{-80,30},{-80,50},{
+          10,50},{10,60},{20,60}}, color={0,0,255}));
+  connect(opAmp.out, rNICn.p) annotation (Line(points={{-50,0},{-40,0},{-40,-30},
+          {-50,-30}}, color={0,0,255}));
+  connect(rNICn.n, rNICg.p)
+    annotation (Line(points={{-70,-30},{-80,-30},{-80,-40}}, color={0,0,255}));
   annotation (Documentation(info="<html>
 <p>See documentation of the enclosing subpackage.</p>
 </html>"), experiment(

@@ -5,11 +5,11 @@ model TestNIC "Test negative impedance converter"
   parameter SI.Resistance R=4700 "NIC pos and neg feedback resistance";
   parameter SI.Resistance Rg=6800 "NIC resistance to ground";
   Modelica.Electrical.Analog.Basic.Resistor rPos(R=R)
-    annotation (Placement(transformation(extent={{10,20},{30,40}})));
+    annotation (Placement(transformation(extent={{30,20},{10,40}})));
   Components.IdealizedOpAmp3Pin                          opAmp(Vps=+Vs, Vns=-Vs)
     annotation (Placement(transformation(extent={{10,10},{30,-10}})));
   Modelica.Electrical.Analog.Basic.Resistor rNeg(R=R)
-    annotation (Placement(transformation(extent={{10,-40},{30,-20}})));
+    annotation (Placement(transformation(extent={{30,-40},{10,-20}})));
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-50,-90},{-30,-70}})));
   Modelica.Electrical.Analog.Basic.Resistor rg(R=Rg) annotation (Placement(
@@ -40,16 +40,6 @@ protected
   //initialization
   SI.Current iNICn(start=0) = rNeg.i "Current of resistor rNICn";
 equation
-  connect(rPos.n, opAmp.out)
-    annotation (Line(points={{30,30},{40,30},{40,0},{30,0}}, color={0,0,255}));
-  connect(rPos.p, opAmp.in_p)
-    annotation (Line(points={{10,30},{0,30},{0,6},{10,6}}, color={0,0,255}));
-  connect(rNeg.n, opAmp.out) annotation (Line(points={{30,-30},{40,-30},{40,0},
-          {30,0}}, color={0,0,255}));
-  connect(rNeg.p, opAmp.in_n) annotation (Line(points={{10,-30},{0,-30},{0,-6},
-          {10,-6}}, color={0,0,255}));
-  connect(rNeg.p, rg.p)
-    annotation (Line(points={{10,-30},{0,-30},{0,-40}}, color={0,0,255}));
   connect(rg.n, ground.p)
     annotation (Line(points={{0,-60},{0,-70},{-40,-70}}, color={0,0,255}));
   connect(currentSensor.n, opAmp.in_p)
@@ -63,6 +53,16 @@ equation
           {-60,30},{-60,10}}, color={0,0,255}));
   connect(ground.p, idealNIC.n)
     annotation (Line(points={{-40,-70},{-60,-70},{-60,-10}}, color={0,0,255}));
+  connect(rg.p, opAmp.in_n)
+    annotation (Line(points={{0,-40},{0,-6},{10,-6}}, color={0,0,255}));
+  connect(rNeg.n, opAmp.in_n) annotation (Line(points={{10,-30},{0,-30},{0,-6},
+          {10,-6}}, color={0,0,255}));
+  connect(rNeg.p, opAmp.out) annotation (Line(points={{30,-30},{40,-30},{40,0},
+          {30,0}}, color={0,0,255}));
+  connect(opAmp.out, rPos.p)
+    annotation (Line(points={{30,0},{40,0},{40,30},{30,30}}, color={0,0,255}));
+  connect(rPos.n, opAmp.in_p)
+    annotation (Line(points={{10,30},{0,30},{0,6},{10,6}}, color={0,0,255}));
   annotation (Documentation(info="<html>
 <p>Plot currentsensor.i vs. rampVoltage.v to see the i(v)-characteristic of the NIC (negative impedance converter).</p>
 </html>"), experiment(

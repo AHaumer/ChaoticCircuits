@@ -1,11 +1,10 @@
 within ChaoticCircuits.VanDerPol;
 model ScaledBlocks "van der Pol equations"
   extends Modelica.Icons.Example;
-  extends Modelica.Icons.UnderConstruction;
   import Modelica.Constants.pi;
   parameter Real mu=0.2 "Damping";
   parameter Real A=1.0 "Amplitude of excitation";
-  parameter Real w=1.15 "Frequency of excitation";
+  parameter Real w=1.2 "Frequency of excitation";
   //scaling
   parameter Real kx=1 "Scaling factor x";
   parameter Real ky=1 "Scaling factor y";
@@ -25,7 +24,7 @@ model ScaledBlocks "van der Pol equations"
     annotation (Placement(transformation(extent={{30,30},{50,50}})));
   Modelica.Blocks.Math.Add3 add_y(
     k1=-kx/ky,
-    k2=-mu*kx^2*Vs^2,
+    k2=mu*kx^2*Vs^2,
     k3=1/ky) annotation (Placement(transformation(extent={{30,-10},{50,10}})));
   Modelica.Blocks.Math.MultiProduct product_x2(nu=3)
     annotation (Placement(transformation(extent={{-80,30},{-60,50}})));
@@ -33,7 +32,8 @@ model ScaledBlocks "van der Pol equations"
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-90,-30})));
-  Modelica.Blocks.Math.Add add_x2(k1=1/kx^2*Vs, k2=-1) annotation (Placement(
+  Modelica.Blocks.Math.Add add_x2(k1=1/(kx^2*Vs),
+                                                k2=-1) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
@@ -74,7 +74,14 @@ equation
   connect(product_x2.y, add_x2.u2)
     annotation (Line(points={{-58.3,40},{-56,40},{-56,32}}, color={0,0,127}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
-        coordinateSystem(preserveAspectRatio=false)),
+        coordinateSystem(preserveAspectRatio=false), graphics={
+                      Text(
+          extent={{-80,-60},{20,-100}},
+          textColor={0,0,255},
+          textString="A = 0 autononmous
+A = 0.45 chaotic
+A = 1.00 periodic",
+          horizontalAlignment=TextAlignment.Left)}),
     experiment(
       StopTime=1,
       Interval=1e-5,

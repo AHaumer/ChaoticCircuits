@@ -1,32 +1,32 @@
 within ChaoticCircuits.VanDerPol;
 model PhysicalModel "van der Pol equations"
   extends Modelica.Icons.Example;
-  extends Modelica.Icons.UnderConstruction;
   import Modelica.Constants.pi;
   parameter Real mu=0.2 "Damping";
   parameter Real A=1.0 "Amplitude of excitation";
-  parameter Real w=1.15 "Frequency of excitation";
+  parameter Real w=1.2 "Frequency of excitation";
   parameter Real x0=2 "Initial value of x";
   parameter Real y0=0 "Initial value of y";
   //assumptions
-  parameter SI.Frequency f0=1000 "Natural frequency";
-  parameter SI.Capacitance C=1e-6 "Capacitor";
+  parameter SI.AngularVelocity w0=1000 "Natural angular velocity";
+  parameter SI.Capacitance C=1e-3 "Capacitor";
   //calculated parameters
-  parameter SI.Inductance L=1/((2*pi*f0)^2*C) "Inductor";
+  parameter SI.Inductance L=1/(w0^2*C) "Inductor";
   parameter SI.Resistance R0=mu*sqrt(L/C) "Nonlinear resistor parameter";
-  parameter SI.Current I0=0.2 "Nonlinear resistor parameter";
-  parameter SI.Voltage V=A*I0/(w*2*pi*f0*C) "Excitation voltage amplitude";
+  parameter SI.Current I0=1 "Nonlinear resistor parameter";
+  parameter SI.Voltage V=A*I0/(w*w0*C) "Excitation voltage amplitude";
   parameter SI.Current i0=x0*I0 "Initial value of current i";
-  parameter SI.CurrentSlope didt0=2*pi*f0*I0*y0 "Initial value of current slope der(i)";
+  parameter SI.CurrentSlope didt0=w0*I0*y0 "Initial value of current slope der(i)";
   //shortcut to results
   SI.Current i=triode.i "Current i";
   SI.CurrentSlope didt=der(i) "Current slope der(i)";
   Real x=i/i0 "Scaled current";
-  Real y=didt/(2*pi*f0*I0) "Scaled current slope";
+  Real y=didt/(w0*I0) "Scaled current slope";
   Modelica.Electrical.Analog.Sources.SineVoltage excitation(
     V=V,
     phase=0,
-    f=w*f0) annotation (Placement(transformation(
+    f=w*w0/(2*pi))
+    annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-20,0})));
@@ -39,7 +39,7 @@ model PhysicalModel "van der Pol equations"
         rotation=270,
         origin={20,0})));
   ChaoticCircuits.Components.Triode triode(R0=R0, I0=I0)
-    annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
+    annotation (Placement(transformation(extent={{10,-30},{-10,-10}})));
 initial equation
   i=i0;
   didt=didt0;
@@ -50,12 +50,19 @@ equation
     annotation (Line(points={{10,20},{20,20},{20,10}}, color={0,0,255}));
   connect(inductor.p, excitation.p)
     annotation (Line(points={{-10,20},{-20,20},{-20,10}}, color={0,0,255}));
-  connect(ground.p, triode.p)
-    annotation (Line(points={{-20,-20},{-10,-20}}, color={0,0,255}));
-  connect(triode.n, capacitor.n)
+  connect(triode.p, capacitor.n)
     annotation (Line(points={{10,-20},{20,-20},{20,-10}}, color={0,0,255}));
+  connect(triode.n, ground.p)
+    annotation (Line(points={{-10,-20},{-20,-20}}, color={0,0,255}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
-        coordinateSystem(preserveAspectRatio=false)),
+        coordinateSystem(preserveAspectRatio=false), graphics={
+                      Text(
+          extent={{-80,100},{80,40}},
+          textColor={0,0,255},
+          textString="A = 0 autononmous
+A = 0.45 chaotic
+A = 1.00 periodic",
+          horizontalAlignment=TextAlignment.Left)}),
     experiment(
       StopTime=1,
       Interval=1e-05,

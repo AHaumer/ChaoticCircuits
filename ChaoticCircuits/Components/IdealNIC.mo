@@ -27,5 +27,13 @@ equation
       experiment(
       Interval=0.001,
       Tolerance=1e-06,
-      __Dymola_Algorithm="Dassl"));
+      __Dymola_Algorithm="Dassl"),
+    Documentation(info="<html>
+<p>This is a simple algebraic model of a Negative Impedance Converter.</p>
+<h4>Note:</h4>
+<p>
+If voltage v is prescribed, the current i can be unambiguously determined.<br>
+If current i is prescribed, in the range between the zero crossings the voltage v has 2 or 3 possible solutions. 
+</p>
+</html>"));
 end IdealNIC;
