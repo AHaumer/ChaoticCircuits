@@ -5,6 +5,7 @@ model ScaledBlocks "van der Pol equations"
   parameter Real mu=0.2 "Damping";
   parameter Real A=1.0 "Amplitude of excitation";
   parameter Real w=1.2 "Frequency of excitation";
+  parameter SI.Frequency f=w*w0/(2*pi) "Excitation voltage frequency";
   //scaling
   parameter Real kx=1 "Scaling factor x";
   parameter Real ky=1 "Scaling factor y";
@@ -43,7 +44,7 @@ model ScaledBlocks "van der Pol equations"
     annotation (Placement(transformation(extent={{-20,30},{-40,50}})));
   Modelica.Blocks.Math.MultiProduct product_x2y(nu=3)
     annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
-  Modelica.Blocks.Sources.Sine excitation(amplitude=A, f=w*w0/(2*pi))
+  Modelica.Blocks.Sources.Sine excitation(amplitude=A, f=f)
     annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
 equation
   connect(gain_x.y, integrator_x.u)

@@ -6,6 +6,7 @@ model IdealCircuit "van der Pol equations"
   parameter Real mu=0.2 "Damping";
   parameter Real A=1.0 "Amplitude of excitation";
   parameter Real w=1.2 "Frequency of excitation";
+  parameter SI.Frequency f=w*w0/(2*pi) "Excitation voltage frequency";
   //scaling
   parameter Real kx=1 "Scaling factor x";
   parameter Real ky=1 "Scaling factor y";
@@ -15,12 +16,12 @@ model IdealCircuit "van der Pol equations"
   parameter SI.Resistance R=10e3 "Output resistance of amplifiers";
   parameter SI.Capacitance C=1e-6 "Capacitor of integrators";
   //parameterization of the opAmp-circuits
-  parameter SI.Resistance Rxy   =w0/C/(ky/kx);
-  parameter SI.Resistance Ryx   =w0/C/(kx/ky);
-  parameter SI.Resistance R1    =R/(kx^2*Vs);
+  parameter SI.Resistance Rxy   =1/w0/C/(ky/kx);
+  parameter SI.Resistance Ryx   =1/w0/C/(kx/ky);
+  parameter SI.Resistance R1    =R*kx^2*Vs;
   parameter SI.Resistance Rx2   =R;
-  parameter SI.Resistance Rye   =w0/C/(1/ky);
-  parameter SI.Resistance Ry1x2y=w0/C/(1/(kx^2*Vs^2));
+  parameter SI.Resistance Ry1x2y=1/w0/C/(kx^2*Vs^2);
+  parameter SI.Resistance Rye   =1/w0/C/(1/ky);
   //initial values
   parameter Real x0=2 "Initial value of x";
   parameter Real y0=-1/7.5 "Initial value of y";
@@ -62,7 +63,7 @@ model IdealCircuit "van der Pol equations"
     annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
   Components.Multiplier multiplier_x2(ER=Vs)
     annotation (Placement(transformation(extent={{20,80},{0,60}})));
-  Modelica.Electrical.Analog.Sources.SineVoltage excitation(V=A, f=w*w0/(2*pi))
+  Modelica.Electrical.Analog.Sources.SineVoltage excitation(V=A, f=f)
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
@@ -73,10 +74,6 @@ model IdealCircuit "van der Pol equations"
     annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
   Modelica.Electrical.Analog.Basic.Resistor rye(R=Rye)
     annotation (Placement(transformation(extent={{-20,-70},{0,-50}})));
-  Modelica.Electrical.Analog.Ideal.IdealClosingSwitch switch
-    annotation (Placement(transformation(extent={{-50,-50},{-30,-70}})));
-  Modelica.Blocks.Sources.BooleanConstant booleanConstant(k=A > 0)
-    annotation (Placement(transformation(extent={{-12,-88},{-28,-72}})));
   Components.Multiplier multiplier_1x2y(ER=Vs)
     annotation (Placement(transformation(extent={{-50,-50},{-30,-30}})));
   Modelica.Electrical.Analog.Basic.Resistor rx2(R=Rx2)
@@ -96,6 +93,8 @@ model IdealCircuit "van der Pol equations"
         origin={-10,90})));
   Modelica.Electrical.Analog.Basic.Ground ground6
     annotation (Placement(transformation(extent={{4,78},{16,90}})));
+  Components.IdealSwitch idealSwitch(On=A > 0)
+    annotation (Placement(transformation(extent={{-48,-70},{-28,-50}})));
 equation
   connect(integrator_x.in_p,ground1. p)
     annotation (Line(points={{10,14},{10,10}}, color={0,0,255}));
@@ -147,12 +146,6 @@ equation
     annotation (Line(points={{10,-34},{0,-34},{0,-40}}, color={0,0,255}));
   connect(integrator_y.in_n, rye.n)
     annotation (Line(points={{10,-34},{0,-34},{0,-60}}, color={0,0,255}));
-  connect(excitation.p, switch.p)
-    annotation (Line(points={{-60,-60},{-50,-60}}, color={0,0,255}));
-  connect(switch.n, rye.p)
-    annotation (Line(points={{-30,-60},{-20,-60}}, color={0,0,255}));
-  connect(booleanConstant.y, switch.control) annotation (Line(points={{-28.8,-80},
-          {-40,-80},{-40,-72}}, color={255,0,255}));
   connect(multiplier_1x2y.out, ry1x2y.p)
     annotation (Line(points={{-30,-40},{-20,-40}}, color={0,0,255}));
   connect(add_1x2.out, rx4.p)
@@ -179,6 +172,10 @@ equation
     annotation (Line(points={{30,40},{30,64},{20,64}}, color={0,0,255}));
   connect(rxb.p, multiplier_x2.in2)
     annotation (Line(points={{90,40},{90,76},{20,76}}, color={0,0,255}));
+  connect(excitation.p, idealSwitch.p)
+    annotation (Line(points={{-60,-60},{-48,-60}}, color={0,0,255}));
+  connect(idealSwitch.n, rye.p)
+    annotation (Line(points={{-28,-60},{-20,-60}}, color={0,0,255}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
         coordinateSystem(preserveAspectRatio=false), graphics={
                       Text(
