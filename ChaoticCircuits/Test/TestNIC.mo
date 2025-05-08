@@ -6,7 +6,7 @@ model TestNIC "Test negative impedance converter"
   parameter SI.Resistance Rg=6800 "NIC resistance to ground";
   Modelica.Electrical.Analog.Basic.Resistor rPos(R=R)
     annotation (Placement(transformation(extent={{30,20},{10,40}})));
-  Components.IdealizedOpAmp3Pin                          opAmp(Vps=+Vs, Vns=-Vs)
+  Components.IdealizedOpAmp3Pin opAmp(Vps=+Vs, Vns=-Vs)
     annotation (Placement(transformation(extent={{10,10},{30,-10}})));
   Modelica.Electrical.Analog.Basic.Resistor rNeg(R=R)
     annotation (Placement(transformation(extent={{30,-40},{10,-20}})));

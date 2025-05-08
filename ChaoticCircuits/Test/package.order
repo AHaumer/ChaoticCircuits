@@ -4,5 +4,6 @@ SimpleTransistorCharacteristic
 TestAmplifier
 TestIntegrator
 TestNIC
+TestChuasDiode
 TestMulitplier
 TestTriode
