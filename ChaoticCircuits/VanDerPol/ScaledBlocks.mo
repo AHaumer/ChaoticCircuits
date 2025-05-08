@@ -8,12 +8,13 @@ model ScaledBlocks "van der Pol equations"
   //scaling
   parameter Real kx=1 "Scaling factor x";
   parameter Real ky=1 "Scaling factor y";
-  parameter Real kt=1000 "Time scaling";
+  parameter Real kt=2*pi*1000 "Time scaling";
   parameter Real Vs=10 "Limiting supply voltage";
   //initial values
-  parameter Real x0=2 "Initial values of x";
-  parameter Real y0=0 "Initial values of y";
+  parameter Real x0=2 "Initial value of x";
+  parameter Real y0=-1/7.5 "Initial value of y";
   //shortcut to results
+  Real e=excitation.y "Excitation";
   Real x=kx*integrator_x.y "Result: prop. i";
   Real y=ky*integrator_y.y "Result: prop. der(i)";
   Modelica.Blocks.Continuous.Integrator integrator_x(k=kt,    y_start=x0/kx)
@@ -42,7 +43,7 @@ model ScaledBlocks "van der Pol equations"
     annotation (Placement(transformation(extent={{-20,30},{-40,50}})));
   Modelica.Blocks.Math.MultiProduct product_x2y(nu=3)
     annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
-  Modelica.Blocks.Sources.Sine e(amplitude=A, f=w/(2*pi)*kt)
+  Modelica.Blocks.Sources.Sine excitation(amplitude=A, f=w/(2*pi)*kt)
     annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
 equation
   connect(gain_x.y, integrator_x.u)
@@ -67,8 +68,8 @@ equation
     annotation (Line(points={{-50,9},{-50,0},{-20,0}}, color={0,0,127}));
   connect(integrator_y.y, product_x2y.u[3]) annotation (Line(points={{81,0},{90,
           0},{90,20},{-30,20},{-30,2.33333},{-20,2.33333}}, color={0,0,127}));
-  connect(e.y, add_y.u3) annotation (Line(points={{1,-40},{20,-40},{20,-8},{28,
-          -8}}, color={0,0,127}));
+  connect(excitation.y, add_y.u3) annotation (Line(points={{1,-40},{20,-40},{20,
+          -8},{28,-8}}, color={0,0,127}));
   connect(one.y, add_x2.u1)
     annotation (Line(points={{-41,40},{-44,40},{-44,32}}, color={0,0,127}));
   connect(product_x2.y, add_x2.u2)
@@ -83,8 +84,8 @@ A = 0.45 chaotic
 A = 1.00 periodic",
           horizontalAlignment=TextAlignment.Left)}),
     experiment(
-      StopTime=1,
-      Interval=1e-5,
+      StopTime=0.2,
+      Interval=0.2e-5,
       Tolerance=1e-06),
     Documentation(info="<html>
 <p>See documentation of the enclosing subpackage.</p>

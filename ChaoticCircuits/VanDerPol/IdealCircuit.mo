@@ -9,7 +9,7 @@ model IdealCircuit "van der Pol equations"
   //scaling
   parameter Real kx=1 "Scaling factor x";
   parameter Real ky=1 "Scaling factor y";
-  parameter SI.Time Tau=1000 "Time scaling";
+  parameter SI.Time Tau=2*pi*1000 "Time scaling";
   parameter Real Vs=10 "Limiting supply voltage";
   //basic parameters of components
   parameter SI.Resistance R=10e3 "Output resistance of amplifiers";
@@ -22,9 +22,10 @@ model IdealCircuit "van der Pol equations"
   parameter SI.Resistance Rye   =Tau/C/(kx/ky);
   parameter SI.Resistance Ry1x2y=Tau/C/(kx/ky);
   //initial values
-  parameter Real x0=2 "Initial values of x";
-  parameter Real y0=0 "Initial values of y";
+  parameter Real x0=2 "Initial value of x";
+  parameter Real y0=-1/7.5 "Initial value of y";
   //shortcut to results
+  Real e=excitation.v;
   Real x=kx*inverter_x.out.v "Result: prop. i";
   Real y=ky*inverter_y.out.v "Result: prop. der(i)";
   Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin integrator_x

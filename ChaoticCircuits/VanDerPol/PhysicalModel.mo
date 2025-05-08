@@ -5,27 +5,31 @@ model PhysicalModel "van der Pol equations"
   parameter Real mu=0.2 "Damping";
   parameter Real A=1.0 "Amplitude of excitation";
   parameter Real w=1.2 "Frequency of excitation";
+  //initial values
   parameter Real x0=2 "Initial value of x";
-  parameter Real y0=0 "Initial value of y";
+  parameter Real y0=-1/7.5 "Initial value of y";
+  parameter Real z0=0 "Initial value of z";
   //assumptions
-  parameter SI.AngularVelocity w0=1000 "Natural angular velocity";
-  parameter SI.Capacitance C=1e-3 "Capacitor";
+  parameter SI.AngularVelocity w0=2*pi*1000 "Natural angular velocity";
+  parameter SI.Capacitance C=100e-6/(2*pi) "Capacitor";
   //calculated parameters
   parameter SI.Inductance L=1/(w0^2*C) "Inductor";
   parameter SI.Resistance R0=mu*sqrt(L/C) "Nonlinear resistor parameter";
-  parameter SI.Current I0=1 "Nonlinear resistor parameter";
+  parameter SI.Current I0=0.5 "Nonlinear resistor parameter";
   parameter SI.Voltage V=A*I0/(w*w0*C) "Excitation voltage amplitude";
-  parameter SI.Current i0=x0*I0 "Initial value of current i";
-  parameter SI.CurrentSlope didt0=w0*I0*y0 "Initial value of current slope der(i)";
+  parameter SI.Frequency f=w*w0/(2*pi) "Excitation voltage frequency";
   //shortcut to results
-  SI.Current i=triode.i "Current i";
-  SI.CurrentSlope didt=der(i) "Current slope der(i)";
-  Real x=i/i0 "Scaled current";
+  SI.Current i(start=x0*I0, fixed=true)=triode.i "Current i";
+  SI.CurrentSlope didt(start=y0*w0*I0, fixed=true)=der(i) "Current slope der(i)";
+  SI.Voltage vc(start=z0*I0/(w0*C), fixed=false)=capacitor.v "Voltage of capactor";
+  Real e=excitation.v*w*w0*C/I0 "Scaled excitation";
+  Real x=i/I0 "Scaled current";
   Real y=didt/(w0*I0) "Scaled current slope";
+  Real z=capacitor.v*w*w0*C/I0 "Scaled capacitor voltage";
   Modelica.Electrical.Analog.Sources.SineVoltage excitation(
     V=V,
     phase=0,
-    f=w*w0/(2*pi))
+    f=f)
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
@@ -40,9 +44,6 @@ model PhysicalModel "van der Pol equations"
         origin={20,0})));
   ChaoticCircuits.Components.Triode triode(R0=R0, I0=I0)
     annotation (Placement(transformation(extent={{10,-30},{-10,-10}})));
-initial equation
-  i=i0;
-  didt=didt0;
 equation
   connect(excitation.n, ground.p)
     annotation (Line(points={{-20,-10},{-20,-20}}, color={0,0,255}));
@@ -64,8 +65,8 @@ A = 0.45 chaotic
 A = 1.00 periodic",
           horizontalAlignment=TextAlignment.Left)}),
     experiment(
-      StopTime=1,
-      Interval=1e-05,
+      StopTime=0.2,
+      Interval=0.2e-05,
       Tolerance=1e-06),
     Documentation(info="<html>
 <p>See documentation of the enclosing subpackage.</p>
