@@ -9,7 +9,7 @@ model AnalyticEquations "van der Pol equations"
   //initial values
   parameter Real x0=2 "Initial value of x";
   parameter Real y0=-1/7.5 "Initial value of y";
-  parameter Real z0=0 "Initial value of z";
+  parameter Real z0=-5/6 "Initial value of z";
   //shortcut to results
   Real e=A*sin(w*w0*time) "Excitation";
   Real x(start=x0, fixed=true) "Result: prop. i";

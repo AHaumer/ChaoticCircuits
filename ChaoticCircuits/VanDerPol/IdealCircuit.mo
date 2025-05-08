@@ -9,18 +9,18 @@ model IdealCircuit "van der Pol equations"
   //scaling
   parameter Real kx=1 "Scaling factor x";
   parameter Real ky=1 "Scaling factor y";
-  parameter SI.Time Tau=2*pi*1000 "Time scaling";
+  parameter SI.AngularVelocity w0=2*pi*1000 "Time scaling / natural eigen frequency";
   parameter Real Vs=10 "Limiting supply voltage";
   //basic parameters of components
   parameter SI.Resistance R=10e3 "Output resistance of amplifiers";
   parameter SI.Capacitance C=1e-6 "Capacitor of integrators";
   //parameterization of the opAmp-circuits
-  parameter SI.Resistance Rxy   =Tau/C/(ky/kx);
-  parameter SI.Resistance Ryx   =Tau/C/(kx/ky);
-  parameter SI.Resistance R1    =Tau/C/(kx/ky);
-  parameter SI.Resistance Rx2   =Tau/C/(kx/ky);
-  parameter SI.Resistance Rye   =Tau/C/(kx/ky);
-  parameter SI.Resistance Ry1x2y=Tau/C/(kx/ky);
+  parameter SI.Resistance Rxy   =w0/C/(ky/kx);
+  parameter SI.Resistance Ryx   =w0/C/(kx/ky);
+  parameter SI.Resistance R1    =R/(kx^2*Vs);
+  parameter SI.Resistance Rx2   =R;
+  parameter SI.Resistance Rye   =w0/C/(1/ky);
+  parameter SI.Resistance Ry1x2y=w0/C/(1/(kx^2*Vs^2));
   //initial values
   parameter Real x0=2 "Initial value of x";
   parameter Real y0=-1/7.5 "Initial value of y";
@@ -62,7 +62,7 @@ model IdealCircuit "van der Pol equations"
     annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
   Components.Multiplier multiplier_x2(ER=Vs)
     annotation (Placement(transformation(extent={{20,80},{0,60}})));
-  Modelica.Electrical.Analog.Sources.SineVoltage excitation(V=A, f=w/(2*pi)*Tau)
+  Modelica.Electrical.Analog.Sources.SineVoltage excitation(V=A, f=w*w0/(2*pi))
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
@@ -189,8 +189,8 @@ A = 0.45 chaotic
 A = 1.00 periodic",
           horizontalAlignment=TextAlignment.Left)}),
     experiment(
-      StopTime=1,
-      Interval=1e-5,
+      StopTime=0.2,
+      Interval=0.2e-5,
       Tolerance=1e-06),
     Documentation(info="<html>
 <p>See documentation of the enclosing subpackage.</p>

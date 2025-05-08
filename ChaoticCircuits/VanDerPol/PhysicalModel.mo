@@ -8,7 +8,7 @@ model PhysicalModel "van der Pol equations"
   //initial values
   parameter Real x0=2 "Initial value of x";
   parameter Real y0=-1/7.5 "Initial value of y";
-  parameter Real z0=0 "Initial value of z";
+  parameter Real z0=-5/6 "Initial value of z";
   //assumptions
   parameter SI.AngularVelocity w0=2*pi*1000 "Natural angular velocity";
   parameter SI.Capacitance C=100e-6/(2*pi) "Capacitor";
@@ -25,10 +25,11 @@ model PhysicalModel "van der Pol equations"
   Real e=excitation.v*w*w0*C/I0 "Scaled excitation";
   Real x=i/I0 "Scaled current";
   Real y=didt/(w0*I0) "Scaled current slope";
-  Real z=capacitor.v*w*w0*C/I0 "Scaled capacitor voltage";
-  Modelica.Electrical.Analog.Sources.SineVoltage excitation(
+  Real z=vc*w0*C/I0 "Scaled capacitor voltage";
+  Modelica.Electrical.Analog.Sources.CosineVoltage
+                                                 excitation(
     V=V,
-    phase=0,
+    phase=-3.1415926535898,
     f=f)
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},

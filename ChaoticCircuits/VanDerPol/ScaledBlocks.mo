@@ -8,7 +8,7 @@ model ScaledBlocks "van der Pol equations"
   //scaling
   parameter Real kx=1 "Scaling factor x";
   parameter Real ky=1 "Scaling factor y";
-  parameter Real kt=2*pi*1000 "Time scaling";
+  parameter SI.AngularVelocity w0=2*pi*1000 "Time scaling / natural eigen frequency";
   parameter Real Vs=10 "Limiting supply voltage";
   //initial values
   parameter Real x0=2 "Initial value of x";
@@ -17,9 +17,9 @@ model ScaledBlocks "van der Pol equations"
   Real e=excitation.y "Excitation";
   Real x=kx*integrator_x.y "Result: prop. i";
   Real y=ky*integrator_y.y "Result: prop. der(i)";
-  Modelica.Blocks.Continuous.Integrator integrator_x(k=kt,    y_start=x0/kx)
+  Modelica.Blocks.Continuous.Integrator integrator_x(k=w0,    y_start=x0/kx)
     annotation (Placement(transformation(extent={{60,30},{80,50}})));
-  Modelica.Blocks.Continuous.Integrator integrator_y(k=kt,    y_start=y0/ky)
+  Modelica.Blocks.Continuous.Integrator integrator_y(k=w0,    y_start=y0/ky)
     annotation (Placement(transformation(extent={{60,-10},{80,10}})));
   Modelica.Blocks.Math.Gain gain_x(k=ky/kx)
     annotation (Placement(transformation(extent={{30,30},{50,50}})));
@@ -43,7 +43,7 @@ model ScaledBlocks "van der Pol equations"
     annotation (Placement(transformation(extent={{-20,30},{-40,50}})));
   Modelica.Blocks.Math.MultiProduct product_x2y(nu=3)
     annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
-  Modelica.Blocks.Sources.Sine excitation(amplitude=A, f=w/(2*pi)*kt)
+  Modelica.Blocks.Sources.Sine excitation(amplitude=A, f=w*w0/(2*pi))
     annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
 equation
   connect(gain_x.y, integrator_x.u)
