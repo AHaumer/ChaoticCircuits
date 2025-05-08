@@ -108,5 +108,10 @@ equation
     Diagram(graphics={Line(
           points={{-70,4},{-50,16}},
           color={0,0,0},
-          arrow={Arrow.None,Arrow.Open})}));
+          arrow={Arrow.None,Arrow.Open}),
+                      Text(
+          extent={{-100,-60},{0,-100}},
+          textColor={0,0,255},
+          textString="A = 0.3 periodic
+A = 1.0 chaotic")}));
 end ImprovedCircuit;
