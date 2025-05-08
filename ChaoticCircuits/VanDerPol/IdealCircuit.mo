@@ -18,13 +18,13 @@ model IdealCircuit "van der Pol equations"
   //parameterization of the opAmp-circuits
   parameter SI.Resistance Rxy   =1/w0/C/(ky/kx);
   parameter SI.Resistance Ryx   =1/w0/C/(kx/ky);
-  parameter SI.Resistance R1    =R*kx^2*Vs;
+  parameter SI.Resistance R1    =R/(1/(kx^2*Vs));
   parameter SI.Resistance Rx2   =R;
   parameter SI.Resistance Ry1x2y=1/w0/C/(kx^2*Vs^2);
   parameter SI.Resistance Rye   =1/w0/C/(1/ky);
   //initial values
   parameter Real x0=2 "Initial value of x";
-  parameter Real y0=-1/7.5 "Initial value of y";
+  parameter Real y0=-2/15 "Initial value of y";
   //shortcut to results
   Real e=excitation.v;
   Real x=kx*inverter_x.out.v "Result: prop. i";
@@ -33,7 +33,7 @@ model IdealCircuit "van der Pol equations"
     annotation (Placement(transformation(extent={{10,10},{30,30}})));
   Modelica.Electrical.Analog.Basic.Ground ground1
     annotation (Placement(transformation(extent={{4,-2},{16,10}})));
-  Modelica.Electrical.Analog.Basic.Capacitor c_x(v(fixed=true, start=-0.001/kx),
+  Modelica.Electrical.Analog.Basic.Capacitor c_x(v(fixed=true, start=-x0/kx),
       C=C) annotation (Placement(transformation(extent={{30,30},{10,50}})));
   Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin inverter_x
     annotation (Placement(transformation(extent={{70,10},{90,30}})));
@@ -47,7 +47,7 @@ model IdealCircuit "van der Pol equations"
     annotation (Placement(transformation(extent={{10,-50},{30,-30}})));
   Modelica.Electrical.Analog.Basic.Ground ground3
     annotation (Placement(transformation(extent={{4,-62},{16,-50}})));
-  Modelica.Electrical.Analog.Basic.Capacitor c_y(v(fixed=true, start=-0.001/ky),
+  Modelica.Electrical.Analog.Basic.Capacitor c_y(v(fixed=true, start=-y0/ky),
       C=C) annotation (Placement(transformation(extent={{30,-30},{10,-10}})));
   Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin inverter_y
     annotation (Placement(transformation(extent={{70,-50},{90,-30}})));
@@ -93,8 +93,11 @@ model IdealCircuit "van der Pol equations"
         origin={-10,90})));
   Modelica.Electrical.Analog.Basic.Ground ground6
     annotation (Placement(transformation(extent={{4,78},{16,90}})));
-  Components.IdealSwitch idealSwitch(On=A > 0)
-    annotation (Placement(transformation(extent={{-48,-70},{-28,-50}})));
+  Modelica.Electrical.Analog.Ideal.IdealClosingSwitch
+                         switch(Ron=1e-12, Goff=1e-12)
+    annotation (Placement(transformation(extent={{-50,-50},{-30,-70}})));
+  Modelica.Blocks.Sources.BooleanConstant booleanConstant(k=A > 0)
+    annotation (Placement(transformation(extent={{-10,-90},{-30,-70}})));
 equation
   connect(integrator_x.in_p,ground1. p)
     annotation (Line(points={{10,14},{10,10}}, color={0,0,255}));
@@ -172,10 +175,12 @@ equation
     annotation (Line(points={{30,40},{30,64},{20,64}}, color={0,0,255}));
   connect(rxb.p, multiplier_x2.in2)
     annotation (Line(points={{90,40},{90,76},{20,76}}, color={0,0,255}));
-  connect(excitation.p, idealSwitch.p)
-    annotation (Line(points={{-60,-60},{-48,-60}}, color={0,0,255}));
-  connect(idealSwitch.n, rye.p)
-    annotation (Line(points={{-28,-60},{-20,-60}}, color={0,0,255}));
+  connect(excitation.p, switch.p)
+    annotation (Line(points={{-60,-60},{-50,-60}}, color={0,0,255}));
+  connect(switch.n, rye.p)
+    annotation (Line(points={{-30,-60},{-20,-60}}, color={0,0,255}));
+  connect(booleanConstant.y, switch.control) annotation (Line(points={{-31,-80},
+          {-40,-80},{-40,-72}}, color={255,0,255}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
         coordinateSystem(preserveAspectRatio=false), graphics={
                       Text(

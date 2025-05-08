@@ -7,7 +7,7 @@ model PhysicalModel "van der Pol equations"
   parameter Real w=1.2 "Frequency of excitation";
   //initial values
   parameter Real x0=2 "Initial value of x";
-  parameter Real y0=-1/7.5 "Initial value of y";
+  parameter Real y0=-2/15 "Initial value of y";
   parameter Real z0=-5/6 "Initial value of z";
   //assumptions
   parameter SI.AngularVelocity w0=2*pi*1000 "Natural angular velocity";

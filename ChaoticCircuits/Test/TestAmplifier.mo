@@ -1,9 +1,9 @@
 within ChaoticCircuits.Test;
 model TestAmplifier "Test OpAmp amplifier"
   extends Modelica.Icons.Example;
-  parameter Real k=1;
-  parameter SI.Resistance R_in=Rout/k;
-  parameter SI.Resistance Rout=1e3;
+  parameter Real k=1 "Gain";
+  parameter SI.Resistance Rout=1e3 "Output Resistor";
+  parameter SI.Resistance R_in=Rout/k "Input Resistor";
   Modelica.Electrical.Analog.Sensors.VoltageSensor vOut annotation (Placement(
         transformation(
         extent={{10,-10},{-10,10}},

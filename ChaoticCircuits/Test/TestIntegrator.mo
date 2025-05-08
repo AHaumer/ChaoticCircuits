@@ -1,9 +1,10 @@
 within ChaoticCircuits.Test;
 model TestIntegrator "Test OpAmp integrator"
   extends Modelica.Icons.Example;
-  parameter SI.Time Tau=10e-3;
-  parameter SI.Capacitance Cout=1e-6;
-  parameter SI.Resistance R_in=Tau/Cout;
+  parameter SI.Time Tau=10e-3 "Integral time constant";
+  parameter Real k=1 "Gain";
+  parameter SI.Capacitance Cout=1e-6 "Output Capacitor";
+  parameter SI.Resistance R_in=Tau/Cout/k "Input Resistor";
   Modelica.Electrical.Analog.Sensors.VoltageSensor vOut annotation (Placement(
         transformation(
         extent={{10,-10},{-10,10}},

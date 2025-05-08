@@ -13,7 +13,7 @@ model ScaledBlocks "van der Pol equations"
   parameter Real Vs=10 "Limiting supply voltage";
   //initial values
   parameter Real x0=2 "Initial value of x";
-  parameter Real y0=-1/7.5 "Initial value of y";
+  parameter Real y0=-2/15 "Initial value of y";
   //shortcut to results
   Real e=excitation.y "Excitation";
   Real x=kx*integrator_x.y "Result: prop. i";
