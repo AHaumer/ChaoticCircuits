@@ -3,13 +3,12 @@ class ReleaseNotes "Release Notes"
   extends Modelica.Icons.ReleaseNotes;
   annotation (preferredView="info",Documentation(info="<html>
 
-<h5>Version x.x.x, 2025-xx-xx Anton Haumer</h5>
+<h5>Version 1.7.0, 2025-05-09 Anton Haumer</h5>
 <ul>
-  <li>Implemented van der Pol oscillator</li>
+  <li>Implemented van der Pol oscillator (the translation to opAmp-circuits is under construction)</li>
   <li>Implemented parameter records for NIC and ChuaDiode with consistent parameter calculation</li>
-  <li>Implemented ImprovedNIC and ImprovedChuaDiode</li>
-  <li>Implemented IdealChuaDiode</li>
-  <li>Implemented IdealNIC (negative impedance converter for ShinrikiOscillator)</li>
+  <li>Implemented ImprovedNIC and ImprovedChuaDiode (built from 2 NICs)</li>
+  <li>Implemented IdealNIC (negative impedance converter for ShinrikiOscillator) and IdealChuaDiode (built from 2 NICs)</li>
   <li>Implemented Jerk Circuit</li>
 </ul>
 

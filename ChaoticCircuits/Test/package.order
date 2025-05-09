@@ -3,7 +3,7 @@ TestZenerDiodePair
 SimpleTransistorCharacteristic
 TestAmplifier
 TestIntegrator
+TestMulitplier
 TestNIC
 TestChuasDiode
-TestMulitplier
 TestTriode

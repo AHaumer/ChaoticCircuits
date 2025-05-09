@@ -102,6 +102,7 @@ Note that of course the results are strongly dependent on the implementation det
  </tbody>
 </table>
 <p>
+Slightly different results of the different implementations may occur, they stem from more detials that are taken into account with the more sophistiacted implementation. <br>
 Note that for the more sophisticated OpAmp-model <a href=\"modelica://ChaoticCircuits.Components.IdealizedOpAmp3Pin\">IdealizedOpAmp3Pin</a> from this library is used 
 instead of <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> from MSL 
 to get rid of the implementation with <code>smooth</code> (which allows tools to avoid events when saturating!) and <code>noEvent</code> (which suppresses events!).

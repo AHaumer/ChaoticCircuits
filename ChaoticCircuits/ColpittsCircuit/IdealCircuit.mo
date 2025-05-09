@@ -119,6 +119,6 @@ equation
                       Text(
           extent={{-100,-60},{0,-100}},
           textColor={0,0,255},
-          textString="RE = 2000 Ohm periodic
+          textString="RE = 5000 Ohm periodic
 RE =   500 Ohm chaotic")}));
 end IdealCircuit;
