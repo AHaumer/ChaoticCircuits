@@ -7,15 +7,12 @@ model IdealCircuit "Shinriki oscillator"
   parameter SI.Resistance R2=20e3 "Resistor 2";
   parameter SI.Capacitance C1=10.e-9 "Capacitor 1";
   parameter SI.Capacitance C2=100e-9 "Capacitor 2";
-  parameter SI.Voltage Vs=15 "Supply Voltage";
-  parameter SI.Resistance RNIC =4700 "NIC feedback resistance";
-  parameter SI.Resistance RNICg=6800 "NIC resistance to ground";
   //shortcut to results
   SI.Voltage v1(start=0, fixed=true)=c1.v "Result 1 c1.v";
   SI.Voltage v2(start=1, fixed=true)=c2.v "Result 2 c2.v";
   SI.Voltage vRL(start=0, fixed=true)=rL.v "Voltage of inductor's resistance";
   Modelica.Electrical.Analog.Basic.Ground ground
-    annotation (Placement(transformation(extent={{-90,-90},{-70,-70}})));
+    annotation (Placement(transformation(extent={{-60,-60},{-40,-40}})));
   Modelica.Electrical.Analog.Basic.Resistor r1(R=R1) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
@@ -43,24 +40,22 @@ model IdealCircuit "Shinriki oscillator"
         origin={80,-20})));
   Components.ZenerDiodePairApproximation zDiodePair
     annotation (Placement(transformation(extent={{20,30},{40,50}})));
-  Components.IdealNIC idealNIC(
-    Vs=Vs,
-    R=RNIC,
-    Rg=RNICg)
+  Components.IdealNIC idealNIC(redeclare
+      ChaoticCircuits.ParameterSets.NIC_Shinriki nicData)
              annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
-        origin={-80,0})));
+        origin={-50,0})));
 equation
   connect(rL.p, inductor.n)
     annotation (Line(points={{80,-10},{80,10}}, color={0,0,255}));
   connect(ground.p, rL.n)
-    annotation (Line(points={{-80,-70},{80,-70},{80,-30}}, color={0,0,255}));
-  connect(c2.n, rL.n) annotation (Line(points={{60,-10},{60,-70},{80,-70},{80,-30}},
+    annotation (Line(points={{-50,-40},{80,-40},{80,-30}}, color={0,0,255}));
+  connect(c2.n, rL.n) annotation (Line(points={{60,-10},{60,-40},{80,-40},{80,-30}},
         color={0,0,255}));
-  connect(c1.n, rL.n) annotation (Line(points={{0,-10},{0,-70},{80,-70},{80,-30}},
+  connect(c1.n, rL.n) annotation (Line(points={{0,-10},{0,-40},{80,-40},{80,-30}},
         color={0,0,255}));
-  connect(r1.n, rL.n) annotation (Line(points={{-20,-10},{-20,-70},{80,-70},{80,
+  connect(r1.n, rL.n) annotation (Line(points={{-20,-10},{-20,-40},{80,-40},{80,
           -30}}, color={0,0,255}));
   connect(c2.p, inductor.p) annotation (Line(points={{60,10},{60,50},{80,50},{80,
           30}}, color={0,0,255}));
@@ -74,10 +69,10 @@ equation
           {20,40}}, color={0,0,255}));
   connect(r2.n, zDiodePair.n) annotation (Line(points={{40,60},{50,60},{50,40},
           {40,40}}, color={0,0,255}));
-  connect(r1.p, idealNIC.p) annotation (Line(points={{-20,10},{-20,50},{-80,50},
-          {-80,10}}, color={0,0,255}));
+  connect(r1.p, idealNIC.p) annotation (Line(points={{-20,10},{-20,50},{-50,50},
+          {-50,10}}, color={0,0,255}));
   connect(idealNIC.n, ground.p)
-    annotation (Line(points={{-80,-10},{-80,-70}}, color={0,0,255}));
+    annotation (Line(points={{-50,-10},{-50,-40}}, color={0,0,255}));
   annotation (Documentation(info="<html>
 <p>See documentation of the enclosing subpackage.</p>
 </html>"), experiment(

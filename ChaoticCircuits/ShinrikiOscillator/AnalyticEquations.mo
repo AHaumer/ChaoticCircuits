@@ -14,11 +14,8 @@ model AnalyticEquations "Shinriki oscillator"
   parameter Real b=-0.1615e-3 "Coefficient b [A/V^3]";
   parameter Real c=0.3021e-3 "Coefficient c [A/V^5]";
   //Negative Impedance Converter
-  parameter SI.Resistance RNIC =4700 "NIC feedback resistance";
-  parameter SI.Resistance RNICg=6800 "NIC resistance to ground";
-  parameter SI.Voltage VLim=Vs*RNICg/(RNICg + RNIC) "Left and right corner voltage";
-  parameter SI.Conductance gPos= 1/RNIC  "Positive differential conductance";
-  parameter SI.Conductance gNeg=-1/RNICg "Negative differential conductance";
+  parameter ParameterSets.NIC_Shinriki nicData
+    annotation (Placement(transformation(extent={{60,60},{80,80}})));
   //shortcut to results
   SI.Voltage v1(start=0, fixed=true) "Result 1 c1.v";
   SI.Voltage v2(start=1, fixed=true) "Result 2 c2.v";
@@ -34,7 +31,9 @@ equation
   v2=L*der(iL) + RL*iL;
   vz=v1 - v2;
   iz=if abs(vz)<Vbt then 0 else sign(vz)*(a*(abs(vz) - Vbt) + b*(abs(vz) - Vbt)^3 + c*(abs(vz) - Vbt)^5);
-  iNIC=if v1<-VLim then -VLim*gNeg + gPos*(v1 + VLim) elseif v1>+VLim then +VLim*gNeg + gPos*(v1 - VLim) else gNeg*v1;
+  iNIC = if v1<-nicData.VLim then -nicData.VLim*nicData.gNeg + nicData.gPos*(v1 + nicData.VLim)
+     elseif v1>+nicData.VLim then +nicData.VLim*nicData.gNeg + nicData.gPos*(v1 - nicData.VLim)
+     else nicData.gNeg*v1;
   annotation (Documentation(info="<html>
 <p>See documentation of the enclosing subpackage.</p>
 </html>"), experiment(

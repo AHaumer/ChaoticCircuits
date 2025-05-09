@@ -6,5 +6,7 @@ Limiter
 IdealizedOpAmp3Pin
 Multiplier
 IdealNIC
-IdealChuasDiode
+ImprovedNIC
+IdealChuaDiode
+ImprovedChuaDiode
 Triode

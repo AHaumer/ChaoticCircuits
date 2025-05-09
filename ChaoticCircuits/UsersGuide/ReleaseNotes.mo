@@ -6,8 +6,9 @@ class ReleaseNotes "Release Notes"
 <h5>Version x.x.x, 2025-xx-xx Anton Haumer</h5>
 <ul>
   <li>Implemented van der Pol oscillator</li>
-  <li>Implemented parameter records for NIC and ChuasDiode with consistent parameter calculation</li>
-  <li>Implemented IdealChuasDiode</li>
+  <li>Implemented parameter records for NIC and ChuaDiode with consistent parameter calculation</li>
+  <li>Implemented ImprovedNIC and ImprovedChuaDiode</li>
+  <li>Implemented IdealChuaDiode</li>
   <li>Implemented IdealNIC (negative impedance converter for ShinrikiOscillator)</li>
   <li>Implemented Jerk Circuit</li>
 </ul>

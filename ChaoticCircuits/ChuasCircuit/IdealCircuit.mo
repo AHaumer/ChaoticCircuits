@@ -6,13 +6,6 @@ model IdealCircuit "Chua's chaotic Circuit"
   parameter SI.Resistance R=1.9e3 "Resistor";
   parameter SI.Capacitance C1=10.e-9 "Capacitor 1";
   parameter SI.Capacitance C2=100e-9 "Capacitor 2";
-  //parameter of Chua's diode
-  parameter Real k0=15000.0 "No-load amplification of opAmps";
-  parameter SI.Voltage Vs=12 "Supply voltage";
-  parameter SI.Resistance R1 = 220 "NIC1: feedback resistor";
-  parameter SI.Resistance R1g=2200 "NIC1: ground resistor";
-  parameter SI.Resistance R2 =2200 "NIC2: feedback resistor";
-  parameter SI.Resistance R2g=3300 "NIC2: ground resistor";
   //shortcut to results
   SI.Voltage v1(start=1e-3, fixed=true)=capacitor1.v "Result c1.v";
   SI.Voltage v2(start=0, fixed=true)=capacitor2.v "Result 2 c2.v";
@@ -22,57 +15,51 @@ model IdealCircuit "Chua's chaotic Circuit"
         transformation(
         extent={{10,-10},{-10,10}},
         rotation=90,
-        origin={-80,-20})));
+        origin={-40,-20})));
   Modelica.Electrical.Analog.Basic.Resistor resistorL(R=RL)
     annotation (Placement(transformation(extent={{10,-10},{-10,10}},
         rotation=90,
-        origin={-80,20})));
+        origin={-40,20})));
   Modelica.Electrical.Analog.Basic.Capacitor capacitor1(C=C1)
     annotation (Placement(
         transformation(
         extent={{-10,10},{10,-10}},
-        rotation=270)));
+        rotation=270,
+        origin={40,0})));
   Modelica.Electrical.Analog.Basic.Resistor resistor(R=R)
-    annotation (Placement(transformation(extent={{-30,30},{-10,50}})));
+    annotation (Placement(transformation(extent={{10,30},{30,50}})));
   Modelica.Electrical.Analog.Basic.Capacitor capacitor2(C=C2)
     annotation (Placement(
         transformation(
         extent={{-10,10},{10,-10}},
-        rotation=270,
-        origin={-40,0})));
+        rotation=270)));
   Modelica.Electrical.Analog.Basic.Ground ground
-    annotation (Placement(transformation(extent={{-30,-60},{-10,-40}})));
-  Components.IdealChuasDiode                                      chuasDiode(
-    k0=k0,
-    Vs=Vs,
-    R1=R1,
-    R1g=R1g,
-    R2=R2,
-    R2g=R2g)  annotation (Placement(transformation(
+    annotation (Placement(transformation(extent={{10,-60},{30,-40}})));
+  Components.IdealChuaDiode idealChuaDiode(redeclare
+      ChaoticCircuits.ParameterSets.ChuaData chuaData) annotation (Placement(
+        transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
-        origin={50,0})));
+        origin={80,0})));
 equation
   connect(resistor.p, capacitor2.p)
-    annotation (Line(points={{-30,40},{-40,40},{-40,10}}, color={0,0,255}));
+    annotation (Line(points={{10,40},{0,40},{0,10}},      color={0,0,255}));
   connect(resistor.n, capacitor1.p)
-    annotation (Line(points={{-10,40},{0,40},{0,10}},  color={0,0,255}));
+    annotation (Line(points={{30,40},{40,40},{40,10}}, color={0,0,255}));
   connect(ground.p, inductor.n)
-    annotation (Line(points={{-20,-40},{-80,-40},{-80,-30}},
-                                                           color={0,0,255}));
+    annotation (Line(points={{20,-40},{-40,-40},{-40,-30}},color={0,0,255}));
   connect(ground.p, capacitor2.n)
-    annotation (Line(points={{-20,-40},{-40,-40},{-40,-10}},
-                                                           color={0,0,255}));
+    annotation (Line(points={{20,-40},{0,-40},{0,-10}},    color={0,0,255}));
   connect(ground.p, capacitor1.n)
-    annotation (Line(points={{-20,-40},{0,-40},{0,-10}}, color={0,0,255}));
-  connect(resistor.n, chuasDiode.p)
-    annotation (Line(points={{-10,40},{50,40},{50,10}}, color={0,0,255}));
-  connect(ground.p, chuasDiode.n)
-    annotation (Line(points={{-20,-40},{50,-40},{50,-10}}, color={0,0,255}));
+    annotation (Line(points={{20,-40},{40,-40},{40,-10}},color={0,0,255}));
+  connect(resistor.n, idealChuaDiode.p)
+    annotation (Line(points={{30,40},{80,40},{80,10}}, color={0,0,255}));
+  connect(ground.p, idealChuaDiode.n)
+    annotation (Line(points={{20,-40},{80,-40},{80,-10}}, color={0,0,255}));
   connect(resistor.p, resistorL.p)
-    annotation (Line(points={{-30,40},{-80,40},{-80,30}}, color={0,0,255}));
+    annotation (Line(points={{10,40},{-40,40},{-40,30}},  color={0,0,255}));
   connect(resistorL.n, inductor.p)
-    annotation (Line(points={{-80,10},{-80,-10}}, color={0,0,255}));
+    annotation (Line(points={{-40,10},{-40,-10}}, color={0,0,255}));
   annotation (Documentation(info="<html>
 <p>See documentation of the enclosing subpackage.</p>
 </html>"), experiment(
@@ -85,7 +72,7 @@ equation
           textString="R = 1900 Ohm periodic
 R = 1500 Ohm chaotic"),
                       Line(
-          points={{-30,34},{-10,46}},
+          points={{10,34},{30,46}},
           color={0,0,0},
           arrow={Arrow.None,Arrow.Open})}));
 end IdealCircuit;

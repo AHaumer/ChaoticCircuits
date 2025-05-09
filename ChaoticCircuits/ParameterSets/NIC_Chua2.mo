@@ -3,7 +3,7 @@ record NIC_Chua2 "NIC2 for Chua"
   extends NICData(
     Type="NIC2 Chua",
     Vs=12,
-    R=2200,
+    R=22000,
     Rg=3300);
     annotation(defaultComponentName="nicData", defaultComponentPrefixes="parameter",
     Icon(graphics={Text(

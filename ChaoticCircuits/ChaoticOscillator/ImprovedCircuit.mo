@@ -121,13 +121,7 @@ equation
       StopTime=0.1,
       Interval=1e-06,
       Tolerance=1e-06),
-    Diagram(graphics={
-        Rectangle(
-          extent={{-22,30},{22,-56}},
-          lineColor={170,213,255},
-          fillPattern=FillPattern.Solid,
-          fillColor={170,213,255}),
-                      Line(
+    Diagram(graphics={Line(
           points={{0,-6},{20,6}},
           color={0,0,0},
           arrow={Arrow.None,Arrow.Open}),

@@ -61,20 +61,12 @@ equation
     annotation (Line(points={{-10,20},{-10,24}},        color={0,0,255}));
   connect(ground2.p, opAmp2.in_p)
     annotation (Line(points={{-60,-60},{-60,-56}},           color={0,0,255}));
-  connect(r31.n, opAmp3.in_n)
-    annotation (Line(points={{50,30},{60,30},{60,26}}, color={0,0,255}));
   connect(ground3.p, opAmp3.in_p)
     annotation (Line(points={{60,10},{60,14}},         color={0,0,255}));
   connect(ground4.p, opAmp4.in_p)
     annotation (Line(points={{0,-40},{0,-36}},            color={0,0,255}));
   connect(opAmp4.in_n, diode.n)
     annotation (Line(points={{0,-24},{0,-20},{-10,-20}}, color={0,0,255}));
-  connect(r34.n, opAmp3.in_n) annotation (Line(points={{50,0},{50,30},{60,30},{
-          60,26}}, color={0,0,255}));
-  connect(r34.n, r31.n)
-    annotation (Line(points={{50,0},{50,30}}, color={0,0,255}));
-  connect(rb.n, r31.n)
-    annotation (Line(points={{50,50},{50,30}}, color={0,0,255}));
   connect(opAmp3.out, rb.p) annotation (Line(points={{80,20},{90,20},{90,70},{
           20,70},{20,50},{30,50}}, color={0,0,255}));
   connect(opAmp3.out, r2.p) annotation (Line(points={{80,20},{90,20},{90,80},{
@@ -83,8 +75,6 @@ equation
     annotation (Line(points={{-20,60},{-10,60}}, color={0,0,255}));
   connect(c1.n, opAmp1.in_n)
     annotation (Line(points={{-10,60},{-10,36}}, color={0,0,255}));
-  connect(c3.n, opAmp3.in_n)
-    annotation (Line(points={{60,50},{60,26}}, color={0,0,255}));
   connect(opAmp2.in_n, c2.n)
     annotation (Line(points={{-60,-44},{-60,-20}}, color={0,0,255}));
   connect(c2.n, r2.n)
@@ -107,6 +97,14 @@ equation
     annotation (Line(points={{20,0},{20,-30}}, color={0,0,255}));
   connect(opAmp4.in_n, ra.n)
     annotation (Line(points={{0,-24},{0,0}}, color={0,0,255}));
+  connect(opAmp3.in_n, c3.n)
+    annotation (Line(points={{60,26},{60,50}}, color={0,0,255}));
+  connect(r31.n, c3.n)
+    annotation (Line(points={{50,30},{60,30},{60,50}}, color={0,0,255}));
+  connect(rb.n, r31.n)
+    annotation (Line(points={{50,50},{50,30}}, color={0,0,255}));
+  connect(r31.n, r34.n)
+    annotation (Line(points={{50,30},{50,0}}, color={0,0,255}));
   annotation (                                 experiment(
       StopTime=0.1,
       Interval=1e-06,
