@@ -11,7 +11,7 @@ model InductorlessCircuit "Chua's chaotic Circuit"
   parameter SI.Voltage Vs=12 "Supply voltage";
   parameter SI.Resistance R1 = 220 "NIC1: feedback resistor";
   parameter SI.Resistance R1g=2200 "NIC1: ground resistor";
-  parameter SI.Resistance R2 =22e3 "NIC2: feedback resistor";
+  parameter SI.Resistance R2 =2200 "NIC2: feedback resistor";
   parameter SI.Resistance R2g=3300 "NIC2: ground resistor";
   //Inductor replacement
   parameter SI.Resistance R7=100 "R7";

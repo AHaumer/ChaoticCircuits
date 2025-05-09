@@ -7,7 +7,7 @@ model TestChuasDiode "Test OpAmp-implementation of Chuas diode"
   parameter SI.Voltage Vs=12 "Supply voltage";
   parameter SI.Resistance R1 = 220 "NIC1: feedback resistor";
   parameter SI.Resistance R1g=2200 "NIC1: ground resistor";
-  parameter SI.Resistance R2 =22e3 "NIC2: feedback resistor";
+  parameter SI.Resistance R2 =2200 "NIC2: feedback resistor";
   parameter SI.Resistance R2g=3300 "NIC2: ground resistor";
   //calculated parameters
   parameter SI.Voltage VLim1=Vs*R1g/(R1g + R1) "NIC1: Left and right corner voltage";
