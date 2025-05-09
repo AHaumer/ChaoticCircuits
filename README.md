@@ -1,1 +1,1 @@
-This Modelica library demonsrates chaotic behaviour of circuits with extensive references.
+This Modelica library demonstrates chaotic behaviour of circuits with extensive references.
