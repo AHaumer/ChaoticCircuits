@@ -6,6 +6,13 @@ model IdealCircuit "Chua's chaotic Circuit"
   parameter SI.Resistance R=1.9e3 "Resistor";
   parameter SI.Capacitance C1=10.e-9 "Capacitor 1";
   parameter SI.Capacitance C2=100e-9 "Capacitor 2";
+  //parameter of Chua's diode
+  parameter Real k0=15000.0 "No-load amplification of opAmps";
+  parameter SI.Voltage Vs=12 "Supply voltage";
+  parameter SI.Resistance R1 = 220 "NIC1: feedback resistor";
+  parameter SI.Resistance R1g=2200 "NIC1: ground resistor";
+  parameter SI.Resistance R2 =22e3 "NIC2: feedback resistor";
+  parameter SI.Resistance R2g=3300 "NIC2: ground resistor";
   //shortcut to results
   SI.Voltage v1(start=1e-3, fixed=true)=capacitor1.v "Result c1.v";
   SI.Voltage v2(start=0, fixed=true)=capacitor2.v "Result 2 c2.v";
@@ -35,10 +42,13 @@ model IdealCircuit "Chua's chaotic Circuit"
         origin={-40,0})));
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-30,-60},{-10,-40}})));
-  Modelica.Electrical.Analog.Examples.Utilities.NonlinearResistor chuasDiode(
-    Ga=-757.0e-6,
-    Gb=-408.7e-6,
-    Ve=1.166) annotation (Placement(transformation(
+  Components.IdealChuasDiode                                      chuasDiode(
+    k0=k0,
+    Vs=Vs,
+    R1=R1,
+    R1g=R1g,
+    R2=R2,
+    R2g=R2g)  annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={50,0})));

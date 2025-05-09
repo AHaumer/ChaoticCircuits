@@ -17,11 +17,11 @@ model TestNIC "Test negative impedance converter"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={0,-50})));
-  Modelica.Electrical.Analog.Sources.RampVoltage rampVoltage(
+  Modelica.Electrical.Analog.Sources.RampVoltage source(
     V=30,
     duration=5,
-    offset=-15)
-    annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+    offset=-15) annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-40,-20})));
   Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor annotation (
@@ -44,13 +44,12 @@ equation
     annotation (Line(points={{0,-60},{0,-70},{-40,-70}}, color={0,0,255}));
   connect(currentSensor.n, opAmp.in_p)
     annotation (Line(points={{-10,30},{0,30},{0,6},{10,6}}, color={0,0,255}));
-  connect(currentSensor.p, rampVoltage.p)
-    annotation (Line(points={{-30,30},{-40,30},{-40,-10}},
-                                                 color={0,0,255}));
-  connect(ground.p, rampVoltage.n)
-    annotation (Line(points={{-40,-70},{-40,-30}},         color={0,0,255}));
-  connect(rampVoltage.p, idealNIC.p) annotation (Line(points={{-40,-10},{-40,30},
-          {-60,30},{-60,10}}, color={0,0,255}));
+  connect(currentSensor.p, source.p)
+    annotation (Line(points={{-30,30},{-40,30},{-40,-10}}, color={0,0,255}));
+  connect(ground.p, source.n)
+    annotation (Line(points={{-40,-70},{-40,-30}}, color={0,0,255}));
+  connect(source.p, idealNIC.p) annotation (Line(points={{-40,-10},{-40,30},{-60,
+          30},{-60,10}}, color={0,0,255}));
   connect(ground.p, idealNIC.n)
     annotation (Line(points={{-40,-70},{-60,-70},{-60,-10}}, color={0,0,255}));
   connect(rg.p, opAmp.in_n)

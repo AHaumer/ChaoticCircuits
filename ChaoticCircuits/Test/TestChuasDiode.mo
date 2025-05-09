@@ -3,11 +3,24 @@ model TestChuasDiode "Test OpAmp-implementation of Chuas diode"
   extends Modelica.Icons.Example;
   parameter Real k0=15000.0 "No-load amplification of opAmps";
   parameter SI.Voltage Vs=12 "Supply voltage";
-  parameter SI.Resistance R1=220   "NIC1";
-  parameter SI.Resistance R1g=2200 "NIC1 R to ground";
-  parameter SI.Resistance R2=22e3  "NIC2";
-  parameter SI.Resistance R2g=3300 "NIC2 R to ground";
+  parameter Real k0=15000.0 "No-load amplification of opAmps";
+  parameter SI.Voltage Vs=12 "Supply voltage";
+  parameter SI.Resistance R1 = 220 "NIC1: feedback resistor";
+  parameter SI.Resistance R1g=2200 "NIC1: ground resistor";
+  parameter SI.Resistance R2 =22e3 "NIC2: feedback resistor";
+  parameter SI.Resistance R2g=3300 "NIC2: ground resistor";
   //calculated parameters
+  parameter SI.Voltage VLim1=Vs*R1g/(R1g + R1) "NIC1: Left and right corner voltage";
+  parameter SI.Conductance gPos1=1/R1 "NIC1: Positive differential conductance";
+  parameter SI.Conductance gNeg1=-1/R1g "NIC1: Negative differential conductance";
+  parameter SI.Voltage VLim2=Vs*R2g/(R2g + R2) "NIC2: Left and right corner voltage";
+  parameter SI.Conductance gPos2=1/R2 "NIC2: Positive differential conductance";
+  parameter SI.Conductance gNeg2=-1/R2g "NIC2: Negative differential conductance";
+  parameter SI.Voltage Ve=min(VLim1, VLim2) "Inner limit";
+  parameter SI.Conductance Ga=gNeg1 + gNeg2 "Inner slope";
+  parameter SI.Conductance Gb=if VLim1<VLim2 then gPos1 + gNeg2 else gNeg1 + gPos2 "Intermedita slope";
+  parameter SI.Voltage Vmax=max(VLim1, VLim2) "Voltage peak";
+  parameter SI.Conductance Gc=gPos1 + gPos2 "Outer slope";
   Modelica.Electrical.Analog.Sources.SineVoltage source(V=Vs, f=10) annotation
     (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270)));
   Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor1 annotation (

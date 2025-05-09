@@ -9,10 +9,10 @@ model ImprovedCircuit "Chua's chaotic Circuit"
   //parameter of Chua's diode
   parameter Real k0=15000.0 "No-load amplification of opAmps";
   parameter SI.Voltage Vs=12 "Supply voltage";
-  parameter SI.Resistance R12=220 "R1 and R2";
-  parameter SI.Resistance R3=2200 "R3";
-  parameter SI.Resistance R45=22e3 "R4 and R5";
-  parameter SI.Resistance R6=3300 "R6";
+  parameter SI.Resistance R1 = 220 "NIC1: feedback resistor";
+  parameter SI.Resistance R1g=2200 "NIC1: ground resistor";
+  parameter SI.Resistance R2 =22e3 "NIC2: feedback resistor";
+  parameter SI.Resistance R2g=3300 "NIC2: ground resistor";
   //shortcut to results
   SI.Voltage v1(start=1e-3, fixed=true)=capacitor1.v "Result c1.v";
   SI.Voltage v2(start=0, fixed=true)=capacitor2.v "Result 2 c2.v";
@@ -42,28 +42,27 @@ model ImprovedCircuit "Chua's chaotic Circuit"
         origin={-40,0})));
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-30,-60},{-10,-40}})));
-  Modelica.Electrical.Analog.Basic.Resistor r1(R=R12)
-    annotation (Placement(transformation(extent={{10,10},{-10,-10}},
+  Modelica.Electrical.Analog.Basic.Resistor r1a(R=R1) annotation (Placement(
+        transformation(
+        extent={{10,10},{-10,-10}},
         rotation=180,
         origin={30,40})));
-  Modelica.Electrical.Analog.Basic.Resistor r2(R=R12)
-    annotation (Placement(transformation(extent={{10,10},{-10,-10}},
+  Modelica.Electrical.Analog.Basic.Resistor r1b(R=R1) annotation (Placement(
+        transformation(
+        extent={{10,10},{-10,-10}},
         rotation=180,
         origin={30,-20})));
-  Modelica.Electrical.Analog.Basic.Resistor r4(R=R45)
-    annotation (Placement(
+  Modelica.Electrical.Analog.Basic.Resistor r2a(R=R2) annotation (Placement(
         transformation(
         extent={{-10,10},{10,-10}},
         rotation=180,
         origin={70,40})));
-  Modelica.Electrical.Analog.Basic.Resistor r5(R=R45)
-    annotation (Placement(
+  Modelica.Electrical.Analog.Basic.Resistor r2b(R=R2) annotation (Placement(
         transformation(
         extent={{-10,10},{10,-10}},
         rotation=180,
         origin={70,-20})));
-  Modelica.Electrical.Analog.Basic.Resistor r6(R=R6)
-    annotation (Placement(
+  Modelica.Electrical.Analog.Basic.Resistor r2g(R=R2g) annotation (Placement(
         transformation(
         extent={{-10,10},{10,-10}},
         rotation=270,
@@ -82,16 +81,16 @@ model ImprovedCircuit "Chua's chaotic Circuit"
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
         rotation=180,
         origin={70,10})));
-  Modelica.Electrical.Analog.Basic.Resistor r3(R=R3)
-    annotation (Placement(
+  Modelica.Electrical.Analog.Basic.Resistor r1g(R=R1g)
+                                                      annotation (Placement(
         transformation(
         extent={{-10,10},{10,-10}},
         rotation=270,
         origin={20,-40})));
 protected
   //further initialization
-  SI.Current id1(start=0)=r2.i "Initial current of r2 at opAmp1";
-  SI.Current id2(start=0)=r5.i "Initial current of r5 at opAmp2";
+  SI.Current id1(start=0) = r1b.i "Initial current of r2 at opAmp1";
+  SI.Current id2(start=0) = r2b.i "Initial current of r5 at opAmp2";
 equation
   connect(resistor.p, capacitor2.p)
     annotation (Line(points={{-30,40},{-40,40},{-40,10}}, color={0,0,255}));
@@ -105,35 +104,33 @@ equation
                                                            color={0,0,255}));
   connect(ground.p, capacitor1.n)
     annotation (Line(points={{-20,-40},{0,-40},{0,-10}}, color={0,0,255}));
-  connect(r1.p, opAmp1.in_p)
+  connect(r1a.p, opAmp1.in_p)
     annotation (Line(points={{20,40},{20,16}}, color={0,0,255}));
-  connect(opAmp1.in_n, r2.p)
+  connect(opAmp1.in_n, r1b.p)
     annotation (Line(points={{20,4},{20,-20}}, color={0,0,255}));
-  connect(opAmp1.out, r2.n)
+  connect(opAmp1.out, r1b.n)
     annotation (Line(points={{40,10},{40,-20}}, color={0,0,255}));
-  connect(opAmp1.out, r1.n)
+  connect(opAmp1.out, r1a.n)
     annotation (Line(points={{40,10},{40,40}}, color={0,0,255}));
-  connect(r2.p, r3.p)
+  connect(r1b.p, r1g.p)
     annotation (Line(points={{20,-20},{20,-30}}, color={0,0,255}));
-  connect(ground.p, r3.n) annotation (Line(points={{-20,-40},{0,-40},{0,-50},
-          {20,-50}},
-                 color={0,0,255}));
-  connect(ground.p, r6.n) annotation (Line(points={{-20,-40},{0,-40},{0,-50},
-          {80,-50}},
-                 color={0,0,255}));
-  connect(r5.n, opAmp2.out)
+  connect(ground.p, r1g.n) annotation (Line(points={{-20,-40},{0,-40},{0,-50},{20,
+          -50}}, color={0,0,255}));
+  connect(ground.p, r2g.n) annotation (Line(points={{-20,-40},{0,-40},{0,-50},{80,
+          -50}}, color={0,0,255}));
+  connect(r2b.n, opAmp2.out)
     annotation (Line(points={{60,-20},{60,10}}, color={0,0,255}));
-  connect(r4.n, opAmp2.out)
+  connect(r2a.n, opAmp2.out)
     annotation (Line(points={{60,40},{60,10}}, color={0,0,255}));
-  connect(r4.p, opAmp2.in_p)
+  connect(r2a.p, opAmp2.in_p)
     annotation (Line(points={{80,40},{80,16}}, color={0,0,255}));
-  connect(opAmp2.in_n, r5.p)
+  connect(opAmp2.in_n, r2b.p)
     annotation (Line(points={{80,4},{80,-20}}, color={0,0,255}));
-  connect(r5.p, r6.p)
+  connect(r2b.p, r2g.p)
     annotation (Line(points={{80,-20},{80,-30}}, color={0,0,255}));
-  connect(capacitor1.p, r4.p)
+  connect(capacitor1.p, r2a.p)
     annotation (Line(points={{0,10},{0,52},{80,52},{80,40}}, color={0,0,255}));
-  connect(capacitor1.p, r1.p)
+  connect(capacitor1.p, r1a.p)
     annotation (Line(points={{0,10},{0,52},{20,52},{20,40}}, color={0,0,255}));
   connect(resistor.p, resistorL.p)
     annotation (Line(points={{-30,40},{-80,40},{-80,30}}, color={0,0,255}));

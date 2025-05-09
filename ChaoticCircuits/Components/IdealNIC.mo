@@ -4,10 +4,14 @@ model IdealNIC "Ideal model of a negative impedance converter"
   parameter SI.Voltage Vs=15 "Supply voltage";
   parameter SI.Resistance R=4700 "NIC pos and neg feedback resistance";
   parameter SI.Resistance Rg=6800 "NIC resistance to ground";
-  parameter SI.Voltage VLim=Vs*Rg/(Rg + R) "Left and right corner voltage";
-  parameter SI.Current ILim=VLim/Rg "Left and right corner current";
-  parameter SI.Conductance gPos=1/R "Positive differential conductance";
-  parameter SI.Conductance gNeg=-1/Rg "Negative differential conductance";
+  parameter SI.Voltage VLim=Vs*Rg/(Rg + R) "Left and right corner voltage"
+    annotation(Dialog(group="Results"));
+  parameter SI.Current ILim=VLim/Rg "Left and right corner current"
+    annotation(Dialog(group="Results"));
+  parameter SI.Conductance gPos=1/R "Positive differential conductance"
+    annotation(Dialog(group="Results"));
+  parameter SI.Conductance gNeg=-1/Rg "Negative differential conductance"
+    annotation(Dialog(group="Results"));
 equation
   i=if v<-VLim then ILim + gPos*(v + VLim) elseif v>+VLim then -ILim + gPos*(v - VLim) else gNeg*v;
   annotation (Icon(graphics={

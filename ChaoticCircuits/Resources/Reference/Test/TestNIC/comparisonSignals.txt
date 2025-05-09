@@ -1,5 +1,5 @@
 time
-opAmp.out.v
+source.v
 idealNIC.i
 currentSensor.i
 

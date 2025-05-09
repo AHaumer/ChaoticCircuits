@@ -1,4 +1,4 @@
-Time,idealNIC.i,currentSensor.i,rampVoltage.v
+Time,idealNIC.i,currentSensor.i,source.v
 0,0,0,-15
 0.001,1.2765958e-06,1.2765958e-06,-14.994
 0.002,2.5531915e-06,2.5531915e-06,-14.988
