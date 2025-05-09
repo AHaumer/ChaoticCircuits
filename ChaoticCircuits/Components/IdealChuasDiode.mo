@@ -26,9 +26,9 @@ model IdealChuasDiode "Chua's diode"
     annotation(Dialog(tab="Results"));
   parameter SI.Conductance Gb=if VLim1<VLim2 then gPos1 + gNeg2 else gNeg1 + gPos2 "Intermedita slope"
     annotation(Dialog(tab="Results"));
-  parameter SI.Voltage Vmax=max(VLim1, VLim2) "Voltage peak"
-    annotation(Dialog(tab="Results"));
   parameter SI.Conductance Gc=gPos1 + gPos2 "Outer slope"
+    annotation(Dialog(tab="Results"));
+  parameter SI.Voltage Vp=max(VLim1, VLim2) "Voltage peak"
     annotation(Dialog(tab="Results"));
   IdealNIC idealNIC1(
     Vs=Vs,

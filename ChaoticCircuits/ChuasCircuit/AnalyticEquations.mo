@@ -7,9 +7,23 @@ model AnalyticEquations "Chua's chaotic Circuit"
   parameter SI.Capacitance C1=10.e-9 "Capacitor 1";
   parameter SI.Capacitance C2=100e-9 "Capacitor 2";
   //Nonlinearity
-  parameter SI.Conductance Ga=757.0e-6;
-  parameter SI.Conductance Gb=408.7e-6;
-  parameter SI.Voltage Ve=1.166;
+  parameter SI.Voltage Vs=12 "Supply voltage";
+  parameter SI.Resistance R1 = 220 "NIC1: feedback resistor";
+  parameter SI.Resistance R1g=2200 "NIC1: ground resistor";
+  parameter SI.Resistance R2 =22e3 "NIC2: feedback resistor";
+  parameter SI.Resistance R2g=3300 "NIC2: ground resistor";
+  //calculated parameters
+  parameter SI.Voltage VLim1=Vs*R1g/(R1g + R1) "NIC1: Left and right corner voltage";
+  parameter SI.Conductance gPos1=1/R1 "NIC1: Positive differential conductance";
+  parameter SI.Conductance gNeg1=-1/R1g "NIC1: Negative differential conductance";
+  parameter SI.Voltage VLim2=Vs*R2g/(R2g + R2) "NIC2: Left and right corner voltage";
+  parameter SI.Conductance gPos2=1/R2 "NIC2: Positive differential conductance";
+  parameter SI.Conductance gNeg2=-1/R2g "NIC2: Negative differential conductance";
+  parameter SI.Voltage Ve=min(VLim1, VLim2) "Inner limit";
+  parameter SI.Conductance Ga=gNeg1 + gNeg2 "Inner slope";
+  parameter SI.Conductance Gb=if VLim1<VLim2 then gPos1 + gNeg2 else gNeg1 + gPos2 "Intermedita slope";
+  parameter SI.Conductance Gc=gPos1 + gPos2 "Outer slope";
+  parameter SI.Voltage Vp=max(VLim1, VLim2) "Voltage peak";
   //Time constants
   parameter SI.Time TauL = L/RL;
   parameter SI.Time Tau1 = R*C1;
@@ -22,8 +36,9 @@ model AnalyticEquations "Chua's chaotic Circuit"
 equation
   TauL*der(vRL) =  v2 - vRL;
   Tau2*der(v2)  = -v2 + v1 - R/RL*vRL;
-  Tau1*der(v1)  =  v2 - v1 + R*g*v1;
-  g = if abs(v1) > Ve then Gb + (Ga - Gb)*Ve/abs(v1) else Ga;
+  Tau1*der(v1)  =  v2 - v1 - R*g*v1;
+  g = if abs(v1)>Vp then (Ga - Gb)*Ve/abs(v1) + (Gb - Gc)*Vp/abs(v1) + Gc else
+         if abs(v1)>Ve then (Ga - Gb)*Ve/abs(v1) + Gb else Ga;
   annotation (Documentation(info="<html>
 <p>See documentation of the enclosing subpackage.</p>
 </html>"), experiment(

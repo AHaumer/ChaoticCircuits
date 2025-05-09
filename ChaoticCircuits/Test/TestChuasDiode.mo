@@ -19,8 +19,8 @@ model TestChuasDiode "Test OpAmp-implementation of Chuas diode"
   parameter SI.Voltage Ve=min(VLim1, VLim2) "Inner limit";
   parameter SI.Conductance Ga=gNeg1 + gNeg2 "Inner slope";
   parameter SI.Conductance Gb=if VLim1<VLim2 then gPos1 + gNeg2 else gNeg1 + gPos2 "Intermedita slope";
-  parameter SI.Voltage Vmax=max(VLim1, VLim2) "Voltage peak";
   parameter SI.Conductance Gc=gPos1 + gPos2 "Outer slope";
+  parameter SI.Voltage Vp=max(VLim1, VLim2) "Voltage peak";
   Modelica.Electrical.Analog.Sources.SineVoltage source(V=Vs, f=10) annotation
     (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270)));
   Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor1 annotation (
