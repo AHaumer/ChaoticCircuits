@@ -16,13 +16,13 @@ model PhysicalModel "van der Pol equations"
   parameter SI.Inductance L=1/(w0^2*C) "Inductor";
   parameter SI.Resistance R0=mu*sqrt(L/C) "Nonlinear resistor parameter";
   parameter SI.Current I0=0.5 "Nonlinear resistor parameter";
-  parameter SI.Voltage V=A*I0/(w*w0*C) "Excitation voltage amplitude";
+  parameter SI.Voltage V=A*I0/(w0*C) "Excitation voltage amplitude";
   parameter SI.Frequency f=w*w0/(2*pi) "Excitation voltage frequency";
   //shortcut to results
   SI.Current i(start=x0*I0, fixed=true)=triode.i "Current i";
   SI.CurrentSlope didt(start=y0*w0*I0, fixed=true)=der(i) "Current slope der(i)";
   SI.Voltage vc(start=z0*I0/(w0*C), fixed=false)=capacitor.v "Voltage of capactor";
-  Real e=excitation.v*w*w0*C/I0 "Scaled excitation";
+  Real e=excitation.v*w0*C/I0 "Scaled excitation";
   Real x=i/I0 "Scaled current";
   Real y=didt/(w0*I0) "Scaled current slope";
   Real z=vc*w0*C/I0 "Scaled capacitor voltage";

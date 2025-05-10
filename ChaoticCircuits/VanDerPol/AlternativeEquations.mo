@@ -1,5 +1,5 @@
 within ChaoticCircuits.VanDerPol;
-model AnalyticEquations "van der Pol equations"
+model AlternativeEquations "van der Pol equations"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
   parameter Real mu=0.2 "Damping";
@@ -11,13 +11,13 @@ model AnalyticEquations "van der Pol equations"
   parameter Real y0=-2/15 "Initial value of y";
   parameter Real z0=-5/6 "Initial value of z";
   //shortcut to results
-  Real e=A*w*sin(w*w0*time) "Excitation";
-  Real x(start=x0, fixed=true) "Result: prop. i";
-  Real y(start=y0, fixed=true) "Result: prop. der(i)";
-  Real z(start=z0, fixed=true) "Result: prop. vc";
+  Real e=A*cos(w*w0*time -pi) "Excitation";
+  Real x(start=x0, fixed=true)  "Result: prop. i";
+  Real y(start=y0, fixed=false) "Result: prop. der(i)";
+  Real z(start=z0, fixed=true)  "Result: prop. vc";
 equation
   der(x)/w0=y;
-  der(y)/w0=mu*(1 - x^2)*y - x + e;
+  y = mu*(1 - 1/3*x^2)*x - z + e;
   der(z)/w0=x;
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
         coordinateSystem(preserveAspectRatio=false), graphics={
@@ -35,4 +35,4 @@ A = 1.00 periodic",
     Documentation(info="<html>
 <p>See documentation of the enclosing subpackage.</p>
 </html>"));
-end AnalyticEquations;
+end AlternativeEquations;

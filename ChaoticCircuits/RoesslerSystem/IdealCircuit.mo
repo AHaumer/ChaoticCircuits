@@ -9,7 +9,7 @@ model IdealCircuit "Roessler system"
   parameter Real ky=15 "Scaling factor y";
   parameter Real kz=25 "Scaling factor z";
   parameter SI.Time Tau=1 "Scaling time";
-  parameter SI.Voltage Vs=10 "Limiting supply voltage";
+  parameter Real Vs=10 "Limiting supply voltage";
   //basic parameters of components
   parameter SI.Resistance R=10e3 "Output resistance of amplifiers";
   parameter SI.Capacitance C=1e-6 "Capacitor of integrators";
@@ -187,5 +187,80 @@ equation
 c = 5.7 chaotic"),    Line(
           points={{-20,-46},{0,-34}},
           color={0,0,0},
-          arrow={Arrow.None,Arrow.Open})}));
+          arrow={Arrow.None,Arrow.Open}),
+        Text(
+          extent={{90,60},{100,50}},
+          textColor={0,0,0},
+          fontSize=10,
+          textString="+x"),
+        Text(
+          extent={{90,0},{100,-10}},
+          textColor={0,0,0},
+          fontSize=10,
+          textString="+y"),
+        Text(
+          extent={{30,60},{40,50}},
+          textColor={0,0,0},
+          fontSize=10,
+          textString="-x"),
+        Text(
+          extent={{30,0},{40,-10}},
+          textColor={0,0,0},
+          fontSize=10,
+          textString="-y"),
+        Text(
+          extent={{90,-60},{100,-70}},
+          textColor={0,0,0},
+          fontSize=10,
+          textString="+z"),
+        Text(
+          extent={{30,-60},{40,-70}},
+          textColor={0,0,0},
+          fontSize=10,
+          textString="-z"),
+        Text(
+          extent={{-60,-86},{-50,-96}},
+          textColor={0,0,0},
+          fontSize=10,
+          textString="+x"),
+        Text(
+          extent={{-60,-64},{-50,-74}},
+          textColor={0,0,0},
+          fontSize=10,
+          textString="+z"),
+        Text(
+          extent={{-30,-80},{-20,-90}},
+          textColor={0,0,0},
+          fontSize=10,
+          textString="+x*z"),
+        Text(
+          extent={{-30,-50},{-20,-60}},
+          textColor={0,0,0},
+          fontSize=10,
+          textString="+b"),
+        Text(
+          extent={{-30,-30},{-20,-40}},
+          textColor={0,0,0},
+          fontSize=10,
+          textString="-z"),
+        Text(
+          extent={{-30,10},{-20,0}},
+          textColor={0,0,0},
+          fontSize=10,
+          textString="+y"),
+        Text(
+          extent={{-30,20},{-20,10}},
+          textColor={0,0,0},
+          fontSize=10,
+          textString="+x"),
+        Text(
+          extent={{-30,70},{-20,60}},
+          textColor={0,0,0},
+          fontSize=10,
+          textString="-z"),
+        Text(
+          extent={{-30,80},{-20,70}},
+          textColor={0,0,0},
+          fontSize=10,
+          textString="-y")}));
 end IdealCircuit;
