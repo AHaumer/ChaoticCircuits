@@ -7,8 +7,8 @@ model ImprovedCircuit "Chua's chaotic Circuit"
   parameter SI.Capacitance C1=10.e-9 "Capacitor 1";
   parameter SI.Capacitance C2=100e-9 "Capacitor 2";
   //shortcut to results
-  SI.Voltage v1(start=1e-3, fixed=true)=capacitor1.v "Result c1.v";
-  SI.Voltage v2(start=0, fixed=true)=capacitor2.v "Result 2 c2.v";
+  SI.Voltage v1(start=0, fixed=true)=capacitor1.v "Result c1.v";
+  SI.Voltage v2(start=1e-3, fixed=true)=capacitor2.v "Result 2 c2.v";
   SI.Voltage vRL(start=0, fixed=true)=resistorL.v "Result RL*L.i";
   Modelica.Electrical.Analog.Basic.Inductor inductor(L=L)
     annotation (Placement(

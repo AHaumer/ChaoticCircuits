@@ -30,8 +30,6 @@ model IdealCircuit "A simple chaotic oscillator for educational purposes"
   Real x(start=0, fixed=true)=vc/nVt "Result capacitor.v / nVt";
   Real y(start=0, fixed=true)=Z*iL/nVt "Result inductor.i *Z/nVt";
   Real z(start=0, fixed=true)=vs/nVt "Result c*.v / nVt";
-  //initialization
-//SI.Voltage vd(start=0)=diode.vd "Voltage of diode";
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-20,-60},{0,-40}})));
   Modelica.Electrical.Analog.Basic.Resistor r(R=R)

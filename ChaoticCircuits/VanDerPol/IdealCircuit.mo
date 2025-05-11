@@ -4,13 +4,13 @@ model IdealCircuit "van der Pol equations"
   import Modelica.Constants.pi;
   parameter Real mu=0.2 "Damping";
   parameter Real A=1.0 "Amplitude of excitation";
-  parameter Real w=1.2 "Frequency of excitation";
+  parameter Real w=1.2 "Rel. frequency of excitation";
   parameter SI.Frequency f=w*w0/(2*pi) "Excitation voltage frequency";
   //scaling
   parameter Real kx=1 "Scaling factor x";
   parameter Real ky=1 "Scaling factor y";
   parameter Real kz=1 "Scaling factor z";
-  parameter SI.AngularVelocity w0=2*pi*1000 "Time scaling / natural eigen frequency";
+  parameter SI.AngularVelocity w0=2*pi*1000 "Time scaling = natural angular velocity";
   parameter Real Vs=10 "Limiting supply voltage";
   //initial values
   parameter Real x0=2 "Initial value of x";

@@ -113,7 +113,7 @@ equation
     annotation (Line(points={{20,0},{30,0}}, color={0,0,255}));
   connect(opAmp4.in_n, ra.n)
     annotation (Line(points={{0,-24},{0,0}}, color={0,0,255}));
-  annotation (                                 experiment(
+  annotation (experiment(
       StopTime=0.1,
       Interval=1e-06,
       Tolerance=1e-06),

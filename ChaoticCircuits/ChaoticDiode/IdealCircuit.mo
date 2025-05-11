@@ -105,7 +105,7 @@ equation
     annotation (Line(points={{50,50},{50,30}}, color={0,0,255}));
   connect(r31.n, r34.n)
     annotation (Line(points={{50,30},{50,0}}, color={0,0,255}));
-  annotation (                                 experiment(
+  annotation (experiment(
       StopTime=0.1,
       Interval=1e-06,
       Tolerance=1e-06),

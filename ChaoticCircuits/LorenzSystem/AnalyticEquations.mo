@@ -4,14 +4,16 @@ model AnalyticEquations "Lorenz equations for atmospheric convection"
   parameter Real sigma=10 "Prandtl";
   parameter Real rho=28 "Rayleigh";
   parameter Real beta=1/3 "height of fluid: try 8/3 for chaotic solution";
+  //scaling
+  parameter SI.Time Tau=1 "Scaling time";
   //shortcut to results
   Real x(start=0.001, fixed=true) "Result: rate of convection";
   Real y(start=0.001, fixed=true) "Result: horizontal temperature variation";
   Real z(start=0.001, fixed=true) "Result: vertical temperature variation";
 equation
-  der(x) = sigma*(y - x);
-  der(y) = x*(rho - z) - y;
-  der(z) = x*y - beta*z;
+  Tau*der(x) = sigma*(y - x);
+  Tau*der(y) = x*(rho - z) - y;
+  Tau*der(z) = x*y - beta*z;
   annotation (experiment(
       StopTime=100,
       Interval=0.01,

@@ -30,9 +30,6 @@ model ImprovedCircuit "A simple chaotic oscillator for educational purposes"
   Real x(start=0, fixed=true)=vc/nVt "Result capacitor.v / nVt";
   Real y(start=0, fixed=true)=Z*iL/nVt "Result inductor.i *Z/nVt";
   Real z(start=0, fixed=true)=vs/nVt "Result c*.v / nVt";
-  //initialization
-  SI.Current i_r1(start=0)=r1.i "Current of resistor r1";
-  SI.Voltage vd(start=0)=diode.vd "Voltage of diode";
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-20,-60},{0,-40}})));
   Modelica.Electrical.Analog.Basic.Resistor r(R=R)
@@ -82,6 +79,10 @@ model ImprovedCircuit "A simple chaotic oscillator for educational purposes"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={70,50})));
+protected
+  //additional initialization
+  SI.Current i_r1(start=0)=r1.i "Current of resistor r1";
+  SI.Voltage vd(start=0)=diode.vd "Voltage of diode";
 equation
   connect(r1.n, ground.p)
     annotation (Line(points={{10,-40},{-10,-40}},  color={0,0,255}));

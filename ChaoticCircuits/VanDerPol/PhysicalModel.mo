@@ -4,7 +4,8 @@ model PhysicalModel "van der Pol equations"
   import Modelica.Constants.pi;
   parameter Real mu=0.2 "Damping";
   parameter Real A=1.0 "Amplitude of excitation";
-  parameter Real w=1.2 "Frequency of excitation";
+  parameter Real w=1.2 "Rel. frequency of excitation";
+  parameter SI.Frequency f=w*w0/(2*pi) "Excitation voltage frequency";
   //initial values
   parameter Real x0=2 "Initial value of x";
   parameter Real y0=-2/15 "Initial value of y";
@@ -17,7 +18,6 @@ model PhysicalModel "van der Pol equations"
   parameter SI.Resistance R0=mu*sqrt(L/C) "Nonlinear resistor parameter";
   parameter SI.Current I0=0.5 "Nonlinear resistor parameter";
   parameter SI.Voltage V=A*I0/(w0*C) "Excitation voltage amplitude";
-  parameter SI.Frequency f=w*w0/(2*pi) "Excitation voltage frequency";
   //shortcut to results
   SI.Current i(start=x0*I0, fixed=true)=triode.i "Current i";
   SI.CurrentSlope didt(start=y0*w0*I0, fixed=true)=der(i) "Current slope der(i)";
@@ -26,8 +26,7 @@ model PhysicalModel "van der Pol equations"
   Real x=i/I0 "Scaled current";
   Real y=didt/(w0*I0) "Scaled current slope";
   Real z=vc*w0*C/I0 "Scaled capacitor voltage";
-  Modelica.Electrical.Analog.Sources.CosineVoltage
-                                                 excitation(
+  Modelica.Electrical.Analog.Sources.CosineVoltage excitation(
     V=V,
     phase=-3.1415926535898,
     f=f)

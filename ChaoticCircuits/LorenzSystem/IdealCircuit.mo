@@ -9,7 +9,7 @@ model IdealCircuit "Lorenz equations for atmospheric convection"
   parameter Real ky=50 "Scaling factor y";
   parameter Real kz=100 "Scaling factor z";
   parameter SI.Time Tau=1 "Scaling time";
-  parameter SI.Real Vs=10 "Limiting supply voltage";
+  parameter SI.Voltage Vs=10 "Limiting supply voltage";
   //basic parameters of components
   parameter SI.Resistance R=10e3 "Output resistance of amplifiers";
   parameter SI.Capacitance C=1e-6 "Capacitor of integrators";
@@ -18,13 +18,13 @@ model IdealCircuit "Lorenz equations for atmospheric convection"
   parameter SI.Resistance Rxy =Tau/C/(sigma*ky/kx);
   parameter SI.Resistance Ryx =Tau/C/(rho*kx/ky);
   parameter SI.Resistance Ryy =Tau/C;
-  parameter SI.Resistance Ryxz=Tau/C/(kx*kz/ky*Vs);
+  parameter SI.Resistance Ryxz=Tau/C/(kx*kz/ky*Vs/unitV);
   parameter SI.Resistance Rzz =Tau/C/(beta);
-  parameter SI.Resistance Rzxy=Tau/C/(kx*ky/kz*Vs);
+  parameter SI.Resistance Rzxy=Tau/C/(kx*ky/kz*Vs/unitV);
   //shortcut to results
-  Real x=kx*inverter_x.out.v "Result: rate of convection";
-  Real y=ky*inverter_y.out.v "Result: horizontal temperature variation";
-  Real z=kz*inverter_z.out.v "Result: vertical temperature variation";
+  Real x=kx*inverter_x.out.v/unitV "Result: rate of convection";
+  Real y=ky*inverter_y.out.v/unitV "Result: horizontal temperature variation";
+  Real z=kz*inverter_z.out.v/unitV "Result: vertical temperature variation";
   Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin integrator_x
     annotation (Placement(transformation(extent={{10,50},{30,70}})));
   Modelica.Electrical.Analog.Basic.Ground ground1
@@ -85,6 +85,8 @@ model IdealCircuit "Lorenz equations for atmospheric convection"
     annotation (Placement(transformation(extent={{-50,-30},{-30,-10}})));
   Components.Multiplier multiplier_xy(ER=Vs)
     annotation (Placement(transformation(extent={{-50,-90},{-30,-70}})));
+protected
+  constant SI.Voltage unitV=1;
 equation
   connect(integrator_x.in_p, ground1.p)
     annotation (Line(points={{10,54},{10,50}}, color={0,0,255}));

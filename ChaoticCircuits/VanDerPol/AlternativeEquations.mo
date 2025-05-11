@@ -4,8 +4,8 @@ model AlternativeEquations "van der Pol equations"
   import Modelica.Constants.pi;
   parameter Real mu=0.2 "Damping";
   parameter Real A=1.0 "Amplitude of excitation";
-  parameter Real w=1.2 "Frequency of excitation";
-  parameter SI.AngularVelocity w0=2*pi*1000 "Time scaling / natural eigen frequency";
+  parameter Real w=1.2 "Rel. frequency of excitation";
+  parameter SI.AngularVelocity w0=2*pi*1000 "Time scaling = natural angular velocity";
   //initial values
   parameter Real x0=2 "Initial value of x";
   parameter Real y0=-2/15 "Initial value of y";

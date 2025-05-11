@@ -4,14 +4,16 @@ model AnalyticEquations "Roessler system"
   parameter Real a=0.2 "Coefficient a";
   parameter Real b=0.2 "Coefficient b";
   parameter Real c=1.0 "Coefficient c=5.7 for chaos";
+  //scaling
+  parameter SI.Time Tau=1 "Scaling time";
   //shortcut to results
   Real x(start=0.001, fixed=true) "Result x";
   Real y(start=0.001, fixed=true) "Result y";
   Real z(start=0.001, fixed=true) "Result z";
 equation
-  der(x) = -y - z;
-  der(y) = x + a*y;
-  der(z) = b + (x - c)*z;
+  Tau*der(x) = -y - z;
+  Tau*der(y) = x + a*y;
+  Tau*der(z) = b + (x - c)*z;
   annotation (experiment(
       StopTime=1000,
       Interval=0.01,

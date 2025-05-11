@@ -30,13 +30,6 @@ model AnalyticEquations
   Real y(start=0, fixed=true) "Result inductor.i *Z/nVt";
   Real z(start=0, fixed=true) "Result c*.v / nVt";
 equation
-  when terminal() then
-    print("Tau="+String(Tau));
-    print("Z="+String(Z));
-    print("k="+String(k));
-    print("a="+String(a));
-    print("R2="+String(R2));
-  end when;
   Tau*der(x) = y;
   Tau*der(y) = a*y - x - z;
   Tau*e*der(z) = b + y - c*(exp(z) - 1);

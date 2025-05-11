@@ -9,7 +9,7 @@ model IdealCircuit "Roessler system"
   parameter Real ky=15 "Scaling factor y";
   parameter Real kz=25 "Scaling factor z";
   parameter SI.Time Tau=1 "Scaling time";
-  parameter Real Vs=10 "Limiting supply voltage";
+  parameter SI.Voltage Vs=10 "Limiting supply voltage";
   //basic parameters of components
   parameter SI.Resistance R=10e3 "Output resistance of amplifiers";
   parameter SI.Capacitance C=1e-6 "Capacitor of integrators";
@@ -20,11 +20,11 @@ model IdealCircuit "Roessler system"
   parameter SI.Resistance Ryy =Tau/C/(a);
   parameter SI.Resistance Rzz =Tau/C/(c);
   parameter SI.Resistance Rzb =Tau/C/(1/kz);
-  parameter SI.Resistance Rzxz=Tau/C/(kx*Vs);
+  parameter SI.Resistance Rzxz=Tau/C/(kx*Vs/unitV);
   //shortcut to results
-  Real x=kx*inverter_x.out.v "Result x";
-  Real y=ky*inverter_y.out.v "Result y";
-  Real z=kz*inverter_z.out.v "Result z";
+  Real x=kx*inverter_x.out.v/unitV "Result x";
+  Real y=ky*inverter_y.out.v/unitV "Result y";
+  Real z=kz*inverter_z.out.v/unitV "Result z";
   Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin integrator_x
     annotation (Placement(transformation(extent={{10,50},{30,70}})));
   Modelica.Electrical.Analog.Basic.Ground ground1
@@ -83,13 +83,16 @@ model IdealCircuit "Roessler system"
     annotation (Placement(transformation(extent={{-20,-90},{0,-70}})));
   Components.Multiplier multiplier_xz(ER=Vs)
     annotation (Placement(transformation(extent={{-50,-90},{-30,-70}})));
-  Modelica.Electrical.Analog.Sources.ConstantVoltage vb(V=b) annotation (
+  Modelica.Electrical.Analog.Sources.ConstantVoltage vb(V=b*unitV)
+                                                             annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-80,-60})));
   Modelica.Electrical.Analog.Basic.Ground ground7
     annotation (Placement(transformation(extent={{-86,-90},{-74,-78}})));
+protected
+  constant SI.Voltage unitV=1;
 equation
   connect(integrator_x.in_p,ground1. p)
     annotation (Line(points={{10,54},{10,50}}, color={0,0,255}));

@@ -9,7 +9,7 @@ model ScaledBlocks "Lorenz equations for atmospheric convection"
   parameter Real ky=50 "Scaling factor y";
   parameter Real kz=100 "Scaling factor z";
   parameter SI.Time Tau=1 "Scaling time";
-  parameter Real Vs=10 "Limiting supply voltage";
+  parameter SI.Voltage Vs=10 "Limiting supply voltage";
   //shortcut to results
   Real x=kx*integrator_x.y "Result: rate of convection";
   Real y=ky*integrator_y.y "Result: horizontal temperature variation";
@@ -25,16 +25,18 @@ model ScaledBlocks "Lorenz equations for atmospheric convection"
   Modelica.Blocks.Math.Add3 add_y(
     k1=rho*kx/ky,
     k2=-1,
-    k3=-kx*kz/ky*Vs)
+    k3=-kx*kz/ky*Vs/unitV)
     annotation (Placement(transformation(extent={{10,10},{30,30}})));
-  Modelica.Blocks.Math.Add add_z(k1=-beta, k2=kx*ky/kz*Vs)
+  Modelica.Blocks.Math.Add add_z(k1=-beta, k2=kx*ky/kz*Vs/unitV)
     annotation (Placement(transformation(extent={{10,-70},{30,-50}})));
   Modelica.Blocks.Math.MultiProduct product_xz(nu=3)
     annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
-  Modelica.Blocks.Sources.Constant eR(k=1/Vs)
+  Modelica.Blocks.Sources.Constant eR(k=unitV/Vs)
     annotation (Placement(transformation(extent={{10,-30},{-10,-10}})));
   Modelica.Blocks.Math.MultiProduct product_xy(nu=3)
     annotation (Placement(transformation(extent={{-30,-90},{-10,-70}})));
+protected
+  constant SI.Voltage unitV=1;
 equation
   connect(add_x.y, integrator_x.u)
     annotation (Line(points={{31,70},{38,70}}, color={0,0,127}));

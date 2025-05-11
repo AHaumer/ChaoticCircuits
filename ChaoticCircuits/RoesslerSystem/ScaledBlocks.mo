@@ -9,7 +9,7 @@ model ScaledBlocks "Roessler system"
   parameter Real ky=15 "Scaling factor y";
   parameter Real kz=25 "Scaling factor z";
   parameter SI.Time Tau=1 "Scaling time";
-  parameter Real Vs=10 "Limiting supply voltage";
+  parameter SI.Voltage Vs=10 "Limiting supply voltage";
   //shortcut to results
   Real x=kx*integrator_x.y "Result x";
   Real y=ky*integrator_y.y "Result y";
@@ -24,7 +24,7 @@ model ScaledBlocks "Roessler system"
     annotation (Placement(transformation(extent={{60,10},{80,30}})));
   Modelica.Blocks.Math.Add3 add3_1(
     k1=1/kz,                             k2=-c,
-    k3=kx*Vs)
+    k3=kx*Vs/unitV)
     annotation (Placement(transformation(extent={{30,-30},{50,-10}})));
   Modelica.Blocks.Continuous.Integrator integrator_z(k=1/Tau, y_start=0.001/kz)
     annotation (Placement(transformation(extent={{60,-30},{80,-10}})));
@@ -32,8 +32,10 @@ model ScaledBlocks "Roessler system"
     annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   Modelica.Blocks.Math.MultiProduct product_xz(nu=3)
     annotation (Placement(transformation(extent={{-10,-50},{10,-30}})));
-  Modelica.Blocks.Sources.Constant eR(k=1/Vs)
+  Modelica.Blocks.Sources.Constant eR(k=unitV/Vs)
     annotation (Placement(transformation(extent={{-80,-50},{-60,-30}})));
+protected
+  constant SI.Voltage unitV=1;
 equation
   connect(add_x.y, integrator_x.u)
     annotation (Line(points={{51,60},{58,60}}, color={0,0,127}));
