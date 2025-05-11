@@ -4,13 +4,13 @@ package ChaoticCircuits
   import Modelica.Units.SI;
 
    annotation (preferredView="info",
-    version="x.x.x",
-    versionDate="2025-xx-xx",
+    version="1.9.0",
+    versionDate="2025-05-11",
     uses(Modelica(version="4.0.0")),
     Documentation(info="<html>
 <p>
 This is a library about chaotic oscillators. 
-Please have a look at the <a href=\"modelica://ChaoticCircuits.UsersGuide.Concept\"> Concept </a>,
+Please have a look at the <a href=\"modelica://ChaoticCircuits.UsersGuide\">User's Guide</a>.
 </p>
 <p>
 &copy; <a href=\"mailto:anton.haumer@oth-regensburg.de\">Anton.Haumer@OTH-Regensburg.de</a>

@@ -3,28 +3,6 @@ class Concept "Concept"
   extends Modelica.Icons.Information;
   annotation (preferredView="info",Documentation(info="<html>
 <p>
-Chaotic circuits have received considerable interest in the literature because they have been applied in numerous areas 
-such as secure communications, robotics, image processing or random bit generator. 
-One of the most important research directions is constructing robust chaotic oscillators with simple structures. 
-There are two kinds of simple chaotic oscillators: non-autonomous and autonomous oscillators. 
-Autonomous systems show oscillations without excitation, otherwise excitation (besides energy supply) is needed. 
-Note that an oscillator is not a perpetuum mobile but needs energy supply either an explicitely modeled source voltage or implicitely. 
-The operational amplifiers might have a supply voltage not explicitely modeled. 
-</p>
-<p>In these examples simple systems are presented:</p>
-<ul>
-<li><a href=\"modelica://ChaoticCircuits.LotkaVolterra\">Lotka-Volterra</a></li>
-<li><a href=\"modelica://ChaoticCircuits.VanDerPol\">Van der Pol oscillator</a></li>
-<li><a href=\"modelica://ChaoticCircuits.LorenzSystem\">Lorenz system</a></li>
-<li><a href=\"modelica://ChaoticCircuits.RoesslerSystem\">Roessler system</a></li>
-<li><a href=\"modelica://ChaoticCircuits.ChuasCircuit\">Chua&apos;s circuit</a></li>
-<li><a href=\"modelica://ChaoticCircuits.ChaoticDiode\">Chaotic diode circuit</a> [Pham2016]</li>
-<li><a href=\"modelica://ChaoticCircuits.ChaoticOscillator\">Chaotic oscillator</a> [Tamasevicius2005]</li>
-<li><a href=\"modelica://ChaoticCircuits.ColpittsCircuit\">Colpitts circuit</a></li>
-<li><a href=\"modelica://ChaoticCircuits.ShinrikiOscillator\">Shinriki oscillator</a></li>
-<li><a href=\"modelica://ChaoticCircuits.JerkCircuit\">Jerk circuit</a></li>
-</ul>
-<p>
 The default parameters lead to periodic results. Possible parameter changes to obtain chaotic behavior are noted in the documentation of the respective subpackage. <br>
 <strong>Be curios</strong>, try different parameter settings to explore the path from periodic behaviour to chaos - in many cases you see bifurcation, i.e. different attractors.
 </p>
