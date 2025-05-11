@@ -8,9 +8,11 @@ record NICData "Parameter for negative impedance converter"
   parameter SI.Resistance Rg "NIC resistance to ground";
   parameter SI.Voltage VLim=Vs*Rg/(Rg + R) "Left and right corner voltage"
     annotation(Dialog(group="Results"));
+  parameter SI.Current ILim=Vs/(Rg + R) "Left and right corner current"
+    annotation(Dialog(group="Results"));
   parameter SI.Conductance gPos=1/R "Positive differential conductance"
     annotation(Dialog(group="Results"));
-  parameter SI.Conductance gNeg=-1/Rg "Negative differential conductance"
+  parameter SI.Conductance gNeg=-1/Rg "Negative (inner) conductance"
     annotation(Dialog(group="Results"));
     annotation(defaultComponentName="nicData", defaultComponentPrefixes="parameter",
     Icon(graphics={Text(

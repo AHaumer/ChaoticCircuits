@@ -6,6 +6,7 @@ Limiter
 IdealizedOpAmp3Pin
 Multiplier
 IdealNIC
+HystereticNIC
 ImprovedNIC
 IdealChuaDiode
 ImprovedChuaDiode

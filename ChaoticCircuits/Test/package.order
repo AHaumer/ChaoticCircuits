@@ -5,6 +5,7 @@ TestAmplifier
 TestIntegrator
 TestMulitplier
 TestNIC
+TestHystereticNIC
 TestChuasDiode
 TestTriode
 TestOpAmpTriode
