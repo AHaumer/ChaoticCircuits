@@ -3,6 +3,12 @@ class ReleaseNotes "Release Notes"
   extends Modelica.Icons.ReleaseNotes;
   annotation (preferredView="info",Documentation(info="<html>
 
+<h5>Version x.x.x, 2025-xx-xx Anton Haumer</h5>
+<ul>
+  <li>Clarify usage of scaling parameters</li>
+  <li>Harmonize naming of results</li>
+</ul>
+
 <h5>Version 1.8.0, 2025-05-10 Anton Haumer</h5>
 <ul>
   <li>Finished OpAmp-circuits of van der Pol</li>

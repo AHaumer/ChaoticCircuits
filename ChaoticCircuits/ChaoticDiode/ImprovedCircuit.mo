@@ -16,12 +16,9 @@ model ImprovedCircuit "A simple chaotic circuit with a light-emitting diode"
   parameter SI.Resistance Ra=a*nVt/Ids "Resistance of ra";
   parameter SI.Resistance Rb=R/b "Resistance of rb";
   //shortcuts to results
-  Real x[3]={c1.v, c2.v, c3.v}/nVt "Result vector {c1, c2, c3}.v/nVt";
-  //initialization
-  parameter Real x0[3]={0, 0.1, 0} "Initial value of result vector";
-  SI.Voltage vd(start=0)=diode.vd "Voltage of diode";
-  SI.Voltage v[3](start=zeros(3))=-{opAmp1.v_in.v, -opAmp2.v_in.v, -opAmp3.v_in.v}
-    "Input voltage of opAmp{1, 2, 3}";
+  Real x(start=0.0, fixed=true)=c1.v/nVt "Result x";
+  Real y(start=0.1, fixed=true)=c2.v/nVt "Result y";
+  Real z(start=0.0, fixed=true)=c3.v/nVt "Result z";
   Components.IdealizedOpAmp3Pin opAmp1(V0=k0,Vps=+Vs, Vns=-Vs)
     annotation (Placement(transformation(extent={{-10,20},{10,40}})));
   Modelica.Electrical.Analog.Basic.Capacitor c1(C=C)
@@ -59,8 +56,12 @@ model ImprovedCircuit "A simple chaotic circuit with a light-emitting diode"
     annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
   Modelica.Electrical.Analog.Basic.Resistor r34(R=R)
     annotation (Placement(transformation(extent={{30,-10},{50,10}})));
-initial equation
-  x=x0;
+protected
+  //additional initialization
+  SI.Voltage vd(start=0)=diode.vd "Voltage of diode";
+  SI.Voltage vOpAmp1(start=0)=-opAmp1.v_in.v "Input voltage of opAmp1";
+  SI.Voltage vOpAmp2(start=0)=-opAmp2.v_in.v "Input voltage of opAmp2";
+  SI.Voltage vOpAmp3(start=0)=-opAmp3.v_in.v "Input voltage of opAmp3";
 equation
   connect(ground1.p, opAmp1.in_p)
     annotation (Line(points={{-10,20},{-10,24}},        color={0,0,255}));
