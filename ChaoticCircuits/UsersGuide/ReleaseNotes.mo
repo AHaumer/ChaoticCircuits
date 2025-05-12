@@ -5,6 +5,8 @@ class ReleaseNotes "Release Notes"
 
 <h5>Version x.x.x, 20xx-xx-xx Anton Haumer</h5>
 <ul>
+  <li>Implemented test of Schmitt-trigger</li>
+  <li>Implemented choice of smooth()-saturation of OpAmp</li>
   <li>Implemented HystereticNIC for prescribed current</li>
 </ul>
 

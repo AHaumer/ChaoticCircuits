@@ -3,6 +3,8 @@ model IdealizedOpAmp3Pin "Idealized operational amplifier within implicit supply
   parameter Real V0=15000.0 "No-load amplification";
   parameter SI.Voltage Vps=+15 "Positive supply voltage";
   parameter SI.Voltage Vns=-15 "Negative supply voltage";
+  parameter Boolean useSmooth=false "= true, if smooth() is used for saturation";
+  parameter Boolean useWarning=false "= true, if a Warning is uttered in case of saturation";
   Modelica.Electrical.Analog.Interfaces.PositivePin in_p
     "Positive pin of the input port" annotation (Placement(transformation(
           extent={{-110,-70},{-90,-50}}), iconTransformation(extent={{-110,-70},
@@ -28,7 +30,9 @@ model IdealizedOpAmp3Pin "Idealized operational amplifier within implicit supply
     annotation (Placement(transformation(extent={{70,-40},{90,-20}})));
   Modelica.Blocks.Math.Gain gain(k=V0)
     annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
-  Limiter limiter(uMax=Vps, uMin=Vns)
+  Limiter limiter(uMax=Vps, uMin=Vns,
+    useSmooth=useSmooth,
+    useWarning=useWarning)
     annotation (Placement(transformation(extent={{20,-10},{40,10}})));
 equation
   connect(in_n, v_in.n)
