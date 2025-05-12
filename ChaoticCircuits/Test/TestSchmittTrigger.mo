@@ -5,8 +5,8 @@ model TestSchmittTrigger "Test comparator with hysteresis"
   parameter SI.Voltage Vs=15 "Supply voltage";
   parameter SI.Voltage VHys=5 "Hysteresis limit";
   parameter SI.Voltage V_in=10 "Amplitude of input voltage";
-  parameter SI.Resistance R0=10e3 "Resistor at output";
-  parameter SI.Resistance R=R0*VHys/Vs "Resistor at input";
+  parameter SI.Resistance Rout=10e3 "Resistor at output";
+  parameter SI.Resistance R_in=Rout*VHys/Vs "Resistor at input";
   Components.IdealizedOpAmp3Pin opAmp(
     V0=V0,
     Vps=+Vs,
@@ -14,9 +14,9 @@ model TestSchmittTrigger "Test comparator with hysteresis"
     annotation (Placement(transformation(extent={{-10,10},{10,-10}})));
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-30,-40},{-10,-20}})));
-  Modelica.Electrical.Analog.Basic.Resistor r0(R=R0)
+  Modelica.Electrical.Analog.Basic.Resistor rOut(R=Rout)
     annotation (Placement(transformation(extent={{10,10},{-10,30}})));
-  Modelica.Electrical.Analog.Basic.Resistor r(R=R)
+  Modelica.Electrical.Analog.Basic.Resistor r_in(R=R_in)
     annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
   Modelica.Electrical.Analog.Sources.TrapezoidVoltage
                                                  source(
@@ -40,15 +40,15 @@ protected
 equation
   connect(ground.p, opAmp.in_n)
     annotation (Line(points={{-20,-20},{-20,-6},{-10,-6}}, color={0,0,255}));
-  connect(r.n, opAmp.in_p)
+  connect(r_in.n, opAmp.in_p)
     annotation (Line(points={{-20,10},{-20,6},{-10,6}}, color={0,0,255}));
-  connect(opAmp.in_p, r0.n)
+  connect(opAmp.in_p, rOut.n)
     annotation (Line(points={{-10,6},{-10,20},{-10,20}}, color={0,0,255}));
-  connect(opAmp.out, r0.p)
+  connect(opAmp.out, rOut.p)
     annotation (Line(points={{10,0},{10,20}}, color={0,0,255}));
   connect(source.n, ground.p)
     annotation (Line(points={{-50,-10},{-50,-20},{-20,-20}}, color={0,0,255}));
-  connect(source.p, r.p)
+  connect(source.p, r_in.p)
     annotation (Line(points={{-50,10},{-40,10}}, color={0,0,255}));
   connect(opAmp.out, voltageSensor.p)
     annotation (Line(points={{10,0},{20,0}}, color={0,0,255}));
