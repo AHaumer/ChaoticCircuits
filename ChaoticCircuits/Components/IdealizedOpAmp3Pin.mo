@@ -4,6 +4,9 @@ model IdealizedOpAmp3Pin "Idealized operational amplifier within implicit supply
   parameter SI.Voltage Vps=+15 "Positive supply voltage";
   parameter SI.Voltage Vns=-15 "Negative supply voltage";
   parameter Boolean useSmooth=false "= true, if smooth() is used for saturation";
+  parameter Modelica.Blocks.Types.LimiterHomotopy homotopyType=Modelica.Blocks.Types.LimiterHomotopy.Linear
+    "Simplified model for homotopy-based initialization"
+    annotation (Evaluate=true, Dialog(group="Initialization"));
   Modelica.Electrical.Analog.Interfaces.PositivePin in_p
     "Positive pin of the input port" annotation (Placement(transformation(
           extent={{-110,-70},{-90,-50}}), iconTransformation(extent={{-110,-70},
@@ -30,7 +33,8 @@ model IdealizedOpAmp3Pin "Idealized operational amplifier within implicit supply
   Modelica.Blocks.Math.Gain gain(k=V0)
     annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
   Limiter limiter(uMax=Vps, uMin=Vns,
-    useSmooth=useSmooth)
+    useSmooth=useSmooth,
+    homotopyType=homotopyType)
     annotation (Placement(transformation(extent={{20,-10},{40,10}})));
 equation
   connect(in_n, v_in.n)

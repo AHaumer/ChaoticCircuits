@@ -6,8 +6,8 @@ block Limiter "Limit the range of a signal"
   parameter Modelica.Blocks.Types.LimiterHomotopy homotopyType=Modelica.Blocks.Types.LimiterHomotopy.Linear
     "Simplified model for homotopy-based initialization"
     annotation (Evaluate=true, Dialog(group="Initialization"));
-  output Boolean satPos=u>uMax "Positive saturation";
-  output Boolean satNeg=u<uMin "Negative saturation";
+//output Boolean satPos=u>uMax "Positive saturation";
+//output Boolean satNeg=u<uMin "Negative saturation";
   extends Modelica.Blocks.Interfaces.SISO;
 protected
   Real simplifiedExpr = (if homotopyType == Modelica.Blocks.Types.LimiterHomotopy.Linear
