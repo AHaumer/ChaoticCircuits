@@ -1,7 +1,7 @@
 within ChaoticCircuits.Test;
 model TestSchmittTrigger "Test comparator with hysteresis"
   extends Modelica.Icons.Example;
-  parameter Real V0=15000 "No-load amm´plification of OpAmp";
+  parameter Real V0=15000 "No-load amplification of OpAmp";
   parameter SI.Voltage Vs=15 "Supply voltage";
   parameter SI.Voltage VHys=5 "Hysteresis limit";
   parameter SI.Voltage V_in=10 "Amplitude of input voltage";
