@@ -3,10 +3,11 @@ block Limiter "Limit the range of a signal"
   parameter Real uMax(start=1) "Upper limits of input signals";
   parameter Real uMin= -uMax "Lower limits of input signals";
   parameter Boolean useSmooth=false "= true, if smooth() is used for saturation";
-  parameter Boolean useWarning=false "= true, if a Warning is uttered in case of saturation";
   parameter Modelica.Blocks.Types.LimiterHomotopy homotopyType=Modelica.Blocks.Types.LimiterHomotopy.Linear
     "Simplified model for homotopy-based initialization"
     annotation (Evaluate=true, Dialog(group="Initialization"));
+  output Boolean satPos=u>uMax "Positive saturation";
+  output Boolean satNeg=u<uMin "Negative saturation";
   extends Modelica.Blocks.Interfaces.SISO;
 protected
   Real simplifiedExpr = (if homotopyType == Modelica.Blocks.Types.LimiterHomotopy.Linear
@@ -16,27 +17,24 @@ protected
 equation
   assert(uMax >= uMin, "Limiter: Limits must be consistent. " +
                        "However, uMax (=" + String(uMax) + ") < uMin (=" + String(uMin) + ")");
-  assert((uMin<=u and u<=uMax) or not useWarning, "Limiter: signal exceeded limits!", AssertionLevel.warning);
   if useSmooth then
     if homotopyType == Modelica.Blocks.Types.LimiterHomotopy.NoHomotopy then
-      y = smooth(0, (if u > uMax then uMax else if u < uMin then uMin else u));
+      y = smooth(0, (if u > uMax then uMax elseif u < uMin then uMin else u));
     else
-      y = homotopy(actual = smooth(0, (if u > uMax then uMax else if u < uMin then uMin else u)),
-                   simplified=simplifiedExpr);
+      y = homotopy(actual = smooth(0, (if u > uMax then uMax elseif u < uMin then uMin else u)), simplified=simplifiedExpr);
     end if;
   else
     if homotopyType == Modelica.Blocks.Types.LimiterHomotopy.NoHomotopy then
-      y = (if u > uMax then uMax else if u < uMin then uMin else u);
+      y = (if u > uMax then uMax elseif u < uMin then uMin else u);
     else
-      y = homotopy(actual = (if u > uMax then uMax else if u < uMin then uMin else u),
-                   simplified=simplifiedExpr);
+      y = homotopy(actual = (if u > uMax then uMax elseif u < uMin then uMin else u), simplified=simplifiedExpr);
     end if;
   end if;
   annotation (
     Documentation(info="<html>
 <p>
 This is derived from the MSL <a href=\"modelica://Modelica.Blocks.Nonlinear.Limiter\">Limiter</a> but avoidong <code>noEvent</code> and <code>smooth</code> 
-(which allows the tool to avoid events wehn limits are reached). Additionally an optional warning is uttered when limits are exceeded.
+(which allows the tool to avoid events wehn limits are reached).
 </p>
 </html>"),
      Icon(coordinateSystem(

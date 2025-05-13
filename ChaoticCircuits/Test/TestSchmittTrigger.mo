@@ -10,14 +10,15 @@ model TestSchmittTrigger "Test comparator with hysteresis"
   Components.IdealizedOpAmp3Pin opAmp(
     V0=V0,
     Vps=+Vs,
-    Vns=-Vs,                          useSmooth=true)
-    annotation (Placement(transformation(extent={{-10,10},{10,-10}})));
+    Vns=-Vs,
+    useSmooth=true)
+    annotation (Placement(transformation(extent={{0,10},{20,-10}})));
   Modelica.Electrical.Analog.Basic.Ground ground
-    annotation (Placement(transformation(extent={{-30,-40},{-10,-20}})));
+    annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));
   Modelica.Electrical.Analog.Basic.Resistor rOut(R=Rout)
-    annotation (Placement(transformation(extent={{10,10},{-10,30}})));
+    annotation (Placement(transformation(extent={{30,10},{10,30}})));
   Modelica.Electrical.Analog.Basic.Resistor r_in(R=R_in)
-    annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
+    annotation (Placement(transformation(extent={{-30,10},{-10,30}})));
   Modelica.Electrical.Analog.Sources.TrapezoidVoltage
                                                  source(
     V=2*V_in,
@@ -28,32 +29,33 @@ model TestSchmittTrigger "Test comparator with hysteresis"
     nperiod=-1,
     offset=-V_in)                                                   annotation
     (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270,
-        origin={-50,0})));
-  Modelica.Electrical.Analog.Sensors.VoltageSensor voltageSensor annotation (
-      Placement(transformation(
+        origin={-30,0})));
+  Modelica.Electrical.Analog.Sensors.VoltageSensor vOut annotation (Placement(
+        transformation(
         extent={{10,-10},{-10,10}},
         rotation=90,
-        origin={20,-10})));
+        origin={30,-10})));
 protected
   //additional initailization
   SI.Current iOut(start=0)=opAmp.out.i;
 equation
   connect(ground.p, opAmp.in_n)
-    annotation (Line(points={{-20,-20},{-20,-6},{-10,-6}}, color={0,0,255}));
+    annotation (Line(points={{0,-20},{0,-6}},              color={0,0,255}));
   connect(r_in.n, opAmp.in_p)
-    annotation (Line(points={{-20,10},{-20,6},{-10,6}}, color={0,0,255}));
+    annotation (Line(points={{-10,20},{0,20},{0,6}},    color={0,0,255}));
   connect(opAmp.in_p, rOut.n)
-    annotation (Line(points={{-10,6},{-10,20},{-10,20}}, color={0,0,255}));
+    annotation (Line(points={{0,6},{0,20},{10,20}},      color={0,0,255}));
   connect(opAmp.out, rOut.p)
-    annotation (Line(points={{10,0},{10,20}}, color={0,0,255}));
+    annotation (Line(points={{20,0},{30,0},{30,20}},
+                                              color={0,0,255}));
   connect(source.n, ground.p)
-    annotation (Line(points={{-50,-10},{-50,-20},{-20,-20}}, color={0,0,255}));
+    annotation (Line(points={{-30,-10},{-30,-20},{0,-20}},   color={0,0,255}));
   connect(source.p, r_in.p)
-    annotation (Line(points={{-50,10},{-40,10}}, color={0,0,255}));
-  connect(opAmp.out, voltageSensor.p)
-    annotation (Line(points={{10,0},{20,0}}, color={0,0,255}));
-  connect(ground.p, voltageSensor.n)
-    annotation (Line(points={{-20,-20},{20,-20}}, color={0,0,255}));
+    annotation (Line(points={{-30,10},{-30,20}}, color={0,0,255}));
+  connect(opAmp.out, vOut.p)
+    annotation (Line(points={{20,0},{30,0}}, color={0,0,255}));
+  connect(ground.p, vOut.n)
+    annotation (Line(points={{0,-20},{30,-20}}, color={0,0,255}));
   annotation (experiment(
       Interval=0.0001,
       Tolerance=1e-06));
