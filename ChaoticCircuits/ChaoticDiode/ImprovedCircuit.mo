@@ -116,7 +116,7 @@ equation
       Interval=1e-06,
       Tolerance=1e-06),
     Documentation(info="<html>
-<p>See documentation of the enclosing subpackage.</p>
+<p>See documentation of the <a href=\"modelica://ChaoticCircuits.ChaoticDiode\">enclosing subpackage</a>.</p>
 </html>"),
     Diagram(graphics={
         Rectangle(

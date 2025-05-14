@@ -15,10 +15,10 @@ equation
   der(y)/kt=z;
   der(z)/kt=-A*z - R*Ids*(exp(y/nVt) - 1) - x;
   annotation (experiment(
-      StopTime=1,
+      StopTime=1.0,
       Interval=1e-5,
       Tolerance=1e-06), Documentation(info="<html>
-<p>See documentation of the enclosing subpackage.</p>
+<p>See documentation of the <a href=\"modelica://ChaoticCircuits.JerkCircuit\">enclosing subpackage</a>.</p>
 </html>"),
     Diagram(graphics={Text(
           extent={{-80,20},{80,-20}},

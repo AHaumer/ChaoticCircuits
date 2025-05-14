@@ -97,7 +97,7 @@ equation
   connect(ground1.p, c2.p)
     annotation (Line(points={{30,-50},{30,-40}}, color={0,0,255}));
   annotation (Documentation(info="<html>
-<p>See documentation of the enclosing subpackage.</p>
+<p>See documentation of the <a href=\"modelica://ChaoticCircuits.ColpittsCircuit\">enclosing subpackage</a>.</p>
 </html>"), experiment(
       StopTime=0.01,
       Interval=1e-07,

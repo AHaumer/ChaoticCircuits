@@ -26,7 +26,7 @@ equation
   L *der(iL)= Vs - v1 + v2 - RL*iL;
   iB = if v2<=Vth then 0 else (v2 - Vth)/Ron;
   annotation (Documentation(info="<html>
-<p>See documentation of the enclosing subpackage.</p>
+<p>See documentation of the <a href=\"modelica://ChaoticCircuits.ColpittsCircuit\">enclosing subpackage</a>.</p>
 </html>"), experiment(
       StopTime=0.01,
       Interval=1e-07,

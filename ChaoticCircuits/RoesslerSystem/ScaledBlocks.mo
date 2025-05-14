@@ -69,7 +69,7 @@ equation
       Interval=0.01,
       Tolerance=1e-06),
     Documentation(info="<html>
-<p>See documentation of the enclosing subpackage.</p>
+<p>See documentation of the <a href=\"modelica://ChaoticCircuits.RoesslerSystem\">enclosing subpackage</a>.</p>
 </html>"),
     Diagram(graphics={Text(
           extent={{-80,-60},{80,-90}},

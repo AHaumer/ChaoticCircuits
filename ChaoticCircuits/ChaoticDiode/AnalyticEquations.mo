@@ -16,7 +16,7 @@ equation
       StopTime=0.1,
       Interval=1e-6,
       Tolerance=1e-06), Documentation(info="<html>
-<p>See documentation of the enclosing subpackage.</p>
+<p>See documentation of the <a href=\"modelica://ChaoticCircuits.ChaoticDiode\">enclosing subpackage</a>.</p>
 </html>"),
     Diagram(graphics={Text(
           extent={{-80,20},{80,-20}},

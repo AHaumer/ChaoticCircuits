@@ -33,7 +33,7 @@ equation
   annotation (Documentation(info="<html>
 <p>Plot hystereticNIC.v vs. source.i to see the v(i)-characteristic of the NIC (negative impedance converter).</p>
 </html>"), experiment(
-      StopTime=1,
+      StopTime=1.0,
       Interval=0.0001,
       Tolerance=1e-06));
 end TestHystereticNIC;

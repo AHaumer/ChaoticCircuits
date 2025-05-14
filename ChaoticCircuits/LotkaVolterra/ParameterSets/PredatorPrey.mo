@@ -11,5 +11,8 @@ record PredatorPrey "2-dim. Lotka-Volterra"
     Icon(graphics={Text(
           extent={{-100,-20},{100,-40}},
           textColor={0,0,255},
-          textString="%id")}));
+          textString="%id")}),
+    Documentation(info="<html>
+<p>Parameter record for the <a href=\"modelica://ChaoticCircuits.LotkaVolterra.LotkaVolterra\">Lotka-Volterra model</a>.</p>
+</html>"));
 end PredatorPrey;

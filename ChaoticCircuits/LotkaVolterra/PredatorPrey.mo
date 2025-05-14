@@ -16,6 +16,6 @@ equation
       StopTime=1000,
       Interval=0.1,
       Tolerance=1e-06), Documentation(info="<html>
-<p>See documentation of the enclosing subpackage.</p>
+<p>See documentation of the <a href=\"modelica://ChaoticCircuits.LotkaVolterra\">enclosing subpackage</a>.</p>
 </html>"));
 end PredatorPrey;

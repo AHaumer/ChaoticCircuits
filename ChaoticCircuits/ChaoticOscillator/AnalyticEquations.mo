@@ -34,7 +34,7 @@ equation
   Tau*der(y) = a*y - x - z;
   Tau*e*der(z) = b + y - c*(exp(z) - 1);
   annotation (Documentation(info="<html>
-<p>See documentation of the enclosing subpackage.</p>
+<p>See documentation of the <a href=\"modelica://ChaoticCircuits.ChaoticOscillator\">enclosing subpackage</a>.</p>
 </html>"), experiment(
       StopTime=0.1,
       Interval=1e-06,

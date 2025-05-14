@@ -63,6 +63,7 @@ equation
   connect(ground.p, result.n)
     annotation (Line(points={{-50,-40},{40,-40},{40,-30}}, color={0,0,255}));
   annotation (experiment(
+      StopTime=1.0,
       Interval=0.0001,
       Tolerance=1e-06));
 end TestOpAmpTriode;

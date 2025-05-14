@@ -35,7 +35,7 @@ equation
      elseif v1>+nicData.VLim then +nicData.VLim*nicData.gNeg + nicData.gPos*(v1 - nicData.VLim)
      else nicData.gNeg*v1;
   annotation (Documentation(info="<html>
-<p>See documentation of the enclosing subpackage.</p>
+<p>See documentation of the <a href=\"modelica://ChaoticCircuits.ShinrikiOscillator\">enclosing subpackage</a>.</p>
 </html>"), experiment(
       StopTime=0.1,
       Interval=1e-06,

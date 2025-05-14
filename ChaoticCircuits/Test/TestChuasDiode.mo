@@ -30,6 +30,7 @@ equation
   connect(source.p, idealChuaDiode.p) annotation (Line(points={{0,10},{0,20},{-30,
           20},{-30,10}}, color={0,0,255}));
   annotation (experiment(
+      StopTime=1.0,
       Interval=0.0001,
       Tolerance=1e-06), Documentation(info="<html>
 <p>Plot idealChuaDiode.i and improvedChuaDiode.i vs. source.v to see the i(v)-characteristic of Chua&#39;s diode, consisting of two NICs (negative impedance converter).</p>

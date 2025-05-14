@@ -3,9 +3,8 @@ class ReleaseNotes "Release Notes"
   extends Modelica.Icons.ReleaseNotes;
   annotation (preferredView="info",Documentation(info="<html>
 
-<h5>Version x.x.x, 20xx-xx-xx Anton Haumer</h5>
+<h5>Version 2.0.0, 2025-05-14 Anton Haumer</h5>
 <ul>
-  <li>Implemented test of Schmitt-trigger</li>
   <li>Implemented choice of smooth()-saturation of OpAmp</li>
   <li>Implemented HystereticNIC for prescribed current</li>
 </ul>

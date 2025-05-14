@@ -40,7 +40,7 @@ equation
   annotation (Documentation(info="<html>
 <p>Plot idealNIC.i and improvedNIC.i vs. source.v to see the i(v)-characteristic of the NIC (negative impedance converter).</p>
 </html>"), experiment(
-      StopTime=1,
+      StopTime=1.0,
       Interval=0.0001,
       Tolerance=1e-06));
 end TestNIC;

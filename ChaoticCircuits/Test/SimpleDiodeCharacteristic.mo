@@ -29,6 +29,7 @@ equation
   connect(ground.p, r.n)
     annotation (Line(points={{0,-20},{20,-20},{20,-10}}, color={0,0,255}));
   annotation (experiment(
+      StopTime=1.0,
       Interval=0.0001,
       Tolerance=1e-06), Documentation(info="<html>
 <p>Plot diode.i vs. diode.v</p>

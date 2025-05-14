@@ -214,6 +214,6 @@ A = 1.00 periodic",
           fontSize=10,
           textString="+y")}),
     Documentation(info="<html>
-<p>See documentation of the enclosing subpackage.</p>
+<p>See documentation of the <a href=\"modelica://ChaoticCircuits.VanDerPol\">enclosing subpackage</a>.</p>
 </html>"));
 end IdealCircuit;

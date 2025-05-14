@@ -122,7 +122,7 @@ equation
   connect(resistor.n, improvedChuaDiode.p)
     annotation (Line(points={{30,50},{80,50},{80,10}}, color={0,0,255}));
   annotation (Documentation(info="<html>
-<p>See documentation of the enclosing subpackage.</p>
+<p>See documentation of the <a href=\"modelica://ChaoticCircuits.ChuasCircuit\">enclosing subpackage</a>.</p>
 </html>"), experiment(
       StopTime=0.1,
       Interval=1e-06,

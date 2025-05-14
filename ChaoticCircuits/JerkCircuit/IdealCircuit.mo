@@ -92,10 +92,10 @@ equation
   connect(r_zx.n, diode.n)
     annotation (Line(points={{-10,70},{-70,70},{-70,30}}, color={0,0,255}));
   annotation (experiment(
-      StopTime=1,
+      StopTime=1.0,
       Interval=1e-5,
       Tolerance=1e-06), Documentation(info="<html>
-<p>See documentation of the enclosing subpackage.</p>
+<p>See documentation of the <a href=\"modelica://ChaoticCircuits.JerkCircuit\">enclosing subpackage</a>.</p>
 </html>"),
     Diagram(graphics={Line(
           points={{-70,4},{-50,16}},

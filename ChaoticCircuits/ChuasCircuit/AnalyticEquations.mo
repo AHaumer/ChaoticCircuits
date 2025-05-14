@@ -25,7 +25,7 @@ equation
   g = if abs(v1)>chuaData.Vp then (chuaData.Ga - chuaData.Gb)*chuaData.Ve/abs(v1) + (chuaData.Gb - chuaData.Gc)*chuaData.Vp/abs(v1) + chuaData.Gc else
       if abs(v1)>chuaData.Ve then (chuaData.Ga - chuaData.Gb)*chuaData.Ve/abs(v1) + chuaData.Gb else chuaData.Ga;
   annotation (Documentation(info="<html>
-<p>See documentation of the enclosing subpackage.</p>
+<p>See documentation of the <a href=\"modelica://ChaoticCircuits.ChuasCircuit\">enclosing subpackage</a>.</p>
 </html>"), experiment(
       StopTime=0.1,
       Interval=1e-06,

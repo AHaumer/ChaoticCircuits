@@ -49,6 +49,7 @@ equation
   connect(npn.C, vCE.p)
     annotation (Line(points={{10,6},{10,20},{30,20},{30,0}}, color={0,0,255}));
   annotation (experiment(
+      StopTime=1.0,
       Interval=0.0001,
       Tolerance=1e-06), Documentation(info="<html>
 <p>Plot npn.iC vs. npn.vCE</p>

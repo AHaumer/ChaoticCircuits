@@ -62,6 +62,9 @@ The idealized OpAmp with three pins has an implicit symmetrical supply and shows
 <li>No-load amplification is high (but not infinite).</li>
 <li>Output voltage is limited between positive and negative supply.</li>
 </ul>
+<p>
+It should be easy to add a small input parallel conductance and a small output series resistance.
+</p>
 </html>",
         revisions="<html>
 

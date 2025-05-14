@@ -6,8 +6,9 @@ block Limiter "Limit the range of a signal"
   parameter Modelica.Blocks.Types.LimiterHomotopy homotopyType=Modelica.Blocks.Types.LimiterHomotopy.Linear
     "Simplified model for homotopy-based initialization"
     annotation (Evaluate=true, Dialog(group="Initialization"));
-//output Boolean satPos=u>uMax "Positive saturation";
-//output Boolean satNeg=u<uMin "Negative saturation";
+  //inidcate saturation, should generate events
+  output Boolean satPos=u>uMax "Positive saturation";
+  output Boolean satNeg=u<uMin "Negative saturation";
   extends Modelica.Blocks.Interfaces.SISO;
 protected
   Real simplifiedExpr = (if homotopyType == Modelica.Blocks.Types.LimiterHomotopy.Linear
@@ -19,22 +20,22 @@ equation
                        "However, uMax (=" + String(uMax) + ") < uMin (=" + String(uMin) + ")");
   if useSmooth then
     if homotopyType == Modelica.Blocks.Types.LimiterHomotopy.NoHomotopy then
-      y = smooth(0, (if u > uMax then uMax elseif u < uMin then uMin else u));
+      y = smooth(0, min(uMax, max(uMin, u)));
     else
-      y = homotopy(actual = smooth(0, (if u > uMax then uMax elseif u < uMin then uMin else u)), simplified=simplifiedExpr);
+      y = homotopy(actual = smooth(0, min(uMax, max(uMin, u))), simplified=simplifiedExpr);
     end if;
   else
     if homotopyType == Modelica.Blocks.Types.LimiterHomotopy.NoHomotopy then
-      y = (if u > uMax then uMax elseif u < uMin then uMin else u);
+      y = min(uMax, max(uMin, u));
     else
-      y = homotopy(actual = (if u > uMax then uMax elseif u < uMin then uMin else u), simplified=simplifiedExpr);
+      y = homotopy(actual = min(uMax, max(uMin, u)), simplified=simplifiedExpr);
     end if;
   end if;
   annotation (
     Documentation(info="<html>
 <p>
-This is derived from the MSL <a href=\"modelica://Modelica.Blocks.Nonlinear.Limiter\">Limiter</a> but avoidong <code>noEvent</code> and <code>smooth</code> 
-(which allows the tool to avoid events wehn limits are reached).
+This is derived from the MSL <a href=\"modelica://Modelica.Blocks.Nonlinear.Limiter\">Limiter</a> but avoiding <code>noEvent</code> 
+and letting the user choose to use <code>smooth</code> (which allows the tool to avoid events when limits are reached).
 </p>
 </html>"),
      Icon(coordinateSystem(

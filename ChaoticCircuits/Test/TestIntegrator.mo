@@ -48,6 +48,7 @@ equation
   connect(vOut.p, cOut.p)
     annotation (Line(points={{30,0},{30,20}}, color={0,0,255}));
   annotation (experiment(
+      StopTime=1.0,
       Interval=0.0001,
       Tolerance=1e-06), Documentation(info="<html>
 <p>
