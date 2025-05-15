@@ -74,14 +74,14 @@ Note that of course the results are strongly dependent on the implementation det
   <td>Operational amplifiers</td>
   <td><a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin\">ideal 3 pin model</a>: 
       input currents are zero, differential input voltage is zero, amplification is infinite, output voltage is <strong>not</strong> limited</td>
-  <td><a href=\"modelica://ChaoticCircuits.Components.IdealizedOpAmp3Pin\">more sophisticated opAmp model</a>:
+  <td><a href=\"modelica://ChaoticCircuits.Components.ImprovedOpAmp3Pin\">more sophisticated opAmp model</a>:
       input currents are zero, differential input voltage is zero, amplification is finite, output voltage is limited by suppply voltage</td>
   </tr>
  </tbody>
 </table>
 <p>
 Slightly different results of the different implementations may occur, they stem from more detials that are taken into account with the more sophistiacted implementation. <br>
-Note that for the more sophisticated OpAmp-model <a href=\"modelica://ChaoticCircuits.Components.IdealizedOpAmp3Pin\">IdealizedOpAmp3Pin</a> from this library is used 
+Note that for the more sophisticated OpAmp-model <a href=\"modelica://ChaoticCircuits.Components.ImprovedOpAmp3Pin\">IdealizedOpAmp3Pin</a> from this library is used 
 instead of <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> from MSL 
 to get rid of the implementation with <code>smooth</code> (which allows tools to avoid events when saturating!) and <code>noEvent</code> (which suppresses events!).
 </p>

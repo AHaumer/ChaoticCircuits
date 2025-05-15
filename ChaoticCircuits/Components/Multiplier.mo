@@ -29,9 +29,9 @@ model Multiplier "Analog multiplier"
     annotation (Placement(transformation(extent={{40,-10},{60,10}})));
   Modelica.Blocks.Sources.Constant scaling(k=1/ER)
     annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
-  Limiter                           limiter1(uMax=ER, uMin=-ER)
+  SimpleLimiter limiter1(uMax=ER, uMin=-ER)
     annotation (Placement(transformation(extent={{-20,30},{0,50}})));
-  Limiter                           limiter2(uMax=ER, uMin=-ER)
+  SimpleLimiter limiter2(uMax=ER, uMin=-ER)
     annotation (Placement(transformation(extent={{-20,-30},{0,-50}})));
   Modelica.Electrical.Analog.Sources.SignalVoltage signalVoltage annotation (
       Placement(transformation(

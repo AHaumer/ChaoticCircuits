@@ -38,13 +38,13 @@ model InductorlessCircuit "Chua's chaotic Circuit"
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{10,-70},{30,-50}})));
-  Components.IdealizedOpAmp3Pin opAmpIR1(Vps=+Vs,
-    Vns=-Vs) annotation (Placement(transformation(
+  Components.ImprovedOpAmp3Pin opAmpIR1(Vps=+Vs, Vns=-Vs) annotation (Placement(
+        transformation(
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={-70,50})));
-  Components.IdealizedOpAmp3Pin opAmpIR2(Vps=+Vs,
-    Vns=-Vs) annotation (Placement(transformation(
+  Components.ImprovedOpAmp3Pin opAmpIR2(Vps=+Vs, Vns=-Vs) annotation (Placement(
+        transformation(
         extent={{10,10},{-10,-10}},
         rotation=180,
         origin={-30,-20})));

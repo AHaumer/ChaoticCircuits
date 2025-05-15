@@ -10,11 +10,11 @@ model ImprovedNIC "Improved model of a negative impedance converter"
     annotation (Placement(transformation(extent={{10,-10},{-10,10}},
         rotation=90,
         origin={-30,22})));
-  IdealizedOpAmp3Pin opAmp(
+  ImprovedOpAmp3Pin opAmp(
     V0=nicData.V0,
     Vps=+nicData.Vs,
-    Vns=-nicData.Vs)
-    annotation (Placement(transformation(extent={{-10,10},{10,-10}},
+    Vns=-nicData.Vs) annotation (Placement(transformation(
+        extent={{-10,10},{10,-10}},
         rotation=90,
         origin={0,22})));
   Modelica.Electrical.Analog.Basic.Resistor rNeg(R=nicData.R)

@@ -5,7 +5,7 @@ class ReleaseNotes "Release Notes"
 
 <h5>Version x.x.x, 20xx-xx-xx Anton Haumer</h5>
 <ul>
-  <li> </li>
+  <li>Improved OpAmp equivalent to future MSL solution</li>
 </ul>
 
 <h5>Version 2.0.0, 2025-05-14 Anton Haumer</h5>

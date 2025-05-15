@@ -11,25 +11,25 @@ model ImprovedCircuit "The Jerk equation"
   SI.Voltage x=opAmp_x.out.v "Result: x";
   SI.Voltage y=opAmp_y.out.v "Result: y=der(x)";
   SI.Voltage z=opAmp_z.out.v "Result: z=der(y)";
-  Components.IdealizedOpAmp3Pin opAmp_z(Vps=+Vs, Vns=-Vs)
+  Components.ImprovedOpAmp3Pin opAmp_z(Vps=+Vs, Vns=-Vs)
     annotation (Placement(transformation(extent={{-70,-40},{-50,-20}})));
   Modelica.Electrical.Analog.Basic.Capacitor c_z(v(start=0.001, fixed=true), C= C)
     annotation (Placement(transformation(extent={{-50,-20},{-70,0}})));
   Modelica.Electrical.Analog.Basic.Resistor r_zz(R=R/A)
     annotation (Placement(transformation(extent={{-50,0},{-70,20}})));
-  Components.IdealizedOpAmp3Pin opAmp_invy(Vps=+Vs, Vns=-Vs)
+  Components.ImprovedOpAmp3Pin opAmp_invy(Vps=+Vs, Vns=-Vs)
     annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));
   Modelica.Electrical.Analog.Basic.Resistor r_yz(R=R)
     annotation (Placement(transformation(extent={{-40,-34},{-20,-14}})));
   Modelica.Electrical.Analog.Basic.Capacitor c_y(v(start=-0.001, fixed=true), C=C)
     annotation (Placement(transformation(extent={{10,-20},{-10,0}})));
-  Components.IdealizedOpAmp3Pin opAmp_x(Vps=+Vs, Vns=-Vs)
+  Components.ImprovedOpAmp3Pin opAmp_x(Vps=+Vs, Vns=-Vs)
     annotation (Placement(transformation(extent={{50,-40},{70,-20}})));
   Modelica.Electrical.Analog.Basic.Capacitor c_x(v(start=0.001, fixed=true), C= C)
     annotation (Placement(transformation(extent={{70,-20},{50,0}})));
   Modelica.Electrical.Analog.Basic.Resistor r_xy(R=R)
     annotation (Placement(transformation(extent={{20,-34},{40,-14}})));
-  Components.IdealizedOpAmp3Pin opAmp_y(Vps=+Vs, Vns=-Vs)
+  Components.ImprovedOpAmp3Pin opAmp_y(Vps=+Vs, Vns=-Vs)
     annotation (Placement(transformation(extent={{-20,20},{-40,40}})));
   Modelica.Electrical.Analog.Basic.Resistor r_1(R=R)
     annotation (Placement(transformation(extent={{10,26},{-10,46}})));

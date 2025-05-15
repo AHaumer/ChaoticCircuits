@@ -25,7 +25,7 @@ model TestIntegrator "Test OpAmp integrator"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-30,0})));
-  Components.IdealizedOpAmp3Pin opAmp
+  Components.ImprovedOpAmp3Pin opAmp
     annotation (Placement(transformation(extent={{0,-10},{20,10}})));
 protected
   //initialization

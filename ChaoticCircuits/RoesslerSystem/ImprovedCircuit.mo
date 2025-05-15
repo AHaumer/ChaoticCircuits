@@ -25,13 +25,13 @@ model ImprovedCircuit "Roessler system"
   Real x=kx*inverter_x.out.v/unitV "Result x";
   Real y=ky*inverter_y.out.v/unitV "Result y";
   Real z=kz*inverter_z.out.v/unitV "Result z";
-  Components.IdealizedOpAmp3Pin integrator_x(Vps=+Vs, Vns=-Vs)
+  Components.ImprovedOpAmp3Pin integrator_x(Vps=+Vs, Vns=-Vs)
     annotation (Placement(transformation(extent={{10,50},{30,70}})));
   Modelica.Electrical.Analog.Basic.Ground ground1
     annotation (Placement(transformation(extent={{4,38},{16,50}})));
   Modelica.Electrical.Analog.Basic.Capacitor c_x(v(fixed=true, start=-0.001/kx),
       C=C) annotation (Placement(transformation(extent={{30,70},{10,90}})));
-  Components.IdealizedOpAmp3Pin inverter_x(Vps=+Vs, Vns=-Vs)
+  Components.ImprovedOpAmp3Pin inverter_x(Vps=+Vs, Vns=-Vs)
     annotation (Placement(transformation(extent={{70,50},{90,70}})));
   Modelica.Electrical.Analog.Basic.Resistor rx2(R=R)
     annotation (Placement(transformation(extent={{90,70},{70,90}})));
@@ -39,13 +39,13 @@ model ImprovedCircuit "Roessler system"
     annotation (Placement(transformation(extent={{40,60},{60,80}})));
   Modelica.Electrical.Analog.Basic.Ground ground2
     annotation (Placement(transformation(extent={{64,38},{76,50}})));
-  Components.IdealizedOpAmp3Pin integrator_y(Vps=+Vs, Vns=-Vs)
+  Components.ImprovedOpAmp3Pin integrator_y(Vps=+Vs, Vns=-Vs)
     annotation (Placement(transformation(extent={{10,-10},{30,10}})));
   Modelica.Electrical.Analog.Basic.Ground ground3
     annotation (Placement(transformation(extent={{4,-22},{16,-10}})));
   Modelica.Electrical.Analog.Basic.Capacitor c_y(v(fixed=true, start=-0.001/ky),
       C=C) annotation (Placement(transformation(extent={{30,10},{10,30}})));
-  Components.IdealizedOpAmp3Pin inverter_y(Vps=+Vs, Vns=-Vs)
+  Components.ImprovedOpAmp3Pin inverter_y(Vps=+Vs, Vns=-Vs)
     annotation (Placement(transformation(extent={{70,-10},{90,10}})));
   Modelica.Electrical.Analog.Basic.Resistor ry2(R=R)
     annotation (Placement(transformation(extent={{90,10},{70,30}})));
@@ -53,13 +53,13 @@ model ImprovedCircuit "Roessler system"
     annotation (Placement(transformation(extent={{40,0},{60,20}})));
   Modelica.Electrical.Analog.Basic.Ground ground4
     annotation (Placement(transformation(extent={{64,-22},{76,-10}})));
-  Components.IdealizedOpAmp3Pin integrator_z(Vps=+Vs, Vns=-Vs)
+  Components.ImprovedOpAmp3Pin integrator_z(Vps=+Vs, Vns=-Vs)
     annotation (Placement(transformation(extent={{10,-70},{30,-50}})));
   Modelica.Electrical.Analog.Basic.Ground ground5
     annotation (Placement(transformation(extent={{4,-82},{16,-70}})));
   Modelica.Electrical.Analog.Basic.Capacitor c_z(v(fixed=true, start=-0.001/kz),
       C=C) annotation (Placement(transformation(extent={{30,-50},{10,-30}})));
-  Components.IdealizedOpAmp3Pin inverter_z(Vps=+Vs, Vns=-Vs)
+  Components.ImprovedOpAmp3Pin inverter_z(Vps=+Vs, Vns=-Vs)
     annotation (Placement(transformation(extent={{70,-70},{90,-50}})));
   Modelica.Electrical.Analog.Basic.Resistor rz2(R=R)
     annotation (Placement(transformation(extent={{90,-50},{70,-30}})));

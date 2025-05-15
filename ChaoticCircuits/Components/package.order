@@ -2,8 +2,8 @@ SimpleDiode
 ZenerDiodePairApproximation
 SimpleTransistor
 Staircase
-Limiter
-IdealizedOpAmp3Pin
+SimpleLimiter
+ImprovedOpAmp3Pin
 Multiplier
 IdealNIC
 HystereticNIC
