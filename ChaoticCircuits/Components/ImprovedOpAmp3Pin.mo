@@ -2,12 +2,15 @@ within ChaoticCircuits.Components;
 model ImprovedOpAmp3Pin
   "Idealized operational amplifier within implicit supply"
   parameter Real V0=15000.0 "No-load amplification";
-  parameter Modelica.Units.SI.Time Tr=1e-5 "Rise time 10%-90% of output voltage";
   parameter SI.Voltage Vps=+15 "Positive supply voltage";
   parameter SI.Voltage Vns=-15 "Negative supply voltage";
+  parameter Boolean useFirstOrder=false "use firstOrder rise of output voltage?"
+    annotation(Evaluate=true, Dialog(tab="Advanced"));
+  parameter SI.Time Tau=1e-5 "Time constant of firstOrder rise of output voltage"
+    annotation(Evaluate=true, Dialog(tab="Advanced", enable=useFirstOrder));
   parameter Modelica.Blocks.Types.LimiterHomotopy homotopyType=Modelica.Blocks.Types.LimiterHomotopy.Linear
     "Simplified model for homotopy-based initialization"
-    annotation (Evaluate=true, Dialog(group="Initialization"));
+    annotation (Evaluate=true, Dialog(tab="Advanced", enable=useFirstOrder));
   Modelica.Electrical.Analog.Interfaces.PositivePin in_p
     "Positive pin of the input port" annotation (Placement(transformation(
           extent={{-110,-70},{-90,-50}}), iconTransformation(extent={{-110,-70},
@@ -31,19 +34,23 @@ model ImprovedOpAmp3Pin
         origin={80,0})));
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{70,-40},{90,-20}})));
-  Modelica.Blocks.Continuous.FirstOrder firstOrder(k=V0, T=Tr/log(9))
-    annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+  Modelica.Blocks.Continuous.FirstOrder firstOrder(k=V0, T=Tau) if useFirstOrder
+    annotation (Placement(transformation(extent={{-40,-30},{-20,-10}})));
+  Modelica.Blocks.Math.Gain gain(k=V0) if not useFirstOrder
+    annotation (Placement(transformation(extent={{-40,10},{-20,30}})));
   SimpleLimiter limiter(
     uMax=Vps,
     uMin=Vns)
     annotation (Placement(transformation(extent={{20,-10},{40,10}})));
 initial equation
-  if homotopyType==Modelica.Blocks.Types.LimiterHomotopy.UpperLimit then
-    firstOrder.y=Vps;
-  elseif homotopyType==Modelica.Blocks.Types.LimiterHomotopy.LowerLimit then
-    firstOrder.y=Vns;
-  else
-    firstOrder.y=V0*v_in.v;
+  if useFirstOrder then
+    if homotopyType==Modelica.Blocks.Types.LimiterHomotopy.UpperLimit then
+      limiter.u=Vps;
+    elseif homotopyType==Modelica.Blocks.Types.LimiterHomotopy.LowerLimit then
+      limiter.u=Vns;
+    else
+      limiter.u=V0*v_in.v;
+    end if;
   end if;
 equation
   connect(in_n, v_in.n)
@@ -55,11 +62,17 @@ equation
   connect(vOut.p, out) annotation (Line(points={{80,10},{80,20},{100,20},{100,0}},
         color={0,0,255}));
   connect(v_in.v, firstOrder.u)
-    annotation (Line(points={{-69,0},{-42,0}}, color={0,0,127}));
+    annotation (Line(points={{-69,0},{-60,0},{-60,-20},{-42,-20}},
+                                               color={0,0,127}));
   connect(firstOrder.y, limiter.u)
-    annotation (Line(points={{-19,0},{18,0}}, color={0,0,127}));
+    annotation (Line(points={{-19,-20},{0,-20},{0,0},{18,0}},
+                                              color={0,0,127}));
   connect(limiter.y, vOut.v)
     annotation (Line(points={{41,0},{68,0}}, color={0,0,127}));
+  connect(v_in.v, gain.u) annotation (Line(points={{-69,0},{-60,0},{-60,20},{-42,
+          20}}, color={0,0,127}));
+  connect(gain.y, limiter.u)
+    annotation (Line(points={{-19,20},{0,20},{0,0},{18,0}}, color={0,0,127}));
   annotation (defaultComponentName="opAmp",
     Documentation(info="<html>
 <p>

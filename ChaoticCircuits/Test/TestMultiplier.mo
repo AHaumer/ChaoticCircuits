@@ -1,5 +1,5 @@
 within ChaoticCircuits.Test;
-model TestMulitplier "Test the analog multiplier"
+model TestMultiplier "Test the analog multiplier"
   extends Modelica.Icons.Example;
   Components.Multiplier multiplier
     annotation (Placement(transformation(extent={{10,-10},{30,10}})));
@@ -76,4 +76,4 @@ Bear in mind the different scaling of the output! <br>
 The arithmetic mean i.e. the real power is 5 V/&radic;2 * 5 V/&radic;2 / Vscale * cos(phase shift=45&deg;) = 5/8*&radic;2 = 0.8838834765 V.
 </p>
 </html>"));
-end TestMulitplier;
+end TestMultiplier;
