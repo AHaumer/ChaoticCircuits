@@ -1,6 +1,7 @@
 SimpleDiodeCharacteristic
 TestZenerDiodePair
 SimpleTransistorCharacteristic
+OpAmpRiseTime
 TestAmplifier
 TestIntegrator
 TestMultiplier

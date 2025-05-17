@@ -26,14 +26,14 @@ model ImprovedOpAmp3Pin
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
-        origin={-80,0})));
+        origin={-70,0})));
   Modelica.Electrical.Analog.Sources.SignalVoltage vOut annotation (Placement(
         transformation(
         extent={{10,-10},{-10,10}},
         rotation=90,
-        origin={80,0})));
+        origin={60,0})));
   Modelica.Electrical.Analog.Basic.Ground ground
-    annotation (Placement(transformation(extent={{70,-40},{90,-20}})));
+    annotation (Placement(transformation(extent={{50,-40},{70,-20}})));
   Modelica.Blocks.Continuous.FirstOrder firstOrder(k=V0, T=Tau) if useFirstOrder
     annotation (Placement(transformation(extent={{-40,-30},{-20,-10}})));
   Modelica.Blocks.Math.Gain gain(k=V0) if not useFirstOrder
@@ -41,7 +41,7 @@ model ImprovedOpAmp3Pin
   SimpleLimiter limiter(
     uMax=Vps,
     uMin=Vns)
-    annotation (Placement(transformation(extent={{20,-10},{40,10}})));
+    annotation (Placement(transformation(extent={{10,-10},{30,10}})));
 initial equation
   if useFirstOrder then
     if homotopyType==Modelica.Blocks.Types.LimiterHomotopy.UpperLimit then
@@ -54,25 +54,27 @@ initial equation
   end if;
 equation
   connect(in_n, v_in.n)
-    annotation (Line(points={{-100,60},{-80,60},{-80,10}}, color={0,0,255}));
-  connect(in_p, v_in.p) annotation (Line(points={{-100,-60},{-80,-60},{-80,-10}},
+    annotation (Line(points={{-100,60},{-70,60},{-70,10}}, color={0,0,255}));
+  connect(in_p, v_in.p) annotation (Line(points={{-100,-60},{-70,-60},{-70,-10}},
         color={0,0,255}));
   connect(ground.p, vOut.n)
-    annotation (Line(points={{80,-20},{80,-10}}, color={0,0,255}));
-  connect(vOut.p, out) annotation (Line(points={{80,10},{80,20},{100,20},{100,0}},
+    annotation (Line(points={{60,-20},{60,-10}}, color={0,0,255}));
+  connect(vOut.p, out) annotation (Line(points={{60,10},{60,20},{100,20},{100,0}},
         color={0,0,255}));
   connect(v_in.v, firstOrder.u)
-    annotation (Line(points={{-69,0},{-60,0},{-60,-20},{-42,-20}},
+    annotation (Line(points={{-59,0},{-50,0},{-50,-20},{-42,-20}},
                                                color={0,0,127}));
   connect(firstOrder.y, limiter.u)
-    annotation (Line(points={{-19,-20},{0,-20},{0,0},{18,0}},
+    annotation (Line(points={{-19,-20},{-10,-20},{-10,0},{8,0}},
                                               color={0,0,127}));
   connect(limiter.y, vOut.v)
-    annotation (Line(points={{41,0},{68,0}}, color={0,0,127}));
-  connect(v_in.v, gain.u) annotation (Line(points={{-69,0},{-60,0},{-60,20},{-42,
-          20}}, color={0,0,127}));
+    annotation (Line(points={{31,0},{48,0}}, color={0,0,127}));
+  connect(v_in.v, gain.u) annotation (Line(points={{-59,0},{-50,0},{-50,20},{
+          -42,20}},
+                color={0,0,127}));
   connect(gain.y, limiter.u)
-    annotation (Line(points={{-19,20},{0,20},{0,0},{18,0}}, color={0,0,127}));
+    annotation (Line(points={{-19,20},{-10,20},{-10,0},{8,0}},
+                                                            color={0,0,127}));
   annotation (defaultComponentName="opAmp",
     Documentation(info="<html>
 <p>
