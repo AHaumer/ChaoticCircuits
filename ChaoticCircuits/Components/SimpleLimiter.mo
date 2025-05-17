@@ -7,8 +7,7 @@ block SimpleLimiter "Limit the range of a signal"
   output Boolean satNeg=u<uMin "Negative saturation";
   extends Modelica.Blocks.Interfaces.SISO;
 equation
-  assert(uMax >= uMin, "Limiter: Limits must be consistent. " +
-                       "However, uMax (=" + String(uMax) + ") < uMin (=" + String(uMin) + ")");
+  assert(uMax > uMin, "Limiter: Limits must be consistent.");
   y = smooth(0, min(uMax, max(uMin, u)));
   annotation (
     Documentation(info="<html>

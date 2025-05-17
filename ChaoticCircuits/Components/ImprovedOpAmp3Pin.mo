@@ -53,6 +53,7 @@ initial equation
     end if;
   end if;
 equation
+  assert(Vps > Vns, "OpAmp: Supply must be consistent.");
   connect(in_n, v_in.n)
     annotation (Line(points={{-100,60},{-70,60},{-70,10}}, color={0,0,255}));
   connect(in_p, v_in.p) annotation (Line(points={{-100,-60},{-70,-60},{-70,-10}},
