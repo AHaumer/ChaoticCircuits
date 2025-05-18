@@ -49,7 +49,7 @@ initial equation
     elseif homotopyType==Modelica.Blocks.Types.LimiterHomotopy.LowerLimit then
       limiter.u=Vns;
     else
-      limiter.u=V0*v_in.v;
+      limiter.u=min(Vps, max(Vns, V0*v_in.v));
     end if;
   end if;
 equation
