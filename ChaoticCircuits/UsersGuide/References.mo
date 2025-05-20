@@ -16,6 +16,12 @@ class References "References"
           Springer Briefs in Applied Sciences and Technology 2014, ISBN 978-3-319-05899-3, ISSN 2191-530X, DOI 10.1007/978-3-319-05900-6.</td>
     </tr>
     <tr>
+      <td>[Chua1983]</td>
+      <td>Leon O. Chua, C.W. Wu, A. Huang, and Guo-Qun Zhong, <br> 
+          &quot;<a href=\"https://ieeexplore.ieee.org/document/246149\">A universal circuit for studying and generating chaos. I. Routes to chaos</a>&quot;, <br>
+          IEEE Transactions on CAS I 40 (1993)10, p. 732-744.</td>
+    </tr>
+    <tr>
       <td>[Kennedy1993a]</td>
       <td>Michael Peter Kennedy, <br> 
           &quot;<a href=\"https://www.researchgate.net/publication/3322339_Three_steps_to_chaos_Part_I_evolution\">Three Steps to Chaos - Part I: Evolution</a>&quot;, <br>
@@ -37,7 +43,7 @@ class References "References"
     <tr>
       <td>[Muthuswamy2009]</td>
       <td>Bharathwaj Muthuswamy, <br> 
-          &quot;<a href=\"https://www2.eecs.berkeley.edu/Pubs/TechRpts/2009/EECS-2009-20.pdf\">A Synthetic Inductor Implementation of Chua's Circuit</a>&quot;, <br>
+          &quot;<a href=\"https://www2.eecs.berkeley.edu/Pubs/TechRpts/2009/EECS-2009-20.pdf\">A Synthetic Inductor Implementation of Chua&#39;s Circuit</a>&quot;, <br>
           Technical Report No. UCB/EECS-2009-20, University of California at Berkeley.</td>
     </tr>
     <tr>
@@ -99,6 +105,12 @@ class References "References"
       <td>J.A.Vano, J.C.Wildenberg, M.B.Anderson, J.K.Noel, J.C.Sprott, <br> 
           &quot;<a href=\"https://sprott.physics.wisc.edu/pubs/paper288.pdf\">Chaos in low-dimensional Lotka–Volterra models of competition</a>&quot;, <br>
           Nonlinearity 19 (2006) 10, p. 2391-2404</td>
+    </tr>
+    <tr>
+      <td>[Zhong1985]</td>
+      <td>Guo-Qun Zhong and F. Ayrom, <br> 
+          &quot;<a href=\"https://ieeexplore.ieee.org/document/1085728\">Periodicity and Chaos in Chua&#39;s Circuit</a>&quot;, <br>
+          IEEE Transactions on CAS I 40 (1993)10, p. 732-744.</td>
     </tr>
 </table>
 </html>"));
