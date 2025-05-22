@@ -5,6 +5,7 @@ class ReleaseNotes "Release Notes"
 
 <h5>Version x.x.x, 20xx-xx-xx Anton Haumer</h5>
 <ul>
+  <li>Implemented {Analytic, Ideal, Improved}Antoniou = Inductor replacement</li>
   <li>Test of OpAmp Rise Time</li>
   <li>Improved OpAmp equivalent to future MSL solution</li>
 </ul>

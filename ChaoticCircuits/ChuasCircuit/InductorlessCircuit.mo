@@ -21,8 +21,8 @@ model InductorlessCircuit "Chua's chaotic Circuit"
   SI.Current iL(start=0)=resistorL.i "Current of Inductor replacement";
   Modelica.Electrical.Analog.Basic.Resistor resistorL(R=RL)
     annotation (Placement(transformation(extent={{10,-10},{-10,10}},
-        rotation=270,
-        origin={0,70})));
+        rotation=90,
+        origin={-40,20})));
   Modelica.Electrical.Analog.Basic.Capacitor capacitor1(C=C1)
     annotation (Placement(
         transformation(
@@ -30,119 +30,60 @@ model InductorlessCircuit "Chua's chaotic Circuit"
         rotation=270,
         origin={40,0})));
   Modelica.Electrical.Analog.Basic.Resistor resistor(R=R)
-    annotation (Placement(transformation(extent={{10,40},{30,60}})));
+    annotation (Placement(transformation(extent={{10,30},{30,50}})));
   Modelica.Electrical.Analog.Basic.Capacitor capacitor2(C=C2)
     annotation (Placement(
         transformation(
         extent={{-10,10},{10,-10}},
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Ground ground
-    annotation (Placement(transformation(extent={{10,-70},{30,-50}})));
-  Components.ImprovedOpAmp3Pin opAmpIR1(Vps=+Vs, Vns=-Vs) annotation (Placement(
-        transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=180,
-        origin={-70,50})));
-  Components.ImprovedOpAmp3Pin opAmpIR2(Vps=+Vs, Vns=-Vs) annotation (Placement(
-        transformation(
-        extent={{10,10},{-10,-10}},
-        rotation=180,
-        origin={-30,-20})));
-  Modelica.Electrical.Analog.Basic.Resistor rIR1(R=RIR1) annotation (Placement(
-        transformation(
-        extent={{-10,10},{10,-10}},
-        rotation=270,
-        origin={-50,70})));
-  Modelica.Electrical.Analog.Basic.Resistor rIR2(R=RIR2) annotation (Placement(
-        transformation(
-        extent={{-10,10},{10,-10}},
-        rotation=270,
-        origin={-50,30})));
-  Modelica.Electrical.Analog.Basic.Resistor rIR3(R=RIR3) annotation (Placement(
-        transformation(
-        extent={{-10,10},{10,-10}},
-        rotation=270,
-        origin={-50,0})));
-  Modelica.Electrical.Analog.Basic.Capacitor cIR(C=CIR) annotation (Placement(
-        transformation(
-        extent={{-10,10},{10,-10}},
-        rotation=270,
-        origin={-50,-40})));
-  Modelica.Electrical.Analog.Basic.Resistor rIR4(R=RIR4) annotation (Placement(
-        transformation(
-        extent={{-10,10},{10,-10}},
-        rotation=270,
-        origin={-50,-70})));
+    annotation (Placement(transformation(extent={{10,-60},{30,-40}})));
   Components.ImprovedChuaDiode improvedChuaDiode(redeclare
       ParameterSets.ChuaData chuaData) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={80,0})));
+  Components.ImprovedAntoniou improvedAntoniou annotation (Placement(
+        transformation(
+        extent={{10,-10},{-10,10}},
+        rotation=90,
+        origin={-40,-20})));
 protected
   //further initialization
   SI.Voltage vcIR(start=0,fixed=true) = cIR.v "Initial voltage of cIR";
   SI.Current irIr2(start=0) = rIR2.i "Initial current of rIR3 at opAmp2";
 equation
   connect(resistor.p, capacitor2.p)
-    annotation (Line(points={{10,50},{0,50},{0,10}},      color={0,0,255}));
+    annotation (Line(points={{10,40},{0,40},{0,10}},      color={0,0,255}));
   connect(resistor.n, capacitor1.p)
-    annotation (Line(points={{30,50},{40,50},{40,10}}, color={0,0,255}));
+    annotation (Line(points={{30,40},{40,40},{40,10}}, color={0,0,255}));
   connect(ground.p, capacitor2.n)
-    annotation (Line(points={{20,-50},{0,-50},{0,-10}},    color={0,0,255}));
+    annotation (Line(points={{20,-40},{0,-40},{0,-10}},    color={0,0,255}));
   connect(ground.p, capacitor1.n)
-    annotation (Line(points={{20,-50},{40,-50},{40,-10}},color={0,0,255}));
-  connect(resistor.p, resistorL.p)
-    annotation (Line(points={{10,50},{0,50},{0,60}},      color={0,0,255}));
-  connect(rIR1.p, opAmpIR1.in_p)
-    annotation (Line(points={{-50,80},{-60,80},{-60,56}}, color={0,0,255}));
-  connect(rIR1.n, rIR2.p)
-    annotation (Line(points={{-50,60},{-50,40}}, color={0,0,255}));
-  connect(rIR2.n, opAmpIR1.in_n)
-    annotation (Line(points={{-50,20},{-60,20},{-60,44}}, color={0,0,255}));
-  connect(rIR2.n, rIR3.p)
-    annotation (Line(points={{-50,20},{-50,10}}, color={0,0,255}));
-  connect(rIR3.n, cIR.p)
-    annotation (Line(points={{-50,-10},{-50,-30}}, color={0,0,255}));
-  connect(cIR.n, rIR4.p)
-    annotation (Line(points={{-50,-50},{-50,-60}}, color={0,0,255}));
-  connect(rIR4.n, ground.p) annotation (Line(points={{-50,-80},{0,-80},{0,-50},{
-          20,-50}}, color={0,0,255}));
-  connect(rIR1.p, resistorL.n)
-    annotation (Line(points={{-50,80},{0,80}}, color={0,0,255}));
-  connect(rIR2.p, opAmpIR2.out) annotation (Line(points={{-50,40},{-50,50},{-20,
-          50},{-20,-20}}, color={0,0,255}));
-  connect(rIR3.p, opAmpIR2.in_n)
-    annotation (Line(points={{-50,10},{-40,10},{-40,-14}}, color={0,0,255}));
-  connect(cIR.n, opAmpIR2.in_p)
-    annotation (Line(points={{-50,-50},{-40,-50},{-40,-26}}, color={0,0,255}));
-  connect(cIR.p, opAmpIR1.out) annotation (Line(points={{-50,-30},{-50,-20},{-80,
-          -20},{-80,50}}, color={0,0,255}));
+    annotation (Line(points={{20,-40},{40,-40},{40,-10}},color={0,0,255}));
   connect(ground.p, improvedChuaDiode.n)
-    annotation (Line(points={{20,-50},{80,-50},{80,-10}}, color={0,0,255}));
+    annotation (Line(points={{20,-40},{80,-40},{80,-10}}, color={0,0,255}));
   connect(resistor.n, improvedChuaDiode.p)
-    annotation (Line(points={{30,50},{80,50},{80,10}}, color={0,0,255}));
+    annotation (Line(points={{30,40},{80,40},{80,10}}, color={0,0,255}));
+  connect(ground.p, improvedAntoniou.n)
+    annotation (Line(points={{20,-40},{-40,-40},{-40,-30}}, color={0,0,255}));
+  connect(resistorL.n, improvedAntoniou.p) annotation (Line(points={{-40,10},{
+          -40,-6},{-40,-10},{-40,-10}}, color={0,0,255}));
+  connect(resistor.p, resistorL.p)
+    annotation (Line(points={{10,40},{-40,40},{-40,30}}, color={0,0,255}));
   annotation (Documentation(info="<html>
 <p>See documentation of the <a href=\"modelica://ChaoticCircuits.ChuasCircuit\">enclosing subpackage</a>.</p>
 </html>"), experiment(
       StopTime=0.1,
       Interval=1e-06,
       Tolerance=1e-06),
-    Diagram(graphics={
-        Rectangle(
-          extent={{-84,84},{-16,-84}},
-          lineColor={170,213,255},
-          fillPattern=FillPattern.Solid,
-          fillColor={170,213,255}), Text(
-          extent={{-100,94},{0,84}},
-          textColor={28,108,200},
-          textString="Inductor replacement"),
+    Diagram(graphics={Line(
+          points={{10,34},{30,46}},
+          color={0,0,0},
+          arrow={Arrow.None,Arrow.Open}),
                       Text(
-          extent={{0,-60},{102,-100}},
+          extent={{-80,100},{80,70}},
           textColor={0,0,255},
           textString="R = 1900 Ohm periodic
-R = 1500 Ohm chaotic"),
-                      Line(
-          points={{10,44},{30,56}},
-          color={0,0,0},
-          arrow={Arrow.None,Arrow.Open})}));
+R = 1500 Ohm chaotic")}));
 end InductorlessCircuit;

@@ -9,4 +9,5 @@ TestNIC
 TestHystereticNIC
 TestChuasDiode
 TestTriode
+TestInductorReplacement
 TestOpAmpTriode
