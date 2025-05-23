@@ -3,7 +3,7 @@ class ReleaseNotes "Release Notes"
   extends Modelica.Icons.ReleaseNotes;
   annotation (preferredView="info",Documentation(info="<html>
 
-<h5>Version 2.1.0, 2023-05-23 Anton Haumer</h5>
+<h5>Version 2.1.1, 2025-05-23 Anton Haumer</h5>
 <ul>
   <li>Implemented {Analytic, Ideal, Improved}Antoniou = Inductor replacement</li>
   <li>Test of OpAmp Rise Time</li>
