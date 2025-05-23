@@ -4,8 +4,8 @@ package ChaoticCircuits
   import Modelica.Units.SI;
 
    annotation (preferredView="info",
-    version="2.1.1",
-    versionDate="2025-05-23",
+    version="x.x.x",
+    versionDate="20xx-xx-xx",
     uses(Modelica(version="4.0.0")),
     Documentation(info="<html>
 <p>
