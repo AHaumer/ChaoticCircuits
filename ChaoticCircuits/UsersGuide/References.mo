@@ -54,6 +54,20 @@ class References "References"
           Optoelectronics and Advanced Materials &ndash; Rapid Communications Vol. 10, No. 9-10, September-October 2016, p. 640 - 646.</td>
     </tr>
     <tr>
+      <td>[Rikitake1958]</td>
+      <td>Tsuneji Rikitake, <br> 
+          &quot;<a href=\"https://doi.org/10.1017/S0305004100033223\"> 
+          Oscillations of a system of disk dynamos</a>&quot;, <br>
+          Mathematical Proceedings of the Cambridge Philosophical Society, Volume 54, Issue 1, January 1958, pp. 89 – 105.</td>
+    </tr>
+    <tr>
+      <td>[Rikitake1973]</td>
+      <td>Tsuneji Rikitake, <br> 
+          &quot;<a href=\"https://doi.org/10.1111/j.1365-246X.1973.tb02428.x\"> 
+          Non-steady Geomagnetic Dynamo Models</a>&quot;, <br>
+          Geophysical Journal International, Volume 35, Issue 1-3, December 1973, pp. 277–284.</td>
+    </tr>
+    <tr>
       <td>[Roessler1976]</td>
       <td>Otto E. Roessler, <br> 
           &quot;<a href=\"https://www.sciencedirect.com/science/article/abs/pii/0375960176901018\"> 

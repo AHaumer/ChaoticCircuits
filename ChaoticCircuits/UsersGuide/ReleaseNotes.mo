@@ -5,7 +5,7 @@ class ReleaseNotes "Release Notes"
 
 <h5>Version x.x.x, 20xx-xx-xx Anton Haumer</h5>
 <ul>
-  <li> </li>
+  <li>Implemented Rikitake system (used to explain irregular reversals of the Earth’s magnetic ﬁeld)</li>
 </ul>
 
 <h5>Version 2.1.1, 2025-05-23 Anton Haumer</h5>

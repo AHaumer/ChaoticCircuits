@@ -59,6 +59,11 @@ The operational amplifiers might have a supply voltage not explicitely modeled.
   <td><a href=\"modelica://ChaoticCircuits.JerkCircuit\">Jerk circuit</a></td>
   <td><img src=\"modelica://ChaoticCircuits/Resources/Images/Jerk.png\"></td>
   </tr>
+  <tr>
+  <td><a href=\"modelica://ChaoticCircuits.RikitakeSystem\">Rikitake system</a></td>
+  <td><img src=\"modelica://ChaoticCircuits/Resources/Images/Rikitake.png\">
+      Two coupled disc dynamos</td>
+  </tr>
  </tbody>
 </table>
 </html>"));
