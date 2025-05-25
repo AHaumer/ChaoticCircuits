@@ -43,15 +43,12 @@ model InductorlessCircuit "Chua's chaotic Circuit"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={80,0})));
-  Components.ImprovedAntoniou improvedAntoniou annotation (Placement(
+  Components.ImprovedAntoniou improvedAntoniou(vc(fixed=true))
+                                               annotation (Placement(
         transformation(
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={-40,-20})));
-protected
-  //further initialization
-  SI.Voltage vcIR(start=0,fixed=true) = cIR.v "Initial voltage of cIR";
-  SI.Current irIr2(start=0) = rIR2.i "Initial current of rIR3 at opAmp2";
 equation
   connect(resistor.p, capacitor2.p)
     annotation (Line(points={{10,40},{0,40},{0,10}},      color={0,0,255}));

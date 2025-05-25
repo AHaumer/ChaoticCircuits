@@ -11,12 +11,12 @@ model ImprovedCircuit "van der Pol equations"
   parameter Real ky=1 "Scaling factor y";
   parameter Real kz=1 "Scaling factor z";
   parameter SI.AngularVelocity w0=2*pi*1000 "Time scaling = natural angular velocity";
-  parameter Real Vs=10 "Limiting supply voltage";
   //initial values
   parameter Real x0=2 "Initial value of x";
   parameter Real y0=-2/15 "Initial value of y";
   parameter Real z0=-5/6 "Initial value of z";
   //basic parameters of components
+  parameter Real Vs=10 "Limiting supply voltage";
   parameter SI.Resistance R=10e3 "Output resistance of amplifiers";
   parameter SI.Capacitance C=1e-6 "Capacitor of integrators";
   //parameterization of the opAmp-circuits

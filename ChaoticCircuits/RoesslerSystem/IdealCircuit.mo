@@ -9,8 +9,8 @@ model IdealCircuit "Roessler system"
   parameter Real ky=15 "Scaling factor y";
   parameter Real kz=25 "Scaling factor z";
   parameter SI.Time Tau=1 "Scaling time";
-  parameter SI.Voltage Vs=10 "Limiting supply voltage";
   //basic parameters of components
+  parameter SI.Voltage Vs=10 "Limiting supply voltage";
   parameter SI.Resistance R=10e3 "Output resistance of amplifiers";
   parameter SI.Capacitance C=1e-6 "Capacitor of integrators";
   //parameterization of the opAmp-circuits
