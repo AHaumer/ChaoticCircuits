@@ -1,5 +1,5 @@
 within ChaoticCircuits.RikitakeSystem;
-model ImprovedCircuit "Rikitake system"
+model IdealCircuit "Rikitake system"
   extends Modelica.Icons.Example;
   parameter Real mu=0.4 "Resistive parameter";
   parameter Real D =2 "Speed difference";
@@ -19,13 +19,11 @@ model ImprovedCircuit "Rikitake system"
   Real x1(start=0.001, fixed=true)=inverter_x1.out.v/unitV "Current 1";
   Real x2(start=0.001, fixed=true)=inverter_x2.out.v/unitV "Current 2";
   Real z(start=1, fixed=true)=inverter_z.out.v/unitV "Speed";
-  Components.ImprovedOpAmp3Pin integrator_x1(Vps=+Vs, Vns=-Vs,
-    useFirstOrder=true)
+  Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin integrator_x1
     annotation (Placement(transformation(extent={{10,90},{30,110}})));
   Modelica.Electrical.Analog.Basic.Capacitor c_x1(v(start=-0.001), C=C)
     annotation (Placement(transformation(extent={{30,110},{10,130}})));
-  Components.ImprovedOpAmp3Pin inverter_x1(Vps=+Vs, Vns=-Vs,
-    useFirstOrder=true)
+  Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin inverter_x1
     annotation (Placement(transformation(extent={{70,90},{90,110}})));
   Modelica.Electrical.Analog.Basic.Resistor rx12(R=R)
     annotation (Placement(transformation(extent={{90,110},{70,130}})));
@@ -33,13 +31,11 @@ model ImprovedCircuit "Rikitake system"
     annotation (Placement(transformation(extent={{40,100},{60,120}})));
   Modelica.Electrical.Analog.Basic.Ground ground2
     annotation (Placement(transformation(extent={{64,78},{76,90}})));
-  Components.ImprovedOpAmp3Pin integrator_x2(Vps=+Vs, Vns=-Vs,
-    useFirstOrder=true)
+  Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin integrator_x2
     annotation (Placement(transformation(extent={{10,30},{30,50}})));
   Modelica.Electrical.Analog.Basic.Capacitor c_x2(v(start=-0.001), C=C)
     annotation (Placement(transformation(extent={{30,50},{10,70}})));
-  Components.ImprovedOpAmp3Pin inverter_x2(Vps=+Vs, Vns=-Vs,
-    useFirstOrder=true)
+  Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin inverter_x2
     annotation (Placement(transformation(extent={{70,30},{90,50}})));
   Modelica.Electrical.Analog.Basic.Resistor rx22(R=R)
     annotation (Placement(transformation(extent={{90,50},{70,70}})));
@@ -47,13 +43,11 @@ model ImprovedCircuit "Rikitake system"
     annotation (Placement(transformation(extent={{40,40},{60,60}})));
   Modelica.Electrical.Analog.Basic.Ground ground4
     annotation (Placement(transformation(extent={{64,18},{76,30}})));
-  Components.ImprovedOpAmp3Pin integrator_z(Vps=+Vs, Vns=-Vs,
-    useFirstOrder=true)
+  Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin integrator_z
     annotation (Placement(transformation(extent={{10,-40},{30,-20}})));
   Modelica.Electrical.Analog.Basic.Capacitor c_z(v(start=-1),C=C)
-    annotation (Placement(transformation(extent={{30,-20},{10,0}})));
-  Components.ImprovedOpAmp3Pin inverter_z(Vps=+Vs, Vns=-Vs,
-    useFirstOrder=true)
+           annotation (Placement(transformation(extent={{30,-20},{10,0}})));
+  Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin inverter_z
     annotation (Placement(transformation(extent={{70,-40},{90,-20}})));
   Modelica.Electrical.Analog.Basic.Resistor rz2(R=R)
     annotation (Placement(transformation(extent={{90,-20},{70,0}})));
@@ -92,8 +86,7 @@ model ImprovedCircuit "Rikitake system"
     annotation (Placement(transformation(extent={{-120,-50},{-100,-30}})));
   Modelica.Electrical.Analog.Basic.Resistor rz4(R=R)
     annotation (Placement(transformation(extent={{-70,-50},{-90,-30}})));
-  Components.ImprovedOpAmp3Pin adder_z_D(Vps=+Vs, Vns=-Vs,
-    useFirstOrder=true)
+  Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin adder_z_D
     annotation (Placement(transformation(extent={{-90,-70},{-70,-50}})));
   Modelica.Electrical.Analog.Basic.Resistor rz4D(R=R)
     annotation (Placement(transformation(extent={{-120,-70},{-100,-50}})));
@@ -112,15 +105,6 @@ model ImprovedCircuit "Rikitake system"
     annotation (Placement(transformation(extent={{-20,-20},{0,0}})));
 protected
   constant SI.Voltage unitV=1;
-  //further initialization
-  SI.Voltage v_x1(start=0)=integrator_x1.v_in.v;
-  SI.Voltage vx1(start=0)=inverter_x1.v_in.v;
-  SI.Voltage v_x2(start=0)=integrator_x2.v_in.v;
-  SI.Voltage vx2(start=0)=inverter_x2.v_in.v;
-  SI.Voltage v_z(start=0)=integrator_z.v_in.v;
-  SI.Voltage vz(start=0)=inverter_z.v_in.v;
-  SI.Current irz4(start=0)=rz4.i;
-  SI.Current irz4z(start=0)=rz4z.i;
 equation
   connect(rx11.n, inverter_x1.in_n)
     annotation (Line(points={{60,110},{60,106},{70,106}},
@@ -278,4 +262,4 @@ equation
           fontSize=10,
           textString="+z")}),
     Icon(coordinateSystem(extent={{-140,-100},{100,140}})));
-end ImprovedCircuit;
+end IdealCircuit;

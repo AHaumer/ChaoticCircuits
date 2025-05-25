@@ -3,7 +3,7 @@ class ReleaseNotes "Release Notes"
   extends Modelica.Icons.ReleaseNotes;
   annotation (preferredView="info",Documentation(info="<html>
 
-<h5>Version x.x.x, 20xx-xx-xx Anton Haumer</h5>
+<h5>Version 2.2.0, 2025-05-25 Anton Haumer</h5>
 <ul>
   <li>Implemented Rikitake system (used to explain irregular reversals of the Earth’s magnetic ﬁeld)</li>
   <li>Fixed a bug in ChuasCircuit.InductorlessCircuit</li>
