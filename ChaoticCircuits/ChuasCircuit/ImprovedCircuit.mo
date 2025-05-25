@@ -3,7 +3,7 @@ model ImprovedCircuit "Chua's chaotic Circuit"
   extends Modelica.Icons.Example;
   parameter SI.Inductance L=18e-3 "Inductor";
   parameter SI.Resistance RL=14 "Resistance of Inductor";
-  parameter SI.Resistance R=1.9e3 "Resistor";
+  parameter SI.Resistance R=1850 "Resistor";
   parameter SI.Capacitance C1=10.e-9 "Capacitor 1";
   parameter SI.Capacitance C2=100e-9 "Capacitor 2";
   //shortcut to results
@@ -69,8 +69,7 @@ equation
     Diagram(graphics={Text(
           extent={{-80,100},{80,70}},
           textColor={0,0,255},
-          textString="R = 1900 Ohm periodic
-R = 1500 Ohm chaotic"),
+          textString="Path to chaos: R = {1850, 1800, 1750} Ohm"),
                       Line(
           points={{10,34},{30,46}},
           color={0,0,0},
