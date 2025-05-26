@@ -1,8 +1,19 @@
 within ChaoticCircuits.Components;
 model Memristor "Memristor model"
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
-  extends Modelica.Icons.UnderConstruction;
-
+  parameter SI.Resistance Ron =100  "Resistance if completely (x=1) on";
+  parameter SI.Resistance Roff=16e3 "Resistance if completely (x=0) off";
+  parameter SI.Length D=1e-8 "Total length of device";
+  parameter Real muv=1e-14 "Dopant mobility";
+  parameter Integer P=10 "Exponent of Biolek window function";
+  Real x(final min=0, final max=1, start=0.3144654088050)
+    "Internal state = length of doped region / total length";
+  Real fw "Window function (Biolek)";
+  SI.Resistance Rmem = Ron*x + Roff*(1 - x) "Memristor resistance";
+equation
+  v = Rmem*i;
+  der(x) = muv/D^2*Ron*i*fw;
+  fw = 1 - (x - (if i>=0 then 0 else 1))^(2*P);
   annotation (Icon(graphics={
         Text(
           extent={{-100,100},{100,70}},

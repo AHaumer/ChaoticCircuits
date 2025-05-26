@@ -12,3 +12,5 @@ TestTriode
 TestInductorReplacement
 TestOpAmpTriode
 TestEMF
+MemristorTestSpike
+MemristorTestSine
