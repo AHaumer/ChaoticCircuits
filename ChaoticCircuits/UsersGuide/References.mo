@@ -5,6 +5,12 @@ class References "References"
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
+      <td>[Abraham2018]</td>
+      <td>Isaac Abraham, <br> 
+          &quot;<a href=\"https://doi.org/10.1038/s41598-018-29394-7\">The case for rejecting the memristor as a fundamental circuit element </a>&quot;, 
+          Scientific Reports 8, Article No.10971, 2018.</td>
+    </tr>
+    <tr>
       <td>[Berkeley]</td>
       <td>Berkeley Electrical Engineering and Computer Science, Nonlinear Electronics Lab:<br> 
           &quot;<a href=\"https://nonlinear.eecs.berkeley.edu/chaos/chaos.html#_Working_With_Chaos_Simulation\">Working with Chaos</a>&quot;.</td>
@@ -44,6 +50,12 @@ class References "References"
       <td>Leon O. Chua, C.W. Wu, A. Huang, and Guo-Qun Zhong, <br> 
           &quot;<a href=\"https://ieeexplore.ieee.org/document/246149\">A universal circuit for studying and generating chaos. I. Routes to chaos</a>&quot;, <br>
           IEEE Transactions on CAS I 40 (1993)10, pp. 732-744.</td>
+    </tr>
+    <tr>
+      <td>[Joglekar2009]</td>
+      <td>Yogesh N Joglekar and Stephen J Wolf, <br> 
+          &quot;<a href=\"https://iopscience.iop.org/article/10.1088/0143-0807/30/4/001\">The elusive memristor: properties of basic electrical circuits</a>&quot;, <br>
+          European Journal of Physics Vol.30, No.4, 2009, pp. 661-675.</td>
     </tr>
     <tr>
       <td>[Kennedy1993a]</td>

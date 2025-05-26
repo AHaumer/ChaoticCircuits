@@ -64,6 +64,10 @@ The operational amplifiers might have a supply voltage not explicitely modeled.
   <td><img src=\"modelica://ChaoticCircuits/Resources/Images/Rikitake.png\">
       Two coupled disc dynamos</td>
   </tr>
+  <tr>
+  <td><a href=\"modelica://ChaoticCircuits.SimplestCHaoticCircuit\">Simplest Chaotic Circuit</a></td>
+  <td>A series resonance circuit using a special memristor</td>
+  </tr>
  </tbody>
 </table>
 </html>"));

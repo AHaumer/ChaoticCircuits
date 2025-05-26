@@ -9,7 +9,7 @@ model MemristorTestSine "Test the memristor with sinusoidal voltage"
         origin={-20,0})));
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));
-  Components.Memristor memristor(x(fixed=true)) annotation (Placement(
+  Components.DriftMemristor memristor(x(fixed=true)) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,

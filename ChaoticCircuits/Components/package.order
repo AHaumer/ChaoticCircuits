@@ -15,4 +15,5 @@ IdealAntoniou
 ImprovedAntoniou
 Triode
 RotationalEMF
-Memristor
+DriftMemristor
+NegMemristor
