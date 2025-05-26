@@ -5,7 +5,7 @@ class ReleaseNotes "Release Notes"
 
 <h5>Version x.x.x, 20xx-xx-xx Anton Haumer</h5>
 <ul>
-  <li> </li>
+  <li>Memristor modeling</li>
 </ul>
 
 <h5>Version 2.2.0, 2025-05-25 Anton Haumer</h5>
