@@ -40,7 +40,7 @@ class References "References"
           Proceedings of the IEEE Vol.64, No.2, 1976, pp. 209-223.</td>
     </tr>
     <tr>
-      <td>[Chua1983]</td>
+      <td>[Chua1993]</td>
       <td>Leon O. Chua, C.W. Wu, A. Huang, and Guo-Qun Zhong, <br> 
           &quot;<a href=\"https://ieeexplore.ieee.org/document/246149\">A universal circuit for studying and generating chaos. I. Routes to chaos</a>&quot;, <br>
           IEEE Transactions on CAS I 40 (1993)10, pp. 732-744.</td>

@@ -18,6 +18,5 @@ Note: For <code>c = 1</code> periodic solutions are obtained.
 <li><a href=\"modelica://ChaoticCircuits.UsersGuide.References\"> [Roessler1976] </a></li>
 <li><a href=\"modelica://ChaoticCircuits.UsersGuide.References\"> [Roessler1979] </a></li>
 </ul>
-</html>
 </html>"));
 end RoesslerSystem;

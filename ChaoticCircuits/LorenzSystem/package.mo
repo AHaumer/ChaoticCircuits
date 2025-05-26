@@ -10,7 +10,11 @@ x is proportional to the rate of convection, y to the horizontal temperature var
 The original parameters were:        <code>&sigma;=10,&rho;=28,&beta;=8/3</code>. <br>
 Note: For <code>&beta;=1/3</code> periodic results are obtained.<br>
 Note: We could scale the time by factor k<sub>t</sub> in ScaledBlocks and ImprovedCircuit (i.e. accelerate k<sub>t</sub>&lt;1 or slow down k<sub>t</sub>&gt;1 the simulation), 
-but we woudl to take that time scale into account when comparing with the AnalyticEquations.
+but we have to take that time scale into account when comparing with the AnalyticEquations.
 </p>
+<p><strong>References:</strong></p>
+<ul>
+<li><a href=\"modelica://ChaoticCircuits.UsersGuide.References\"> [Lorenz1963] </a></li>
+</ul>
 </html>"));
 end LorenzSystem;
