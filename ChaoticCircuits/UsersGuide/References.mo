@@ -65,6 +65,12 @@ class References "References"
           Zulassungsarbeit zum ersten Staatsexamen, University of Bayreuth, Lehrstuhl f&uuml;r Experimentalphysik II, 1995.</td>
     </tr>
     <tr>
+      <td>[Lorenz1963]</td>
+      <td>Edward N. Lorenz, <br> 
+          &quot;<a href=\"https://doi.org/10.1175/1520-0469(1963)020%3C0130:DNF%3E2.0.CO;2\">Deterministic Nonperiodic Flow</a>&quot;, <br>
+          Journal of the Atmospheric Sciences, Vol.20, 1963, pp. 130-142.</td>
+    </tr>
+    <tr>
       <td>[Majetta2012]</td>
       <td>Kristin Majetta, Christoph Clauss, Torsten Schmidt, <br> 
           &quot;<a href=\"http://dx.doi.org/10.3384/ecp12076507\">Towards a Memristor Model Library in Modelica</a>&quot;, <br>
@@ -73,7 +79,8 @@ class References "References"
     <tr>
       <td>[Maurer2014]</td>
       <td>Christoph Maurer, <br> 
-          &quot;<a href=\"https://www.maurer-christoph.de/pdfs/Analog%202.0%20-%20Zur%20Memristik%20in%20neuromorphen%20Schaltkreisen.pdf\">Zur Memristik in neuromorphen Schaltkreisen.</a>&quot;, <br>
+          &quot;<a href=\"https://www.maurer-christoph.de/pdfs/Analog%202.0%20-%20Zur%20Memristik%20in%20neuromorphen%20Schaltkreisen.pdf\">
+          Zur Memristik in neuromorphen Schaltkreisen.</a>&quot; (German), <br>
            Master Thesis 2014, Humboldt-Universit&auml;t zu Berlin.</td>
     </tr>
     <tr>
@@ -91,8 +98,7 @@ class References "References"
     <tr>
       <td>[Oguz2018]</td>
       <td>Yasin O&#287;uz, <br> 
-          &quot;<a href=\"http://dx.doi.org/10.5772/intechopen.73921\"> 
-          Mathematical Modeling of Memristors</a>&quot;, <br>
+          &quot;<a href=\"http://dx.doi.org/10.5772/intechopen.73921\">Mathematical Modeling of Memristors</a>&quot;, <br>
           Chapter 9 in: Alex James, Memristor and Memristive Neural Networks, Intechopen 2018, ISBN 978-953-51-3948-5.</td>
     </tr>
     <tr>
@@ -107,33 +113,30 @@ class References "References"
       <td>Tsuneji Rikitake, <br> 
           &quot;<a href=\"https://doi.org/10.1017/S0305004100033223\"> 
           Oscillations of a system of disk dynamos</a>&quot;, <br>
-          Mathematical Proceedings of the Cambridge Philosophical Society, Volume 54, Issue 1, January 1958, 89 – 105.</td>
+          Mathematical Proceedings of the Cambridge Philosophical Society, Vol.54, No.1, January 1958, 89 – 105.</td>
     </tr>
     <tr>
       <td>[Rikitake1973]</td>
       <td>Tsuneji Rikitake, <br> 
-          &quot;<a href=\"https://doi.org/10.1111/j.1365-246X.1973.tb02428.x\"> 
-          Non-steady Geomagnetic Dynamo Models</a>&quot;, <br>
-          Geophysical Journal International, Volume 35, Issue 1-3, December 1973, 277–284.</td>
+          &quot;<a href=\"https://doi.org/10.1111/j.1365-246X.1973.tb02428.x\">Non-steady Geomagnetic Dynamo Models</a>&quot;, <br>
+          Geophysical Journal International, Vol.35, No.1-3, December 1973, 277–284.</td>
     </tr>
     <tr>
       <td>[Roessler1976]</td>
       <td>Otto E. Roessler, <br> 
-          &quot;<a href=\"https://www.sciencedirect.com/science/article/abs/pii/0375960176901018\"> 
-          An equation for continuous chaos</a>&quot;, <br>
+          &quot;<a href=\"https://www.sciencedirect.com/science/article/abs/pii/0375960176901018\">An equation for continuous chaos</a>&quot;, <br>
           Physics Letters A Vol. 57, No. 5, July 1976, pp. 397-398.</td>
     </tr>
     <tr>
       <td>[Roessler1979]</td>
       <td>Otto E. Roessler, <br> 
-          &quot;<a href=\"https://www.sciencedirect.com/science/article/abs/pii/0375960179901506\"> 
-          An equation for hyperchaos</a>&quot;, <br>
+          &quot;<a href=\"https://www.sciencedirect.com/science/article/abs/pii/0375960179901506\">An equation for hyperchaos</a>&quot;, <br>
           Physics Letters A Vol. 71, No. 2-3, April 1979, pp. 155-157.</td>
     </tr>
     <tr>
       <td>[Shinriki1981]</td>
       <td>Masanon Shinriki, Masahiro Yamamoto, Shinsaku Mori, <br> 
-          &quot;<a href=\"https://ieeexplore.ieee.org/abstract/document/1456241\"> 
+          &quot;<a href=\"https://ieeexplore.ieee.org/abstract/document/1456241\">
           Multimode oscillations in a modified Van Der Pol oscillator containing a positive nonlinear conductance</a>&quot;, <br>
           Proceedings of the IEEE Vol. 69, No. 3, March 1981, pp. 394 - 395.</td>
     </tr>
