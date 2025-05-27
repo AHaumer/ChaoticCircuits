@@ -15,16 +15,23 @@ model PhysicalModel "Simplest Chaotic Circuit"
   Components.NegMemristor memristor annotation (Placement(transformation(
         extent={{-10,10},{10,-10}},
         rotation=90,
-        origin={30,0})));
+        origin={30,-10})));
+  Modelica.Electrical.Analog.Basic.Resistor rS annotation (Placement(
+        transformation(
+        extent={{-10,10},{10,-10}},
+        rotation=90,
+        origin={30,10})));
 equation
   connect(ground.p, memristor.p)
-    annotation (Line(points={{0,-30},{30,-30},{30,-10}}, color={0,0,255}));
-  connect(memristor.n, capacitor.p)
-    annotation (Line(points={{30,10},{30,30},{10,30}}, color={0,0,255}));
+    annotation (Line(points={{0,-30},{30,-30},{30,-20}}, color={0,0,255}));
   connect(capacitor.n, inductor.p)
     annotation (Line(points={{-10,30},{-30,30},{-30,10}}, color={0,0,255}));
   connect(inductor.n, ground.p)
     annotation (Line(points={{-30,-10},{-30,-30},{0,-30}}, color={0,0,255}));
+  connect(memristor.n, rS.p)
+    annotation (Line(points={{30,0},{30,0}}, color={0,0,255}));
+  connect(rS.n, capacitor.p)
+    annotation (Line(points={{30,20},{30,30},{10,30}}, color={0,0,255}));
   annotation (Documentation(info="<html>
 <p>See documentation of the <a href=\"modelica://ChaoticCircuits.SimplestChaoticCircuit\">enclosing subpackage</a>.</p>
 </html>"));
