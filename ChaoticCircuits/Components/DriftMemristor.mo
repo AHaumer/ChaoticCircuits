@@ -37,6 +37,7 @@ In this implementation, the formula of [Biolek2009] as shown by [Majetta2012] is
 <li><a href=\"modelica://ChaoticCircuits.UsersGuide.References\"> [Majetta2012] </a></li>
 <li><a href=\"modelica://ChaoticCircuits.UsersGuide.References\"> [Maurer2014] </a></li>
 <li><a href=\"modelica://ChaoticCircuits.UsersGuide.References\"> [Oguz2018] </a></li>
+<li><a href=\"modelica://ChaoticCircuits.UsersGuide.References\"> [Strukov2008] </a></li>
 <li><a href=\"modelica://ChaoticCircuits.UsersGuide.References\"> [Yakopcic2011] </a></li>
 </ul>
 </html>"));
