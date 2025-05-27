@@ -160,7 +160,7 @@ class References "References"
     </tr>
     <tr>
       <td>[Strukov2008]</td>
-      <td>Dmitri B. Strukov, Gregory S. Schneider, Duncan R: Stewart, and R. Stanley Williams, <br> 
+      <td>Dmitri B. Strukov, Gregory S. Snider, Duncan R: Stewart, and R. Stanley Williams, <br> 
           &quot;<a href=\"https://doi.org/10.1038/nature06932\">The missing memristor found</a>&quot;, <br>
           Nature Vol.453, 2008, pp. 80 - 83.</td>
     </tr>
