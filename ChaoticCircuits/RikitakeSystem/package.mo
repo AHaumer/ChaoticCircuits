@@ -2,7 +2,7 @@ within ChaoticCircuits;
 package RikitakeSystem "Rikitake two-disc dynamo"
   extends Modelica.Icons.ExamplesPackage;
 
-  annotation (Documentation(info="<html>
+  annotation (preferredView="info", Documentation(info="<html>
 <p>
 This is an implementation of the RIkitake system as described in
 <a href=\"modelica://ChaoticCircuits.UsersGuide.References\"> [Rikitake1958] </a> and 

@@ -5,7 +5,7 @@ model NegMemristor "Memristor with partly negative resistance"
   parameter SI.Current I0=0.6 "Parameter alpha";
 equation
   Rmem = R0*(q^2 - 1);
-  der(q) = i*(1 - q) - I0*q;
+  der(q) = i/I0 - q - q*i/I0;
   annotation (defaultComponentName="memristor",
     Icon(graphics={
         Line(points={{-34,-31},{-43,-14},{-51,6},{-60,30}}, color={0,0,0},
