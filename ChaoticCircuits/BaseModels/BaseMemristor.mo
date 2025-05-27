@@ -2,7 +2,7 @@ within ChaoticCircuits.BaseModels;
 partial model BaseMemristor "Partial memristor model"
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
   Real q(final min=0, final max=1, start=0.5)
-    "Internal state = length of doped region / total length";
+    "Internal state = deimensionless charge resp. length of doped region / total length";
   SI.Resistance Rmem "Memristor resistance";
 equation
   v = Rmem*i;

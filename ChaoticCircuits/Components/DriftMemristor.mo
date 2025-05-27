@@ -4,7 +4,7 @@ model DriftMemristor "Memristor Nonlinear Drift Model"
   parameter SI.Resistance Ron =100  "Resistance if completely (x=1) on";
   parameter SI.Resistance Roff=16e3 "Resistance if completely (x=0) off";
   parameter SI.Length D=1e-8 "Total length of device";
-  parameter Real muv=1e-14 "Dopant mobility";
+  parameter SI.Mobility muv=1e-14 "Dopant mobility";
   parameter Integer P=10 "Exponent of Biolek window function";
   Real fw "Window function (Biolek)";
 equation
