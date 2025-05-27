@@ -1,7 +1,7 @@
 within ChaoticCircuits.BaseModels;
 partial model BaseMemristor "Partial memristor model"
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
-  Real x(final min=0, final max=1, start=0.5)
+  Real q(final min=0, final max=1, start=0.5)
     "Internal state = length of doped region / total length";
   SI.Resistance Rmem "Memristor resistance";
 equation
@@ -27,8 +27,9 @@ equation
               0},{90,0}}, color={0,0,255})}), Documentation(info="<html>
 <p>
 The memristor is called the 4<sup>th</sup> missing component besides resistor, capacitor and inductor. 
-The resistance of the element depends on an inner state which provides memory. 
+The resistance of the element depends on an inner state <code>q</code> which provides memory. 
 Different functions for this dependency have been suggested. 
+<code>q</code> is related to the charge: <code>der(q) = i</code>. 
 </p>
 <p><strong>References:</strong></p>
 <ul>

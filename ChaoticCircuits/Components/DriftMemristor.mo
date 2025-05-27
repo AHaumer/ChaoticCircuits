@@ -1,6 +1,6 @@
 within ChaoticCircuits.Components;
 model DriftMemristor "Memristor Nonlinear Drift Model"
-  extends ChaoticCircuits.BaseModels.BaseMemristor(x(start=0.3144654088050));
+  extends ChaoticCircuits.BaseModels.BaseMemristor(q(start=0.3144654088050));
   parameter SI.Resistance Ron =100  "Resistance if completely (x=1) on";
   parameter SI.Resistance Roff=16e3 "Resistance if completely (x=0) off";
   parameter SI.Length D=1e-8 "Total length of device";
@@ -8,9 +8,9 @@ model DriftMemristor "Memristor Nonlinear Drift Model"
   parameter Integer P=10 "Exponent of Biolek window function";
   Real fw "Window function (Biolek)";
 equation
-  Rmem = Ron*x + Roff*(1 - x);
-  der(x) = muv/D^2*Ron*i*fw;
-  fw = 1 - (x - (if -i<0 then 0 else 1))^(2*P);
+  Rmem = Ron*q + Roff*(1 - q);
+  der(q) = muv/D^2*Ron*i*fw;
+  fw = 1 - (q - (if -i<0 then 0 else 1))^(2*P);
   annotation (defaultComponentName="memristor",
     Icon(graphics={
         Line(points={{0,30},{0,-40}}, color={0,0,0}),
@@ -25,7 +25,8 @@ equation
 The memristor is called the 4<sup>th</sup> missing component besides resistor, capacitor and inductor. 
 The resistance of the element depends on an inner state which provides memory. 
 Different functions for this dependency have been suggested. 
-In this implementation, the formula of [Biolek2009] as shown by [Majetta2012] is used.
+In this implementation, the formula of [Biolek2009] as shown by [Majetta2012] is used. 
+<code>q</code> is related to the charge: <code>der(q) = i</code>. 
 </p>
 <p><strong>References:</strong></p>
 <ul>
