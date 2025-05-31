@@ -48,8 +48,14 @@ class References "References"
     <tr>
       <td>[Chua1993]</td>
       <td>Leon O. Chua, C.W. Wu, A. Huang, and Guo-Qun Zhong, <br> 
-          &quot;<a href=\"https://ieeexplore.ieee.org/document/246149\">A universal circuit for studying and generating chaos. I. Routes to chaos</a>&quot;, <br>
+          &quot;<a href=\"https://doi.org/10.1109/81.246149\">A universal circuit for studying and generating chaos. I. Routes to chaos</a>&quot;, <br>
           IEEE Transactions on CAS I 40 (1993)10, pp. 732-744.</td>
+    </tr>
+    <tr>
+      <td>[Chua1993a]</td>
+      <td>Leon O. Chua, Chai Wah Wu, Anshan Huang, and Guo-Qun Zhong, <br> 
+          &quot;<a href=\"https://doi.org/10.1109/81.246150\">A universal circuit for studying and generating chaos. II. Strange attractors</a>&quot;, <br>
+          IEEE Transactions on CAS I 40 (1993)10, pp. 745-761.</td>
     </tr>
     <tr>
       <td>[Joglekar2009]</td>
