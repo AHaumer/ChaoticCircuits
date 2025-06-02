@@ -114,6 +114,12 @@ class References "References"
           International Journal of Bifurcation and Chaos, Vol.20, No.5, 2010, pp. 1567-1580.</td>
     </tr>
     <tr>
+      <td>[Muthuswamy2010a]</td>
+      <td>Bharathwaj Muthuswamy, <br> 
+          &quot;<a href=\"https://doi.org/10.1142/S0218127410026514\">Implementing Memristor Based Chaotic Circuits</a>&quot;, <br>
+          International Journal of Bifurcation and Chaos, Vol.20, No.5, 2010, pp. 1335-1350.</td>
+    </tr>
+    <tr>
       <td>[Oguz2018]</td>
       <td>Yasin O&#287;uz, <br> 
           &quot;<a href=\"http://dx.doi.org/10.5772/intechopen.73921\">Mathematical Modeling of Memristors</a>&quot;, <br>
