@@ -58,6 +58,12 @@ class References "References"
           IEEE Transactions on CAS I 40 (1993)10, pp. 745-761.</td>
     </tr>
     <tr>
+      <td>[Itoh2008]</td>
+      <td>Makoto Itoh and Leon O. Chua, <br> 
+          &quot;<a href=\"https://doi.org/10.1142/S0218127408022354\">Memristor Oscillators</a>&quot;, <br>
+          International Journal of Bifurcation and Chaos Vol.18, No.11, 2008, pp. 3183-3206.</td>
+    </tr>
+    <tr>
       <td>[Joglekar2009]</td>
       <td>Yogesh N Joglekar and Stephen J Wolf, <br> 
           &quot;<a href=\"https://iopscience.iop.org/article/10.1088/0143-0807/30/4/001\">The elusive memristor: properties of basic electrical circuits</a>&quot;, <br>

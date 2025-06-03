@@ -1,11 +1,11 @@
 within ChaoticCircuits.BaseModels;
-partial model BaseMemristor "Partial memristor model"
+partial model FluxControlledMemristor "Partial flux controlled  memristor model"
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
-  Real q(final min=0, final max=1, start=0.5)
-    "Internal state = deimensionless charge resp. length of doped region / total length";
-  SI.Resistance Rmem "Memristor resistance";
+  Real phi(final min=0, final max=1, start=0.5)
+    "Internal state = dimensionless flux";
+  SI.Conductance Gmem "Memristor conductance";
 equation
-  v = Rmem*i;
+  i = Gmem*v;
   annotation (defaultComponentName="memristor",
     Icon(graphics={
         Text(
@@ -15,7 +15,7 @@ equation
         Rectangle(
           extent={{-70,30},{70,-30}},
           lineColor={0,0,255},
-          fillColor={255,255,255},
+          fillColor={255,213,170},
           fillPattern=FillPattern.Solid),
         Rectangle(
           extent={{-70,30},{-64,-30}},
@@ -27,14 +27,15 @@ equation
               0},{90,0}}, color={0,0,255})}), Documentation(info="<html>
 <p>
 The memristor is called the 4<sup>th</sup> missing component besides resistor, capacitor and inductor. 
-The resistance of the element depends on an inner state <code>q</code> which provides memory. 
+The conductance of the element depends on an inner state <code>phi</code> which provides memory. 
 Different functions for this dependency have been suggested. 
-<code>q</code> is related to the charge: <code>der(q) = i</code>. 
+<code>phi</code> is related to the magentic flux: <code>der(phi) = v</code>. 
 </p>
 <p><strong>References:</strong></p>
 <ul>
 <li><a href=\"modelica://ChaoticCircuits.UsersGuide.References\"> [Chua1971] </a></li>
-<li><a href=\"modelica://ChaoticCircuits.UsersGuide.References\"> [Majetta2012] </a></li>
+<li><a href=\"modelica://ChaoticCircuits.UsersGuide.References\"> [Itoh2008] </a></li>
+<li><a href=\"modelica://ChaoticCircuits.UsersGuide.References\"> [Muthuswamy2010a] </a></li>
 </ul>
 </html>"));
-end BaseMemristor;
+end FluxControlledMemristor;

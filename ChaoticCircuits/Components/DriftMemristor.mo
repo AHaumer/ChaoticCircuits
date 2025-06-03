@@ -1,6 +1,7 @@
 within ChaoticCircuits.Components;
 model DriftMemristor "Memristor Nonlinear Drift Model"
-  extends ChaoticCircuits.BaseModels.BaseMemristor(q(start=0.3144654088050));
+  extends ChaoticCircuits.BaseModels.ChargeControlledMemristor(q(start=
+          0.3144654088050));
   parameter SI.Resistance Ron =100  "Resistance if completely (x=1) on";
   parameter SI.Resistance Roff=16e3 "Resistance if completely (x=0) off";
   parameter SI.Length D=1e-8 "Total length of device";

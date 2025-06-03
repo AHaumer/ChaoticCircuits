@@ -1,6 +1,6 @@
 within ChaoticCircuits.Components;
 model NegMemristor "Memristor with partly negative resistance"
-  extends ChaoticCircuits.BaseModels.BaseMemristor(q(start=0.1));
+  extends ChaoticCircuits.BaseModels.ChargeControlledMemristor(q(start=0.1));
   parameter SI.Resistance R0=1.5 "Parameter beta";
   parameter SI.Current I0=0.6 "Parameter alpha";
 equation
