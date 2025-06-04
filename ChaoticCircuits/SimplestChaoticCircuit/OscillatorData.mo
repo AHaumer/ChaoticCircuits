@@ -8,5 +8,6 @@ record OscillatorData "Parameters of resonance circuit with memristor"
   parameter SI.Resistance RS=0 "Sensing resistor";
   parameter SI.Resistance R0=1.55 "Memristor parameter";
   parameter SI.Current I0=0.6 "Memristor parameter";
+  parameter SI.Time Tau=1 "Memristor time constant of internal state";
   annotation(defaultComponentPrefixes="parameter");
 end OscillatorData;

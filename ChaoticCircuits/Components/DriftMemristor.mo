@@ -29,7 +29,7 @@ The memristor is called the 4<sup>th</sup> missing component besides resistor, c
 The resistance of the element depends on an inner state which provides memory. 
 Different functions for this dependency have been suggested. 
 In this implementation, the formula of [Biolek2009] as shown by [Majetta2012] is used. 
-<code>q</code> is related to the charge: <code>der(q) = i</code>. 
+<code>q</code> represents the charge: <code>der(q) = i</code>. 
 </p>
 <p><strong>References:</strong></p>
 <ul>

@@ -12,10 +12,12 @@ model PhysicalModelTheoretic "Simplest Chaotic Circuit with unrealistic paramete
     annotation (Placement(transformation(extent={{10,20},{-10,40}})));
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-10,-50},{10,-30}})));
-  Components.NegMemristor memristor(
-    q(fixed=true),
+  Components.NegCCMemristor
+                          memristor(
     R0=oscillatorData.R0,
-    I0=oscillatorData.I0)   annotation (Placement(transformation(
+    I0=oscillatorData.I0,
+    Tau=oscillatorData.Tau,
+    x(fixed=true))          annotation (Placement(transformation(
         extent={{-10,10},{10,-10}},
         rotation=90,
         origin={30,0})));
