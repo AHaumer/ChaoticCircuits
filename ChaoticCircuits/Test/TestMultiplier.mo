@@ -1,7 +1,7 @@
 within ChaoticCircuits.Test;
 model TestMultiplier "Test the analog multiplier"
   extends Modelica.Icons.Example;
-  Components.Multiplier multiplier
+  Components.Multiplier multiplier(useZ=true)
     annotation (Placement(transformation(extent={{10,-10},{30,10}})));
   Modelica.Blocks.Sources.Sine sine1(
     amplitude=5,
@@ -33,11 +33,18 @@ model TestMultiplier "Test the analog multiplier"
         rotation=90,
         origin={40,-20})));
   Modelica.Electrical.Analog.Basic.Ground ground
-    annotation (Placement(transformation(extent={{10,-60},{30,-40}})));
+    annotation (Placement(transformation(extent={{10,-80},{30,-60}})));
   Modelica.Blocks.Sources.Constant const(k=1/multiplier.ER)
     annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
   Modelica.Blocks.Math.MultiProduct multiProduct(nu=3)
     annotation (Placement(transformation(extent={{10,30},{30,50}})));
+  Modelica.Electrical.Analog.Sources.ConstantVoltage
+                                                   constantVoltage(V=0)
+                                                                  annotation (
+      Placement(transformation(
+        extent={{-10,10},{10,-10}},
+        rotation=270,
+        origin={20,-42})));
 equation
   connect(signalVoltage1.p, multiplier.in1)
     annotation (Line(points={{-30,10},{0,10},{0,6},{10,6}}, color={0,0,255}));
@@ -46,11 +53,11 @@ equation
   connect(multiplier.out, voltageSensor.p)
     annotation (Line(points={{30,0},{40,0},{40,-10}}, color={0,0,255}));
   connect(ground.p, voltageSensor.n)
-    annotation (Line(points={{20,-40},{40,-40},{40,-30}},color={0,0,255}));
+    annotation (Line(points={{20,-60},{40,-60},{40,-30}},color={0,0,255}));
   connect(ground.p, signalVoltage2.n)
-    annotation (Line(points={{20,-40},{-10,-40},{-10,-30}}, color={0,0,255}));
+    annotation (Line(points={{20,-60},{-10,-60},{-10,-30}}, color={0,0,255}));
   connect(ground.p, signalVoltage1.n)
-    annotation (Line(points={{20,-40},{-30,-40},{-30,-10}}, color={0,0,255}));
+    annotation (Line(points={{20,-60},{-30,-60},{-30,-10}}, color={0,0,255}));
   connect(sine1.y, signalVoltage1.v) annotation (Line(points={{-69,60},{-60,60},
           {-60,0},{-42,0}}, color={0,0,127}));
   connect(sine2.y, signalVoltage2.v) annotation (Line(points={{-69,20},{-50,20},
@@ -61,6 +68,10 @@ equation
           {-4,40},{10,40}}, color={0,0,127}));
   connect(sine1.y, multiProduct.u[3]) annotation (Line(points={{-69,60},{0,60},
           {0,42.3333},{10,42.3333}}, color={0,0,127}));
+  connect(constantVoltage.n, ground.p)
+    annotation (Line(points={{20,-52},{20,-60}}, color={0,0,255}));
+  connect(constantVoltage.p, multiplier.z)
+    annotation (Line(points={{20,-32},{20,-10}}, color={0,0,255}));
   annotation (experiment(
       StopTime=0.2,
       Interval=0.0001,

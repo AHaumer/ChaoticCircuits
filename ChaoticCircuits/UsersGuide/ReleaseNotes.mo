@@ -3,7 +3,7 @@ class ReleaseNotes "Release Notes"
   extends Modelica.Icons.ReleaseNotes;
   annotation (preferredView="info",Documentation(info="<html>
 
-<h5>Version x.x.x, 20xx-xx-xx Anton Haumer</h5>
+<h5>Version 2.3.0, 2025-06-04 Anton Haumer</h5>
 <ul>
   <li>Implemented Chua&apos;s Memristor [Muthuswamy2010a]</li>
   <li>Implemented charge controlled [Majetta2012] and flux controlled memristor model</li>
