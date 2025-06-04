@@ -9,7 +9,7 @@ model DriftMemristor "Memristor Nonlinear Drift Model"
   Real x(min=0, max=1, start=0.3144654088050)=q/unitCharge "Dimensionless state = w/D";
   Real fw "Window function (Biolek)";
 protected
-  parameter SI.ElectricCharge unitCharge=1;
+  constant SI.ElectricCharge unitCharge=1;
 equation
   Rmem = Ron*x + Roff*(1 - x);
   der(x) = muv/D^2*Ron*i*fw;
