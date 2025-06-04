@@ -1,8 +1,7 @@
 within ChaoticCircuits.BaseModels;
 partial model FluxControlledMemristor "Partial flux controlled  memristor model"
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
-  Real phi(final min=0, final max=1, start=0.5)
-    "Internal state = dimensionless flux";
+  SI.MagneticFlux phi "Internal state = magnetic flux";
   SI.Conductance Gmem "Memristor conductance";
 equation
   i = Gmem*v;

@@ -1,8 +1,7 @@
 within ChaoticCircuits.BaseModels;
 partial model ChargeControlledMemristor "Partial charge controlled memristor model"
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
-  Real q(final min=0, final max=1, start=0.5)
-    "Internal state = dimensionless charge resp. length of doped region / total length";
+  SI.ElectricCharge q "Internal state = electric charge";
   SI.Resistance Rmem "Memristor resistance";
 equation
   v = Rmem*i;

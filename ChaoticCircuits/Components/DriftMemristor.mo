@@ -1,17 +1,19 @@
 within ChaoticCircuits.Components;
 model DriftMemristor "Memristor Nonlinear Drift Model"
-  extends ChaoticCircuits.BaseModels.ChargeControlledMemristor(q(start=
-          0.3144654088050));
+  extends ChaoticCircuits.BaseModels.ChargeControlledMemristor;
   parameter SI.Resistance Ron =100  "Resistance if completely (x=1) on";
   parameter SI.Resistance Roff=16e3 "Resistance if completely (x=0) off";
   parameter SI.Length D=1e-8 "Total length of device";
   parameter SI.Mobility muv=1e-14 "Dopant mobility";
   parameter Integer P=10 "Exponent of Biolek window function";
+  Real x(min=0, max=1, start=0.3144654088050)=q/unitCharge "Dimensionless state = w/D";
   Real fw "Window function (Biolek)";
+protected
+  parameter SI.ElectricCharge unitCharge=1;
 equation
-  Rmem = Ron*q + Roff*(1 - q);
-  der(q) = muv/D^2*Ron*i*fw;
-  fw = 1 - (q - (if -i<0 then 0 else 1))^(2*P);
+  Rmem = Ron*x + Roff*(1 - x);
+  der(x) = muv/D^2*Ron*i*fw;
+  fw = 1 - (x - (if -i<0 then 0 else 1))^(2*P);
   annotation (defaultComponentName="memristor",
     Icon(graphics={
         Line(points={{0,30},{0,-40}}, color={0,0,0}),
