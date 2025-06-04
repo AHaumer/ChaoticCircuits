@@ -1,5 +1,5 @@
 within ChaoticCircuits.ChuasMemristor;
-model IdealCircuit "Chua's chaotic Circuit"
+model IdealCircuit "Chua's chaotic Circuit with memristor"
   extends Modelica.Icons.Example;
   parameter SI.Inductance L=18e-3 "Inductor";
   parameter SI.Resistance R=1800 "Resistor";
@@ -54,13 +54,13 @@ equation
   connect(inductor.p, resistor.p)
     annotation (Line(points={{-60,10},{-60,40},{-10,40}}, color={0,0,255}));
   annotation (Documentation(info="<html>
-<p>See documentation of the <a href=\"modelica://ChaoticCircuits.ChuasCircuit\">enclosing subpackage</a>.</p>
+<p>See documentation of the <a href=\"modelica://ChaoticCircuits.ChuasMemristor\">enclosing subpackage</a>.</p>
 </html>"), experiment(
       StopTime=0.1,
       Interval=1e-06,
       Tolerance=1e-06),
     Diagram(graphics={Text(
-          extent={{-100,100},{100,68}},
+          extent={{-96,100},{94,68}},
           textColor={0,0,255},
           textString="Path to chaos: R = {1800, 1850, 1900, 1950, 2000} Ohm"),
                       Line(
