@@ -5,8 +5,8 @@ class ReleaseNotes "Release Notes"
 
 <h5>Version x.x.x, 20xx-xx-xx Anton Haumer</h5>
 <ul>
-  <li>Implemented &quot;Simplest Chaotic Circuit&quot; with special memristor [Muthuswamy2010]</li>
-  <li>Implemented memristor model [Majetta2012]</li>
+  <li>Implemented Chua&apos;s Memristor [Muthuswamy2010a]</li>
+  <li>Implemented charge controlled [Majetta2012] and flux controlled memristor model</li>
 </ul>
 
 <h5>Version 2.2.0, 2025-05-25 Anton Haumer</h5>
