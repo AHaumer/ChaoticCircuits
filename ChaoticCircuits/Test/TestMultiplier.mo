@@ -38,8 +38,7 @@ model TestMultiplier "Test the analog multiplier"
     annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
   Modelica.Blocks.Math.MultiProduct multiProduct(nu=3)
     annotation (Placement(transformation(extent={{10,30},{30,50}})));
-  Modelica.Electrical.Analog.Sources.ConstantVoltage
-                                                   constantVoltage(V=0)
+  Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(V=0)
                                                                   annotation (
       Placement(transformation(
         extent={{-10,10},{10,-10}},

@@ -65,8 +65,7 @@ model IdealCircuit "A simple chaotic oscillator for educational purposes"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={10,40})));
-  Components.SimpleDiode                           diode(
-    Ids=Ids, nVt=nVt)
+  Components.SimpleDiode diode(Ids=Ids, nVt=nVt)
              annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},

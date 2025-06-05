@@ -7,7 +7,7 @@ model TestTriode "Test the van der Pol triode"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={20,0})));
-  Modelica.Electrical.Analog.Sources.SineCurrent   excitation(I=2.5, f=10)
+  Modelica.Electrical.Analog.Sources.SineCurrent  excitation(I=2.5, f=10)
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,

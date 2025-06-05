@@ -3,8 +3,7 @@ model TestHystereticNIC "Test negative impedance converter"
   extends Modelica.Icons.Example;
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));
-  Modelica.Electrical.Analog.Sources.TrapezoidCurrent
-                                                 source(
+  Modelica.Electrical.Analog.Sources.TrapezoidCurrent source(
     I=6e-3,
     rising=0.25,
     width=0,
@@ -12,14 +11,12 @@ model TestHystereticNIC "Test negative impedance converter"
     period=0.5,
     nperiod=2,
     offset=-3e-3)
-                annotation (Placement(transformation(
+    annotation (Placement(transformation(
         extent={{10,-10},{-10,10}},
         rotation=270)));
-  Components.HystereticNIC
-                      hystereticNIC(
-                               redeclare
-      ChaoticCircuits.ParameterSets.NIC_Shinriki nicData)
-           annotation (Placement(transformation(
+  Components.HystereticNIC hystereticNIC(
+    redeclare ChaoticCircuits.ParameterSets.NIC_Shinriki nicData)
+    annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-30,0})));

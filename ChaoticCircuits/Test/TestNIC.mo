@@ -3,8 +3,7 @@ model TestNIC "Test negative impedance converter"
   extends Modelica.Icons.Example;
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));
-  Modelica.Electrical.Analog.Sources.TrapezoidVoltage
-                                                 source(
+  Modelica.Electrical.Analog.Sources.TrapezoidVoltage source(
     V=60,
     rising=0.25,
     width=0,
@@ -20,8 +19,7 @@ model TestNIC "Test negative impedance converter"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-30,0})));
-  Components.ImprovedNIC
-                      improvedNIC(nicData=idealNIC.nicData)
+  Components.ImprovedNIC improvedNIC(nicData=idealNIC.nicData)
            annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,

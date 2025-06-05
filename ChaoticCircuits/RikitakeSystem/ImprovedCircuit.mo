@@ -113,12 +113,6 @@ model ImprovedCircuit "Rikitake system"
 protected
   constant SI.Voltage unitV=1;
   //further initialization
-  SI.Voltage v_x1(start=0)=integrator_x1.v_in.v;
-  SI.Voltage vx1(start=0)=inverter_x1.v_in.v;
-  SI.Voltage v_x2(start=0)=integrator_x2.v_in.v;
-  SI.Voltage vx2(start=0)=inverter_x2.v_in.v;
-  SI.Voltage v_z(start=0)=integrator_z.v_in.v;
-  SI.Voltage vz(start=0)=inverter_z.v_in.v;
   SI.Current irz4(start=0)=rz4.i;
   SI.Current irz4z(start=0)=rz4z.i;
 equation

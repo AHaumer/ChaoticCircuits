@@ -40,8 +40,7 @@ model ImprovedCircuit "A simple chaotic circuit with a light-emitting diode"
     annotation (Placement(transformation(extent={{-90,-30},{-70,-10}})));
   Modelica.Electrical.Analog.Basic.Ground ground2
     annotation (Placement(transformation(extent={{-70,-80},{-50,-60}})));
-  Modelica.Electrical.Analog.Semiconductors.Diode2 diode(
-                                                        Ids=Ids, Vt=nVt)
+  Modelica.Electrical.Analog.Semiconductors.Diode2 diode(Ids=Ids, Vt=nVt)
     annotation (Placement(transformation(extent={{-30,-30},{-10,-10}})));
   Components.ImprovedOpAmp3Pin opAmp3(
     V0=k0,
@@ -68,9 +67,6 @@ model ImprovedCircuit "A simple chaotic circuit with a light-emitting diode"
 protected
   //additional initialization
   SI.Voltage vd(start=0)=diode.vd "Voltage of diode";
-  SI.Voltage vOpAmp1(start=0)=-opAmp1.v_in.v "Input voltage of opAmp1";
-  SI.Voltage vOpAmp2(start=0)=-opAmp2.v_in.v "Input voltage of opAmp2";
-  SI.Voltage vOpAmp3(start=0)=-opAmp3.v_in.v "Input voltage of opAmp3";
 equation
   connect(ground1.p, opAmp1.in_p)
     annotation (Line(points={{-10,20},{-10,24}},        color={0,0,255}));

@@ -89,10 +89,6 @@ protected
   constant SI.Voltage unitV=1;
 protected
   //further initialization
-  SI.Voltage int_x_v_in(start=0)=integrator_x.v_in.v;
-  SI.Voltage int_y_v_in(start=0)=integrator_y.v_in.v;
-  SI.Voltage int_z_v_in(start=0)=integrator_z.v_in.v;
-  SI.Current inv_z_iOut(start=0)=inverter_z.out.i;
   SI.Current rx2_i(start=0)=rx2.i;
   SI.Current ry2_i(start=0)=ry2.i;
 equation

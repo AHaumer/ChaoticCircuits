@@ -46,9 +46,6 @@ model ImprovedCircuit "The Jerk equation"
 protected
   //further initialization
   SI.Voltage vd(start=0)=diode.vd "Voltage of diode";
-  SI.Voltage v_x(start=0)=opAmp_x.v_in.v;
-  SI.Voltage v_invy(start=0)=opAmp_invy.v_in.v;
-  SI.Voltage v_z(start=0)=opAmp_z.v_in.v;
   SI.Current i_r_1(start=0)=r_1.i;
 equation
   connect(opAmp_z.out, c_z.p)

@@ -5,8 +5,7 @@ model TestInductorReplacement "Replace inductor by OpAmp circuit"
     annotation (Placement(transformation(extent={{60,-100},{80,-80}})));
   Modelica.Electrical.Analog.Sensors.MultiSensor multiSensor2
     annotation (Placement(transformation(extent={{10,70},{30,90}})));
-  Modelica.Electrical.Analog.Sources.CosineVoltage
-                                                 source(V=0.1, f=10)
+  Modelica.Electrical.Analog.Sources.CosineVoltage source(V=0.1, f=10)
     annotation (Placement(transformation(
         extent={{10,-10},{-10,10}},
         rotation=90,
@@ -34,8 +33,8 @@ model TestInductorReplacement "Replace inductor by OpAmp circuit"
         extent={{10,-10},{-10,10}},
         rotation=0,
         origin={-50,20})));
-  ChaoticCircuits.Components.ImprovedAntoniou improvedAntoniou(vc(fixed=true,
-        start=0)) annotation (Placement(transformation(
+  ChaoticCircuits.Components.ImprovedAntoniou improvedAntoniou(
+    vc(fixed=true, start=0)) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={70,0})));

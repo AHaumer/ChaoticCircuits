@@ -14,7 +14,7 @@ model TestOpAmpTriode "Test OpAmp to model triode characteristic"
         origin={-50,-18})));
   Components.Multiplier multiplier(out(i(start=0)))
     annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
-  Components.ImprovedOpAmp3Pin opAmp(out(i(start=0)))
+  Components.ImprovedOpAmp3Pin opAmp
     annotation (Placement(transformation(extent={{20,-10},{40,10}})));
   Modelica.Electrical.Analog.Basic.Resistor r(R=R)
     annotation (Placement(transformation(extent={{40,10},{20,30}})));

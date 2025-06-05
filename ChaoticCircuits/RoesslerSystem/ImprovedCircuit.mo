@@ -84,7 +84,7 @@ model ImprovedCircuit "Roessler system"
   Components.Multiplier multiplier_xz(ER=Vs)
     annotation (Placement(transformation(extent={{-50,-90},{-30,-70}})));
   Modelica.Electrical.Analog.Sources.ConstantVoltage vb(V=b*unitV)
-                                                             annotation (
+    annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
@@ -94,10 +94,6 @@ model ImprovedCircuit "Roessler system"
 protected
   constant SI.Voltage unitV=1;
   //further initialization
-  SI.Voltage int_x_v_in(start=0)=integrator_x.v_in.v;
-  SI.Voltage int_y_v_in(start=0)=integrator_y.v_in.v;
-  SI.Voltage int_z_v_in(start=0)=integrator_z.v_in.v;
-  SI.Current inv_z_iOut(start=0)=inverter_z.out.i;
   SI.Current rx2_i(start=0)=rx2.i;
   SI.Current ry2_i(start=0)=ry2.i;
 equation

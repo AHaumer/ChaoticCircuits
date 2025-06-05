@@ -65,8 +65,7 @@ model ImprovedCircuit "A simple chaotic oscillator for educational purposes"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={10,40})));
-  Modelica.Electrical.Analog.Semiconductors.Diode2 diode(
-                                                        Ids=Ids, Vt=nVt)
+  Modelica.Electrical.Analog.Semiconductors.Diode2 diode(Ids=Ids, Vt=nVt)
     annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},

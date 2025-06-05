@@ -1,19 +1,18 @@
 within ChaoticCircuits.Test;
 model TestChuasDiode "Test OpAmp-implementation of Chuas diode"
   extends Modelica.Icons.Example;
-  Modelica.Electrical.Analog.Sources.SineVoltage source(V=12.5,
-                                                              f=10) annotation
+  Modelica.Electrical.Analog.Sources.SineVoltage source(V=12.5, f=10) annotation
     (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270)));
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));
   Components.IdealChuaDiode idealChuaDiode(redeclare
-      ChaoticCircuits.ParameterSets.ChuaData chuaData)
-                                           annotation (Placement(transformation(
+    ChaoticCircuits.ParameterSets.ChuaData chuaData)
+    annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-30,0})));
   Components.ImprovedChuaDiode improvedChuaDiode(chuaData=idealChuaDiode.chuaData)
-                                                 annotation (Placement(
+    annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,

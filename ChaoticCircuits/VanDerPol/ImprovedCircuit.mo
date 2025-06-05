@@ -31,13 +31,13 @@ model ImprovedCircuit "van der Pol equations"
   Real x=-kx*integrator_x.out.v "Result: prop. i";
   Real y=ky*add_y.out.v "Result: prop. der(i)";
   Real z=kz*integrator_z.out.v "Result: prop. vc";
-  Components.ImprovedOpAmp3Pin integrator_z
+  Components.ImprovedOpAmp3Pin integrator_z(useFirstOrder=true)
     annotation (Placement(transformation(extent={{50,50},{70,70}})));
   Modelica.Electrical.Analog.Basic.Ground ground1
     annotation (Placement(transformation(extent={{44,38},{56,50}})));
   Modelica.Electrical.Analog.Basic.Capacitor c_z(v(fixed=true, start=z0/kz), C=C)
     annotation (Placement(transformation(extent={{70,70},{50,90}})));
-  Components.ImprovedOpAmp3Pin integrator_x
+  Components.ImprovedOpAmp3Pin integrator_x(useFirstOrder=true)
     annotation (Placement(transformation(extent={{50,-10},{70,10}})));
   Modelica.Electrical.Analog.Basic.Ground ground3
     annotation (Placement(transformation(extent={{44,-22},{56,-10}})));
@@ -45,7 +45,7 @@ model ImprovedCircuit "van der Pol equations"
     annotation (Placement(transformation(extent={{70,10},{50,30}})));
   Modelica.Electrical.Analog.Basic.Resistor rzx(R=Rzx)
     annotation (Placement(transformation(extent={{20,60},{40,80}})));
-  Components.ImprovedOpAmp3Pin add_y
+  Components.ImprovedOpAmp3Pin add_y(useFirstOrder=true)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
   Modelica.Electrical.Analog.Basic.Resistor ryb(R=R)
     annotation (Placement(transformation(extent={{10,10},{-10,30}})));
@@ -61,7 +61,7 @@ model ImprovedCircuit "van der Pol equations"
     annotation (Placement(transformation(extent={{-20,-20},{-40,0}})));
   Components.Multiplier multiplier_x2(ER=Vs)
     annotation (Placement(transformation(extent={{70,-50},{50,-30}})));
-  Components.ImprovedOpAmp3Pin add_1x2
+  Components.ImprovedOpAmp3Pin add_1x2(useFirstOrder=true)
     annotation (Placement(transformation(extent={{10,-70},{-10,-50}})));
   Modelica.Electrical.Analog.Basic.Resistor r1x2(R=R)
     annotation (Placement(transformation(extent={{-10,-50},{10,-30}})));
@@ -89,9 +89,6 @@ model ImprovedCircuit "van der Pol equations"
     annotation (Placement(transformation(extent={{-16,38},{-4,50}})));
 protected
   //further initialization
-  SI.Current add_1x2_iOut(start=0)=add_1x2.out.i;
-  SI.Voltage integrator_x_v_in_n(start=0)=integrator_x.in_n.v;
-  SI.Voltage integrator_z_v_in_n(start=0)=integrator_z.in_n.v;
   SI.Current multiplier_x2_iOut(start=0)=multiplier_x2.out.i;
   SI.Current ryb_i_p(start=0) =ryb.p.i;
   SI.Current ryx2_i_p(start=0)=ryx2.p.i;

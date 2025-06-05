@@ -44,7 +44,7 @@ model InductorlessCircuit "Chua's chaotic Circuit"
         rotation=270,
         origin={80,0})));
   Components.ImprovedAntoniou improvedAntoniou(vc(fixed=true))
-                                               annotation (Placement(
+   annotation (Placement(
         transformation(
         extent={{10,-10},{-10,10}},
         rotation=90,

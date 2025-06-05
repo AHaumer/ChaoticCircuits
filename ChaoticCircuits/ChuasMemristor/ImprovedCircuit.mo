@@ -31,8 +31,8 @@ model ImprovedCircuit "Chua's chaotic Circuit with memristor"
         origin={-20,0})));
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
-  Components.MemristorReplacement
-                            memristor                  annotation (Placement(
+  Components.MemristorReplacement memristor
+    annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,

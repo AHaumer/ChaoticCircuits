@@ -27,9 +27,6 @@ model TestIntegrator "Test OpAmp integrator"
         origin={-30,0})));
   Components.ImprovedOpAmp3Pin opAmp
     annotation (Placement(transformation(extent={{0,-10},{20,10}})));
-protected
-  //initialization
-  SI.Voltage opAmp_v_in(start=0)=opAmp.v_in.v;
 equation
   connect(ground.p, vOut.n)
     annotation (Line(points={{0,-20},{30,-20}}, color={0,0,255}));

@@ -84,7 +84,7 @@ model IdealCircuit "Roessler system"
   Components.Multiplier multiplier_xz(ER=Vs)
     annotation (Placement(transformation(extent={{-50,-90},{-30,-70}})));
   Modelica.Electrical.Analog.Sources.ConstantVoltage vb(V=b*unitV)
-                                                             annotation (
+    annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,

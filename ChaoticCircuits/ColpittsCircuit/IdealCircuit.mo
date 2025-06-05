@@ -17,7 +17,7 @@ model IdealCircuit "Colpitts chaotic Circuit"
   SI.Voltage v1(start=0, fixed=true)=c1.v "Result 1 c1.v";
   SI.Voltage v2(start=0, fixed=true)=c2.v "Result 2 c2.v";
   SI.Voltage vRL(start=0, fixed=true)=rL.v "Voltage of inductor's resistance";
-  Components.SimpleTransistor                   npn(
+  Components.SimpleTransistor npn(
     beta=beta,
     Vth=Vth,
     rBE=Ron)

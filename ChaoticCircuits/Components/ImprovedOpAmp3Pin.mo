@@ -11,6 +11,9 @@ model ImprovedOpAmp3Pin
   parameter Modelica.Blocks.Types.LimiterHomotopy homotopyType=Modelica.Blocks.Types.LimiterHomotopy.Linear
     "Simplified model for homotopy-based initialization"
     annotation (Evaluate=true, Dialog(tab="Advanced", enable=useFirstOrder));
+  SI.Voltage v_Input(start=0)=v_in.v "Input  voltage";
+  SI.Voltage vOutput(start=0)=vOut.v "Output voltage";
+  SI.Current iOutput(start=0)=-out.i "Output current";
   Modelica.Electrical.Analog.Interfaces.PositivePin in_p
     "Positive pin of the input port" annotation (Placement(transformation(
           extent={{-110,-70},{-90,-50}}), iconTransformation(extent={{-110,-70},
