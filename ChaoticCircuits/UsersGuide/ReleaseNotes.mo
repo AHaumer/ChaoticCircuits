@@ -3,6 +3,12 @@ class ReleaseNotes "Release Notes"
   extends Modelica.Icons.ReleaseNotes;
   annotation (preferredView="info",Documentation(info="<html>
 
+<h5>Version 2.3.1, 2025-06-05 Anton Haumer</h5>
+<ul>
+  <li>Started to switch to the new OpAmp-model of MSL 4.1.0</li>
+  <li>Removed References (will be added again later)</li>
+</ul>
+
 <h5>Version 2.3.0, 2025-06-04 Anton Haumer</h5>
 <ul>
   <li>Implemented Chua&apos;s Memristor [Muthuswamy2010a]</li>

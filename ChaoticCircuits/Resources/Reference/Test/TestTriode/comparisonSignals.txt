@@ -1,3 +1,0 @@
-time
-triode.v
-triode.i

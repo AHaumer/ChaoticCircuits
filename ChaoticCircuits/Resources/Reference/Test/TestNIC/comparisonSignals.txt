@@ -1,4 +1,0 @@
-time
-source.v
-idealNIC.i
-improvedNIC.i

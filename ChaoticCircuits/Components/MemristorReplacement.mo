@@ -3,29 +3,28 @@ model MemristorReplacement
   "Flux-controlled Memristor with partly negative conductance"
   extends Modelica.Electrical.Analog.Interfaces.TwoPin;
   SI.Current i = p.i "Current through memristor";
-  Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin
-                    opAmp1_1
+  OpAmpLimited      opAmp1_1(useFirstOrder=true)
     annotation (Placement(transformation(extent={{-80,0},{-60,-20}})));
   Modelica.Electrical.Analog.Basic.Resistor r6(R=8200)
     annotation (Placement(transformation(extent={{-50,-20},{-30,0}})));
-  Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin
-                    opAmp1
+  OpAmpLimited      opAmp1(useFirstOrder=true)
     annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
   Modelica.Electrical.Analog.Basic.Capacitor capacitor(v(fixed=true), C=4.7e-9)
-    annotation (Placement(transformation(extent={{0,-10},{-20,10}})));
+    annotation (Placement(transformation(extent={{0,0},{-20,20}})));
   Multiplier multiplier1
     annotation (Placement(transformation(extent={{20,-30},{40,-10}})));
   Multiplier multiplier2(useZ=true)
-    annotation (Placement(transformation(extent={{20,20},{40,40}})));
-  ImprovedOpAmp3Pin opAmp2 annotation (Placement(transformation(
+    annotation (Placement(transformation(extent={{30,20},{50,40}})));
+  OpAmpLimited      opAmp2(useFirstOrder=true)
+                           annotation (Placement(transformation(
         extent={{-10,10},{10,-10}},
         rotation=90,
-        origin={60,80})));
+        origin={50,80})));
   Modelica.Electrical.Analog.Basic.Resistor r1(R=2000) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
-        origin={40,80})));
+        origin={20,80})));
   Modelica.Electrical.Analog.Basic.Resistor r2(R=2000) annotation (Placement(
         transformation(
         extent={{-10,10},{10,-10}},
@@ -48,8 +47,6 @@ model MemristorReplacement
         origin={80,-30})));
 protected
   //additional initialization
-  SI.Voltage v_in2(start=0)=opAmp2.v_in.v;
-  SI.Voltage vr6n(start=0)=r6.n.v;
   SI.Current ir2(start=0)=r2.i;
 equation
   connect(opAmp1_1.in_n, opAmp1_1.out) annotation (Line(points={{-80,-16},{-90,-16},
@@ -62,39 +59,39 @@ equation
     annotation (Line(points={{-30,-10},{-30,-14},{-20,-14}},
                                                          color={0,0,255}));
   connect(opAmp1.out, capacitor.p)
-    annotation (Line(points={{0,-20},{0,0}},  color={0,0,255}));
+    annotation (Line(points={{0,-20},{0,10}}, color={0,0,255}));
   connect(opAmp1.in_n, capacitor.n)
-    annotation (Line(points={{-20,-14},{-20,0}}, color={0,0,255}));
+    annotation (Line(points={{-20,-14},{-20,10}},color={0,0,255}));
   connect(opAmp1.out, multiplier1.in1) annotation (Line(points={{0,-20},{10,-20},
           {10,-14},{20,-14}}, color={0,0,255}));
   connect(opAmp1.out, multiplier1.in2) annotation (Line(points={{0,-20},{10,-20},
           {10,-26},{20,-26}}, color={0,0,255}));
   connect(multiplier1.out, multiplier2.in2) annotation (Line(points={{40,-20},{48,
-          -20},{48,0},{10,0},{10,24},{20,24}}, color={0,0,255}));
+          -20},{48,0},{20,0},{20,24},{30,24}}, color={0,0,255}));
   connect(opAmp2.out, r1.p)
-    annotation (Line(points={{60,90},{40,90}}, color={0,0,255}));
+    annotation (Line(points={{50,90},{20,90}}, color={0,0,255}));
   connect(opAmp2.out, r2.p)
-    annotation (Line(points={{60,90},{80,90}}, color={0,0,255}));
-  connect(r1.n, opAmp2.in_p) annotation (Line(points={{40,70},{54,70}},
+    annotation (Line(points={{50,90},{80,90}}, color={0,0,255}));
+  connect(r1.n, opAmp2.in_p) annotation (Line(points={{20,70},{44,70}},
                 color={0,0,255}));
-  connect(opAmp2.in_n, r2.n) annotation (Line(points={{66,70},{80,70}},
+  connect(opAmp2.in_n, r2.n) annotation (Line(points={{56,70},{80,70}},
                 color={0,0,255}));
   connect(opAmp2.in_n, r3.p)
-    annotation (Line(points={{66,70},{80,70},{80,60}}, color={0,0,255}));
+    annotation (Line(points={{56,70},{80,70},{80,60}}, color={0,0,255}));
   connect(r4.n, r5.p)
     annotation (Line(points={{80,0},{80,-20}}, color={0,0,255}));
   connect(r3.n, r4.p)
     annotation (Line(points={{80,40},{80,20}}, color={0,0,255}));
   connect(multiplier2.out, r4.p)
-    annotation (Line(points={{40,30},{80,30},{80,20}}, color={0,0,255}));
+    annotation (Line(points={{50,30},{80,30},{80,20}}, color={0,0,255}));
   connect(r4.n, multiplier2.z) annotation (Line(points={{80,0},{80,-10},{60,-10},
-          {60,10},{30,10},{30,20}}, color={0,0,255}));
+          {60,10},{40,10},{40,20}}, color={0,0,255}));
   connect(p, opAmp1_1.in_p) annotation (Line(points={{-100,0},{-90,0},{-90,-4},{
           -80,-4}}, color={0,0,255}));
   connect(p, multiplier2.in1) annotation (Line(points={{-100,0},{-90,0},{-90,40},
-          {10,40},{10,36},{20,36}}, color={0,0,255}));
-  connect(multiplier2.in1, opAmp2.in_p) annotation (Line(points={{20,36},{10,36},
-          {10,60},{40,60},{40,70},{54,70}}, color={0,0,255}));
+          {20,40},{20,36},{30,36}}, color={0,0,255}));
+  connect(multiplier2.in1, opAmp2.in_p) annotation (Line(points={{30,36},{20,36},
+          {20,70},{44,70}},                 color={0,0,255}));
   connect(r5.n, n) annotation (Line(points={{80,-40},{80,-50},{100,-50},{100,0}},
         color={0,0,255}));
   connect(opAmp1.in_p, n) annotation (Line(points={{-20,-26},{-20,-50},{100,-50},

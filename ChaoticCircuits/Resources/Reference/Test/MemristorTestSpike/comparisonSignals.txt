@@ -1,7 +1,0 @@
-time
-memristor.v
-memristor.i
-memristor.x
-memristor.der(x)
-memristor.fw
-memristor.Rmem

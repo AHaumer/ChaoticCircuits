@@ -1,5 +1,0 @@
-time
-v1
-v2
-iL
-phi

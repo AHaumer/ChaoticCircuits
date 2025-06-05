@@ -1,3 +1,0 @@
-time
-vOut.v
-opAmp.v_in.v

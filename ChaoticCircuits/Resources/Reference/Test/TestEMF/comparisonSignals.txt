@@ -1,4 +1,0 @@
-time
-emf.tau
-emf.w
-emf.v

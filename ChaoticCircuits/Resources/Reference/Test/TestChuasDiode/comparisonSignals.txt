@@ -1,4 +1,0 @@
-time
-source.v
-idealChuaDiode.i
-improvedChuaDiode.i

@@ -4,6 +4,7 @@ SimpleTransistor
 Staircase
 SimpleLimiter
 ImprovedOpAmp3Pin
+OpAmpLimited
 Multiplier
 IdealNIC
 HystereticNIC

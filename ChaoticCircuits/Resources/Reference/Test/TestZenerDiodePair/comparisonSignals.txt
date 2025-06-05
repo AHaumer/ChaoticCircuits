@@ -1,3 +1,0 @@
-time
-currentSensor1.i
-currentSensor2.i
