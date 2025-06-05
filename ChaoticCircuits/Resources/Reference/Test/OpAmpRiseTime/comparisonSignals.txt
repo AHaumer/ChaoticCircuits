@@ -1,0 +1,4 @@
+time
+opAmp.v_in.v
+opAmp.limiter.u
+vOut.v

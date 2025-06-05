@@ -1,6 +1,0 @@
-within ChaoticCircuits.Types;
-type InitOpAmp = enumeration(
-    Linear "Initialization of firstOrder linearly dependent on input",
-    UpperLimit "Initialization of firstOrder at positive supply",
-    LowerLimit "Initialization of firstOrder at negative supply")
-  "Enumeration defining initialization of the OpAmpLimited" annotation (Evaluate=true);

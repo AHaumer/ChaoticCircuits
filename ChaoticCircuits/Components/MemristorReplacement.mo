@@ -3,11 +3,11 @@ model MemristorReplacement
   "Flux-controlled Memristor with partly negative conductance"
   extends Modelica.Electrical.Analog.Interfaces.TwoPin;
   SI.Current i = p.i "Current through memristor";
-  OpAmpLimited      opAmp1_1(useFirstOrder=true)
+  ImprovedOpAmp3Pin opAmp1_1(useFirstOrder=true)
     annotation (Placement(transformation(extent={{-80,0},{-60,-20}})));
   Modelica.Electrical.Analog.Basic.Resistor r6(R=8200)
     annotation (Placement(transformation(extent={{-50,-20},{-30,0}})));
-  OpAmpLimited      opAmp1(useFirstOrder=true)
+  ImprovedOpAmp3Pin opAmp1(useFirstOrder=true)
     annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
   Modelica.Electrical.Analog.Basic.Capacitor capacitor(v(fixed=true), C=4.7e-9)
     annotation (Placement(transformation(extent={{0,0},{-20,20}})));
@@ -15,7 +15,7 @@ model MemristorReplacement
     annotation (Placement(transformation(extent={{20,-30},{40,-10}})));
   Multiplier multiplier2(useZ=true)
     annotation (Placement(transformation(extent={{30,20},{50,40}})));
-  OpAmpLimited      opAmp2(useFirstOrder=true)
+  ImprovedOpAmp3Pin opAmp2(useFirstOrder=true)
                            annotation (Placement(transformation(
         extent={{-10,10},{10,-10}},
         rotation=90,
