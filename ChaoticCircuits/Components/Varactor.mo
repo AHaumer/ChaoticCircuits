@@ -1,14 +1,14 @@
 within ChaoticCircuits.Components;
 model Varactor "Varactor diode"
   extends Modelica.Electrical.Analog.Interfaces.OnePort(v(start=0));
-  parameter SI.Current Ids=5e-6 "Diode: saturation current";
-  parameter SI.Voltage nVt=2*26e-3 "Diode: n * voltage equivalent of temperature";
-  parameter SI.Capacitance C0=32e-12 "Capacitance at v=0";
-  parameter SI.Voltage V0=0.2 "Reference voltage for capacitance";
-  parameter Real m=0.3;
+  parameter SI.Current Ids=14.1e-9 "Diode: saturation current";
+  parameter SI.Voltage nVt=1.98*25e-3 "Diode: n * voltage equivalent of temperature";
+  parameter SI.Capacitance C0=25.9e-12 "Capacitance at v=0";
+  parameter SI.Voltage V0=0.325 "Reference voltage for capacitance";
+  parameter Real m=0.44;
   SI.Current id "Diode current";
   SI.Current ic "Capacitor current";
-  SI.ElectricCharge q(start=0) "Charge of capacitor";
+  SI.ElectricCharge q "Charge of capacitor";
   SI.Capacitance C "Actual capacitance";
 equation
   i = id + ic;

@@ -26,7 +26,7 @@ Test the varactor model (Shockley in parallel to varying capacitance) with a sin
 </p>
 <h4>Note:</h4>
 <p>
-For higer frequency (of the voltage source) the capacitive current component gets higher.
+For higher frequency (of the voltage source) the capacitive current component gets higher.
 </p>
 </html>"));
 end TestVaractor;
