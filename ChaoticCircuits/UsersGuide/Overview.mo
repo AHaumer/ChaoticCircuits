@@ -69,6 +69,11 @@ The operational amplifiers might have a supply voltage not explicitely modeled.
   <td>Replacing Chua&apos;s diode with a memristor<br>
       <img src=\"modelica://ChaoticCircuits/Resources/Images/ChuasMemristor.png\"></td>
   </tr>
+  <tr>
+  <td><a href=\"modelica://ChaoticCircuits.RLD_Circuit\">RLD resonant circuit</a></td>
+  <td>Dynamic diode model in parallel to the capacitor<br>
+      <img src=\"modelica://ChaoticCircuits/Resources/Images/RLD.png\"></td>
+  </tr>
  </tbody>
 </table>
 </html>"));
