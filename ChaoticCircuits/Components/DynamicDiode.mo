@@ -4,10 +4,11 @@ model DynamicDiode
   extends Modelica.Electrical.Analog.Interfaces.OnePort(v(start=0));
   parameter SI.Current Ids=70e-12 "Saturation current";
   parameter SI.Voltage nVt=1.4*25e-3 "n * voltage equivalent of temperature";
-  parameter SI.Capacitance C0=25.9e-12 "Junction capacitance at v=0";
-  parameter SI.Voltage V0=0.325 "Voltage parameter for junction capacitance";
-  parameter Real m=0.44 "Exponent parameter of junction capacitance";
-  parameter SI.Time TauT=5700e-6 "Transition time";
+  parameter SI.Capacitance C0=33e-12 "Junction capacitance at v=0";
+  parameter SI.Voltage V0=0.35 "Voltage parameter for junction capacitance";
+  parameter Real m=0.45 "Exponent parameter of junction capacitance";
+  parameter Real fc(final max=0.99)=0.5 "Parameter of linear extrapolation of junction capacitance";
+  parameter SI.Time TauT=5000e-9 "Transition time";
   SI.Current id "Diode current";
   SI.Current ic "Capacitive current";
   SI.ElectricCharge q "Charge of capacitor";
@@ -18,7 +19,7 @@ equation
   id = Ids*(exp(v/nVt) - 1);
   ic = der(q);
   q = (Cj + Cd)*v;
-  Cj = C0*smooth(1, if noEvent(v<0) then 1/(1 - v/V0)^m else 1 + m*v/V0);
+  Cj = C0*smooth(1, if noEvent(v<fc*V0) then 1/(1 - v/V0)^m else (1 - fc*(1 + m) + m*v/V0)/((1 - fc)^(1 + m)));
   Cd = TauT*Ids/nVt*exp(v/nVt);
   annotation (Icon(graphics={
         Text(

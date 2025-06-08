@@ -4,7 +4,7 @@ model TestDynamicDiode "Test dynamic diode model"
   Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(
     V=2,
     f=1,
-    offset=-1.5)
+    offset=-1.675)
     annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
   Components.DynamicDiode diode
     annotation (Placement(transformation(extent={{-10,30},{10,10}})));
