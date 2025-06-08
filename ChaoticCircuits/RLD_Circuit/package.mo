@@ -9,8 +9,8 @@ The fixed capacitor also includes the diode&apos;s stray capacitance.
 The resistor also includes the inductor&apos;s resistance.
 </p>
 <p>
-Setting the source amplitude to mu = 2 (i.e. mu * V0), and varying the source frequency w in the range [0.5, 2.5] (i.e. w * f0), various regions of period doubling and chaos can be observed.
-V0 is a parameter of the diode&apos;s juntion capacitance, and f0 is the natural frequency of the ciruit 1/&radic;(L*(C + Cj(v=0) + Cd(v=0))).
+Setting the source frequency to w = 1 (i.e. w * f0), and varying the source amplitude mu = 1 to 2,6 step 0.2 (i.e. mu * V0), various regions of period doubling and chaos can be observed.<br>
+V0 is a parameter of the diode&apos;s junction capacitance, and f0 is the natural frequency of the ciruit 1/&radic;(L*(C + Cj(v=0) + Cd(v=0))).
 </p>
 <h4>Note:</h4>
 <p>The equations for junction and diffusion capacitance are much too complicated to implement as an OpAmp-circuit.</p>

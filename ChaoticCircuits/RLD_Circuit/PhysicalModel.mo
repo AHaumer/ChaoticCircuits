@@ -14,8 +14,8 @@ model PhysicalModel "RLD-Circuit"
   parameter SI.Capacitance Cd=TauT*Ids/nVt "Diffusion capacitance at v=0";
   parameter SI.Frequency f0=1/(2*pi*sqrt(L*(C + C0 + Cd))) "Natural frequency";
   parameter SI.Impedance Z0=sqrt(L/(C + C0)) "Natural impedance";
-  parameter Real mu=2 "Relative amplitude of source";
-  parameter Real w=0.5 "Relative frequency of source";
+  parameter Real mu=1 "Relative amplitude of source";
+  parameter Real w=1 "Relative frequency of source";
   parameter SI.Voltage V=mu*V0 "Source amplitude";
   parameter SI.Frequency f=w*f0 "Source frequency";
   Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(V=V, f=f)
@@ -65,9 +65,9 @@ equation
         coordinateSystem(preserveAspectRatio=false), graphics={Text(
           extent={{-90,80},{90,60}},
           textColor={28,108,200},
-          textString="vary w in the range [0.5, 2.5]")}),
+          textString="vary mu = 1 to 2.6 step 0.2")}),
     experiment(
-      StopTime=0.001,
+      StopTime=0.005,
       Interval=1e-08,
       Tolerance=1e-06,
       __Dymola_Algorithm="Dassl"),
