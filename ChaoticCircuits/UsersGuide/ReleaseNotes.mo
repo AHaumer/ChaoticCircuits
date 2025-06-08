@@ -5,7 +5,7 @@ class ReleaseNotes "Release Notes"
 
 <h5>Version 2.4.0, 2025-06-xx Anton Haumer</h5>
 <ul>
-  <li>Implemented Varactor (Shockley diode with varying capacitance in parallel)</li>
+  <li>Implemented dynamic diode model with junction and diffusion capacitance</li>
 </ul>
 
 <h5>Version 2.3.3, 2025-06-05 Anton Haumer</h5>

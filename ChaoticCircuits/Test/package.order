@@ -1,4 +1,5 @@
 SimpleDiodeCharacteristic
+TestDynamicDiode
 TestZenerDiodePair
 SimpleTransistorCharacteristic
 OpAmpRiseTime
@@ -14,4 +15,3 @@ TestOpAmpTriode
 TestEMF
 MemristorTestSpike
 MemristorTestSine
-TestVaractor
