@@ -58,6 +58,12 @@ class References "References"
           IEEE Transactions on CAS I 40 (1993)10, pp. 745-761.</td>
     </tr>
     <tr>
+      <td>[Hellen2024]</td>
+      <td>Edward H. Hellen, <br> 
+          &quot;<a href=\"https://doi.org/10.1063/5.0206829\">RLC resonator with diode nonlinearity: Bifurcation comparison of numerical predictions and circuit measurements</a>&quot;, <br>
+          Chaos Vol. 34, N0.7, 2024, pp. 073104-1..073104-11.</td>
+    </tr>
+    <tr>
       <td>[Itoh2008]</td>
       <td>Makoto Itoh and Leon O. Chua, <br> 
           &quot;<a href=\"https://doi.org/10.1142/S0218127408022354\">Memristor Oscillators</a>&quot;, <br>

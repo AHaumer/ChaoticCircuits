@@ -4,7 +4,7 @@ class Overview "Overview"
   annotation (preferredView="info",Documentation(info="<html>
 <p>
 Chaotic circuits have received considerable interest in the literature because they have been applied in numerous areas 
-such as secure communications, robotics, image processing or random bit generator. 
+such as secure communications, robotics, image processing or random number generator. 
 One of the most important research directions is constructing robust chaotic oscillators with simple structures. 
 There are two kinds of simple chaotic oscillators: non-autonomous and autonomous oscillators. 
 Autonomous systems show oscillations without excitation, otherwise excitation (besides energy supply) is needed. 

@@ -7,7 +7,7 @@ package UsersGuide "User's Guide"
     DocumentationClass=true,
     Documentation(info="<html>
 <p>
-This is a library about chaotic oscillators.
+This is a library about chaotic systems.
 </p>
 <p>
 &copy; <a href=\"mailto:anton.haumer@oth-regensburg.de\">Anton.Haumer@OTH-Regensburg.de</a>
