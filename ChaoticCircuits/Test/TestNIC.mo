@@ -14,8 +14,8 @@ model TestNIC "Test negative impedance converter"
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Components.IdealNIC idealNIC(redeclare
-      ChaoticCircuits.ParameterSets.NIC_Shinriki nicData)
-           annotation (Placement(transformation(
+      ChaoticCircuits.ParameterSets.NIC.NIC_Shinriki nicData) annotation (
+      Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-30,0})));

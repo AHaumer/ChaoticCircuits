@@ -5,7 +5,7 @@ package ChaoticCircuits
 
    annotation (preferredView="info",
     version="2.4.0",
-    versionDate="2025-06-xx",
+    versionDate="2025-06-09",
     uses(Modelica(version="4.0.0")),
     Documentation(info="<html>
 <p>

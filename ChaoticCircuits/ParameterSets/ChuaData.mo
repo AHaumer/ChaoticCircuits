@@ -4,11 +4,11 @@ record ChuaData "Parameter for Chuas diode"
   parameter String Type="Chua";
   parameter Real V0=15000 "No-load amplification of opAmp";
   parameter SI.Voltage Vs=12 "Supply voltage";
-  replaceable parameter NIC_Chua1 nicData1(V0=V0, Vs=Vs)
-    constrainedby ChaoticCircuits.ParameterSets.NICData
+  replaceable parameter NIC.NIC_Chua1 nicData1(V0=V0, Vs=Vs) constrainedby
+    ChaoticCircuits.ParameterSets.NIC.NICData
     annotation(choicesAllMatching=true);
-  replaceable parameter NIC_Chua2 nicData2(V0=V0, Vs=Vs)
-    constrainedby ChaoticCircuits.ParameterSets.NICData
+  replaceable parameter NIC.NIC_Chua2 nicData2(V0=V0, Vs=Vs) constrainedby
+    ChaoticCircuits.ParameterSets.NIC.NICData
     annotation(choicesAllMatching=true);
   parameter SI.Voltage Ve=min(nicData1.VLim, nicData2.VLim) "Inner limit"
     annotation(Dialog(group="Results"));
@@ -30,7 +30,7 @@ record ChuaData "Parameter for Chuas diode"
 <p>
 The Chua diode can be implemented from 2 NICs, either <a href=\"modelica://ChaoticCircuits.Components.IdealNIC\">ideal</a> or as 
 <a href=\"modelica://ChaoticCircuits.Components.ImprovedNIC\">opAmp-circuit</a>. 
-Therefore this parameter record contains 2 <a href=\"modelica://ChaoticCircuits.ParameterSets.NICData\">NIC parameter records</a> 
+Therefore this parameter record contains 2 <a href=\"modelica://ChaoticCircuits.ParameterSets.NIC.NICData\">NIC parameter records</a> 
 and calculates analytic parameters. 
 Looking at the formula, it is possible to design the NICs from desired analytic parameters:
 </p>

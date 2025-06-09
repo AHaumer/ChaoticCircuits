@@ -3,7 +3,7 @@ class ReleaseNotes "Release Notes"
   extends Modelica.Icons.ReleaseNotes;
   annotation (preferredView="info",Documentation(info="<html>
 
-<h5>Version 2.4.0, 2025-06-xx Anton Haumer</h5>
+<h5>Version 2.4.0, 2025-06-09 Anton Haumer</h5>
 <ul>
   <li>Implemented RLD - circuit (RLC resonant cirucit with dynamic diode model in parallel to the capacitor)</li>
   <li>Implemented dynamic diode model with junction and diffusion capacitance</li>

@@ -41,8 +41,8 @@ model IdealCircuit "Shinriki oscillator"
   Components.ZenerDiodePairApproximation zDiodePair
     annotation (Placement(transformation(extent={{20,30},{40,50}})));
   Components.IdealNIC idealNIC(redeclare
-      ChaoticCircuits.ParameterSets.NIC_Shinriki nicData)
-             annotation (Placement(transformation(
+      ChaoticCircuits.ParameterSets.NIC.NIC_Shinriki nicData) annotation (
+      Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-50,0})));

@@ -203,6 +203,12 @@ class References "References"
           International Journal of Bifurcation and Chaos Vol 17, No. 10 (2007), pp. 3657-3661.</td>
     </tr>
     <tr>
+      <td>[Tietze2019]</td>
+      <td>Ulrich Tietze, Christoph Schenk, and Eberhard Gamm, <br> 
+          &quot;<a href=\"https://link.springer.com/book/9783662485538\">Halbleiter-Schaltungstechnik</a>&quot;, <br>
+          Springer Vieweg, 16<sup>th</sup> ed. 2019, ISBN 978-3-662-48553-8.</td>
+    </tr>
+    <tr>
       <td>[VanDerPol1927]</td>
       <td>B. van der Pol and J. van der Mark, <br> 
           &quot;<a href=\"https://doi.org/10.1038/120363a0\">Frequency Demultiplication”</a>&quot;, <br>

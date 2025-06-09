@@ -1,9 +1,9 @@
 within ChaoticCircuits.Components;
 model HystereticNIC "Ideal model of a negative impedance converter"
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
-  replaceable parameter ParameterSets.NICData nicData
-    constrainedby ChaoticCircuits.ParameterSets.NICData
-    annotation (choicesAllMatching=true, Placement(transformation(extent={{-80,60},{-60,80}})));
+  replaceable parameter ParameterSets.NIC.NICData nicData constrainedby
+    ChaoticCircuits.ParameterSets.NIC.NICData annotation (choicesAllMatching=
+        true, Placement(transformation(extent={{-80,60},{-60,80}})));
   parameter Boolean pre_rh_start=false "Value of pre(rh) at initial time";
   Boolean rh "Right / high branch of (outer) characteristic";
 initial equation

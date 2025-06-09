@@ -1,0 +1,6 @@
+time
+diode.id
+diode.ic
+diode.q
+diode.Cj
+diode.Cd

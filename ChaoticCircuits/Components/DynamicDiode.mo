@@ -2,26 +2,22 @@ within ChaoticCircuits.Components;
 model DynamicDiode
   "Dynamic diode model including junction and diffusion capacitance"
   extends Modelica.Electrical.Analog.Interfaces.OnePort(v(start=0));
-  parameter SI.Current Ids=70e-12 "Saturation current";
-  parameter SI.Voltage nVt=1.4*25e-3 "n * voltage equivalent of temperature";
-  parameter SI.Capacitance C0=33e-12 "Junction capacitance at v=0";
-  parameter SI.Voltage V0=0.35 "Voltage parameter for junction capacitance";
-  parameter Real m=0.45 "Exponent parameter of junction capacitance";
-  parameter Real fc(final min=0, final max=0.99)=0.5
-    "Parameter of linear extrapolation of junction capacitance";
-  parameter SI.Time TauT=5000e-9 "Transition time";
+  replaceable parameter ParameterSets.DynamicDiode.DynamicDiodeData data
+    constrainedby ChaoticCircuits.ParameterSets.DynamicDiode.DynamicDiodeData
+    annotation (choicesAllMatching=true, Placement(transformation(extent={{-10,60},{10,80}})));
   SI.Current id "Diode current";
   SI.Current ic "Capacitive current";
-  SI.ElectricCharge q "Charge of capacitor";
+  SI.ElectricCharge q "Charge of capacitors";
   SI.Capacitance Cj "Junction capacitance";
   SI.Capacitance Cd "Diffusion capacitance";
 equation
   i = id + ic;
-  id = Ids*(exp(v/nVt) - 1);
+  id = data.Ids*(exp(v/data.nVt) - 1);
   ic = der(q);
   q = (Cj + Cd)*v;
-  Cj = C0*smooth(1, if v<fc*V0 then 1/(1 - v/V0)^m else (1 - fc*(1 + m) + m*v/V0)/((1 - fc)^(1 + m)));
-  Cd = TauT*Ids/nVt*exp(v/nVt);
+  Cj = data.C0*smooth(1, if v<data.fc*data.V0 then 1/(1 - v/data.V0)^data.m else
+    (1 - data.fc*(1 + data.m) + data.m*v/data.V0)/((1 - data.fc)^(1 + data.m)));
+  Cd = data.TauT*data.Ids/data.nVt*exp(v/data.nVt);
   annotation (Icon(graphics={
         Text(
           extent={{-150,90},{150,50}},
@@ -37,14 +33,17 @@ equation
           fillPattern=FillPattern.Solid),
         Line(points={{40,40},{40,-40}}, color={0,0,255})}),
     Documentation(info="<html>
-<p>This is a dynamic diode model:</p>
+<p>This is a dynamic diode model according to <a href=\"modelica://ChaoticCircuits.UsersGuide.References\"> [Tietze2019] </a>:</p>
 <ul>
 <li>Shockley-equation</li>
-<li>Junction capacitance</li>
-<li>Diffusion capacitance</lI>
+<li>Junction capacitance  C<sub>J</sub></li>
+<li>Diffusion capacitance C<sub>D</sub></li>
 </ul>
+<img src=\"modelica://ChaoticCircuits/Resources/Images/DynamicDiodeFormula.png\">
+<img src=\"modelica://ChaoticCircuits/Resources/Images/DynamicDiodeCapacitance.png\">
 <h4>Note:</h4>
 <p>
+High current injection and breakthrough are not taken into account.<br>
 This model might not be suited for all experiments i.e. boundary conditions, but it works as expected for the RLD - circuit.
 </p>
 </html>"));

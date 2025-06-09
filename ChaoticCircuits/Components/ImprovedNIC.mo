@@ -3,9 +3,9 @@ model ImprovedNIC "Improved model of a negative impedance converter"
   extends Modelica.Electrical.Analog.Interfaces.TwoPin;
   SI.Current i=p.i "Current flowing at pin p into the component";
   SI.Current ineg(start=0)=n.i "Current flowing at pin n out of the component";
-  replaceable parameter ParameterSets.NICData nicData
-    constrainedby ChaoticCircuits.ParameterSets.NICData
-    annotation (choicesAllMatching=true, Placement(transformation(extent={{-80,60},{-60,80}})));
+  replaceable parameter ParameterSets.NIC.NICData nicData constrainedby
+    ChaoticCircuits.ParameterSets.NIC.NICData annotation (choicesAllMatching=true,
+      Placement(transformation(extent={{-80,60},{-60,80}})));
   Modelica.Electrical.Analog.Basic.Resistor rPos(R=nicData.R)
     annotation (Placement(transformation(extent={{10,-10},{-10,10}},
         rotation=90,
@@ -22,7 +22,7 @@ model ImprovedNIC "Improved model of a negative impedance converter"
         rotation=90,
         origin={30,22})));
   Modelica.Electrical.Analog.Basic.Resistor rg(R=nicData.Rg)
-                                                     annotation (Placement(
+    annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,

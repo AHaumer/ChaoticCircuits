@@ -1,9 +1,9 @@
 within ChaoticCircuits.Components;
 model IdealNIC "Ideal model of a negative impedance converter"
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
-  replaceable parameter ParameterSets.NICData nicData
-    constrainedby ChaoticCircuits.ParameterSets.NICData
-    annotation (choicesAllMatching=true, Placement(transformation(extent={{-80,60},{-60,80}})));
+  replaceable parameter ParameterSets.NIC.NICData nicData constrainedby
+    ChaoticCircuits.ParameterSets.NIC.NICData annotation (choicesAllMatching=
+        true, Placement(transformation(extent={{-80,60},{-60,80}})));
 equation
   i = if v<-nicData.VLim then +nicData.ILim + nicData.gPos*(v + nicData.VLim)
   elseif v>+nicData.VLim then -nicData.ILim + nicData.gPos*(v - nicData.VLim)

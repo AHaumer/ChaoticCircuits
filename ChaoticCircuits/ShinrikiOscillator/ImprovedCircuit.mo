@@ -58,8 +58,8 @@ model ImprovedCircuit "Shinriki oscillator"
         extent={{-10,10},{10,-10}},
         rotation=180,
         origin={40,40})));
-  Components.ImprovedNIC improvedNIC(redeclare ParameterSets.NIC_Shinriki nicData)
-    annotation (Placement(transformation(
+  Components.ImprovedNIC improvedNIC(redeclare ParameterSets.NIC.NIC_Shinriki
+      nicData) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-50,0})));

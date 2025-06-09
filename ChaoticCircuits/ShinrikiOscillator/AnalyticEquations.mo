@@ -14,7 +14,7 @@ model AnalyticEquations "Shinriki oscillator"
   parameter Real b=-0.1615e-3 "Coefficient b [A/V^3]";
   parameter Real c=0.3021e-3 "Coefficient c [A/V^5]";
   //Negative Impedance Converter
-  parameter ParameterSets.NIC_Shinriki nicData
+  parameter ParameterSets.NIC.NIC_Shinriki nicData
     annotation (Placement(transformation(extent={{60,60},{80,80}})));
   //shortcut to results
   SI.Voltage v1(start=0, fixed=true) "Result 1 c1.v";

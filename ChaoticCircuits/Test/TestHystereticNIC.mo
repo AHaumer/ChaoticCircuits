@@ -14,9 +14,9 @@ model TestHystereticNIC "Test negative impedance converter"
     annotation (Placement(transformation(
         extent={{10,-10},{-10,10}},
         rotation=270)));
-  Components.HystereticNIC hystereticNIC(
-    redeclare ChaoticCircuits.ParameterSets.NIC_Shinriki nicData)
-    annotation (Placement(transformation(
+  Components.HystereticNIC hystereticNIC(redeclare
+      ChaoticCircuits.ParameterSets.NIC.NIC_Shinriki nicData) annotation (
+      Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-30,0})));
