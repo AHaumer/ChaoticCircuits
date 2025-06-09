@@ -5,7 +5,7 @@ model AnalyticEquations "RLD-Circuit"
   parameter SI.Resistance R=123 "Resistance of inductor and external";
   parameter SI.Inductance L=10e-3 "Inductor";
   parameter SI.Capacitance C=92e-12 "Fixed capacitance";
-  replaceable parameter ParameterSets.DynamicDiode.DynamicDiodeData diodeData
+  replaceable parameter ParameterSets.DynamicDiode.D_1N4003 diodeData
     constrainedby ChaoticCircuits.ParameterSets.DynamicDiode.DynamicDiodeData
     annotation (choicesAllMatching=true, Placement(transformation(extent={{-10,60},{10,80}})));
   parameter SI.Capacitance Cd=diodeData.TauT*diodeData.Ids/diodeData.nVt "Diffusion capacitance at v=0";

@@ -6,7 +6,8 @@ model TestDynamicDiode "Test dynamic diode model"
     f=1,
     offset=-1.675)
     annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
-  Components.DynamicDiode diode
+  Components.DynamicDiode diode(redeclare
+      ChaoticCircuits.ParameterSets.DynamicDiode.D_1N4003 data)
     annotation (Placement(transformation(extent={{-10,10},{10,30}})));
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{10,-40},{30,-20}})));
